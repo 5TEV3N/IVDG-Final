@@ -41,7 +41,7 @@ public class PlayerController3D : MonoBehaviour
             {
                 if (Mathf.Abs(valOfVelocity) <= maxVelocity)
                 {
-                    rb.AddForce(transform.right * playerSpeedIntensifier);
+                    rb.AddForce(transform.right * playerSpeedIntensifier, ForceMode.Impulse);
                 }
             }
 
@@ -49,7 +49,7 @@ public class PlayerController3D : MonoBehaviour
             {
                 if (Mathf.Abs(valOfVelocity) <= maxVelocity)
                 {
-                    rb.AddForce(-transform.right * playerSpeedIntensifier)  ;
+                    rb.AddForce(-transform.right * playerSpeedIntensifier, ForceMode.Impulse);
                 }
             }
         }
@@ -60,7 +60,7 @@ public class PlayerController3D : MonoBehaviour
             {
                 if (Mathf.Abs(valOfVelocity) <= maxVelocity)
                 {
-                    rb.AddForce(transform.forward * playerSpeedIntensifier);
+                    rb.AddForce(transform.forward * playerSpeedIntensifier, ForceMode.Impulse);
                 }
             }
 
@@ -68,7 +68,7 @@ public class PlayerController3D : MonoBehaviour
             {
                 if (Mathf.Abs(valOfVelocity) <= maxVelocity)
                 {
-                    rb.AddForce(-transform.forward * playerSpeedIntensifier);
+                    rb.AddForce(-transform.forward * playerSpeedIntensifier, ForceMode.Impulse);
                 }
             }
         }

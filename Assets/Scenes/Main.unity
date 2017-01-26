@@ -482,10 +482,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   mouseSensitivity: 1
   jumpHeightIntensifier: 1
-  playerSpeedIntensifier: 8
+  playerSpeedIntensifier: 0.5
   upDownRange: 90
   valOfVelocity: 0
-  maxVelocity: 10
+  maxVelocity: 2
   rb: {fileID: 1952922257}
   cam: {fileID: 1020660108}
 --- !u!54 &1952922257
