@@ -13,5 +13,7 @@ public class GameSnapshot : MonoBehaviour
         //Application.CaptureScreenshot("Screenshot " + 1);
         //Application.persistentDataPath;
         persistentDataPath.text = Application.persistentDataPath;
+        //Figure out how to retrive these files and be able to present them in-game
+        //Lead here?:http://answers.unity3d.com/questions/393431/capturing-screen-shot-and-showing-the-captured-ima.html
     }
 }
