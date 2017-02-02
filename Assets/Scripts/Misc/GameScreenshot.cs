@@ -3,13 +3,11 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using System.IO;
+[RequireComponent(typeof (ScreenshotToGallery))]
 
-public class GameSnapshot : MonoBehaviour
+public class GameScreenshot: MonoBehaviour
 {
-    public List<Texture2D> screenshotGallery = new List<Texture2D>();
-    public Texture2D screenShot;
-    public Text persistentDataPath;
-
+    public static Texture2D screenShot;
     private string screenshotName;
     private bool ifScreenshotTook;
 
@@ -28,7 +26,7 @@ public class GameSnapshot : MonoBehaviour
 
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.End))
+        if (Input.GetKeyDown(KeyCode.End))                                                                  //FOR DEBUGING PURPOSE, CHANGE THIS LATER
         {
             StartCoroutine("GetSnapshot");
         }
@@ -40,8 +38,9 @@ public class GameSnapshot : MonoBehaviour
         screenShot.ReadPixels(new Rect(0, 0, Screen.width, Screen.height), 0, 0);                           //something about reading the texture from the screen into the saved texture data
         screenShot.Apply();                                                                                 //apply the texture into screenShot
 
-        screenshotGallery.Add(screenShot);                                                                  //stores screenshot into the gallery list
-        
+        GetComponent<ScreenshotToGallery>().AddThumbnail(screenShot.GetRawTextureData());                   //get the ScreenshotToGallery component and get the addthumbnail function and feed it the screenshot's raw texture data
+                                                                                                            //somehow, save the screenshot list so that player always haves in when they execute the game
+
         byte[] bytes = screenShot.EncodeToPNG();                                                            //encodes the the texture 2d into png
         screenshotName = "/screenshot" + Time.time + ".png";                                                //the naming convention for the screenshot
         File.WriteAllBytes(Application.dataPath + screenshotName, bytes);                                   //this is where it saves the screenshot??? 
@@ -52,6 +51,6 @@ public class GameSnapshot : MonoBehaviour
     }
 }
 
-//Figure out how to retrive these files and be able to present them in-game
-//Lead here?:http://answers.unity3d.com/questions/393431/capturing-screen-shot-and-showing-the-captured-ima.html
+// REFFERENCE
+//http://answers.unity3d.com/questions/393431/capturing-screen-shot-and-showing-the-captured-ima.html
 //https://aarlangdi.blogspot.ca/2016/07/saving-screen-shot-in-unity-3d.html
