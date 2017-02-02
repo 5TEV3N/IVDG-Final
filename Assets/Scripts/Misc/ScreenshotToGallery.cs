@@ -2,9 +2,6 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
-
-// PLACE THIS ON THE SCREENSHOT GALLERY UI GAMEOBJECT 
-
 public class ScreenshotToGallery : MonoBehaviour
 {
     // populate the list with how much slots there is
@@ -14,32 +11,27 @@ public class ScreenshotToGallery : MonoBehaviour
 
     //public List<RawImage> screenshotSlot= new List<RawImage>();
     public RawImage[] screenshotSlot;
+    private int thumbnailIndex = 0;
 
-    private RawImage uiRawImage;
-    private Texture2D snapshotThumbnail;
-
-
-    void Update()
+    public void AddThumbnail(byte[] screenshotBytes)
     {
-        for (int i = 0; i< screenshotSlot.Length; i++)
+        if (thumbnailIndex < screenshotSlot.Length)                                                                         //
         {
-            
-        }
+            Texture2D screenshotTexture = new Texture2D(Screen.width, Screen.height, TextureFormat.RGB24,false);            //make a new texture2d to put into the ui's raw image
+            screenshotTexture.LoadRawTextureData(screenshotBytes);                                                          //fills the screenshotTexture with the data with the bytes of when the player first took the screenshot
+            screenshotTexture.Apply();                                                                                      //apply the data to the texture
 
-        foreach (RawImage imagepanel in screenshotSlot)
-        {
-            //Get the RawImage Components here
-            //override the RawImage's Texture to the GameScreenshot.screenshotGallery 's Texture
+            screenshotSlot[thumbnailIndex].texture = screenshotTexture;                                                     //
+            thumbnailIndex++;                                                                                               //
         }
     }
 }
+
 // REFFERENCE
 //http://gamedev.stackexchange.com/questions/92257/loading-png-file-and-using-it-for-unityengine-ui-image
 //http://answers.unity3d.com/questions/710833/using-getcomponent-with-an-array.html
+//carmack!
 
-/* randomscrap?
-uiRawImage = gameObject.GetComponent<RawImage>();  //RawImage
-
-snapshotThumbnail = GameScreenshot.screenShot;     //Texture2D
-uiRawImage.texture = snapshotThumbnail;            //RawImage
-*/
+//ternary operator
+//thumbnail.texture = (thumbnail.texture == null) ? screenshot : null;
+//variable = (ifConditionTrue)? TrueValue : FalseValue;

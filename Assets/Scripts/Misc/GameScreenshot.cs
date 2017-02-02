@@ -3,12 +3,11 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using System.IO;
+[RequireComponent(typeof (ScreenshotToGallery))]
 
 public class GameScreenshot: MonoBehaviour
 {
     public static Texture2D screenShot;
-    public static List<Texture2D> screenshotGallery = new List<Texture2D>();
-
     private string screenshotName;
     private bool ifScreenshotTook;
 
@@ -27,7 +26,7 @@ public class GameScreenshot: MonoBehaviour
 
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.End))
+        if (Input.GetKeyDown(KeyCode.End))                                                                  //FOR DEBUGING PURPOSE, CHANGE THIS LATER
         {
             StartCoroutine("GetSnapshot");
         }
@@ -39,8 +38,8 @@ public class GameScreenshot: MonoBehaviour
         screenShot.ReadPixels(new Rect(0, 0, Screen.width, Screen.height), 0, 0);                           //something about reading the texture from the screen into the saved texture data
         screenShot.Apply();                                                                                 //apply the texture into screenShot
 
-        screenshotGallery.Add(screenShot);                                                                  //stores screenshot into the gallery list
-        //somehow, save the screenshot list so that player always haves in when they execute the game
+        GetComponent<ScreenshotToGallery>().AddThumbnail(screenShot.GetRawTextureData());                   //get the ScreenshotToGallery component and get the addthumbnail function and feed it the screenshot's raw texture data
+                                                                                                            //somehow, save the screenshot list so that player always haves in when they execute the game
 
         byte[] bytes = screenShot.EncodeToPNG();                                                            //encodes the the texture 2d into png
         screenshotName = "/screenshot" + Time.time + ".png";                                                //the naming convention for the screenshot
