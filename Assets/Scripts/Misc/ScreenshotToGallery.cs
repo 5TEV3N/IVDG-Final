@@ -7,22 +7,21 @@ public class ScreenshotToGallery : MonoBehaviour
     // populate the list with how much slots there is
     // get ahold of the slot's RawImage Component
     // add the screenshot saved in GameScreenshot into these Components
-    // dynamically scale this
+    // dynamically scale this?
 
-    //public List<RawImage> screenshotSlot= new List<RawImage>();
     public RawImage[] screenshotSlot;
     private int thumbnailIndex = 0;
 
     public void AddThumbnail(byte[] screenshotBytes)
     {
-        if (thumbnailIndex < screenshotSlot.Length)                                                                         //
+        if (thumbnailIndex < screenshotSlot.Length)                                                                         // PROBLEM, THE TEXTURE GETS DISTORTED WHEN SAVE, PLEASE FIX LATER
         {
-            Texture2D screenshotTexture = new Texture2D(Screen.width, Screen.height, TextureFormat.RGB24,false);            //make a new texture2d to put into the ui's raw image
+            Texture2D screenshotTexture = new Texture2D(Screen.width, Screen.height, TextureFormat.ARGB32, true);           //make a new texture2d to put into the ui's raw image
             screenshotTexture.LoadRawTextureData(screenshotBytes);                                                          //fills the screenshotTexture with the data with the bytes of when the player first took the screenshot
             screenshotTexture.Apply();                                                                                      //apply the data to the texture
 
-            screenshotSlot[thumbnailIndex].texture = screenshotTexture;                                                     //
-            thumbnailIndex++;                                                                                               //
+            screenshotSlot[thumbnailIndex].texture = screenshotTexture;                                                     //add the texture into the screenshotSlot into the index number = thumbnailIndex
+            thumbnailIndex++;                                                                                               //go to the next itteration
         }
     }
 }
