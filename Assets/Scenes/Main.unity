@@ -331,14 +331,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c6ab241cdfb07f34886a93e1f7df968e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  thumbnailIndex: 0
   screenshotSlot:
   - {fileID: 917891181}
-  - {fileID: 1333363728}
-  - {fileID: 913678526}
-  - {fileID: 167932143}
-  - {fileID: 1164839983}
-  - {fileID: 1597053773}
-  thumbnailIndex: 0
+  newThumbnail: {fileID: 917891181}
+  screenshotPage: {fileID: 751520740}
+  canvasTransform: {fileID: 2022623391}
 --- !u!1 &751520740
 GameObject:
   m_ObjectHideFlags: 0
@@ -349,7 +347,7 @@ GameObject:
   - component: {fileID: 751520741}
   - component: {fileID: 751520743}
   m_Layer: 5
-  m_Name: Debug:ScreenshotMenu
+  m_Name: ScreenshotPage
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
