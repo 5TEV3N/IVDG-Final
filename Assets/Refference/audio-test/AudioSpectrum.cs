@@ -5,14 +5,17 @@
 using UnityEngine;
 
 
-[RequireComponent (typeof(AudioSource))]
-
 public class AudioSpectrum : MonoBehaviour {	
 
 	public GameObject prefab;
 	public GameObject[] bars;
+	public AudioSource micAudio;
 
-	private float radius = 0.1f;
+//	Gonna use these later to set volume thresholds based on a user mic test
+//	public float volumeThreshold;
+//	public float volumeTrigger;
+
+	private float radius = 1f;
 	private int[] freqArray;
 
 	// This is the frequencies of all "musical" pitches from E3 to B8, divided by 11.71875 to exactly match their corresponding "slices" of the audio spectrum data when using the spectrum size of 2048.
@@ -35,17 +38,20 @@ public class AudioSpectrum : MonoBehaviour {
 			Instantiate (prefab, position, Quaternion.identity);
 		}
 		bars = GameObject.FindGameObjectsWithTag ("audiobars");
+		micAudio = gameObject.GetComponent<MicrophoneInput> ().micInput;
 	}
 
 	void Update () {
 		float[] spectrum = new float[2048];
 
-		AudioListener.GetSpectrumData(spectrum, 0, FFTWindow.BlackmanHarris);
+		micAudio.GetSpectrumData(spectrum, 0, FFTWindow.BlackmanHarris);
 
 		for (int i = 0; i < freqArray.Length; i++) {
 			Vector3 prevScale = bars[i].transform.localScale;
-			prevScale.y = Mathf.Lerp (prevScale.y, spectrum[freqArray[i]] * 30, Time.deltaTime * 30);
+			prevScale.y = Mathf.Lerp (prevScale.y, spectrum[freqArray[i]] * 100, Time.deltaTime * 30);
 			bars[i].transform.localScale = prevScale;
+
+//			bars [i].transform.localScale = new Vector3 (0, spectrum [freqArray [i]], 0);
 		}
 	}
 		
