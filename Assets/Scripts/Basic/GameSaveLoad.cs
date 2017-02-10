@@ -5,29 +5,53 @@ using System;
 using System.IO;
 using System.Runtime.Serialization.Formatters.Binary;
 
-[Serializable]
-class PlayerData
+[System.Serializable]
+public class PlayerData
 {
-    public Vector3 savedPlayerPosition;
+    public float x;
+    public float y;
+    public float z;
+
+    //public Vector3 savedPlayerPosition;
+    //public Transform savedPlayerPosition;
     //add the lists of screenshots in a gallery here.
 }
 
 public class GameSaveLoad : MonoBehaviour
 {
     public static GameSaveLoad gameState;
-    public Vector3 currentPlayerPosition;
+    //[Header("Debug. Please put into private later")]
+    //public Transform currentPlayerPosition;
+    public PlayerData data = new PlayerData();
 
     void Awake()
     {
-        DontDestroyOnLoad(gameObject);
+        
+        if (gameState == null)
+        {
+            DontDestroyOnLoad(gameObject);
+            gameState = this;
+        }
+        else if (gameState != this)
+        {
+            Destroy(gameObject);
+        }
     }
 
     void Update()
     {
         if (GameObject.FindGameObjectWithTag("Player") != null)
         {
+            //GameObject player = GameObject.FindGameObjectWithTag("Player");
+            //player.transform.position = new Vector3(data.x, data.y, data.z);
+        }
+        //currentPlayerPosition = data.savedPlayerPosition;
+
+        if (GameObject.FindGameObjectWithTag("Player") != null)
+        {
             GameObject player = GameObject.FindGameObjectWithTag("Player");
-            currentPlayerPosition = player.transform.position;
+            player.transform.localPosition = new Vector3(data.x, data.y, data.z);
+            print(player.transform.localPosition);
         }
     }
 
@@ -35,9 +59,16 @@ public class GameSaveLoad : MonoBehaviour
     {
         BinaryFormatter bf = new BinaryFormatter();
         FileStream file = File.Create(Application.persistentDataPath + "/playerInfo.dat");
+        //currentPlayerPosition = data.savedPlayerPosition;
+        if (GameObject.FindGameObjectWithTag("Player") != null)
+        {
+            GameObject player = GameObject.FindGameObjectWithTag("Player");
+            data.x = player.transform.localPosition.x;
+            data.y = player.transform.localPosition.y;
+            data.z = player.transform.localPosition.z;
+        }
+        //data.savedPlayerPosition = currentPlayerPosition;
 
-        PlayerData data = new PlayerData();
-        data.savedPlayerPosition = currentPlayerPosition;
 
         bf.Serialize(file, data);
         file.Close();
@@ -49,10 +80,10 @@ public class GameSaveLoad : MonoBehaviour
         {
             BinaryFormatter bf = new BinaryFormatter();
             FileStream file = File.Open(Application.persistentDataPath + "/playerInfo.dat", FileMode.Open);
-            PlayerData data = (PlayerData)bf.Deserialize(file);
+            data = (PlayerData)bf.Deserialize(file);
             file.Close();
+          
 
-            currentPlayerPosition = data.savedPlayerPosition;
         }
     }
 
@@ -68,3 +99,4 @@ public class GameSaveLoad : MonoBehaviour
 }
 //REFFERENCE
 //https://unity3d.com/learn/tutorials/topics/scripting/persistence-saving-and-loading-data
+//http://answers.unity3d.com/questions/956047/serialize-quaternion-or-vector3.html

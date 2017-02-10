@@ -17,13 +17,12 @@ public class InputManager3D : MonoBehaviour
     void Awake()
     {
         playerController3D = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerController3D>();
+        Cursor.lockState = CursorLockMode.Locked;
+        Cursor.visible = false;
     }
 
     void FixedUpdate()
     { 
-        Cursor.lockState = CursorLockMode.Locked;
-        Cursor.visible = false;
-
         mouseXAxis = Input.GetAxis("Mouse X");
         mouseYAxis = Input.GetAxis("Mouse Y");
 
@@ -48,6 +47,8 @@ public class InputManager3D : MonoBehaviour
             {
                 Cursor.lockState = CursorLockMode.None;
                 Cursor.visible = true;
+                GameUI.gameUi.gamePause.SetActive(true);
+
                 cameraLock = false;
             }
         }
