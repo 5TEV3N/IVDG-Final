@@ -11,22 +11,15 @@ public class PlayerData
     public float x;
     public float y;
     public float z;
-
-    //public Vector3 savedPlayerPosition;
-    //public Transform savedPlayerPosition;
-    //add the lists of screenshots in a gallery here.
 }
 
 public class GameSaveLoad : MonoBehaviour
 {
     public static GameSaveLoad gameState;
-    //[Header("Debug. Please put into private later")]
-    //public Transform currentPlayerPosition;
     public PlayerData data = new PlayerData();
 
     void Awake()
     {
-        
         if (gameState == null)
         {
             DontDestroyOnLoad(gameObject);
@@ -38,28 +31,11 @@ public class GameSaveLoad : MonoBehaviour
         }
     }
 
-    void Update()
-    {
-        if (GameObject.FindGameObjectWithTag("Player") != null)
-        {
-            //GameObject player = GameObject.FindGameObjectWithTag("Player");
-            //player.transform.position = new Vector3(data.x, data.y, data.z);
-        }
-        //currentPlayerPosition = data.savedPlayerPosition;
-
-        if (GameObject.FindGameObjectWithTag("Player") != null)
-        {
-            GameObject player = GameObject.FindGameObjectWithTag("Player");
-            player.transform.localPosition = new Vector3(data.x, data.y, data.z);
-            print(player.transform.localPosition);
-        }
-    }
-
     public void PlayerSave()
     {
         BinaryFormatter bf = new BinaryFormatter();
         FileStream file = File.Create(Application.persistentDataPath + "/playerInfo.dat");
-        //currentPlayerPosition = data.savedPlayerPosition;
+        
         if (GameObject.FindGameObjectWithTag("Player") != null)
         {
             GameObject player = GameObject.FindGameObjectWithTag("Player");
@@ -67,8 +43,8 @@ public class GameSaveLoad : MonoBehaviour
             data.y = player.transform.localPosition.y;
             data.z = player.transform.localPosition.z;
         }
-        //data.savedPlayerPosition = currentPlayerPosition;
 
+        print(data.x + "x" + data.y + "y" + data.z + "z" + "  Player position has been saved!");
 
         bf.Serialize(file, data);
         file.Close();
@@ -76,25 +52,17 @@ public class GameSaveLoad : MonoBehaviour
 
     public void PlayerLoad()
     {
-        if(File.Exists(Application.persistentDataPath + "/playerInfo.dat"))
+        if (File.Exists(Application.persistentDataPath + "/playerInfo.dat"))
         {
             BinaryFormatter bf = new BinaryFormatter();
             FileStream file = File.Open(Application.persistentDataPath + "/playerInfo.dat", FileMode.Open);
             data = (PlayerData)bf.Deserialize(file);
+            print(data.x + "x" + data.y + "y" + data.z + "z" + "  Player position has been loaded!");
+
             file.Close();
-          
-
         }
-    }
 
-    public void ScreenshotSave()
-    {
-
-    }
-
-    public void ScreenshotLoad()
-    {
-
+        else { print("Error: Nothing was saved..."); }
     }
 }
 //REFFERENCE

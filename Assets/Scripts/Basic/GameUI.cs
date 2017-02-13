@@ -21,6 +21,7 @@ public class GameUI : MonoBehaviour
             Destroy(gameObject);
         }
     }
+
     public void UnLoadUI()
     {
         TitleScreen.SetActive(false);
@@ -39,13 +40,11 @@ public class GameUI : MonoBehaviour
     public void LoadGamePlayScene()
     {
         UnLoadUI();
-
         SceneManager.LoadScene("Main");
         GameSaveLoad.gameState.PlayerLoad();
-        print("Loaded Game");
     }
 
-    public void MainMenuExitGame() //testing for now
+    public void MainMenuExitGame()
     {
         Application.Quit();
     }
@@ -54,7 +53,6 @@ public class GameUI : MonoBehaviour
     {
         UnLoadUI();
         GameSaveLoad.gameState.PlayerSave();
-        print("Saved the Game!");
 
         Application.Quit();
     }
