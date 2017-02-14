@@ -2,15 +2,18 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+
 public class ScreenshotToGallery : MonoBehaviour
 {
-    //Dynamically scale this
-    public int thumbnailIndex = 0;
     public List<RawImage> screenshotSlot = new List<RawImage>();
     public Texture2D screenshotTexture;
-    public GameObject screenshotPage;
+    public GameObject newScreenshotPage;
     public Transform screenshotParentTransform;
+
     private RawImage[] newPageSlotsComponents;
+    private int thumbnailIndex = 0;
+
+    private static int screenshotPageCounter = 1;
 
     public void AddThumbnail(byte[] screenshotBytes)
     {
@@ -24,15 +27,28 @@ public class ScreenshotToGallery : MonoBehaviour
             thumbnailIndex++;                                                                                               //go to the next itteration
         }
         else
-        {                                            
-            screenshotPage = Instantiate(screenshotPage,screenshotParentTransform, false);                                  //instantiate a new page
-            for (int i = 0; i < screenshotPage.transform.childCount; i++)                                                   //gets the components inside of the pages
+        {
+            newScreenshotPage = Instantiate(newScreenshotPage, screenshotParentTransform, false);                           //instantiate a new page
+            newScreenshotPage.name = "ScreenshotPage" + ++screenshotPageCounter;
+
+            for (int i = 0; i < newScreenshotPage.transform.childCount; i++)                                                //gets the components inside of the pages
             {
-                newPageSlotsComponents = screenshotPage.GetComponentsInChildren<RawImage>();
+                newPageSlotsComponents = newScreenshotPage.GetComponentsInChildren<RawImage>();
             }
             screenshotSlot.AddRange(newPageSlotsComponents);                                                                //add those components into the new pages
         }
     }
+
+    public void NextScreenshotPage()
+    {
+
+    }
+
+    public void PreviousScreenshotPage()
+    {
+
+    }
+
 }
 
 // REFFERENCE

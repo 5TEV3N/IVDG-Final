@@ -3,18 +3,21 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using System.IO;
+using UnityEngine.SceneManagement;
+
 [RequireComponent(typeof (ScreenshotToGallery))]
 
 public class GameScreenshot: MonoBehaviour
 {
     public List<Texture2D> screenshotsSaved = new List<Texture2D>();
     public Texture2D screenShot;
-    public GameObject galleryPanel;
 
     private int screenshotNumber;
     private string screenshotName;
     private bool screenshotTook = false;
-    public bool galleryOpen = false;
+
+    public GameObject screenshotMenu;
+    public bool isScreenshotMenuOpen = false;
 
     void Start()
     {
@@ -31,22 +34,22 @@ public class GameScreenshot: MonoBehaviour
 
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.End))                                                                  //FOR DEBUGING PURPOSE, CHANGE THIS LATER
+        if (Input.GetKeyDown(KeyCode.End))                                                                  //FOR DEBUGING PURPOSE, CHANGE THIS LATER. ADD THIS INTO INPUTMANAGER
         {
             StartCoroutine("GetSnapshot");
         }
 
-        if (Input.GetKeyDown(KeyCode.Delete))                                                               //FOR DEBUGING PURPOSE, CHANGE THIS LATER
+        if (Input.GetKeyDown(KeyCode.Tab))                                                                  //FOR DEBUGING PURPOSE, CHANGE THIS LATER. ADD THIS INTO INPUTMANAGER
         {
-            if (galleryOpen == false)
+            if (isScreenshotMenuOpen == false)
             {
-                galleryPanel.SetActive(true);
-                galleryOpen = true;
+                screenshotMenu.SetActive(true);
+                isScreenshotMenuOpen = true;
             }
             else
             {
-                galleryPanel.SetActive(false);
-                galleryOpen = false;
+                screenshotMenu.SetActive(false);
+                isScreenshotMenuOpen = false;
             }
         }
     }

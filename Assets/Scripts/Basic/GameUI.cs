@@ -6,6 +6,7 @@ using UnityEngine.SceneManagement;
 public class GameUI : MonoBehaviour
 {
     public static GameUI gameUi;
+
     public GameObject gamePause;
     public GameObject TitleScreen;
 

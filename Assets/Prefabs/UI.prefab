@@ -20,13 +20,15 @@ GameObject:
   m_Component:
   - component: {fileID: 4713665658804172}
   - component: {fileID: 114869390731130216}
+  - component: {fileID: 114242020440556168}
+  - component: {fileID: 114370011151696104}
   m_Layer: 0
   m_Name: UI
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!1 &1045050123431492
 GameObject:
   m_ObjectHideFlags: 1
@@ -300,7 +302,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!1 &1614251051308996
 GameObject:
   m_ObjectHideFlags: 1
@@ -645,6 +647,21 @@ MonoBehaviour:
   m_FallbackScreenDPI: 96
   m_DefaultSpriteDPI: 96
   m_DynamicPixelsPerUnit: 1
+--- !u!114 &114242020440556168
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1025981918352272}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7e22c192d97d4e149904be0047288e1b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  screenshotsSaved: []
+  screenShot: {fileID: 0}
+  galleryPanel: {fileID: 1348391897616022}
+  galleryOpen: 0
 --- !u!114 &114276421252726494
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -685,7 +702,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 114869390731130216}
-        m_MethodName: ExitGame
+        m_MethodName: MainMenuExitGame
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -789,6 +806,28 @@ MonoBehaviour:
   m_FirstSelected: {fileID: 0}
   m_sendNavigationEvents: 1
   m_DragThreshold: 5
+--- !u!114 &114370011151696104
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1025981918352272}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c6ab241cdfb07f34886a93e1f7df968e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  screenshotSlot:
+  - {fileID: 114753759206279882}
+  - {fileID: 114904537573837450}
+  - {fileID: 114670485812204664}
+  - {fileID: 114318080737253402}
+  - {fileID: 114598884568273634}
+  - {fileID: 114051850706208246}
+  screenshotTexture: {fileID: 0}
+  newScreenshotPage: {fileID: 1314294759832142, guid: d1b60a94eac2ddd419f34d4e4548cd91,
+    type: 2}
+  screenshotParentTransform: {fileID: 224833135566841806}
 --- !u!114 &114375495706855658
 MonoBehaviour:
   m_ObjectHideFlags: 1

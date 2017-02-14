@@ -52,5 +52,6 @@ public class InputManager3D : MonoBehaviour
                 cameraLock = false;
             }
         }
+
     }
 }
