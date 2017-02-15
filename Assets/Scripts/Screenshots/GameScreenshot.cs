@@ -9,15 +9,16 @@ using UnityEngine.SceneManagement;
 
 public class GameScreenshot: MonoBehaviour
 {
+    [Space (10)]
+    public bool isScreenshotMenuOpen = false;
+    public GameObject screenshotMenu;
     public List<Texture2D> screenshotsSaved = new List<Texture2D>();
-    public Texture2D screenShot;
 
+    //Debug
+    private Texture2D screenShot;
     private int screenshotNumber;
     private string screenshotName;
     private bool screenshotTook = false;
-
-    public GameObject screenshotMenu;
-    public bool isScreenshotMenuOpen = false;
 
     void Start()
     {
