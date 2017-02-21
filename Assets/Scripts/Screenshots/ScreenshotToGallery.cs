@@ -6,7 +6,7 @@ using UnityEngine.UI;
 public class ScreenshotToGallery : MonoBehaviour
 {
     [Space(10)]
-    public GameObject newScreenshotPage;
+    public GameObject newJournalPage;
     public Transform screenshotParentTransform;
     public List<RawImage> screenshotSlot = new List<RawImage>();
     public List<GameObject> newPagesList = new List<GameObject>();
@@ -31,16 +31,16 @@ public class ScreenshotToGallery : MonoBehaviour
         }
         else
         {
-            newScreenshotPage = Instantiate(newScreenshotPage, screenshotParentTransform, false);                           //instantiate a new page
-            newScreenshotPage.name = "ScreenshotPage" + ++screenshotPageNumber;
-            newScreenshotPage.SetActive(false);
+            newJournalPage = Instantiate(newJournalPage, screenshotParentTransform, false);                           //instantiate a new page
+            newJournalPage.name = "JournalPage" + ++screenshotPageNumber;
+            newJournalPage.SetActive(false);
 
-            for (int i = 0; i < newScreenshotPage.transform.childCount; i++)                                                //gets the components inside of the pages
+            for (int i = 0; i < newJournalPage.transform.childCount; i++)                                                //gets the components inside of the pages
             {
-                newPageSlotsComponents = newScreenshotPage.GetComponentsInChildren<RawImage>();
+                newPageSlotsComponents = newJournalPage.GetComponentsInChildren<RawImage>();
             }
             screenshotSlot.AddRange(newPageSlotsComponents);                                                                //add those components into the new pages
-            newPagesList.Add(newScreenshotPage);
+            newPagesList.Add(newJournalPage);
         }
     }
 

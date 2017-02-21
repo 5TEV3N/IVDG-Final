@@ -64,7 +64,7 @@ public class GameScreenshot: MonoBehaviour
         GetComponent<ScreenshotToGallery>().AddThumbnail(screenShot.GetRawTextureData());                   //get the ScreenshotToGallery component and get the addthumbnail function and feed it the screenshot's raw texture data
         screenshotsSaved.Add(screenShot);                                                                   //somehow, save the screenshot list so that player always haves in when they execute the game
 
-        byte[] bytes = screenShot.EncodeToPNG();                                                            //encodes the the texture 2d into png
+        byte[] bytes = screenShot.EncodeToJPG();                                                            //encodes the the texture 2d into png
         screenshotName = "/Screenshot" + ++screenshotNumber + ".png";                                       //the naming convention for the screenshot
         File.WriteAllBytes(Application.dataPath + screenshotName, bytes);                                   //this is where it saves the screenshot??? 
         screenshotTook = true;                                                                              //show the screenshot in the GUI    

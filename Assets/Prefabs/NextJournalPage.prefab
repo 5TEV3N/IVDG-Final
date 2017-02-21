@@ -55,7 +55,7 @@ GameObject:
   - component: {fileID: 224495063746737922}
   - component: {fileID: 222066208860100716}
   m_Layer: 5
-  m_Name: NextScreenshotPage
+  m_Name: NextJournalPage
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

@@ -215,7 +215,7 @@ GameObject:
   - component: {fileID: 224640510900304252}
   - component: {fileID: 222225623484665588}
   m_Layer: 5
-  m_Name: ScreenshotPage0
+  m_Name: JournalPage0
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -230,7 +230,7 @@ GameObject:
   m_Component:
   - component: {fileID: 224391433423651088}
   m_Layer: 5
-  m_Name: ScreenshotMenu
+  m_Name: BirdJournal
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -414,7 +414,7 @@ GameObject:
   m_Component:
   - component: {fileID: 224445376569412332}
   m_Layer: 5
-  m_Name: ScreenshotGallery
+  m_Name: BirdPictures
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1074,7 +1074,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c6ab241cdfb07f34886a93e1f7df968e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  newScreenshotPage: {fileID: 1314294759832142, guid: d1b60a94eac2ddd419f34d4e4548cd91,
+  newJournalPage: {fileID: 1385298124072132, guid: e30e8f374ead27542bec298b70c4f528,
     type: 2}
   screenshotParentTransform: {fileID: 224445376569412332}
   screenshotSlot:
