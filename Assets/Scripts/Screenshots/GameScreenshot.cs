@@ -25,14 +25,6 @@ public class GameScreenshot: MonoBehaviour
         screenShot = new Texture2D(Screen.width, Screen.height, TextureFormat.ARGB32, true);                //screenshot res
     }
 
-    private void OnGUI()
-    {
-        if (screenshotTook == true)
-        {
-            GUI.DrawTexture(new Rect(10, 10, 60, 40), screenShot, ScaleMode.StretchToFill);                 //preview of screenshot
-        }
-    }
-
     void Update()
     {
         if (Input.GetKeyDown(KeyCode.End))                                                                  //FOR DEBUGING PURPOSE, CHANGE THIS LATER. ADD THIS INTO INPUTMANAGER
@@ -46,11 +38,15 @@ public class GameScreenshot: MonoBehaviour
             {
                 screenshotMenu.SetActive(true);
                 isScreenshotMenuOpen = true;
+                Cursor.lockState = CursorLockMode.None;
+                Cursor.visible = true;
             }
             else
             {
                 screenshotMenu.SetActive(false);
                 isScreenshotMenuOpen = false;
+                Cursor.lockState = CursorLockMode.Locked;
+                Cursor.visible = false;
             }
         }
     }

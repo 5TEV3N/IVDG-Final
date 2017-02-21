@@ -10,13 +10,12 @@ public class ScreenshotToGallery : MonoBehaviour
     public Transform screenshotParentTransform;
     public List<RawImage> screenshotSlot = new List<RawImage>();
     public List<GameObject> newPagesList = new List<GameObject>();
-    
-    //Debug
+    public int screenshotPageIndex;
+
     private Texture2D screenshotTexture;
     private RawImage[] newPageSlotsComponents;
     private int thumbnailIndex;
     private int screenshotPageNumber;
-    public int screenshotPageIndex;
 
     public void AddThumbnail(byte[] screenshotBytes)
     {
@@ -31,11 +30,11 @@ public class ScreenshotToGallery : MonoBehaviour
         }
         else
         {
-            newJournalPage = Instantiate(newJournalPage, screenshotParentTransform, false);                           //instantiate a new page
+            newJournalPage = Instantiate(newJournalPage, screenshotParentTransform, false);                                 //instantiate a new page
             newJournalPage.name = "JournalPage" + ++screenshotPageNumber;
             newJournalPage.SetActive(false);
 
-            for (int i = 0; i < newJournalPage.transform.childCount; i++)                                                //gets the components inside of the pages
+            for (int i = 0; i < newJournalPage.transform.childCount; i++)                                                   //gets the components inside of the pages
             {
                 newPageSlotsComponents = newJournalPage.GetComponentsInChildren<RawImage>();
             }
