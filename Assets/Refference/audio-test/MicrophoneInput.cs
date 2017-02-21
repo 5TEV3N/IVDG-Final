@@ -8,7 +8,7 @@ public class MicrophoneInput : MonoBehaviour {
 	public AudioSource micInput;
 
 
-	void Start() {
+	void Awake() {
 		foreach (string device in Microphone.devices) {
 			Debug.Log(device);
 		}
