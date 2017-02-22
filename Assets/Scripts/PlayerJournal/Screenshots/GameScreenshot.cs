@@ -5,7 +5,7 @@ using UnityEngine.UI;
 using System.IO;
 using UnityEngine.SceneManagement;
 
-[RequireComponent(typeof (ScreenshotToGallery))]
+[RequireComponent(typeof (ScreenshotToJournal))]
 
 public class GameScreenshot: MonoBehaviour
 {
@@ -57,7 +57,7 @@ public class GameScreenshot: MonoBehaviour
         screenShot.ReadPixels(new Rect(0, 0, Screen.width, Screen.height), 0, 0, true);                     //something about reading the texture from the screen into the saved texture data
         screenShot.Apply();                                                                                 //apply the texture into screenShot
         
-        GetComponent<ScreenshotToGallery>().AddThumbnail(screenShot.GetRawTextureData());                   //get the ScreenshotToGallery component and get the addthumbnail function and feed it the screenshot's raw texture data
+        GetComponent<ScreenshotToJournal>().AddThumbnail(screenShot.GetRawTextureData());                   //get the ScreenshotToGallery component and get the addthumbnail function and feed it the screenshot's raw texture data
         screenshotsSaved.Add(screenShot);                                                                   //somehow, save the screenshot list so that player always haves in when they execute the game
 
         byte[] bytes = screenShot.EncodeToJPG();                                                            //encodes the the texture 2d into png
