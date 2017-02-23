@@ -8,8 +8,8 @@ public class BirdSpawner : MonoBehaviour
     Spawner spawnBird = new Spawner();
 
     public GameObject bird;
-    public string currentBirdName;
     public Transform[] birdSpawnLocation;
+    public static string currentBirdName;
 
     [Header("Bird's Container")]
     public Transform headLocation;
@@ -27,8 +27,6 @@ public class BirdSpawner : MonoBehaviour
     public GameObject[] bodyPart;
     public GameObject[] leftWingPart;
     public GameObject[] rightWingPart;
-
-    //public static string fullBirdName;
 
     public void BirdConstructor()
     {

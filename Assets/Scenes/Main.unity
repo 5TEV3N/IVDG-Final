@@ -237,7 +237,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 256436037}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -4, y: 0, z: 0}
+  m_LocalPosition: {x: -6, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1148618162}
@@ -302,7 +302,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   bird: {fileID: 2091863528}
-  currentBirdName: 
   birdSpawnLocation:
   - {fileID: 1643202060}
   - {fileID: 592713939}
@@ -328,10 +327,13 @@ MonoBehaviour:
   - Dingaling
   - Mikmak
   - Wallmer
+  - Jay
   birdNameEnding:
   - Shooter
   - Splashy
   - Wookan
+  - Tit
+  - Worbler
   headPart:
   - {fileID: 1147802063501602, guid: a3744a30611ba1f41a8bef190bd00bb4, type: 2}
   bodyPart:
@@ -362,7 +364,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 403393934}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 5, y: 0, z: -2}
+  m_LocalPosition: {x: 7, y: 0, z: -2}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1148618162}
@@ -711,7 +713,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1377878841}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: -5}
+  m_LocalPosition: {x: 0, y: 0, z: -6}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1148618162}
@@ -1175,6 +1177,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 2091863529}
+  - component: {fileID: 2091863530}
   m_Layer: 0
   m_Name: Bird
   m_TagString: Bird
@@ -1199,3 +1202,16 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2091863530
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 2091863528}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bb4cc3af19cfee546b34ac5e9101b3ec, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  birdName: 
+  birdDistance: 0

@@ -5,14 +5,22 @@ using UnityEngine;
 public class BirdState : MonoBehaviour
 {
     // determines what state the bird is in
-
     public string birdState;
+
+    void Start()
+    {
+        CurrentBirdState("hidden");
+    }
+    
     public static string CurrentBirdState(string state)                     // bird states, player can interact with these states by using this function.
     {
         switch (state)
         {
             case "hidden":
                 print("State: hidden. Bird is hidden and singing");
+                break;
+            case "birdcalls":
+                print("State: bird calls. player must persude the bird with bird calls inorder to interact.");
                 break;
             case "interacting":
                 print("State: interacting. Bird is out of hiding and his in plain view to the player");
