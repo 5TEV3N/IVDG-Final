@@ -26,10 +26,16 @@ public class BirdController : MonoBehaviour
 
         if (birdDistance <= 4.5)
         {
-            BirdState.CurrentBirdState("birdcalls");
-            discovered.text = "Discovered a\n " + birdName;
+            if (birdDistance > 6)
+            {
+                BirdState.CurrentBirdState("runaway");
+            }
+            else
+            {
+                BirdState.CurrentBirdState("birdcalls");
+                discovered.text = "Discovered a\n " + birdName;
+            }
         }
-        //else if( certain threshold is left, then hidden to runaway)
     }
 }
 //      Logic

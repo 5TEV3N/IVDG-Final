@@ -30,9 +30,11 @@ public class PlayerRaycast : MonoBehaviour
 
     public void PlayerInteraction()
     {
-        if (Physics.Raycast(mouseRay,out mouseHit,mouseRayDistance,interactiveMask))
+        /*
+        if (Physics.Raycast(mouseRay,out mouseHit,mouseRayDistance,interactiveMask) && mouseHit.transform.tag == "Bird")
         {
-            print("hit");
+            
         }
+        */
     }
 }

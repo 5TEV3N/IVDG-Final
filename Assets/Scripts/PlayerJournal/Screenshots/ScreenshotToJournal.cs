@@ -5,28 +5,35 @@ using UnityEngine.UI;
 
 public class ScreenshotToJournal: MonoBehaviour
 {
+    BirdInfoManager addInfo;
     [Space(10)]
     public GameObject newJournalPage;
     public Transform screenshotParentTransform;
     public List<RawImage> screenshotSlot = new List<RawImage>();
     public List<GameObject> newPagesList = new List<GameObject>();
-    public int screenshotPageIndex;
-
+    public static int journalIndex;
+    
     private Texture2D screenshotTexture;
     private RawImage[] newPageSlotsComponents;
-    private int thumbnailIndex;
     private int screenshotPageNumber;
+    private int screenshotPageIndex;
+
+    void Awake()
+    {
+        addInfo = GetComponent<BirdInfoManager>();
+    }
 
     public void AddThumbnail(byte[] screenshotBytes)
     {
-        if (thumbnailIndex < screenshotSlot.Count)
+        if (journalIndex < screenshotSlot.Count)
         {
             screenshotTexture = new Texture2D(Screen.width, Screen.height, TextureFormat.ARGB32, true);                     //make a new texture2d to put into the ui's raw image
             screenshotTexture.LoadRawTextureData(screenshotBytes);                                                          //fills the screenshotTexture with the data with the bytes of when the player first took the screenshot
             screenshotTexture.Apply();                                                                                      //apply the data to the texture
 
-            screenshotSlot[thumbnailIndex].texture = screenshotTexture;                                                     //add the texture into the screenshotSlot into the index number = thumbnailIndex
-            thumbnailIndex++;                                                                                               //go to the next itteration
+            screenshotSlot[journalIndex].texture = screenshotTexture;                                                       //add the texture into the screenshotSlot into the index number = thumbnailIndex
+            //addInfo.AddName();
+            journalIndex++;                                                                                                 //go to the next itteration
         }
         else
         {

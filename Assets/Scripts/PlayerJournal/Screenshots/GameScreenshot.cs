@@ -61,7 +61,7 @@ public class GameScreenshot: MonoBehaviour
         screenshotsSaved.Add(screenShot);                                                                   //somehow, save the screenshot list so that player always haves in when they execute the game
 
         byte[] bytes = screenShot.EncodeToJPG();                                                            //encodes the the texture 2d into png
-        screenshotName = "/Screenshot" + ++screenshotNumber + ".png";                                       //the naming convention for the screenshot
+        screenshotName = "/Screenshot" + ++screenshotNumber + ".jpg";                                       //the naming convention for the screenshot
         File.WriteAllBytes(Application.dataPath + screenshotName, bytes);                                   //this is where it saves the screenshot??? 
         screenshotTook = true;                                                                              //show the screenshot in the GUI    
 
