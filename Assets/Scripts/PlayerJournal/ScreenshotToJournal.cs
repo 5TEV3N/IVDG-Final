@@ -5,7 +5,7 @@ using UnityEngine.UI;
 
 public class ScreenshotToJournal: MonoBehaviour
 {
-    BirdInfoManager addInfo;
+    //BirdInfoManager addInfo;
     [Space(10)]
     public GameObject newJournalPage;
     public Transform screenshotParentTransform;
@@ -20,7 +20,7 @@ public class ScreenshotToJournal: MonoBehaviour
 
     void Awake()
     {
-        addInfo = GetComponent<BirdInfoManager>();
+       // addInfo = GetComponent<BirdInfoManager>();
     }
 
     public void AddThumbnail(byte[] screenshotBytes)
