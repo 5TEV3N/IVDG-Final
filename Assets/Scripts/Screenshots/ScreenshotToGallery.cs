@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class ScreenshotToJournal: MonoBehaviour
+public class ScreenshotToGallery : MonoBehaviour
 {
     [Space(10)]
     public GameObject newJournalPage;
