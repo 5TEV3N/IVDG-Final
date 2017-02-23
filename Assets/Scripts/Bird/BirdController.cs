@@ -1,18 +1,22 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class BirdController : MonoBehaviour
 {
     //Script that controls the bird directly. 
-    public string birdName;
-    private GameObject player;
     [Header("Dubg")]
     public float birdDistance;
+    public string birdName;
+
+    private Text discovered;
+    private GameObject player;
 
     void Awake()
     {
         player = GameObject.FindGameObjectWithTag("Player");
+        discovered = GameObject.Find("BirdNameDisplay").GetComponent<Text>();
     }
 
     void Update()
@@ -23,12 +27,7 @@ public class BirdController : MonoBehaviour
         if (birdDistance <= 4.5)
         {
             BirdState.CurrentBirdState("birdcalls");
-            /*
-            if ()
-            {
-
-            }
-            */
+            discovered.text = "Discovered a\n " + birdName;
         }
         //else if( certain threshold is left, then hidden to runaway)
     }
