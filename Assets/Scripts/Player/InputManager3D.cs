@@ -5,8 +5,7 @@ using UnityEngine;
 public class InputManager3D : MonoBehaviour
 {
     PlayerController3D playerController3D;       // refference to the playerController3D script
-
-    public Sprite playerSprite;                  // sprite of the player character
+    PlayerRaycast playerRaycast;                 // refference to the playerRaycast script
 
     float xAxis = 0;                             // 1 = right, -1 = left
     float zAxis = 0;                             // 1 = front, -1 back
@@ -17,6 +16,8 @@ public class InputManager3D : MonoBehaviour
     void Awake()
     {
         playerController3D = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerController3D>();
+        playerRaycast = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerRaycast>();
+
         Cursor.lockState = CursorLockMode.Locked;
         Cursor.visible = false;
     }
@@ -37,6 +38,11 @@ public class InputManager3D : MonoBehaviour
         if (xAxis != 0 || zAxis != 0)
         {
             playerController3D.PlayerMove(xAxis, zAxis);
+        }
+
+        if (Input.GetMouseButtonDown(0))
+        {
+            //playerRaycast.PlayerInteraction();
         }
 
         if (Input.GetKeyDown(KeyCode.Escape))

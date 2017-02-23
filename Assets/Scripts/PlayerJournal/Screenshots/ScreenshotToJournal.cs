@@ -3,20 +3,19 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class ScreenshotToGallery : MonoBehaviour
+public class ScreenshotToJournal: MonoBehaviour
 {
     [Space(10)]
-    public GameObject newScreenshotPage;
+    public GameObject newJournalPage;
     public Transform screenshotParentTransform;
     public List<RawImage> screenshotSlot = new List<RawImage>();
     public List<GameObject> newPagesList = new List<GameObject>();
-    
-    //Debug
+    public int screenshotPageIndex;
+
     private Texture2D screenshotTexture;
     private RawImage[] newPageSlotsComponents;
     private int thumbnailIndex;
     private int screenshotPageNumber;
-    public int screenshotPageIndex;
 
     public void AddThumbnail(byte[] screenshotBytes)
     {
@@ -31,16 +30,16 @@ public class ScreenshotToGallery : MonoBehaviour
         }
         else
         {
-            newScreenshotPage = Instantiate(newScreenshotPage, screenshotParentTransform, false);                           //instantiate a new page
-            newScreenshotPage.name = "ScreenshotPage" + ++screenshotPageNumber;
-            newScreenshotPage.SetActive(false);
+            newJournalPage = Instantiate(newJournalPage, screenshotParentTransform, false);                                 //instantiate a new page
+            newJournalPage.name = "JournalPage" + ++screenshotPageNumber;
+            newJournalPage.SetActive(false);
 
-            for (int i = 0; i < newScreenshotPage.transform.childCount; i++)                                                //gets the components inside of the pages
+            for (int i = 0; i < newJournalPage.transform.childCount; i++)                                                   //gets the components inside of the pages
             {
-                newPageSlotsComponents = newScreenshotPage.GetComponentsInChildren<RawImage>();
+                newPageSlotsComponents = newJournalPage.GetComponentsInChildren<RawImage>();
             }
             screenshotSlot.AddRange(newPageSlotsComponents);                                                                //add those components into the new pages
-            newPagesList.Add(newScreenshotPage);
+            newPagesList.Add(newJournalPage);
         }
     }
 

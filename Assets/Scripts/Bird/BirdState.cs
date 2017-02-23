@@ -4,19 +4,9 @@ using UnityEngine;
 
 public class BirdState : MonoBehaviour
 {
-    public GameObject currentBirdSpawned;           // the current bird in the scene
-    public AudioSource currentBirdCry;              // the cry of the current bird
-    public Animator currentBirdAnimator;            // access the bird's animation
+    // determines what state the bird is in
 
-    void Awake()
-    {
-        currentBirdSpawned = GameObject.FindWithTag("Bird").gameObject;     // checks if there's a bird in the scene
-        
-            // this is subject to change, this is to get the information of the spawned bird
-        //currentBirdCry = currentBirdSpawned.GetComponent<AudioSource>();
-        //currentBirdAnimator = currentBirdSpawned.GetComponent<Animator>();        
-    }
-
+    public string birdState;
     public static string CurrentBirdState(string state)                     // bird states, player can interact with these states by using this function.
     {
         switch (state)
