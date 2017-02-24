@@ -2,8 +2,9 @@
  * 	and a modified version of the same example used in a Youtube tutorial by "Orion" thedeveloperguy4517@gmail.com
  */
 
+using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
-
 
 public class AudioSpectrum : MonoBehaviour {	
 
@@ -31,6 +32,9 @@ public class AudioSpectrum : MonoBehaviour {
 	// Spreadsheet tool to convert note -> frequency -> spectrum data slice here https://docs.google.com/spreadsheets/d/1_5y5PHcWEorZX10GDdnKLC4XBsPvsO6shfln-wiCwXQ/edit?usp=sharing
 	// I made a HTML/JavaScript parser to turn a raw spreadsheet column copy&paste into an array in C# formatting, but it got lost in a system reset on the school computers :(
 
+	private Dictionary<string, int> tones;
+	private bool detectionActive;
+
 
 	void Start () {
 		freqArray = freqArray2048;
@@ -43,19 +47,47 @@ public class AudioSpectrum : MonoBehaviour {
 		bars = GameObject.FindGameObjectsWithTag ("audiobars");
 	}
 
+	void songStart () {
+		tones = new Dictionary<string, int>();
+		detectionActive = true;
+	}
+
+	void songEnd () {
+		detectionActive = false;
+
+		foreach (string key in tones.Keys) {
+			float val = tones [key];
+			Debug.Log (key + " = " + val);
+		}
+	}
+
 	void Update () {
-		float[] spectrum = new float[2048];
+		if (detectionActive) {
+			float[] spectrum = new float[2048];
 
-		audioInput.GetSpectrumData(spectrum, 0, FFTWindow.BlackmanHarris);
+			audioInput.GetSpectrumData(spectrum, 0, FFTWindow.BlackmanHarris);
 
-		for (int i = 1; i < freqArray.Length - 1; i++) {
-			Vector3 prevScale = bars[i].transform.localScale;
-			prevScale.y = Mathf.Lerp (prevScale.y, spectrum[freqArray[i]] * 100, Time.deltaTime * 30);
-			bars[i].transform.localScale = prevScale;
+			for (int i = 1; i < freqArray.Length - 1; i++) {
+				Vector3 prevScale = bars[i].transform.localScale;
+				prevScale.y = Mathf.Lerp (prevScale.y, spectrum[freqArray[i]] * 100, Time.deltaTime * 30);
+				bars[i].transform.localScale = prevScale;
 
-			if (spectrum[freqArray[i]]*10000 > 50 && spectrum [freqArray [i]] > spectrum [freqArray [i - 1]] && spectrum[freqArray[i]] > spectrum[freqArray[i+1]]) {
-				Debug.Log (pitchArray [i]);
-				Debug.Log (spectrum[freqArray [i]]*10000);
+				if (spectrum[freqArray[i]] > 0.01 && spectrum [freqArray [i]] > spectrum [freqArray [i - 1]] && spectrum[freqArray[i]] > spectrum[freqArray[i+1]]) {
+					if (!tones.ContainsKey (pitchArray [i])) {
+						tones.Add (pitchArray [i], 1);
+					} else {
+						tones [pitchArray [i]] += 1;
+					}
+				}
+			}
+		}
+
+		// Temporary key to toggle songStart/songEnd
+		if (Input.GetKeyDown ("space")) {
+			if (detectionActive) {
+				songEnd ();
+			} else {
+				songStart ();
 			}
 		}
 	}
