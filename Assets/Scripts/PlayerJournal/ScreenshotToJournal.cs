@@ -5,35 +5,34 @@ using UnityEngine.UI;
 
 public class ScreenshotToJournal: MonoBehaviour
 {
-    //BirdInfoManager addInfo;
+    BirdInfoToJournal infoAddToJournal;
     [Space(10)]
     public GameObject newJournalPage;
     public Transform screenshotParentTransform;
     public List<RawImage> screenshotSlot = new List<RawImage>();
     public List<GameObject> newPagesList = new List<GameObject>();
-    public static int journalIndex;
     
     private Texture2D screenshotTexture;
     private RawImage[] newPageSlotsComponents;
     private int screenshotPageNumber;
-    private int screenshotPageIndex;
+    public int PageIndex;
+    private int slotIndex;
 
     void Awake()
     {
-       // addInfo = GetComponent<BirdInfoManager>();
+        infoAddToJournal = GetComponent<BirdInfoToJournal>();
     }
 
     public void AddThumbnail(byte[] screenshotBytes)
     {
-        if (journalIndex < screenshotSlot.Count)
+        infoAddToJournal.AddName();
+        if (slotIndex < screenshotSlot.Count)
         {
             screenshotTexture = new Texture2D(Screen.width, Screen.height, TextureFormat.ARGB32, true);                     //make a new texture2d to put into the ui's raw image
             screenshotTexture.LoadRawTextureData(screenshotBytes);                                                          //fills the screenshotTexture with the data with the bytes of when the player first took the screenshot
             screenshotTexture.Apply();                                                                                      //apply the data to the texture
-
-            screenshotSlot[journalIndex].texture = screenshotTexture;                                                       //add the texture into the screenshotSlot into the index number = thumbnailIndex
-            //addInfo.AddName();
-            journalIndex++;                                                                                                 //go to the next itteration
+            screenshotSlot[slotIndex].texture = screenshotTexture;                                                          //add the texture into the screenshotSlot into the index number = thumbnailIndex
+            slotIndex++;                                                                                                    //go to the next itteration
         }
         else
         {
@@ -52,22 +51,24 @@ public class ScreenshotToJournal: MonoBehaviour
 
     public void NextScreenshotPage()
     {
-        if (screenshotPageIndex + 1 < newPagesList.Count)
+        if (PageIndex + 1 < newPagesList.Count && PageIndex + 1 < infoAddToJournal.newBirdInfoPageList.Count)
         {
-            screenshotPageIndex++;
-            newPagesList[screenshotPageIndex].SetActive(true);
+            PageIndex++;
+            newPagesList[PageIndex].SetActive(true);
+            infoAddToJournal.newBirdInfoPageList[PageIndex].SetActive(true);
         }
         else { print("Debug: No pages to go forward to"); }
     }
 
     public void PreviousScreenshotPage()
     {
-        if (screenshotPageIndex > 0)
+        if (PageIndex > 0)
         {
-            if (screenshotPageIndex - 1 < newPagesList.Count)
+            if (PageIndex - 1 < newPagesList.Count && PageIndex - 1 < infoAddToJournal.newBirdInfoPageList.Count)
             {
-                newPagesList[screenshotPageIndex].SetActive(false);
-                screenshotPageIndex--;
+                newPagesList[PageIndex].SetActive(false);
+                infoAddToJournal.newBirdInfoPageList[PageIndex].SetActive(false);
+                PageIndex--;
             }
         }
         else { print("Debug: No pages to go back to"); }

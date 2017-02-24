@@ -62,7 +62,7 @@ public class GameScreenshot: MonoBehaviour
 
         byte[] bytes = screenShot.EncodeToJPG();                                                            //encodes the the texture 2d into png
         screenshotName = "/Screenshot" + ++screenshotNumber + ".jpg";                                       //the naming convention for the screenshot
-        File.WriteAllBytes(Application.dataPath + screenshotName, bytes);                                   //this is where it saves the screenshot??? 
+        //File.WriteAllBytes(Application.dataPath + screenshotName, bytes);                                   //this is where it saves the screenshot??? 
         screenshotTook = true;                                                                              //show the screenshot in the GUI    
 
         yield return new WaitForSeconds(4f);

@@ -36,7 +36,12 @@ public class BirdController : MonoBehaviour
                 discovered.text = "Discovered a\n " + birdName;
             }
         }
+        else
+        {
+            discovered.text = "";
+        }
     }
+
 }
 //      Logic
 // if player reaches a certain distance, Bird State changes from hidden to birdc. if the player reaches that distance but leaves at a certain threshold, Bird state changes from hidden to runaway.
