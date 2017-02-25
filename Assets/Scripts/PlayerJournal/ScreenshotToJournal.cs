@@ -11,11 +11,11 @@ public class ScreenshotToJournal: MonoBehaviour
     public Transform screenshotParentTransform;
     public List<RawImage> screenshotSlot = new List<RawImage>();
     public List<GameObject> newPagesList = new List<GameObject>();
-    
+    public int PageIndex;
+
     private Texture2D screenshotTexture;
     private RawImage[] newPageSlotsComponents;
     private int screenshotPageNumber;
-    public int PageIndex;
     private int slotIndex;
 
     void Awake()

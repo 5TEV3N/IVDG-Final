@@ -9,27 +9,35 @@ using UnityEngine.SceneManagement;
 
 public class GameScreenshot: MonoBehaviour
 {
+    PlayerRaycast raycast;
     [Space (10)]
     public bool isScreenshotMenuOpen = false;
     public GameObject screenshotMenu;
     public List<Texture2D> screenshotsSaved = new List<Texture2D>();
-
-    //Debug
+    
     private Texture2D screenShot;
     private int screenshotNumber;
     private string screenshotName;
     private bool screenshotTook = false;
 
-    void Start()
+    void Awake()
     {
-        screenShot = new Texture2D(Screen.width, Screen.height, TextureFormat.ARGB32, true);                //screenshot res
+        screenShot = new Texture2D(Screen.width, Screen.height, TextureFormat.ARGB32, true);
+        raycast = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerRaycast>(); 
     }
 
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.End))                                                                  //FOR DEBUGING PURPOSE, CHANGE THIS LATER. ADD THIS INTO INPUTMANAGER
+        if (Input.GetKeyDown(KeyCode.End))
         {
-            StartCoroutine("GetSnapshot");
+            if (raycast.PlayerInteraction() == true)
+            {
+                StartCoroutine("GetSnapshot");
+            }
+            else
+            {
+                print("You can't take a picture right now. Bird is not around. Raycast bool is equal to : " + raycast.PlayerInteraction());
+            }
         }
 
         if (Input.GetKeyDown(KeyCode.Tab))                                                                  //FOR DEBUGING PURPOSE, CHANGE THIS LATER. ADD THIS INTO INPUTMANAGER

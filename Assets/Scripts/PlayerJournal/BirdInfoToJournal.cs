@@ -43,26 +43,3 @@ public class BirdInfoToJournal : MonoBehaviour
     }
 
 }
-/*
-public void NextBirdInfoPage()
-{
-    if (birdInfoIndex + 1 < newBirdInfoPageList.Count)
-    {
-        birdInfoIndex++;
-        newBirdInfoPageList[birdInfoIndex].SetActive(true);
-    }
-    else { print("Debug: No pages to go forward to"); }
-}
-
-public void PreviousBirdInfoPage()
-{
-    if (birdInfoIndex > 0)
-    {
-        if (birdInfoIndex - 1 < newBirdInfoPageList.Count)
-        {
-            newBirdInfoPageList[birdInfoIndex].SetActive(false);
-            birdInfoIndex--;
-        }
-    }
-    else { print("Debug: No pages to go back to"); }
-}*/
