@@ -5,13 +5,15 @@ using UnityEngine.UI;
 
 public class ScreenshotToJournal: MonoBehaviour
 {
-    BirdInfoToJournal infoAddToJournal;
+    BirdInfoToJournal info;
     [Space(10)]
     public GameObject newJournalPage;
     public Transform screenshotParentTransform;
+    public int PageIndex;
+
+    [Header("Lists")]
     public List<RawImage> screenshotSlot = new List<RawImage>();
     public List<GameObject> newPagesList = new List<GameObject>();
-    public int PageIndex;
 
     private Texture2D screenshotTexture;
     private RawImage[] newPageSlotsComponents;
@@ -20,12 +22,12 @@ public class ScreenshotToJournal: MonoBehaviour
 
     void Awake()
     {
-        infoAddToJournal = GetComponent<BirdInfoToJournal>();
+        info = GetComponent<BirdInfoToJournal>();
     }
 
     public void AddThumbnail(byte[] screenshotBytes)
     {
-        infoAddToJournal.AddName();
+        info.AddInfo();
         if (slotIndex < screenshotSlot.Count)
         {
             screenshotTexture = new Texture2D(Screen.width, Screen.height, TextureFormat.ARGB32, true);                     //make a new texture2d to put into the ui's raw image
@@ -51,11 +53,12 @@ public class ScreenshotToJournal: MonoBehaviour
 
     public void NextScreenshotPage()
     {
-        if (PageIndex + 1 < newPagesList.Count && PageIndex + 1 < infoAddToJournal.newBirdInfoPageList.Count)
+        if (PageIndex + 1 < newPagesList.Count)
         {
             PageIndex++;
             newPagesList[PageIndex].SetActive(true);
-            infoAddToJournal.newBirdInfoPageList[PageIndex].SetActive(true);
+            info.newBirdInfoPageList[PageIndex].SetActive(true);
+            info.newInputFieldsList[PageIndex].SetActive(true);
         }
         else { print("Debug: No pages to go forward to"); }
     }
@@ -64,10 +67,11 @@ public class ScreenshotToJournal: MonoBehaviour
     {
         if (PageIndex > 0)
         {
-            if (PageIndex - 1 < newPagesList.Count && PageIndex - 1 < infoAddToJournal.newBirdInfoPageList.Count)
+            if (PageIndex - 1 < newPagesList.Count)
             {
                 newPagesList[PageIndex].SetActive(false);
-                infoAddToJournal.newBirdInfoPageList[PageIndex].SetActive(false);
+                info.newBirdInfoPageList[PageIndex].SetActive(false);
+                info.newInputFieldsList[PageIndex].SetActive(false);
                 PageIndex--;
             }
         }

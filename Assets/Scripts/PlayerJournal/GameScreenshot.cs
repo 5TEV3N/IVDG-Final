@@ -23,13 +23,14 @@ public class GameScreenshot: MonoBehaviour
     void Awake()
     {
         screenShot = new Texture2D(Screen.width, Screen.height, TextureFormat.ARGB32, true);
-        raycast = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerRaycast>(); 
     }
 
     void Update()
     {
         if (Input.GetKeyDown(KeyCode.End))
         {
+            raycast = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerRaycast>();
+
             if (raycast.PlayerInteraction() == true)
             {
                 StartCoroutine("GetSnapshot");

@@ -20,7 +20,7 @@ public class BirdSpawner : MonoBehaviour
     [Header("Bird Name")]
     public string[] birdPrefix;
     public string[] birdName;
-    public string[] birdNameEnding;
+    public string[] birdLastName;
 
     [Header("Bird Parts")]
     public GameObject[] headPart;
@@ -30,7 +30,7 @@ public class BirdSpawner : MonoBehaviour
 
     public void BirdConstructor()
     {
-        currentBirdName = birdPrefix[Random.Range(0, birdPrefix.Length)] +" "+ birdName[Random.Range(0, birdName.Length)] + " " + birdNameEnding[Random.Range(0, birdNameEnding.Length)];
+        currentBirdName = birdPrefix[Random.Range(0, birdPrefix.Length)] +" "+ birdName[Random.Range(0, birdName.Length)] + " " + birdLastName[Random.Range(0, birdLastName.Length)];
 
         GameObject head = headPart[Random.Range(0, headPart.Length)];
         GameObject body = bodyPart[Random.Range(0, bodyPart.Length)];

@@ -6,7 +6,7 @@ using UnityEngine.UI;
 public class BirdController : MonoBehaviour
 {
     //Script that controls the bird directly. 
-    [Header("Dubg")]
+    [Header("Debug")]
     public float birdDistance;
     public string birdName;
 

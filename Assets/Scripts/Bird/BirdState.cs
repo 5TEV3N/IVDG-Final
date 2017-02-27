@@ -11,7 +11,7 @@ public class BirdState : MonoBehaviour
     {
         CurrentBirdState("hidden");
     }
-    
+
     public static string CurrentBirdState(string state)                     // bird states, player can interact with these states by using this function.
     {
         switch (state)
