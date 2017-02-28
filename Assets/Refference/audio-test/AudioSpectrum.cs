@@ -37,8 +37,8 @@ public class AudioSpectrum : MonoBehaviour {
 
 
 	void Start () {
-		freqArray = freqArray2048;
-		pitchArray = pitchArray2048;
+		freqArray = freqArray4096;
+		pitchArray = pitchArray4096;
 
 		for (int i=0; i < freqArray.Length; i++) {
 			Vector3 position = new Vector3 (i*radius, 0, 0);
@@ -63,7 +63,7 @@ public class AudioSpectrum : MonoBehaviour {
 
 	void Update () {
 		if (detectionActive) {
-			float[] spectrum = new float[2048];
+			float[] spectrum = new float[4096];
 
 			audioInput.GetSpectrumData(spectrum, 0, FFTWindow.BlackmanHarris);
 

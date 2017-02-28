@@ -21,8 +21,8 @@ public class MicrophoneInput : MonoBehaviour {
 		micInput = gameObject.GetComponent<AudioSource> ();
 
 		// Assign micAudio variable in other
-		gameObject.GetComponent<AudioVisualizer> ().audioInput = micInput;
-//		gameObject.GetComponent<AudioSpectrum> ().audioInput = micInput;
+//		gameObject.GetComponent<AudioVisualizer> ().audioInput = micInput;
+		gameObject.GetComponent<AudioSpectrum> ().audioInput = micInput;
 
 		micInput.clip = Microphone.Start (micDevice, true, 5, 44100);
 		micInput.loop = true;
