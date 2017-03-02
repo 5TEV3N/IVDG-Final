@@ -21,10 +21,13 @@ public class PlayerController3D : MonoBehaviour
 
     private float verticalRotation = 0;                              // Contains the MouseYAxis
     private float originalMaxVelocity;                               // Contains the orginal MaxVelocity  
+    private float zoomAmount= 40f;
+    private float originalFOV;
 
     void Awake()
     {
         inputManager = GameObject.FindGameObjectWithTag("Player").GetComponent<InputManager3D>();
+        originalFOV = Camera.main.fieldOfView;
     }
     
     void Update()
@@ -88,6 +91,18 @@ public class PlayerController3D : MonoBehaviour
             verticalRotation -= Input.GetAxis("Mouse Y") * mouseSensitivity;               //This section pretty much clamps your camera rotation idk why this works
             verticalRotation = Mathf.Clamp(verticalRotation, -upDownRange, upDownRange);
             cam.transform.localRotation = Quaternion.Euler(verticalRotation, 0, 0);
+        }
+    }
+
+    public void Focus(bool focusIn)
+    {
+        if (focusIn == true)
+        {
+            Camera.main.fieldOfView = Mathf.Lerp(Camera.main.fieldOfView,zoomAmount, Time.deltaTime *5);
+        }
+        else
+        {
+            Camera.main.fieldOfView = Mathf.Lerp(Camera.main.fieldOfView, originalFOV, Time.deltaTime * 5);
         }
     }
 }

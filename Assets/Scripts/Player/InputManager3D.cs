@@ -45,6 +45,16 @@ public class InputManager3D : MonoBehaviour
             //playerRaycast.PlayerInteraction();
         }
 
+        if (Input.GetKey(KeyCode.F))
+        {
+            playerController3D.Focus(true);
+        }
+
+        if (!Input.GetKey(KeyCode.F))
+        {
+            playerController3D.Focus(false);
+        }
+
         if (Input.GetKeyDown(KeyCode.Escape))
         {
             cameraLock = true;
