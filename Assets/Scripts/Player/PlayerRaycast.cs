@@ -7,7 +7,8 @@ public class PlayerRaycast : MonoBehaviour
     public RaycastHit mouseHit;
     public Ray mouseRay;
     public Vector3 mousePosition;
-    public LayerMask interactiveMask;
+
+    private LayerMask interactiveMask;
 
     void Awake()
     {
@@ -30,5 +31,11 @@ public class PlayerRaycast : MonoBehaviour
     public bool PlayerInteraction()
     {
         return Physics.Raycast(mouseRay, out mouseHit, mouseRayDistance, interactiveMask);
+    }
+
+    public GameObject hitObject()
+    {
+        GameObject hit = mouseHit.transform.gameObject;
+        return hit;
     }
 }

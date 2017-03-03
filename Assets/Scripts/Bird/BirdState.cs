@@ -5,7 +5,7 @@ using UnityEngine;
 public class BirdState : MonoBehaviour
 {
     // determines what state the bird is in
-    public string birdState;
+    public static string birdstate;
 
     void Start()
     {
