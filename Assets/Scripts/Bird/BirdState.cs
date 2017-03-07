@@ -5,8 +5,8 @@ using UnityEngine;
 public class BirdState : MonoBehaviour
 {
     // determines what state the bird is in
-    public static string birdstate;
-
+    // public static string birdstate;
+    public static bool successfullBirdCall;             //prototype test
     void Start()
     {
         CurrentBirdState("hidden");
@@ -24,6 +24,7 @@ public class BirdState : MonoBehaviour
                 break;
             case "interacting":
                 print("State: interacting. Bird is out of hiding and his in plain view to the player");
+
                 break;
             case "flyaway":
                 print("State: runaway. Bird flies away from the player because of reasons");

@@ -40,6 +40,12 @@ public class BirdController : MonoBehaviour
         {
             discovered.text = "";
         }
+
+        if (BirdState.successfullBirdCall == true)
+        {
+
+            gameObject.transform.position = Vector3.Lerp(gameObject.transform.position, new Vector3(0, 0, 0), Time.deltaTime);
+        }
     }
 
 }

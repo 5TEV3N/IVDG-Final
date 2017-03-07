@@ -100,6 +100,11 @@ public class AudioSpectrum : MonoBehaviour {
 		foreach (string key in notePeaks.Keys) {
 			Debug.Log (key + ": " + notePeaks [key]);
 		}
+
+        if (whistleIsGood == true)                  //prototype test
+        {
+            BirdState.successfullBirdCall = true;   
+        }
 	}
 
 	void Update () {
