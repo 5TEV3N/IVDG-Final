@@ -5,6 +5,11 @@ using System.Collections;
 public class PlayerController3D : MonoBehaviour
 {
     InputManager3D inputManager;
+    PlayerRaycast playerRaycast;
+
+    [Header("Containers")]
+    public Rigidbody rb;                                             // Access the rigidbody to move
+    //public Camera cam;                                               // Acess the Camera of the gameobject
 
     [Header("Values")]
     public float mouseSensitivity = 1;                               // Mouse sensitivity
@@ -15,16 +20,16 @@ public class PlayerController3D : MonoBehaviour
     public float valOfVelocity;                                      // Checks how fast the player goes
     public float maxVelocity;                                        // The max speed of how fast the player goes
 
-    [Header("Containers")]
-    public Rigidbody rb;                                             // Access the rigidbody to move
-    public Camera cam;                                               // Acess the Camera of the gameobject
-
     private float verticalRotation = 0;                              // Contains the MouseYAxis
     private float originalMaxVelocity;                               // Contains the orginal MaxVelocity  
+    private float zoomAmount= 40f;
+    private float originalFOV;
 
     void Awake()
     {
         inputManager = GameObject.FindGameObjectWithTag("Player").GetComponent<InputManager3D>();
+        playerRaycast = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerRaycast>();
+        originalFOV = Camera.main.fieldOfView;
     }
     
     void Update()
@@ -87,7 +92,26 @@ public class PlayerController3D : MonoBehaviour
         {
             verticalRotation -= Input.GetAxis("Mouse Y") * mouseSensitivity;               //This section pretty much clamps your camera rotation idk why this works
             verticalRotation = Mathf.Clamp(verticalRotation, -upDownRange, upDownRange);
-            cam.transform.localRotation = Quaternion.Euler(verticalRotation, 0, 0);
+            Camera.main.transform.localRotation = Quaternion.Euler(verticalRotation, 0, 0);
         }
+    }
+
+    public void Focus(bool focusIn)
+    {
+        if (focusIn == true)
+        {
+            Camera.main.fieldOfView = Mathf.Lerp(Camera.main.fieldOfView,zoomAmount, Time.deltaTime *5);
+        }
+        else
+        {
+            Camera.main.fieldOfView = Mathf.Lerp(Camera.main.fieldOfView, originalFOV, Time.deltaTime * 5);
+        }
+    }
+
+    public void Sit()
+    {
+        GameObject sittable = playerRaycast.hitObject();
+        //gameObject.GetComponent<BoxCollider>().enabled = false;
+        gameObject.transform.position = Vector3.Lerp(gameObject.transform.position, sittable.transform.position,Time.deltaTime * 5f);
     }
 }

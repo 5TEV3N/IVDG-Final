@@ -4,10 +4,10 @@ using UnityEngine;
 public class PlayerRaycast : MonoBehaviour
 {
     public float mouseRayDistance;
+    public RaycastHit mouseHit;
+    public Ray mouseRay;
+    public Vector3 mousePosition;
 
-    private RaycastHit mouseHit;
-    private Ray mouseRay;
-    private Vector3 mousePosition;
     private LayerMask interactiveMask;
 
     void Awake()
@@ -17,22 +17,25 @@ public class PlayerRaycast : MonoBehaviour
 
     void Update()
     {
-        PlayerRaycastManager();
+        DebugRaycast();
         PlayerInteraction();
     }
 
-    void PlayerRaycastManager()
+    void DebugRaycast()
     {
         mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
         mouseRay = Camera.main.ScreenPointToRay(Input.mousePosition);
         Debug.DrawRay(mousePosition, mouseRay.direction * mouseRayDistance, Color.green);
     }
 
-    public void PlayerInteraction()
+    public bool PlayerInteraction()
     {
-        if (Physics.Raycast(mouseRay,out mouseHit,mouseRayDistance,interactiveMask))
-        {
-            print("hit");
-        }
+        return Physics.Raycast(mouseRay, out mouseHit, mouseRayDistance, interactiveMask);
+    }
+
+    public GameObject hitObject()
+    {
+        GameObject hit = mouseHit.transform.gameObject;
+        return hit;
     }
 }

@@ -40,9 +40,25 @@ public class InputManager3D : MonoBehaviour
             playerController3D.PlayerMove(xAxis, zAxis);
         }
 
-        if (Input.GetMouseButtonDown(0))
+        if (Input.GetMouseButton(0))
         {
-            //playerRaycast.PlayerInteraction();
+            if (playerRaycast.PlayerInteraction() == true)
+            {
+                if (playerRaycast.hitObject().transform.tag == "Sittable")
+                {
+                    playerController3D.Sit();
+                }
+            }
+        }
+
+        if (Input.GetKey(KeyCode.F))
+        {
+            playerController3D.Focus(true);
+        }
+
+        if (!Input.GetKey(KeyCode.F))
+        {
+            playerController3D.Focus(false);
         }
 
         if (Input.GetKeyDown(KeyCode.Escape))
@@ -58,6 +74,5 @@ public class InputManager3D : MonoBehaviour
                 cameraLock = false;
             }
         }
-
     }
 }
