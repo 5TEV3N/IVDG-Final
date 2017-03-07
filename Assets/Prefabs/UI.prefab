@@ -22,10 +22,7 @@ GameObject:
   - component: {fileID: 114869390731130216}
   - component: {fileID: 114242020440556168}
   - component: {fileID: 114370011151696104}
-<<<<<<< HEAD
-=======
   - component: {fileID: 114243016332799540}
->>>>>>> stevenbranch
   m_Layer: 0
   m_Name: UI
   m_TagString: Untagged
@@ -2213,8 +2210,6 @@ MonoBehaviour:
     m_VerticalOverflow: 0
     m_LineSpacing: 1
   m_Text: Prev
-<<<<<<< HEAD
-=======
 --- !u!114 &114771479021890976
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2311,7 +2306,6 @@ MonoBehaviour:
     m_VerticalOverflow: 0
     m_LineSpacing: 1
   m_Text: Enter text...
->>>>>>> stevenbranch
 --- !u!114 &114823446897944616
 MonoBehaviour:
   m_ObjectHideFlags: 1

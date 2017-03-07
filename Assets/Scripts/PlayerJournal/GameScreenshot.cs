@@ -7,7 +7,7 @@ using UnityEngine.SceneManagement;
 
 [RequireComponent(typeof (ScreenshotToJournal))]
 
-public class GameScreenshot: MonoBehaviour
+public class GameScreenshot : MonoBehaviour
 {
     PlayerRaycast raycast;
     [Space (10)]

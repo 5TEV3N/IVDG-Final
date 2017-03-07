@@ -33,4 +33,10 @@ public class Spawner
 		GameObject newObjectToSpawn = GameObject.Instantiate (objectToSpawn);
 		newObjectToSpawn.transform.position = objectSpawnPlace.position;
 	}
+
+    public void SpawnObjectAtSpotWithParent(Transform objectSpawnPlace, Transform objectParent , GameObject objectToSpawn)
+    {
+        GameObject newObjectToSpawn = GameObject.Instantiate(objectToSpawn, objectParent);
+        newObjectToSpawn.transform.position = objectSpawnPlace.position;
+    }
 }
