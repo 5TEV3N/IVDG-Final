@@ -19,6 +19,11 @@ public class MicrophoneInput : MonoBehaviour {
 		// Right now just starts recording right away for 999 seconds.
 		// Later wrap this in a function that is called at relevant points.
 		micInput = gameObject.GetComponent<AudioSource> ();
+
+		// Assign micAudio variable in other
+//		gameObject.GetComponent<AudioVisualizer> ().audioInput = micInput;
+		gameObject.GetComponent<AudioSpectrum> ().audioInput = micInput;
+
 		micInput.clip = Microphone.Start (micDevice, true, 5, 44100);
 		micInput.loop = true;
 
