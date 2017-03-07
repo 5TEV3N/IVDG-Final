@@ -61,11 +61,6 @@ public class AudioSpectrum : MonoBehaviour {
 			}
 		}
 
-//		Verifying that all notes are represented
-//		foreach (KeyValuePair<string, int[]> kvp in allNotes) {
-//			Debug.Log (kvp.Key + ": [" + kvp.Value[0] + "," + kvp.Value[1] + "]");
-//		}
-
 		for (int i=0; i < allNotes.Count; i++) {
 			Vector3 position = new Vector3 (i*radius, 0, 0);
 			Instantiate (prefab, position, Quaternion.identity);
