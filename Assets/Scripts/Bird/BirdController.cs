@@ -15,10 +15,13 @@ public class BirdController : MonoBehaviour
     private AudioSource birdsong;
     private AudioSource audiospec;
     private float originalVol;
+
     void Awake()
     {
         player = GameObject.FindGameObjectWithTag("Player");
         discovered = GameObject.Find("BirdNameDisplay").GetComponent<Text>();
+        
+        //TESTING
         birdsong = GameObject.Find("AudioTestBirdsongs").GetComponent<AudioSource>();
         audiospec = GameObject.Find("AudioSpectrum").GetComponent<AudioSource>();
         birdsong.volume = originalVol;
@@ -29,9 +32,9 @@ public class BirdController : MonoBehaviour
         birdDistance = Vector3.Distance(gameObject.transform.position, player.transform.position);
         birdName = BirdSpawner.currentBirdName;
 
-        if (birdDistance <= 4.5)
+        if (birdDistance <= 8)
         {
-            if (birdDistance > 6)
+            if (birdDistance > 10)
             {
                 //BirdState.CurrentBirdState("runaway");
             }
@@ -39,15 +42,15 @@ public class BirdController : MonoBehaviour
             {
                 //BirdState.CurrentBirdState("birdcalls");
                 discovered.text = "Discovered a\n " + birdName;
-                birdsong.volume = Mathf.Lerp(0.5f, originalVol, Time.deltaTime * 5f);
-                audiospec.volume = Mathf.Lerp(0.5f, originalVol, Time.deltaTime * 5f);
+                birdsong.volume = Mathf.Lerp(birdsong.volume, 0.5f, Time.deltaTime);
+                audiospec.volume = Mathf.Lerp(birdsong.volume, 0.5f, Time.deltaTime);
             }
         }
         else
         {
+            birdsong.volume = Mathf.Lerp(birdsong.volume, originalVol, Time.deltaTime);
+            audiospec.volume = Mathf.Lerp(birdsong.volume, originalVol, Time.deltaTime);
             discovered.text = "";
-            birdsong.volume = Mathf.Lerp(originalVol, 0.5f, Time.deltaTime * 5f);
-            audiospec.volume = Mathf.Lerp(originalVol, 0.5f, Time.deltaTime * 5f);
         }
 
         if (BirdState.successfullBirdCall == true)
@@ -58,5 +61,3 @@ public class BirdController : MonoBehaviour
     }
 
 }
-//      Logic
-// if player reaches a certain distance, Bird State changes from hidden to birdc. if the player reaches that distance but leaves at a certain threshold, Bird state changes from hidden to runaway.
