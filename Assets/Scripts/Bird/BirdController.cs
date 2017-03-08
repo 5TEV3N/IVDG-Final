@@ -12,11 +12,16 @@ public class BirdController : MonoBehaviour
 
     private Text discovered;
     private GameObject player;
-
+    private AudioSource birdsong;
+    private AudioSource audiospec;
+    private float originalVol;
     void Awake()
     {
         player = GameObject.FindGameObjectWithTag("Player");
         discovered = GameObject.Find("BirdNameDisplay").GetComponent<Text>();
+        birdsong = GameObject.Find("AudioTestBirdsongs").GetComponent<AudioSource>();
+        audiospec = GameObject.Find("AudioSpectrum").GetComponent<AudioSource>();
+        birdsong.volume = originalVol;
     }
 
     void Update()
@@ -28,17 +33,21 @@ public class BirdController : MonoBehaviour
         {
             if (birdDistance > 6)
             {
-                BirdState.CurrentBirdState("runaway");
+                //BirdState.CurrentBirdState("runaway");
             }
             else
             {
-                BirdState.CurrentBirdState("birdcalls");
+                //BirdState.CurrentBirdState("birdcalls");
                 discovered.text = "Discovered a\n " + birdName;
+                birdsong.volume = Mathf.Lerp(0.5f, originalVol, Time.deltaTime * 5f);
+                audiospec.volume = Mathf.Lerp(0.5f, originalVol, Time.deltaTime * 5f);
             }
         }
         else
         {
             discovered.text = "";
+            birdsong.volume = Mathf.Lerp(originalVol, 0.5f, Time.deltaTime * 5f);
+            audiospec.volume = Mathf.Lerp(originalVol, 0.5f, Time.deltaTime * 5f);
         }
 
         if (BirdState.successfullBirdCall == true)

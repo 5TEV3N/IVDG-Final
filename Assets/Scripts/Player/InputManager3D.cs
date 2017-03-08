@@ -72,6 +72,7 @@ public class InputManager3D : MonoBehaviour
                 GameUI.gameUi.gamePause.SetActive(true);
 
                 cameraLock = false;
+                Time.timeScale = 0f;
             }
         }
     }

@@ -5,8 +5,11 @@ using UnityEngine;
 public class BirdState : MonoBehaviour
 {
     // determines what state the bird is in
-    // public static string birdstate;
+    // please implament the bird state later
+
     public static bool successfullBirdCall;             //prototype test
+    
+    /*
     void Start()
     {
         CurrentBirdState("hidden");
@@ -35,4 +38,5 @@ public class BirdState : MonoBehaviour
         }
         return state;
     }
+    */
 }

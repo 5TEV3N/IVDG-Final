@@ -34,6 +34,7 @@ public class GameScreenshot : MonoBehaviour
             if (raycast.PlayerInteraction() == true)
             {
                 StartCoroutine("GetSnapshot");
+                print("Screenshot saved!");
             }
             else
             {
@@ -49,6 +50,7 @@ public class GameScreenshot : MonoBehaviour
                 isScreenshotMenuOpen = true;
                 Cursor.lockState = CursorLockMode.None;
                 Cursor.visible = true;
+                Time.timeScale = 0f;
             }
             else
             {
@@ -56,6 +58,7 @@ public class GameScreenshot : MonoBehaviour
                 isScreenshotMenuOpen = false;
                 Cursor.lockState = CursorLockMode.Locked;
                 Cursor.visible = false;
+                Time.timeScale = 1f;
             }
         }
     }
