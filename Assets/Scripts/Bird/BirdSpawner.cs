@@ -28,24 +28,48 @@ public class BirdSpawner : MonoBehaviour
     public GameObject[] leftWingPart;
     public GameObject[] rightWingPart;
 
+    private GameObject currentHead;
+    private GameObject currentBody;
+    private GameObject currentLeftWing;
+    private GameObject currentRightWing;
+
+    public bool newBird;
     public void BirdConstructor()
     {
-        currentBirdName = birdPrefix[Random.Range(0, birdPrefix.Length)] +" "+ birdName[Random.Range(0, birdName.Length)] + " " + birdLastName[Random.Range(0, birdLastName.Length)];
+        if (newBird)
+        {
+            currentBirdName = birdPrefix[Random.Range(0, birdPrefix.Length)] + " " + birdName[Random.Range(0, birdName.Length)] + " " + birdLastName[Random.Range(0, birdLastName.Length)];
 
-        GameObject head = headPart[Random.Range(0, headPart.Length)];
-        GameObject body = bodyPart[Random.Range(0, bodyPart.Length)];
-        GameObject leftWing = leftWingPart[Random.Range(0, leftWingPart.Length)];
-        GameObject rightWing = rightWingPart[Random.Range(0, rightWingPart.Length)];
+            currentHead = headPart[Random.Range(0, headPart.Length)];
+            currentBody = bodyPart[Random.Range(0, bodyPart.Length)];
+            currentLeftWing = leftWingPart[Random.Range(0, leftWingPart.Length)];
+            currentRightWing = rightWingPart[Random.Range(0, rightWingPart.Length)];
 
-        spawnBird.SpawnObjectAtSpotWithParent(headLocation,headLocation, head);
-        spawnBird.SpawnObjectAtSpotWithParent(bodyLocation,bodyLocation, body);
-        spawnBird.SpawnObjectAtSpotWithParent(leftWingLocation, leftWingLocation, leftWing);
-        spawnBird.SpawnObjectAtSpotWithParent(rightWingLocation,rightWingLocation, rightWing);
+            spawnBird.SpawnObjectAtSpotWithParent(headLocation, headLocation, currentHead);
+            spawnBird.SpawnObjectAtSpotWithParent(bodyLocation, bodyLocation, currentBody);
+            spawnBird.SpawnObjectAtSpotWithParent(leftWingLocation, leftWingLocation, currentLeftWing);
+            spawnBird.SpawnObjectAtSpotWithParent(rightWingLocation, rightWingLocation, currentRightWing);
+        }
+        else 
+        {
+            DestroyImmediate(currentHead.gameObject);
+            DestroyImmediate(currentBody.gameObject);
+            DestroyImmediate(currentLeftWing.gameObject);
+            DestroyImmediate(currentRightWing.gameObject);
+            newBird = true;
+            //find a way to remove the current gameobjects
+        }
+    }
+
+    public void NewBirdLocation()
+    {
+        bird.transform.position = birdSpawnLocation[Random.Range(0, birdSpawnLocation.Length)].transform.position;
     }
 
     void Start()
     {
-        BirdConstructor();                                                                                              //For testing. This should be replaced with the states. If the state is runaway, run the constructor again.
-        bird.transform.position = birdSpawnLocation[Random.Range(0, birdSpawnLocation.Length)].transform.position;
+        BirdConstructor();
+        NewBirdLocation();
     }
+
 }

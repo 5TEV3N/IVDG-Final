@@ -6,11 +6,10 @@ using UnityEngine.UI;
 [RequireComponent (typeof(BirdState))]
 public class BirdController : MonoBehaviour
 {
-    [Header("Debug")]
+    BirdState myState;
+
     public float birdDistance;
     public string birdName;
-
-    private BirdState myState;
 
     private Text discovered;
     private GameObject player;
@@ -29,33 +28,37 @@ public class BirdController : MonoBehaviour
 
         if (birdDistance <= 8)
         {
-            if (myState.currentBirdState != BirdState.BirdStates.interacting)
+            if (myState.state != BirdState.currentState.interacting)
             {
-                myState.currentBirdState = BirdState.BirdStates.birdcalls;
+                myState.state = BirdState.currentState.birdcalls;
                 discovered.text = "Discovered a\n " + birdName;
             }
         }
 
         else if (birdDistance >= 13)
         {
-            if (myState.currentBirdState != BirdState.BirdStates.interacting)
+            if (myState.state != BirdState.currentState.interacting)
             {
-                myState.currentBirdState = BirdState.BirdStates.hidden;
+                myState.state = BirdState.currentState.hidden;
                 discovered.text = "";
             }
         }
 
-        if (myState.currentBirdState == BirdState.BirdStates.interacting)
+        if (myState.state == BirdState.currentState.interacting)
         {
             discovered.text = "";
             gameObject.transform.position = Vector3.Lerp(gameObject.transform.position, new Vector3(0, 0, 0), Time.deltaTime);
-            StartCoroutine("TimeToInteract");
+
+            if (Input.GetKeyDown(KeyCode.End))
+            {
+                myState.state = BirdState.currentState.flyaway;
+            }
         }
     }
     
     IEnumerable TimeToInteract()
     {
         yield return new WaitForSeconds(1f);
-        myState.currentBirdState = BirdState.BirdStates.flyaway;
+        myState.state = BirdState.currentState.flyaway;
     }
 }

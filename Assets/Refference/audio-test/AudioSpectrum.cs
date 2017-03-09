@@ -46,23 +46,23 @@ public class AudioSpectrum : MonoBehaviour {
 	public Dictionary<string, float> correctNotes; // Dictionary of correct notes, from the "song" itself.
 
     public static AudioSpectrum instance;
-
-    void Awake() {
+    private BirdState closestBird;
+    void Awake()
+    {
         if(instance == null)
         {
             instance = this;
-        }else if(instance != this)
+        }
+        else if(instance != this)
         {
             Destroy(this.gameObject);
         }
     }
-
-    private BirdState closestBird;
     public void SetClosestBird(BirdState bird)
     {
-        //audioInput = bird.birdsong;
-        closestBird = bird;
+        //audioInput = bird.birdsong
         //Need to detect birdsong 
+        closestBird = bird;
     }
 
 	void Start () {
@@ -121,10 +121,9 @@ public class AudioSpectrum : MonoBehaviour {
 			Debug.Log (key + ": " + notePeaks [key]);
 		}
 
-        if (whistleIsGood == true)                  //prototype test
+        if (whistleIsGood == true)                          //prototype test
         {
-            //closestBird.successfullBirdCall = true;
-            closestBird.currentBirdState = BirdState.BirdStates.interacting;
+            closestBird.state = BirdState.currentState.interacting;
         }
 	}
 
