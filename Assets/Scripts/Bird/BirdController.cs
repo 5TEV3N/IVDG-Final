@@ -3,28 +3,23 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
+[RequireComponent (typeof(BirdState))]
 public class BirdController : MonoBehaviour
 {
-    //Script that controls the bird directly. 
     [Header("Debug")]
     public float birdDistance;
     public string birdName;
 
+    private BirdState myState;
+
     private Text discovered;
     private GameObject player;
-    private AudioSource birdsong;
-    private AudioSource audiospec;
-    private float originalVol;
 
     void Awake()
     {
+        myState = GetComponent<BirdState>();
         player = GameObject.FindGameObjectWithTag("Player");
         discovered = GameObject.Find("BirdNameDisplay").GetComponent<Text>();
-        
-        //TESTING
-        birdsong = GameObject.Find("AudioTestBirdsongs").GetComponent<AudioSource>();
-        audiospec = GameObject.Find("AudioSpectrum").GetComponent<AudioSource>();
-        birdsong.volume = originalVol;
     }
 
     void Update()
@@ -34,30 +29,33 @@ public class BirdController : MonoBehaviour
 
         if (birdDistance <= 8)
         {
-            if (birdDistance > 10)
+            if (myState.currentBirdState != BirdState.BirdStates.interacting)
             {
-                //BirdState.CurrentBirdState("runaway");
-            }
-            else
-            {
-                //BirdState.CurrentBirdState("birdcalls");
+                myState.currentBirdState = BirdState.BirdStates.birdcalls;
                 discovered.text = "Discovered a\n " + birdName;
-                birdsong.volume = Mathf.Lerp(birdsong.volume, 0.5f, Time.deltaTime);
-                audiospec.volume = Mathf.Lerp(birdsong.volume, 0.5f, Time.deltaTime);
             }
         }
-        else
+
+        else if (birdDistance >= 13)
         {
-            birdsong.volume = Mathf.Lerp(birdsong.volume, originalVol, Time.deltaTime);
-            audiospec.volume = Mathf.Lerp(birdsong.volume, originalVol, Time.deltaTime);
-            discovered.text = "";
+            if (myState.currentBirdState != BirdState.BirdStates.interacting)
+            {
+                myState.currentBirdState = BirdState.BirdStates.hidden;
+                discovered.text = "";
+            }
         }
 
-        if (BirdState.successfullBirdCall == true)
+        if (myState.currentBirdState == BirdState.BirdStates.interacting)
         {
-
+            discovered.text = "";
             gameObject.transform.position = Vector3.Lerp(gameObject.transform.position, new Vector3(0, 0, 0), Time.deltaTime);
+            StartCoroutine("TimeToInteract");
         }
     }
-
+    
+    IEnumerable TimeToInteract()
+    {
+        yield return new WaitForSeconds(1f);
+        myState.currentBirdState = BirdState.BirdStates.flyaway;
+    }
 }

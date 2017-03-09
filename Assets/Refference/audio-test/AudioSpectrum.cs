@@ -36,7 +36,7 @@ public class AudioSpectrum : MonoBehaviour {
 	 * Or redo the allNotes declaration to have index as key, sub-dictionary as value.
 	 * This will be ~very annoying~ to refactor everything so we'll see if it's necessary.
 	 */
-
+   
 	private Dictionary<string, int[]> allNotes; // Dictionary of all notes: KEY="note name" => VALUE=[lower freq bound, higher freq bound]
 	private Dictionary<string, float> notesTemplate;
 	private Dictionary<string, float> noteVolumes; // Dictionary of all note volumes: KEY="note name" => VALUE=note volume
@@ -44,6 +44,26 @@ public class AudioSpectrum : MonoBehaviour {
 	private bool detectionActive;
 
 	public Dictionary<string, float> correctNotes; // Dictionary of correct notes, from the "song" itself.
+
+    public static AudioSpectrum instance;
+
+    void Awake() {
+        if(instance == null)
+        {
+            instance = this;
+        }else if(instance != this)
+        {
+            Destroy(this.gameObject);
+        }
+    }
+
+    private BirdState closestBird;
+    public void SetClosestBird(BirdState bird)
+    {
+        //audioInput = bird.birdsong;
+        closestBird = bird;
+        //Need to detect birdsong 
+    }
 
 	void Start () {
 
@@ -103,7 +123,8 @@ public class AudioSpectrum : MonoBehaviour {
 
         if (whistleIsGood == true)                  //prototype test
         {
-            BirdState.successfullBirdCall = true;   
+            //closestBird.successfullBirdCall = true;
+            closestBird.currentBirdState = BirdState.BirdStates.interacting;
         }
 	}
 
