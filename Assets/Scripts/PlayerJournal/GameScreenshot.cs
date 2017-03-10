@@ -9,7 +9,9 @@ using UnityEngine.SceneManagement;
 
 public class GameScreenshot : MonoBehaviour
 {
-    PlayerRaycast raycast;
+    PlayerRaycast playerRaycast;
+    BirdState birdState;
+
     [Space (10)]
     public bool isScreenshotMenuOpen = false;
     public GameObject screenshotMenu;
@@ -25,24 +27,9 @@ public class GameScreenshot : MonoBehaviour
         screenShot = new Texture2D(Screen.width, Screen.height, TextureFormat.ARGB32, true);
     }
 
-    void Update()
+    void Update() // ALL OF THIS NEEDS TO BE ON THE INPUT MANAGER;
     {
-        if (Input.GetKeyDown(KeyCode.End))
-        {
-            raycast = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerRaycast>();
-
-            if (raycast.PlayerInteraction() == true)
-            {
-                StartCoroutine("GetSnapshot");
-                print("Screenshot saved!");
-            }
-            else
-            {
-                print("You can't take a picture right now. Bird is not around. Raycast bool is equal to : " + raycast.PlayerInteraction());
-            }
-        }
-
-        if (Input.GetKeyDown(KeyCode.Tab))                                                                  //FOR DEBUGING PURPOSE, CHANGE THIS LATER. ADD THIS INTO INPUTMANAGER
+        if (Input.GetKeyDown(KeyCode.Tab))
         {
             if (isScreenshotMenuOpen == false)
             {
@@ -63,7 +50,7 @@ public class GameScreenshot : MonoBehaviour
         }
     }
 
-    IEnumerator GetSnapshot()                                                                               //the act of taking a screenshot
+    public IEnumerator GetSnapshot()                                                                        //the act of taking a screenshot
     {
         yield return new WaitForEndOfFrame();                                                               //apparently you need wait for the end of the frame or else you get some sort of error
         screenShot.ReadPixels(new Rect(0, 0, Screen.width, Screen.height), 0, 0, true);                     //something about reading the texture from the screen into the saved texture data
@@ -72,7 +59,7 @@ public class GameScreenshot : MonoBehaviour
         GetComponent<ScreenshotToJournal>().AddThumbnail(screenShot.GetRawTextureData());                   //get the ScreenshotToGallery component and get the addthumbnail function and feed it the screenshot's raw texture data
         screenshotsSaved.Add(screenShot);                                                                   //somehow, save the screenshot list so that player always haves in when they execute the game
 
-        byte[] bytes = screenShot.EncodeToJPG();                                                            //encodes the the texture 2d into png
+        //byte[] bytes = screenShot.EncodeToJPG();                                                            //encodes the the texture 2d into png
         screenshotName = "/Screenshot" + ++screenshotNumber + ".jpg";                                       //the naming convention for the screenshot
         //File.WriteAllBytes(Application.dataPath + screenshotName, bytes);                                   //this is where it saves the screenshot??? 
         screenshotTook = true;                                                                              //show the screenshot in the GUI    

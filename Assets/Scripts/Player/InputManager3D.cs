@@ -6,6 +6,10 @@ public class InputManager3D : MonoBehaviour
 {
     PlayerController3D playerController3D;       // refference to the playerController3D script
     PlayerRaycast playerRaycast;                 // refference to the playerRaycast script
+    GameScreenshot gameScreenshot;
+    BirdController birdController;
+    //BirdState birdState;
+
 
     float xAxis = 0;                             // 1 = right, -1 = left
     float zAxis = 0;                             // 1 = front, -1 back
@@ -17,7 +21,10 @@ public class InputManager3D : MonoBehaviour
     {
         playerController3D = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerController3D>();
         playerRaycast = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerRaycast>();
-
+        gameScreenshot = GameObject.FindGameObjectWithTag("UI").GetComponent<GameScreenshot>();
+        birdController = GameObject.FindGameObjectWithTag("Bird").GetComponent<BirdController>();
+        //birdState = GameObject.FindGameObjectWithTag("Bird").GetComponent<BirdState>();
+        
         Cursor.lockState = CursorLockMode.Locked;
         Cursor.visible = false;
     }
@@ -40,13 +47,26 @@ public class InputManager3D : MonoBehaviour
             playerController3D.PlayerMove(xAxis, zAxis);
         }
 
-        if (Input.GetMouseButton(0))
+        if (Input.GetMouseButton(0))//LMB
         {
             if (playerRaycast.PlayerInteraction() == true)
             {
                 if (playerRaycast.hitObject().transform.tag == "Sittable")
                 {
                     playerController3D.Sit();
+                }
+            }
+        }
+
+        if (Input.GetMouseButtonDown(1))//RMB
+        {
+            if (playerRaycast.PlayerInteraction() == true)
+            {
+                if (playerRaycast.hitObject().transform.tag == "Bird")
+                {
+                    StartCoroutine(gameScreenshot.GetSnapshot());
+                    birdController.playerTookPicture = true;
+                    print("Screenshot saved!");
                 }
             }
         }

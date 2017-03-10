@@ -5,11 +5,12 @@ using UnityEngine;
 public class BirdSpawner : MonoBehaviour
 {
     //Spawn a bird. State is hidden. Put them in a random location. Give them their name
-    Spawner spawnBird = new Spawner();
+    //Spawner spawnBird = new Spawner();
+    BirdState myState;
 
+    public static string currentBirdName;
     public GameObject bird;
     public Transform[] birdSpawnLocation;
-    public static string currentBirdName;
 
     [Header("Bird's Container")]
     public Transform headLocation;
@@ -28,37 +29,39 @@ public class BirdSpawner : MonoBehaviour
     public GameObject[] leftWingPart;
     public GameObject[] rightWingPart;
 
-    private GameObject currentHead;
-    private GameObject currentBody;
-    private GameObject currentLeftWing;
-    private GameObject currentRightWing;
+    private GameObject currentHeadInstance;
+    private GameObject currentBodyInstance;
+    private GameObject currentLeftWingInstance;
+    private GameObject currentRightWingInstance;
 
-    public bool newBird;
+    void Awake()
+    {
+        myState = GameObject.FindGameObjectWithTag("Bird").GetComponent<BirdState>();
+    }
+
     public void BirdConstructor()
     {
-        if (newBird)
-        {
-            currentBirdName = birdPrefix[Random.Range(0, birdPrefix.Length)] + " " + birdName[Random.Range(0, birdName.Length)] + " " + birdLastName[Random.Range(0, birdLastName.Length)];
+        currentBirdName = birdPrefix[Random.Range(0, birdPrefix.Length)] + " " + birdName[Random.Range(0, birdName.Length)] + " " + birdLastName[Random.Range(0, birdLastName.Length)];
 
-            currentHead = headPart[Random.Range(0, headPart.Length)];
-            currentBody = bodyPart[Random.Range(0, bodyPart.Length)];
-            currentLeftWing = leftWingPart[Random.Range(0, leftWingPart.Length)];
-            currentRightWing = rightWingPart[Random.Range(0, rightWingPart.Length)];
+        GameObject head = headPart[Random.Range(0, headPart.Length)];
+        GameObject body = bodyPart[Random.Range(0, bodyPart.Length)];
+        GameObject leftWing = leftWingPart[Random.Range(0, leftWingPart.Length)];
+        GameObject rightWing = rightWingPart[Random.Range(0, rightWingPart.Length)];
+        
+        currentHeadInstance = Instantiate(head, headLocation.transform, false);
+        currentBodyInstance = Instantiate(body, bodyLocation.transform, false);
+        currentLeftWingInstance = Instantiate(leftWing, leftWingLocation.transform, false);
+        currentRightWingInstance = Instantiate(rightWing, rightWingLocation.transform, false);
+                                                          
+        myState.state = BirdState.currentState.hidden;
+    }
 
-            spawnBird.SpawnObjectAtSpotWithParent(headLocation, headLocation, currentHead);
-            spawnBird.SpawnObjectAtSpotWithParent(bodyLocation, bodyLocation, currentBody);
-            spawnBird.SpawnObjectAtSpotWithParent(leftWingLocation, leftWingLocation, currentLeftWing);
-            spawnBird.SpawnObjectAtSpotWithParent(rightWingLocation, rightWingLocation, currentRightWing);
-        }
-        else 
-        {
-            DestroyImmediate(currentHead.gameObject);
-            DestroyImmediate(currentBody.gameObject);
-            DestroyImmediate(currentLeftWing.gameObject);
-            DestroyImmediate(currentRightWing.gameObject);
-            newBird = true;
-            //find a way to remove the current gameobjects
-        }
+    public void Deconstructor()
+    {
+        DestroyObject(currentHeadInstance);
+        DestroyObject(currentBodyInstance);
+        DestroyObject(currentLeftWingInstance);
+        DestroyObject(currentRightWingInstance);
     }
 
     public void NewBirdLocation()
@@ -71,5 +74,4 @@ public class BirdSpawner : MonoBehaviour
         BirdConstructor();
         NewBirdLocation();
     }
-
 }

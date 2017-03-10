@@ -10,22 +10,17 @@ public class BirdState : MonoBehaviour
     public currentState state;
     public AudioSource birdsong;
 
-    private GameObject currentBird;
     private AudioSource audiospec;
-    private float originalVol;
+    private float originalVol = 0f;
+    //private GameObject currentBird;
 
     void Awake()
     {
         birdsong = GameObject.Find("AudioTestBirdsongs").GetComponent<AudioSource>();                                // this should be attached to the bird 
         audiospec = GameObject.Find("AudioSpectrum").GetComponent<AudioSource>();
-        birdSpawner = GameObject.Find("BirdManager").GetComponent<BirdSpawner>();
+        birdSpawner = GameObject.FindGameObjectWithTag("BirdManager").GetComponent<BirdSpawner>();
 
         birdsong.volume = originalVol;
-    }
-
-    void Start()
-    {
-        state = currentState.hidden;
     }
 
     void Update()
@@ -33,9 +28,9 @@ public class BirdState : MonoBehaviour
         updateState(state);
     }
 
-    public void updateState(currentState state)                                                                      // bird states, player can interact with these states by using this function.
+    public void updateState(currentState birdstate)                                                                      // bird states, player can interact with these states by using this function.
     {
-        switch (state)
+        switch (birdstate)
         {
             case currentState.hidden:
                 print("State: hidden. Bird is hidden and singing");
@@ -53,10 +48,9 @@ public class BirdState : MonoBehaviour
                 break;
             case currentState.flyaway:
                 print("State: runaway. Bird flies away from the player because of reasons");
-                birdSpawner.newBird = false;
                 birdSpawner.NewBirdLocation();
+                birdSpawner.Deconstructor();
                 birdSpawner.BirdConstructor();
-                state = currentState.hidden;
                 break;
         }
     }

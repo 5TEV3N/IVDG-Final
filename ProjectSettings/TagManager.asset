@@ -7,6 +7,8 @@ TagManager:
   - audiobars
   - Sittable
   - Bird
+  - BirdManager
+  - UI
   layers:
   - Default
   - TransparentFX

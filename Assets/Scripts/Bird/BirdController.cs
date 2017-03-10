@@ -6,10 +6,12 @@ using UnityEngine.UI;
 [RequireComponent (typeof(BirdState))]
 public class BirdController : MonoBehaviour
 {
+    PlayerRaycast playerRaycast;
     BirdState myState;
 
     public float birdDistance;
     public string birdName;
+    public bool playerTookPicture = false;
 
     private Text discovered;
     private GameObject player;
@@ -19,6 +21,7 @@ public class BirdController : MonoBehaviour
         myState = GetComponent<BirdState>();
         player = GameObject.FindGameObjectWithTag("Player");
         discovered = GameObject.Find("BirdNameDisplay").GetComponent<Text>();
+        playerRaycast = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerRaycast>();
     }
 
     void Update()
@@ -49,16 +52,18 @@ public class BirdController : MonoBehaviour
             discovered.text = "";
             gameObject.transform.position = Vector3.Lerp(gameObject.transform.position, new Vector3(0, 0, 0), Time.deltaTime);
 
-            if (Input.GetKeyDown(KeyCode.End))
+            if (playerTookPicture == true)
             {
                 myState.state = BirdState.currentState.flyaway;
+                playerTookPicture = false;
             }
         }
     }
-    
-    IEnumerable TimeToInteract()
-    {
-        yield return new WaitForSeconds(1f);
-        myState.state = BirdState.currentState.flyaway;
-    }
 }
+/*
+IEnumerable TimeToInteract()
+{
+    yield return new WaitForSeconds(1f);
+    myState.state = BirdState.currentState.flyaway;
+}
+*/
