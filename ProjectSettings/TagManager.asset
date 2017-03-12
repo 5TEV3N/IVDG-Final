@@ -9,6 +9,7 @@ TagManager:
   - Bird
   - BirdManager
   - UI
+  - UIBirdName
   layers:
   - Default
   - TransparentFX

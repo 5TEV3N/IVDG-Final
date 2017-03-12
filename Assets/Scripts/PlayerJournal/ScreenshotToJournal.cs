@@ -79,12 +79,13 @@ public class ScreenshotToJournal: MonoBehaviour
     }
 }
 
-// REFFERENCE
-//http://gamedev.stackexchange.com/questions/92257/loading-png-file-and-using-it-for-unityengine-ui-image
-//http://answers.unity3d.com/questions/710833/using-getcomponent-with-an-array.html
-//http://answers.unity3d.com/questions/963675/how-to-create-an-image-gallery-with-previous-and-n.html
-//carmack!
-
-//Side note: ternary operator
-//thumbnail.texture = (thumbnail.texture == null) ? screenshot : null;
-//variable = (ifConditionTrue)? TrueValue : FalseValue;
+/* REFFERENCE
+ * http://gamedev.stackexchange.com/questions/92257/loading-png-file-and-using-it-for-unityengine-ui-image
+ * http://answers.unity3d.com/questions/710833/using-getcomponent-with-an-array.html
+ * http://answers.unity3d.com/questions/963675/how-to-create-an-image-gallery-with-previous-and-n.html
+ * carmack!
+ * 
+ * Side note: ternary operator
+ * thumbnail.texture = (thumbnail.texture == null) ? screenshot : null;
+ * variable = (ifConditionTrue)? TrueValue : FalseValue;
+ */

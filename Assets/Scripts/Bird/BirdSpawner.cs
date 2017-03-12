@@ -4,8 +4,7 @@ using UnityEngine;
 
 public class BirdSpawner : MonoBehaviour
 {
-    //Spawn a bird. State is hidden. Put them in a random location. Give them their name
-    //Spawner spawnBird = new Spawner();
+    // Spawn a bird. State is hidden. Put them in a random location. Give them their name.
     BirdState myState;
 
     public static string currentBirdName;

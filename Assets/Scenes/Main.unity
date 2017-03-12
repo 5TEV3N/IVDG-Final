@@ -603,6 +603,15 @@ Prefab:
       propertyPath: m_TagString
       value: UI
       objectReference: {fileID: 0}
+    - target: {fileID: 1934522510354464, guid: 4750df543703be747a324da4c5d76e28, type: 2}
+      propertyPath: m_TagString
+      value: UIBirdName
+      objectReference: {fileID: 0}
+    - target: {fileID: 114242020440556168, guid: 4750df543703be747a324da4c5d76e28,
+        type: 2}
+      propertyPath: isScreenshotMenuOpen
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 4750df543703be747a324da4c5d76e28, type: 2}
   m_IsPrefabParent: 0
@@ -2058,8 +2067,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bb4cc3af19cfee546b34ac5e9101b3ec, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  birdDistance: 0
   birdName: 
+  birdDistance: 0
+  birdTriggerBirdcalls: 0
+  birdTriggerHidden: 0
   playerTookPicture: 0
 --- !u!114 &2091863531
 MonoBehaviour:

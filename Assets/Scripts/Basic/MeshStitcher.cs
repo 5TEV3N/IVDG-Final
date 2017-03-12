@@ -4,7 +4,9 @@ using System.Collections.Generic;
 public class MeshStitcher
 {
     // CREDITS TO masterprompt FOR THE SCRIPT
-	public GameObject Stitch (GameObject sourceClothing, GameObject targetAvatar)
+    // https://github.com/masterprompt/ModelStitching
+
+    public GameObject Stitch (GameObject sourceClothing, GameObject targetAvatar)
 	{
 		var boneCatalog = new TransformCatalog (targetAvatar.transform);
 		var skinnedMeshRenderers = sourceClothing.GetComponentsInChildren<SkinnedMeshRenderer> ();

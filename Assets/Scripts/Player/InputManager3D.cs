@@ -4,12 +4,10 @@ using UnityEngine;
 
 public class InputManager3D : MonoBehaviour
 {
-    PlayerController3D playerController3D;       // refference to the playerController3D script
-    PlayerRaycast playerRaycast;                 // refference to the playerRaycast script
+    PlayerController3D playerController3D;      
+    PlayerRaycast playerRaycast;                
     GameScreenshot gameScreenshot;
-    BirdController birdController;
-    //BirdState birdState;
-
+    BirdController birdController;   
 
     float xAxis = 0;                             // 1 = right, -1 = left
     float zAxis = 0;                             // 1 = front, -1 back
@@ -23,20 +21,20 @@ public class InputManager3D : MonoBehaviour
         playerRaycast = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerRaycast>();
         gameScreenshot = GameObject.FindGameObjectWithTag("UI").GetComponent<GameScreenshot>();
         birdController = GameObject.FindGameObjectWithTag("Bird").GetComponent<BirdController>();
-        //birdState = GameObject.FindGameObjectWithTag("Bird").GetComponent<BirdState>();
-        
+
         Cursor.lockState = CursorLockMode.Locked;
         Cursor.visible = false;
     }
 
     void FixedUpdate()
-    { 
+    {
         mouseXAxis = Input.GetAxis("Mouse X");
         mouseYAxis = Input.GetAxis("Mouse Y");
 
         xAxis = Input.GetAxisRaw("Horizontal");
         zAxis = Input.GetAxisRaw("Vertical");
 
+        #region Character + Camera Movement
         if (mouseXAxis != 0 || mouseYAxis != 0)
         {
             playerController3D.Mouselook(mouseXAxis, mouseYAxis);
@@ -46,8 +44,13 @@ public class InputManager3D : MonoBehaviour
         {
             playerController3D.PlayerMove(xAxis, zAxis);
         }
+        #endregion
+    }
 
-        if (Input.GetMouseButton(0))//LMB
+    void Update()
+    {
+        #region Raycast Interaction
+        if (Input.GetMouseButton(0))                                            //LMB
         {
             if (playerRaycast.PlayerInteraction() == true)
             {
@@ -57,8 +60,7 @@ public class InputManager3D : MonoBehaviour
                 }
             }
         }
-
-        if (Input.GetMouseButtonDown(1))//RMB
+        if (Input.GetMouseButtonDown(1))                                        //RMB
         {
             if (playerRaycast.PlayerInteraction() == true)
             {
@@ -70,7 +72,9 @@ public class InputManager3D : MonoBehaviour
                 }
             }
         }
+        #endregion
 
+        #region Camera + UI
         if (Input.GetKey(KeyCode.F))
         {
             playerController3D.Focus(true);
@@ -95,5 +99,26 @@ public class InputManager3D : MonoBehaviour
                 Time.timeScale = 0f;
             }
         }
+        if (Input.GetKeyDown(KeyCode.Tab))
+        {
+            if (gameScreenshot.isScreenshotMenuOpen == false)
+            {
+                gameScreenshot.screenshotMenu.SetActive(true);
+                gameScreenshot.isScreenshotMenuOpen = true;
+                Cursor.lockState = CursorLockMode.None;
+                Cursor.visible = true;
+                Time.timeScale = 0f;
+            }
+
+            else
+            {
+                gameScreenshot.screenshotMenu.SetActive(false);
+                gameScreenshot.isScreenshotMenuOpen = false;
+                Cursor.lockState = CursorLockMode.Locked;
+                Cursor.visible = false;
+                Time.timeScale = 1f;
+            }
+        }
+        #endregion
     }
 }

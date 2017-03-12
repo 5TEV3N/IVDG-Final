@@ -3,7 +3,7 @@ using System.Collections;
 [System.Serializable]
 public class Spawner
 {
-	//Credits go to Ryon E for this script!
+	//CREDITS TO Ryon E FOR THE SCRIPT!
 
 	public Spawner()
     {

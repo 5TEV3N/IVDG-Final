@@ -4,6 +4,8 @@ using System.Collections.Generic;
 public class MeshTester : MonoBehaviour
 {
     // CREDITS TO masterprompt FOR THE SCRIPT
+    // https://github.com/masterprompt/ModelStitching
+
     public GameObject avatar;
     public GameObject wornClothing;
     [Space(20)]

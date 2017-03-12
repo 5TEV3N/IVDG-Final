@@ -27,29 +27,6 @@ public class GameScreenshot : MonoBehaviour
         screenShot = new Texture2D(Screen.width, Screen.height, TextureFormat.ARGB32, true);
     }
 
-    void Update() // ALL OF THIS NEEDS TO BE ON THE INPUT MANAGER;
-    {
-        if (Input.GetKeyDown(KeyCode.Tab))
-        {
-            if (isScreenshotMenuOpen == false)
-            {
-                screenshotMenu.SetActive(true);
-                isScreenshotMenuOpen = true;
-                Cursor.lockState = CursorLockMode.None;
-                Cursor.visible = true;
-                Time.timeScale = 0f;
-            }
-            else
-            {
-                screenshotMenu.SetActive(false);
-                isScreenshotMenuOpen = false;
-                Cursor.lockState = CursorLockMode.Locked;
-                Cursor.visible = false;
-                Time.timeScale = 1f;
-            }
-        }
-    }
-
     public IEnumerator GetSnapshot()                                                                        //the act of taking a screenshot
     {
         yield return new WaitForEndOfFrame();                                                               //apparently you need wait for the end of the frame or else you get some sort of error
@@ -60,15 +37,16 @@ public class GameScreenshot : MonoBehaviour
         screenshotsSaved.Add(screenShot);                                                                   //somehow, save the screenshot list so that player always haves in when they execute the game
 
         //byte[] bytes = screenShot.EncodeToJPG();                                                            //encodes the the texture 2d into png
-        screenshotName = "/Screenshot" + ++screenshotNumber + ".jpg";                                       //the naming convention for the screenshot
+        //screenshotName = "/Screenshot" + ++screenshotNumber + ".jpg";                                       //the naming convention for the screenshot
         //File.WriteAllBytes(Application.dataPath + screenshotName, bytes);                                   //this is where it saves the screenshot??? 
-        screenshotTook = true;                                                                              //show the screenshot in the GUI    
-
-        yield return new WaitForSeconds(4f);
-        screenshotTook = false;                                                                             //turn it off
+        //screenshotTook = true;                                                                              //show the screenshot in the GUI    
+        //
+        //yield return new WaitForSeconds(4f);
+        //screenshotTook = false;                                                                             //turn it off
     }
 }
 
-// REFFERENCE
-//http://answers.unity3d.com/questions/393431/capturing-screen-shot-and-showing-the-captured-ima.html
-//https://aarlangdi.blogspot.ca/2016/07/saving-screen-shot-in-unity-3d.html
+/*  REFFERENCE
+ * http://answers.unity3d.com/questions/393431/capturing-screen-shot-and-showing-the-captured-ima.html
+ * https://aarlangdi.blogspot.ca/2016/07/saving-screen-shot-in-unity-3d.html
+ */

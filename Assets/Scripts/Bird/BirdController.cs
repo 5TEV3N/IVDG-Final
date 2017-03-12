@@ -9,18 +9,20 @@ public class BirdController : MonoBehaviour
     PlayerRaycast playerRaycast;
     BirdState myState;
 
-    public float birdDistance;
     public string birdName;
-    public bool playerTookPicture = false;
+    public float birdDistance;                      // distance between bird and player
+    public float birdTriggerBirdcalls;              // distance to trigger the birdcalls state 
+    public float birdTriggerHidden;                 // distance to trigger the hidden state
+    public bool playerTookPicture = false;          // if the player took a screenshot, bird switches state to runaway. This is subject to change
 
-    private Text discovered;
+    private Text discovered;                        // the text that shows when you discovered this bird
     private GameObject player;
 
     void Awake()
     {
         myState = GetComponent<BirdState>();
         player = GameObject.FindGameObjectWithTag("Player");
-        discovered = GameObject.Find("BirdNameDisplay").GetComponent<Text>();
+        discovered = GameObject.FindGameObjectWithTag("UIBirdName").GetComponent<Text>();
         playerRaycast = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerRaycast>();
     }
 
@@ -60,10 +62,3 @@ public class BirdController : MonoBehaviour
         }
     }
 }
-/*
-IEnumerable TimeToInteract()
-{
-    yield return new WaitForSeconds(1f);
-    myState.state = BirdState.currentState.flyaway;
-}
-*/
