@@ -12,15 +12,13 @@ public class GameScreenshot : MonoBehaviour
     PlayerRaycast playerRaycast;
     BirdState birdState;
 
-    [Space (10)]
-    public bool isScreenshotMenuOpen = false;
-    public GameObject screenshotMenu;
-    public List<Texture2D> screenshotsSaved = new List<Texture2D>();
-    
+    [Header ("Containers")]
+    public GameObject screenshotMenu;                                                                       //Container for the screenshot menu. InputManager access this
     private Texture2D screenShot;
-    private int screenshotNumber;
-    private string screenshotName;
-    private bool screenshotTook = false;
+
+    [Header("Logic Checks")]
+    public bool isScreenshotMenuOpen = false;
+    public bool screenshotTook = false;
 
     void Awake()
     {
@@ -34,15 +32,6 @@ public class GameScreenshot : MonoBehaviour
         screenShot.Apply();                                                                                 //apply the texture into screenShot
         
         GetComponent<ScreenshotToJournal>().AddThumbnail(screenShot.GetRawTextureData());                   //get the ScreenshotToGallery component and get the addthumbnail function and feed it the screenshot's raw texture data
-        screenshotsSaved.Add(screenShot);                                                                   //somehow, save the screenshot list so that player always haves in when they execute the game
-
-        //byte[] bytes = screenShot.EncodeToJPG();                                                            //encodes the the texture 2d into png
-        //screenshotName = "/Screenshot" + ++screenshotNumber + ".jpg";                                       //the naming convention for the screenshot
-        //File.WriteAllBytes(Application.dataPath + screenshotName, bytes);                                   //this is where it saves the screenshot??? 
-        //screenshotTook = true;                                                                              //show the screenshot in the GUI    
-        //
-        //yield return new WaitForSeconds(4f);
-        //screenshotTook = false;                                                                             //turn it off
     }
 }
 
@@ -50,3 +39,13 @@ public class GameScreenshot : MonoBehaviour
  * http://answers.unity3d.com/questions/393431/capturing-screen-shot-and-showing-the-captured-ima.html
  * https://aarlangdi.blogspot.ca/2016/07/saving-screen-shot-in-unity-3d.html
  */
+/* For saving it into a picture format:
+
+       byte[] bytes = screenShot.EncodeToJPG();                                                            //encodes the the texture 2d into png
+       screenshotName = "/Screenshot" + ++screenshotNumber + ".jpg";                                       //the naming convention for the screenshot
+       File.WriteAllBytes(Application.dataPath + screenshotName, bytes);                                   //this is where it saves the screenshot??? 
+       screenshotTook = true;                                                                              //show the screenshot in the GUI    
+
+       yield return new WaitForSeconds(4f);
+       screenshotTook = false;                                                                             //turn it off
+*/
