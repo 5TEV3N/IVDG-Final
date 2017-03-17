@@ -14,7 +14,7 @@ public class ScreenshotToJournal: MonoBehaviour
 
     [Header ("Values")]
     public int journalPageIndex;
-    //public int i;
+    public int inverseJournalPageIndex;
     public int slotIndex;
     private int screenshotPageNumber;
 
@@ -31,6 +31,7 @@ public class ScreenshotToJournal: MonoBehaviour
     public void AddThumbnail(byte[] screenshotBytes)
     {//Side note: Please make it so that players won't be able to see the screenshot page unless they took one
         info.AddInfo();
+		info.AddInputField();
         if (slotIndex < screenshotSlot.Count)
         {
             // Bootstrap, Applies the texture2d into the raw image
@@ -64,9 +65,11 @@ public class ScreenshotToJournal: MonoBehaviour
         if (journalPageIndex + 1 < newPagesList.Count)
         {
             journalPageIndex++;
-            newPagesList[journalPageIndex].SetActive(true);
+
+			newPagesList[journalPageIndex].SetActive(true);
             info.newBirdNamePageList[journalPageIndex].SetActive(true);
-        }
+			info.newInputFieldsList[journalPageIndex].SetActive(true);        
+		}
         else { print("Debug: No pages to go forward to"); }
     }
 
@@ -78,7 +81,8 @@ public class ScreenshotToJournal: MonoBehaviour
             {
                 newPagesList[journalPageIndex].SetActive(false);
                 info.newBirdNamePageList[journalPageIndex].SetActive(false);
-                journalPageIndex--;
+				info.newInputFieldsList [journalPageIndex].SetActive (false);       
+				journalPageIndex--;
             }
         }
         else { print("Debug: No pages to go back to"); }

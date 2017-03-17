@@ -12,13 +12,14 @@ public class BirdInfoToJournal : MonoBehaviour
     public GameObject newBirdName;
     public GameObject newBirdInputField; 
     public Transform birdNameTransform;
+	public Transform inputFieldTransform;
 
     [Header ("Values")]
-    //public int inputFieldNumber;
     public int birdInfoSlot;
     private int birdJournalPageNumber;
-
-    [Header("Lists")]
+	private int inputFieldNumber;
+    
+	[Header("Lists")]
     public List<Text> birdNames = new List<Text>();
     public List<InputField> inputFieldsList = new List<InputField>();
     public List<GameObject> newBirdNamePageList = new List<GameObject>();
@@ -51,6 +52,21 @@ public class BirdInfoToJournal : MonoBehaviour
             birdInfoSlot++;
         }
     }
+
+	public void AddInputField()
+	{
+		newBirdInputField = Instantiate(newBirdInputField, inputFieldTransform, false);
+		newBirdInputField.name = "InputFieldsPage" + ++inputFieldNumber;
+		newBirdInputField.SetActive(true);
+
+		for (int i = 0; i < newBirdInputField.transform.childCount; i++)
+		{
+			newInputFieldComponents = newBirdInputField.GetComponentsInChildren<InputField>();
+		}
+
+		inputFieldsList.AddRange(newInputFieldComponents);
+		newInputFieldsList.Add(newBirdInputField);
+	}
 }
 /*
 newBirdInputField = Instantiate(newBirdInputField, birdNameTransform, false);
