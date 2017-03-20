@@ -7,7 +7,8 @@ public class InputManager3D : MonoBehaviour
     PlayerController3D playerController3D;      
     PlayerRaycast playerRaycast;                
     GameScreenshot gameScreenshot;
-    BirdController birdController;   
+    BirdController birdController;
+    GameUI gameUi;
 
     float xAxis = 0;                             // 1 = right, -1 = left
     float zAxis = 0;                             // 1 = front, -1 back
@@ -21,6 +22,7 @@ public class InputManager3D : MonoBehaviour
         playerRaycast = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerRaycast>();
         gameScreenshot = GameObject.FindGameObjectWithTag("UI").GetComponent<GameScreenshot>();
         birdController = GameObject.FindGameObjectWithTag("Bird").GetComponent<BirdController>();
+        gameUi = GameObject.FindGameObjectWithTag("Ui").GetComponent<GameUI>();
 
         Cursor.lockState = CursorLockMode.Locked;
         Cursor.visible = false;
@@ -119,6 +121,14 @@ public class InputManager3D : MonoBehaviour
                 Time.timeScale = 1f;
             }
         }
+
+        // This is for the trailer scene in which the microphone icon pops up. Can be used for the actual game
+        if (Input.GetKeyDown(KeyCode.Space))
+        {
+            gameUi.MicInputUI();
+            // Add the microphone checks from the AudioSpectrum
+        }
+
         #endregion
     }
 }

@@ -58,4 +58,9 @@ public class GameUI : MonoBehaviour
 
         Application.Quit();
     }
+
+    public void MicInputUI()
+    {
+        // play the animation
+    }
 }
