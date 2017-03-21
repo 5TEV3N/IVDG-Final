@@ -22,7 +22,7 @@ public class InputManager3D : MonoBehaviour
         playerRaycast = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerRaycast>();
         gameScreenshot = GameObject.FindGameObjectWithTag("UI").GetComponent<GameScreenshot>();
         birdController = GameObject.FindGameObjectWithTag("Bird").GetComponent<BirdController>();
-        gameUi = GameObject.FindGameObjectWithTag("Ui").GetComponent<GameUI>();
+        gameUi = GameObject.FindGameObjectWithTag("UI").GetComponent<GameUI>();
 
         Cursor.lockState = CursorLockMode.Locked;
         Cursor.visible = false;
@@ -123,10 +123,15 @@ public class InputManager3D : MonoBehaviour
         }
 
         // This is for the trailer scene in which the microphone icon pops up. Can be used for the actual game
-        if (Input.GetKeyDown(KeyCode.Space))
+        if (Input.GetKey(KeyCode.Space))
         {
-            gameUi.MicInputUI();
+            gameUi.MicInputUI(true);
             // Add the microphone checks from the AudioSpectrum
+        }
+
+        if (!Input.GetKey(KeyCode.Space))
+        {
+            gameUi.MicInputUI(false);
         }
 
         #endregion

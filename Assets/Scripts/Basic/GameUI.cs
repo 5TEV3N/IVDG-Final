@@ -1,14 +1,24 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 
 public class GameUI : MonoBehaviour
 {
     public static GameUI gameUi;
 
+    public AnimationCurve curveJuice1;
+
+    [Header ("Containers")]
     public GameObject gamePause;
     public GameObject TitleScreen;
+    public GameObject micImg;
+    private Text discovered;
+
+    [Header("Values")]
+    public string birdName;
+    public float textSmoothFade;
 
     void Awake()
     {
@@ -21,6 +31,11 @@ public class GameUI : MonoBehaviour
         {
             Destroy(gameObject);
         }
+    }
+
+    void Update()
+    {
+        birdName = BirdSpawner.currentBirdName;
     }
 
     public void UnLoadUI()
@@ -59,8 +74,29 @@ public class GameUI : MonoBehaviour
         Application.Quit();
     }
 
-    public void MicInputUI()
+    public void MicInputUI(bool hold)
     {
-        // play the animation
+        if (hold == true)
+        {
+            micImg.transform.localPosition = Vector2.Lerp(micImg.transform.localPosition, new Vector2(0, -320), curveJuice1.Evaluate(Time.deltaTime * 8));
+        }
+        else
+        {
+            micImg.transform.localPosition = Vector2.Lerp(micImg.transform.localPosition, new Vector2(0, -400), curveJuice1.Evaluate(Time.deltaTime * 8));
+        }
+    }
+
+    public void BirdDiscovered(bool encountering)
+    {
+        discovered = GameObject.FindGameObjectWithTag("UIBirdName").GetComponent<Text>();
+        if (encountering == true)
+        {
+            discovered.text = "Discovered a\n " + birdName;
+            discovered.color = Color.Lerp(discovered.color, Color.black, Time.deltaTime * textSmoothFade);
+        }
+        else
+        {
+            discovered.color = Color.Lerp(discovered.color, Color.clear, Time.deltaTime * textSmoothFade); 
+        }
     }
 }
