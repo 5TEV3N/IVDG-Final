@@ -6,7 +6,7 @@ using UnityEngine.UI;
 public class BirdInfoToJournal : MonoBehaviour
 {
     // NOT THE BEST WAY TO GO ABOUT THIS. PLEASE FIGURE OUT A MORE OPTIMAL WAY OF GOING ABOUT THIS LATER
-    BirdController currentBirdName;
+    GameUI gameUI;
 
     [Header("Containers")]
     public GameObject newBirdName;
@@ -30,11 +30,11 @@ public class BirdInfoToJournal : MonoBehaviour
 
     public void AddInfo()
     {
-        currentBirdName = GameObject.Find("Bird").GetComponent<BirdController>();
+        gameUI = GameObject.FindGameObjectWithTag("UI").GetComponent<GameUI>();
         if (birdInfoSlot < birdNames.Count)
         {
             print("Boot Strap");
-            birdNames[birdInfoSlot].text = currentBirdName.birdName;
+            birdNames[birdInfoSlot].text = gameUI.birdName;
             birdInfoSlot++;
         }
         else
@@ -48,7 +48,7 @@ public class BirdInfoToJournal : MonoBehaviour
             birdNames.AddRange(newTextComponents);
             newBirdNamePageList.Add(newBirdName);
 
-            birdNames[birdInfoSlot].text = currentBirdName.birdName;
+            birdNames[birdInfoSlot].text = gameUI.birdName;
             birdInfoSlot++;
         }
     }

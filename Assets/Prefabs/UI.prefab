@@ -1544,7 +1544,7 @@ MonoBehaviour:
   TitleScreen: {fileID: 1536063779341560}
   micImg: {fileID: 1993776868884126}
   birdName: 
-  textSmoothFade: 0
+  textSmoothFade: 4
 --- !u!114 &114899524433066898
 MonoBehaviour:
   m_ObjectHideFlags: 1

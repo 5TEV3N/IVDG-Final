@@ -9,7 +9,6 @@ public class BirdController : MonoBehaviour
     BirdState myState;
     GameUI gameUI;
 
-    public string birdName;
     public float birdDistance;                      // distance between bird and player
     public float birdTriggerBirdcalls;              // distance to trigger the birdcalls state 
     public float birdTriggerHidden;                 // distance to trigger the hidden state
@@ -29,7 +28,7 @@ public class BirdController : MonoBehaviour
     {
         birdDistance = Vector3.Distance(gameObject.transform.position, player.transform.position);
 
-        if (birdDistance <= 8)
+        if (birdDistance <= birdTriggerBirdcalls)
         {
             if (myState.state != BirdState.currentState.interacting)
             {
@@ -38,7 +37,7 @@ public class BirdController : MonoBehaviour
             }
         }
 
-        else if (birdDistance >= 13)
+        else if (birdDistance >= birdTriggerHidden)
         {
             if (myState.state != BirdState.currentState.interacting)
             {
