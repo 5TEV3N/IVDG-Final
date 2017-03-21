@@ -5,7 +5,6 @@ using UnityEngine;
 [RequireComponent (typeof(BirdState))]
 public class BirdController : MonoBehaviour
 {
-    PlayerRaycast playerRaycast;
     BirdState myState;
     GameUI gameUI;
 
@@ -20,7 +19,6 @@ public class BirdController : MonoBehaviour
     {
         myState = GetComponent<BirdState>();
         player = GameObject.FindGameObjectWithTag("Player");
-        playerRaycast = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerRaycast>();
         gameUI = GameObject.FindGameObjectWithTag("UI").GetComponent<GameUI>();
     }
 

@@ -4,7 +4,6 @@ using System.Collections;
 
 public class PlayerController3D : MonoBehaviour
 {
-    InputManager3D inputManager;
     PlayerRaycast playerRaycast;
 
     [Header("Containers")]
@@ -27,7 +26,6 @@ public class PlayerController3D : MonoBehaviour
 
     void Awake()
     {
-        inputManager = GameObject.FindGameObjectWithTag("Player").GetComponent<InputManager3D>();
         playerRaycast = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerRaycast>();
         originalFOV = Camera.main.fieldOfView;
     }
