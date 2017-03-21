@@ -2069,8 +2069,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   birdName: 
   birdDistance: 0
-  birdTriggerBirdcalls: 0
-  birdTriggerHidden: 0
+  birdTriggerBirdcalls: 10
+  birdTriggerHidden: 14
   playerTookPicture: 0
 --- !u!114 &2091863531
 MonoBehaviour:

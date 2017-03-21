@@ -35,7 +35,7 @@ public class GameUI : MonoBehaviour
 
     void Update()
     {
-        birdName = BirdSpawner.currentBirdName;
+        birdName = BirdSpawner.currentBirdName;     // if we're going for multiple birds in a scene instead of one being moved around at certain distances, then this needs to change;
     }
 
     public void UnLoadUI()
