@@ -613,9 +613,106 @@ ModelImporter:
     4300086: Leg_R
     4300088: Body
     4300090: head_feather001
+    4300092: eye_R
     7400000: Rig_01|Idle_01
     7400002: Rig_01|T_pose
     7400004: Tail01_Feather3|T_pose
+    7400006: Rig_01|eye_LAction
+    7400008: Rig_01|eye_LAction.001
+    7400010: Rig_01|eye_RAction
+    7400012: eye_L|eye_LAction
+    7400014: eye_L|eye_LAction.001
+    7400016: eye_L|eye_RAction
+    7400018: eye_R|eye_LAction
+    7400020: eye_R|eye_LAction.001
+    7400022: eye_R|eye_RAction
+    7400024: Tail01_Feather3|eye_LAction
+    7400026: Tail01_Feather3|eye_LAction.001
+    7400028: Tail01_Feather3|eye_RAction
+    7400030: Rig_01|Primary009_LAction
+    7400032: Rig_01|Secondary001_LAction
+    7400034: Rig_01|Secondary002_LAction
+    7400036: Rig_01|Secondary003_LAction
+    7400038: Rig_01|Secondary004_LAction
+    7400040: Rig_01|Secondary005_LAction
+    7400042: Rig_01|Secondary006_LAction
+    7400044: eye_L|Primary009_LAction
+    7400046: eye_L|Secondary001_LAction
+    7400048: eye_L|Secondary002_LAction
+    7400050: eye_L|Secondary003_LAction
+    7400052: eye_L|Secondary004_LAction
+    7400054: eye_L|Secondary005_LAction
+    7400056: eye_L|Secondary006_LAction
+    7400058: Secondary004_L|eye_RAction
+    7400060: Secondary004_L|Primary009_LAction
+    7400062: Secondary004_L|Secondary001_LAction
+    7400064: Secondary004_L|Secondary002_LAction
+    7400066: Secondary004_L|Secondary003_LAction
+    7400068: Secondary004_L|Secondary004_LAction
+    7400070: Secondary004_L|Secondary005_LAction
+    7400072: Secondary004_L|Secondary006_LAction
+    7400074: Secondary003_L|eye_RAction
+    7400076: Secondary003_L|Primary009_LAction
+    7400078: Secondary003_L|Secondary001_LAction
+    7400080: Secondary003_L|Secondary002_LAction
+    7400082: Secondary003_L|Secondary003_LAction
+    7400084: Secondary003_L|Secondary004_LAction
+    7400086: Secondary003_L|Secondary005_LAction
+    7400088: Secondary003_L|Secondary006_LAction
+    7400090: Secondary002_L|eye_RAction
+    7400092: Secondary002_L|Primary009_LAction
+    7400094: Secondary002_L|Secondary001_LAction
+    7400096: Secondary002_L|Secondary002_LAction
+    7400098: Secondary002_L|Secondary003_LAction
+    7400100: Secondary002_L|Secondary004_LAction
+    7400102: Secondary002_L|Secondary005_LAction
+    7400104: Secondary002_L|Secondary006_LAction
+    7400106: Secondary001_L|eye_RAction
+    7400108: Secondary001_L|Primary009_LAction
+    7400110: Secondary001_L|Secondary001_LAction
+    7400112: Secondary001_L|Secondary002_LAction
+    7400114: Secondary001_L|Secondary003_LAction
+    7400116: Secondary001_L|Secondary004_LAction
+    7400118: Secondary001_L|Secondary005_LAction
+    7400120: Secondary001_L|Secondary006_LAction
+    7400122: Primary009_L|eye_RAction
+    7400124: Primary009_L|Primary009_LAction
+    7400126: Primary009_L|Secondary001_LAction
+    7400128: Primary009_L|Secondary002_LAction
+    7400130: Primary009_L|Secondary003_LAction
+    7400132: Primary009_L|Secondary004_LAction
+    7400134: Primary009_L|Secondary005_LAction
+    7400136: Primary009_L|Secondary006_LAction
+    7400138: Secondary005_L|eye_RAction
+    7400140: Secondary005_L|Primary009_LAction
+    7400142: Secondary005_L|Secondary001_LAction
+    7400144: Secondary005_L|Secondary002_LAction
+    7400146: Secondary005_L|Secondary003_LAction
+    7400148: Secondary005_L|Secondary004_LAction
+    7400150: Secondary005_L|Secondary005_LAction
+    7400152: Secondary005_L|Secondary006_LAction
+    7400154: Secondary006_L|eye_RAction
+    7400156: Secondary006_L|Primary009_LAction
+    7400158: Secondary006_L|Secondary001_LAction
+    7400160: Secondary006_L|Secondary002_LAction
+    7400162: Secondary006_L|Secondary003_LAction
+    7400164: Secondary006_L|Secondary004_LAction
+    7400166: Secondary006_L|Secondary005_LAction
+    7400168: Secondary006_L|Secondary006_LAction
+    7400170: eye_R|Primary009_LAction
+    7400172: eye_R|Secondary001_LAction
+    7400174: eye_R|Secondary002_LAction
+    7400176: eye_R|Secondary003_LAction
+    7400178: eye_R|Secondary004_LAction
+    7400180: eye_R|Secondary005_LAction
+    7400182: eye_R|Secondary006_LAction
+    7400184: Tail01_Feather3|Primary009_LAction
+    7400186: Tail01_Feather3|Secondary001_LAction
+    7400188: Tail01_Feather3|Secondary002_LAction
+    7400190: Tail01_Feather3|Secondary003_LAction
+    7400192: Tail01_Feather3|Secondary004_LAction
+    7400194: Tail01_Feather3|Secondary005_LAction
+    7400196: Tail01_Feather3|Secondary006_LAction
     9500000: //RootNode
     13700000: Body
     13700002: head_feather001
@@ -664,8 +761,8 @@ ModelImporter:
     useFileScale: 1
   tangentSpace:
     normalSmoothAngle: 60
-    normalImportMode: 1
-    tangentImportMode: 3
+    normalImportMode: 0
+    tangentImportMode: 0
   importAnimation: 1
   copyAvatar: 0
   humanDescription:
