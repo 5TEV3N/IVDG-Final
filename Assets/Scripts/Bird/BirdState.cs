@@ -53,6 +53,7 @@ public class BirdState : MonoBehaviour
 
                 birdSpawner.NewBirdLocation();
                 birdSpawner.Deconstructor();
+                birdSpawner.BirdNamer();
                 birdSpawner.BirdConstructor();
                 break;
         }

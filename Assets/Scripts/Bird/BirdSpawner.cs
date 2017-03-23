@@ -11,6 +11,9 @@ public class BirdSpawner : MonoBehaviour
     public GameObject bird;
     public Transform[] birdSpawnLocation;
 
+    [Header("The Trailer Button")]
+    public bool imDoingTheTrailerRightNow;
+
     [Header("Bird's Container")]
     public Transform headLocation;
     public Transform bodyLocation;
@@ -38,10 +41,13 @@ public class BirdSpawner : MonoBehaviour
         myState = GameObject.FindGameObjectWithTag("Bird").GetComponent<BirdState>();
     }
 
-    public void BirdConstructor()
+    public void BirdNamer()
     {
         currentBirdName = birdPrefix[Random.Range(0, birdPrefix.Length)] + " " + birdName[Random.Range(0, birdName.Length)] + " " + birdLastName[Random.Range(0, birdLastName.Length)];
+    }
 
+    public void BirdConstructor()
+    {
         GameObject head = headPart[Random.Range(0, headPart.Length)];
         GameObject body = bodyPart[Random.Range(0, bodyPart.Length)];
         GameObject leftWing = leftWingPart[Random.Range(0, leftWingPart.Length)];
@@ -70,7 +76,12 @@ public class BirdSpawner : MonoBehaviour
 
     void Start()
     {
-        BirdConstructor();
-        NewBirdLocation();
+        if (imDoingTheTrailerRightNow == false)
+        {
+            BirdNamer();
+            BirdConstructor();
+            NewBirdLocation();
+        }
+        else { BirdNamer(); }
     }
 }

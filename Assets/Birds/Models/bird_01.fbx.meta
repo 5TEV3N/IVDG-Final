@@ -740,7 +740,1507 @@ ModelImporter:
     animationScaleError: 0.5
     animationWrapMode: 0
     extraExposedTransformPaths: []
-    clipAnimations: []
+    clipAnimations:
+    - serializedVersion: 16
+      name: Rig_01|Idle_01
+      takeName: Rig_01|Idle_01
+      firstFrame: 0
+      lastFrame: 120
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 1
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: Body
+        weight: 1
+      - path: head_feather001
+        weight: 1
+      - path: Leg_L
+        weight: 1
+      - path: Leg_R
+        weight: 1
+      - path: Rig_01
+        weight: 1
+      - path: Rig_01/Base
+        weight: 1
+      - path: Rig_01/Base/thigh.L
+        weight: 1
+      - path: Rig_01/Base/thigh.L/Leg01.L
+        weight: 1
+      - path: Rig_01/Base/thigh.L/Leg01.L/Leg02.L
+        weight: 1
+      - path: Rig_01/Base/thigh.L/Leg01.L/Leg02.L/foot01.L
+        weight: 1
+      - path: Rig_01/Base/thigh.L/Leg01.L/Leg02.L/foot01.L/foot03.L
+        weight: 1
+      - path: Rig_01/Base/thigh.L/Leg01.L/Leg02.L/foot01.L/foot03.L/foot03.L_end
+        weight: 1
+      - path: Rig_01/Base/thigh.L/Leg01.L/Leg02.L/foot02.L
+        weight: 1
+      - path: Rig_01/Base/thigh.L/Leg01.L/Leg02.L/foot02.L/foot04.L
+        weight: 1
+      - path: Rig_01/Base/thigh.L/Leg01.L/Leg02.L/foot02.L/foot04.L/foot04.L_end
+        weight: 1
+      - path: Rig_01/Base/thigh.R
+        weight: 1
+      - path: Rig_01/Base/thigh.R/Leg01.R
+        weight: 1
+      - path: Rig_01/Base/thigh.R/Leg01.R/Leg02.R
+        weight: 1
+      - path: Rig_01/Base/thigh.R/Leg01.R/Leg02.R/foot01.R
+        weight: 1
+      - path: Rig_01/Base/thigh.R/Leg01.R/Leg02.R/foot01.R/foot03.R
+        weight: 1
+      - path: Rig_01/Base/thigh.R/Leg01.R/Leg02.R/foot01.R/foot03.R/foot03.R_end
+        weight: 1
+      - path: Rig_01/Base/thigh.R/Leg01.R/Leg02.R/foot02.R
+        weight: 1
+      - path: Rig_01/Base/thigh.R/Leg01.R/Leg02.R/foot02.R/foot04.R
+        weight: 1
+      - path: Rig_01/Base/thigh.R/Leg01.R/Leg02.R/foot02.R/foot04.R/foot04.R_end
+        weight: 1
+      - path: Rig_01/Base/Thorax
+        weight: 1
+      - path: Rig_01/Base/Thorax/Neck_02
+        weight: 1
+      - path: Rig_01/Base/Thorax/Neck_02/Neck_01
+        weight: 1
+      - path: Rig_01/Base/Thorax/Neck_02/Neck_01/Head
+        weight: 1
+      - path: Rig_01/Base/Thorax/Neck_02/Neck_01/Head/Beak_bottom
+        weight: 1
+      - path: Rig_01/Base/Thorax/Neck_02/Neck_01/Head/Beak_bottom/Beak001_Bottom
+        weight: 1
+      - path: Rig_01/Base/Thorax/Neck_02/Neck_01/Head/Beak_bottom/Beak_bottom_end
+        weight: 1
+      - path: Rig_01/Base/Thorax/Neck_02/Neck_01/Head/Beak_top.001
+        weight: 1
+      - path: Rig_01/Base/Thorax/Neck_02/Neck_01/Head/Beak_top.001/Beak001_top
+        weight: 1
+      - path: Rig_01/Base/Thorax/Neck_02/Neck_01/Head/Beak_top.001/Beak_top.001_end
+        weight: 1
+      - path: Rig_01/Base/Thorax/Neck_02/Neck_01/Head/eye_L
+        weight: 1
+      - path: Rig_01/Base/Thorax/Neck_02/Neck_01/Head/eye_R
+        weight: 1
+      - path: Rig_01/Base/Thorax/Neck_02/Neck_01/Head/Head.002
+        weight: 1
+      - path: Rig_01/Base/Thorax/Neck_02/Neck_01/Head/Head.002/Head.002_end
+        weight: 1
+      - path: Rig_01/Base/Thorax/shoulder_L
+        weight: 1
+      - path: Rig_01/Base/Thorax/shoulder_L/humerus_L
+        weight: 1
+      - path: Rig_01/Base/Thorax/shoulder_L/humerus_L/elbow_L
+        weight: 1
+      - path: Rig_01/Base/Thorax/shoulder_L/humerus_L/elbow_L/elbow_IK_L
+        weight: 1
+      - path: Rig_01/Base/Thorax/shoulder_L/humerus_L/elbow_L/elbow_IK_L/elbow_IK_L_end
+        weight: 1
+      - path: Rig_01/Base/Thorax/shoulder_L/humerus_L/radius_L
+        weight: 1
+      - path: Rig_01/Base/Thorax/shoulder_L/humerus_L/radius_L/hand_L
+        weight: 1
+      - path: Rig_01/Base/Thorax/shoulder_L/humerus_L/radius_L/hand_L/hand_L.001
+        weight: 1
+      - path: Rig_01/Base/Thorax/shoulder_L/humerus_L/radius_L/hand_L/hand_L.001/hand_L.001_end
+        weight: 1
+      - path: Rig_01/Base/Thorax/shoulder_L/humerus_L/radius_L/hand_L/Primary.001_L
+        weight: 1
+      - path: Rig_01/Base/Thorax/shoulder_L/humerus_L/radius_L/hand_L/Primary.001_L/Primary.001_L_end
+        weight: 1
+      - path: Rig_01/Base/Thorax/shoulder_L/humerus_L/radius_L/hand_L/Primary.001_L/Primary001_L
+        weight: 1
+      - path: Rig_01/Base/Thorax/shoulder_L/humerus_L/radius_L/hand_L/Primary.002_L
+        weight: 1
+      - path: Rig_01/Base/Thorax/shoulder_L/humerus_L/radius_L/hand_L/Primary.002_L/Primary.002_L_end
+        weight: 1
+      - path: Rig_01/Base/Thorax/shoulder_L/humerus_L/radius_L/hand_L/Primary.002_L/Primary002_L
+        weight: 1
+      - path: Rig_01/Base/Thorax/shoulder_L/humerus_L/radius_L/hand_L/Primary.003_L
+        weight: 1
+      - path: Rig_01/Base/Thorax/shoulder_L/humerus_L/radius_L/hand_L/Primary.003_L/Primary.003_L_end
+        weight: 1
+      - path: Rig_01/Base/Thorax/shoulder_L/humerus_L/radius_L/hand_L/Primary.003_L/Primary003_L
+        weight: 1
+      - path: Rig_01/Base/Thorax/shoulder_L/humerus_L/radius_L/hand_L/Primary.004_L
+        weight: 1
+      - path: Rig_01/Base/Thorax/shoulder_L/humerus_L/radius_L/hand_L/Primary.004_L/Primary.004_L_end
+        weight: 1
+      - path: Rig_01/Base/Thorax/shoulder_L/humerus_L/radius_L/hand_L/Primary.004_L/Primary004_L
+        weight: 1
+      - path: Rig_01/Base/Thorax/shoulder_L/humerus_L/radius_L/hand_L/Primary.005_L
+        weight: 1
+      - path: Rig_01/Base/Thorax/shoulder_L/humerus_L/radius_L/hand_L/Primary.005_L/Primary.005_L_end
+        weight: 1
+      - path: Rig_01/Base/Thorax/shoulder_L/humerus_L/radius_L/hand_L/Primary.005_L/Primary005_L
+        weight: 1
+      - path: Rig_01/Base/Thorax/shoulder_L/humerus_L/radius_L/hand_L/Primary.006_L
+        weight: 1
+      - path: Rig_01/Base/Thorax/shoulder_L/humerus_L/radius_L/hand_L/Primary.006_L/Primary.006_L_end
+        weight: 1
+      - path: Rig_01/Base/Thorax/shoulder_L/humerus_L/radius_L/hand_L/Primary.006_L/Primary006_L
+        weight: 1
+      - path: Rig_01/Base/Thorax/shoulder_L/humerus_L/radius_L/hand_L/Primary.007_L
+        weight: 1
+      - path: Rig_01/Base/Thorax/shoulder_L/humerus_L/radius_L/hand_L/Primary.007_L/Primary.007_L_end
+        weight: 1
+      - path: Rig_01/Base/Thorax/shoulder_L/humerus_L/radius_L/hand_L/Primary.007_L/Primary007_L
+        weight: 1
+      - path: Rig_01/Base/Thorax/shoulder_L/humerus_L/radius_L/hand_L/Primary.008_L
+        weight: 1
+      - path: Rig_01/Base/Thorax/shoulder_L/humerus_L/radius_L/hand_L/Primary.008_L/Primary.008_L_end
+        weight: 1
+      - path: Rig_01/Base/Thorax/shoulder_L/humerus_L/radius_L/hand_L/Primary.008_L/Primary008_L
+        weight: 1
+      - path: Rig_01/Base/Thorax/shoulder_L/humerus_L/radius_L/hand_L/Primary.009_L
+        weight: 1
+      - path: Rig_01/Base/Thorax/shoulder_L/humerus_L/radius_L/hand_L/Primary.009_L/Primary.009_L_end
+        weight: 1
+      - path: Rig_01/Base/Thorax/shoulder_L/humerus_L/radius_L/hand_L/Primary.009_L/Primary009_L
+        weight: 1
+      - path: Rig_01/Base/Thorax/shoulder_L/humerus_L/radius_L/Secondary.001_L
+        weight: 1
+      - path: Rig_01/Base/Thorax/shoulder_L/humerus_L/radius_L/Secondary.001_L/Secondary.001_L_end
+        weight: 1
+      - path: Rig_01/Base/Thorax/shoulder_L/humerus_L/radius_L/Secondary.001_L/Secondary001_L
+        weight: 1
+      - path: Rig_01/Base/Thorax/shoulder_L/humerus_L/radius_L/Secondary.002_L
+        weight: 1
+      - path: Rig_01/Base/Thorax/shoulder_L/humerus_L/radius_L/Secondary.002_L/Secondary.002_L_end
+        weight: 1
+      - path: Rig_01/Base/Thorax/shoulder_L/humerus_L/radius_L/Secondary.002_L/Secondary002_L
+        weight: 1
+      - path: Rig_01/Base/Thorax/shoulder_L/humerus_L/radius_L/Secondary.003_L
+        weight: 1
+      - path: Rig_01/Base/Thorax/shoulder_L/humerus_L/radius_L/Secondary.003_L/Secondary.003_L_end
+        weight: 1
+      - path: Rig_01/Base/Thorax/shoulder_L/humerus_L/radius_L/Secondary.003_L/Secondary003_L
+        weight: 1
+      - path: Rig_01/Base/Thorax/shoulder_L/humerus_L/radius_L/Secondary.004_L
+        weight: 1
+      - path: Rig_01/Base/Thorax/shoulder_L/humerus_L/radius_L/Secondary.004_L/Secondary.004_L_end
+        weight: 1
+      - path: Rig_01/Base/Thorax/shoulder_L/humerus_L/radius_L/Secondary.004_L/Secondary004_L
+        weight: 1
+      - path: Rig_01/Base/Thorax/shoulder_L/humerus_L/radius_L/Secondary.005_L
+        weight: 1
+      - path: Rig_01/Base/Thorax/shoulder_L/humerus_L/radius_L/Secondary.005_L/Secondary.005_L_end
+        weight: 1
+      - path: Rig_01/Base/Thorax/shoulder_L/humerus_L/radius_L/Secondary.005_L/Secondary005_L
+        weight: 1
+      - path: Rig_01/Base/Thorax/shoulder_L/humerus_L/radius_L/Secondary.006_L
+        weight: 1
+      - path: Rig_01/Base/Thorax/shoulder_L/humerus_L/radius_L/Secondary.006_L/Secondary.006_L_end
+        weight: 1
+      - path: Rig_01/Base/Thorax/shoulder_L/humerus_L/radius_L/Secondary.006_L/Secondary006_L
+        weight: 1
+      - path: Rig_01/Base/Thorax/shoulder_L/humerus_L/radius_L/wrist_L
+        weight: 1
+      - path: Rig_01/Base/Thorax/shoulder_L/humerus_L/radius_L/wrist_L/stretch1_L
+        weight: 1
+      - path: Rig_01/Base/Thorax/shoulder_L/humerus_L/radius_L/wrist_L/stretch1_L/stretch1_L.008
+        weight: 1
+      - path: Rig_01/Base/Thorax/shoulder_L/humerus_L/radius_L/wrist_L/stretch1_L/stretch1_L.008/stretch1_L.007
+        weight: 1
+      - path: Rig_01/Base/Thorax/shoulder_L/humerus_L/radius_L/wrist_L/stretch1_L/stretch1_L.008/stretch1_L.007/stretch1_L.006
+        weight: 1
+      - path: Rig_01/Base/Thorax/shoulder_L/humerus_L/radius_L/wrist_L/stretch1_L/stretch1_L.008/stretch1_L.007/stretch1_L.006/stretch1_L.005
+        weight: 1
+      - path: Rig_01/Base/Thorax/shoulder_L/humerus_L/radius_L/wrist_L/stretch1_L/stretch1_L.008/stretch1_L.007/stretch1_L.006/stretch1_L.005/stretch1_L.004
+        weight: 1
+      - path: Rig_01/Base/Thorax/shoulder_L/humerus_L/radius_L/wrist_L/stretch1_L/stretch1_L.008/stretch1_L.007/stretch1_L.006/stretch1_L.005/stretch1_L.004/stretch1_L.003
+        weight: 1
+      - path: Rig_01/Base/Thorax/shoulder_L/humerus_L/radius_L/wrist_L/stretch1_L/stretch1_L.008/stretch1_L.007/stretch1_L.006/stretch1_L.005/stretch1_L.004/stretch1_L.003/stretch1_L.002
+        weight: 1
+      - path: Rig_01/Base/Thorax/shoulder_L/humerus_L/radius_L/wrist_L/stretch1_L/stretch1_L.008/stretch1_L.007/stretch1_L.006/stretch1_L.005/stretch1_L.004/stretch1_L.003/stretch1_L.002/stretch1_L.001
+        weight: 1
+      - path: Rig_01/Base/Thorax/shoulder_L/humerus_L/radius_L/wrist_L/stretch1_L/stretch1_L.008/stretch1_L.007/stretch1_L.006/stretch1_L.005/stretch1_L.004/stretch1_L.003/stretch1_L.002/stretch1_L.001/stretch1_L.001_end
+        weight: 1
+      - path: Rig_01/Base/Thorax/shoulder_L/humerus_L/radius_L/wrist_L/stretch2_L
+        weight: 1
+      - path: Rig_01/Base/Thorax/shoulder_L/humerus_L/radius_L/wrist_L/stretch2_L/stretch2_L.006
+        weight: 1
+      - path: Rig_01/Base/Thorax/shoulder_L/humerus_L/radius_L/wrist_L/stretch2_L/stretch2_L.006/stretch2_L.005
+        weight: 1
+      - path: Rig_01/Base/Thorax/shoulder_L/humerus_L/radius_L/wrist_L/stretch2_L/stretch2_L.006/stretch2_L.005/stretch2_L.004
+        weight: 1
+      - path: Rig_01/Base/Thorax/shoulder_L/humerus_L/radius_L/wrist_L/stretch2_L/stretch2_L.006/stretch2_L.005/stretch2_L.004/stretch2_L.003
+        weight: 1
+      - path: Rig_01/Base/Thorax/shoulder_L/humerus_L/radius_L/wrist_L/stretch2_L/stretch2_L.006/stretch2_L.005/stretch2_L.004/stretch2_L.003/stretch2_L.002
+        weight: 1
+      - path: Rig_01/Base/Thorax/shoulder_L/humerus_L/radius_L/wrist_L/stretch2_L/stretch2_L.006/stretch2_L.005/stretch2_L.004/stretch2_L.003/stretch2_L.002/stretch2_L.001
+        weight: 1
+      - path: Rig_01/Base/Thorax/shoulder_L/humerus_L/radius_L/wrist_L/stretch2_L/stretch2_L.006/stretch2_L.005/stretch2_L.004/stretch2_L.003/stretch2_L.002/stretch2_L.001/stretch2_L.001_end
+        weight: 1
+      - path: Rig_01/Base/Thorax/shoulder_L/humerus_L/Tertiary.001_L
+        weight: 1
+      - path: Rig_01/Base/Thorax/shoulder_L/humerus_L/Tertiary.001_L/Tertiary.001_L_end
+        weight: 1
+      - path: Rig_01/Base/Thorax/shoulder_L/humerus_L/Tertiary.001_L/Tertiary001_L
+        weight: 1
+      - path: Rig_01/Base/Thorax/shoulder_L/humerus_L/Tertiary.002_L
+        weight: 1
+      - path: Rig_01/Base/Thorax/shoulder_L/humerus_L/Tertiary.002_L/Tertiary.002_L_end
+        weight: 1
+      - path: Rig_01/Base/Thorax/shoulder_L/humerus_L/Tertiary.002_L/Tertiary002_L
+        weight: 1
+      - path: Rig_01/Base/Thorax/shoulder_L/humerus_L/Tertiary.003_L
+        weight: 1
+      - path: Rig_01/Base/Thorax/shoulder_L/humerus_L/Tertiary.003_L/Tertiary.003_L_end
+        weight: 1
+      - path: Rig_01/Base/Thorax/shoulder_L/humerus_L/Tertiary.003_L/Tertiary003_L
+        weight: 1
+      - path: Rig_01/Base/Thorax/shoulder_R
+        weight: 1
+      - path: Rig_01/Base/Thorax/shoulder_R/humerus_L.001
+        weight: 1
+      - path: Rig_01/Base/Thorax/shoulder_R/humerus_L.001/elbow_L.001
+        weight: 1
+      - path: Rig_01/Base/Thorax/shoulder_R/humerus_L.001/elbow_L.001/elbow_IK_L.001
+        weight: 1
+      - path: Rig_01/Base/Thorax/shoulder_R/humerus_L.001/elbow_L.001/elbow_IK_L.001/elbow_IK_L.001_end
+        weight: 1
+      - path: Rig_01/Base/Thorax/shoulder_R/humerus_L.001/radius_L.001
+        weight: 1
+      - path: Rig_01/Base/Thorax/shoulder_R/humerus_L.001/radius_L.001/hand_R
+        weight: 1
+      - path: Rig_01/Base/Thorax/shoulder_R/humerus_L.001/radius_L.001/hand_R/hand_R.001
+        weight: 1
+      - path: Rig_01/Base/Thorax/shoulder_R/humerus_L.001/radius_L.001/hand_R/hand_R.001/hand_R.001_end
+        weight: 1
+      - path: Rig_01/Base/Thorax/shoulder_R/humerus_L.001/radius_L.001/hand_R/Primary.001_R
+        weight: 1
+      - path: Rig_01/Base/Thorax/shoulder_R/humerus_L.001/radius_L.001/hand_R/Primary.001_R/Primary.001_R_end
+        weight: 1
+      - path: Rig_01/Base/Thorax/shoulder_R/humerus_L.001/radius_L.001/hand_R/Primary.001_R/Primary001_R
+        weight: 1
+      - path: Rig_01/Base/Thorax/shoulder_R/humerus_L.001/radius_L.001/hand_R/Primary.002_R
+        weight: 1
+      - path: Rig_01/Base/Thorax/shoulder_R/humerus_L.001/radius_L.001/hand_R/Primary.002_R/Primary.002_R_end
+        weight: 1
+      - path: Rig_01/Base/Thorax/shoulder_R/humerus_L.001/radius_L.001/hand_R/Primary.002_R/Primary002_R
+        weight: 1
+      - path: Rig_01/Base/Thorax/shoulder_R/humerus_L.001/radius_L.001/hand_R/Primary.003_R
+        weight: 1
+      - path: Rig_01/Base/Thorax/shoulder_R/humerus_L.001/radius_L.001/hand_R/Primary.003_R/Primary.003_R_end
+        weight: 1
+      - path: Rig_01/Base/Thorax/shoulder_R/humerus_L.001/radius_L.001/hand_R/Primary.003_R/Primary003_R
+        weight: 1
+      - path: Rig_01/Base/Thorax/shoulder_R/humerus_L.001/radius_L.001/hand_R/Primary.004_R
+        weight: 1
+      - path: Rig_01/Base/Thorax/shoulder_R/humerus_L.001/radius_L.001/hand_R/Primary.004_R/Primary.004_R_end
+        weight: 1
+      - path: Rig_01/Base/Thorax/shoulder_R/humerus_L.001/radius_L.001/hand_R/Primary.004_R/Primary004_R
+        weight: 1
+      - path: Rig_01/Base/Thorax/shoulder_R/humerus_L.001/radius_L.001/hand_R/Primary.005_R
+        weight: 1
+      - path: Rig_01/Base/Thorax/shoulder_R/humerus_L.001/radius_L.001/hand_R/Primary.005_R/Primary.005_R_end
+        weight: 1
+      - path: Rig_01/Base/Thorax/shoulder_R/humerus_L.001/radius_L.001/hand_R/Primary.005_R/Primary005_R
+        weight: 1
+      - path: Rig_01/Base/Thorax/shoulder_R/humerus_L.001/radius_L.001/hand_R/Primary.006_R
+        weight: 1
+      - path: Rig_01/Base/Thorax/shoulder_R/humerus_L.001/radius_L.001/hand_R/Primary.006_R/Primary.006_R_end
+        weight: 1
+      - path: Rig_01/Base/Thorax/shoulder_R/humerus_L.001/radius_L.001/hand_R/Primary.006_R/Primary006_R
+        weight: 1
+      - path: Rig_01/Base/Thorax/shoulder_R/humerus_L.001/radius_L.001/hand_R/Primary.007_R
+        weight: 1
+      - path: Rig_01/Base/Thorax/shoulder_R/humerus_L.001/radius_L.001/hand_R/Primary.007_R/Primary.007_R_end
+        weight: 1
+      - path: Rig_01/Base/Thorax/shoulder_R/humerus_L.001/radius_L.001/hand_R/Primary.007_R/Primary007_R
+        weight: 1
+      - path: Rig_01/Base/Thorax/shoulder_R/humerus_L.001/radius_L.001/hand_R/Primary.008_R
+        weight: 1
+      - path: Rig_01/Base/Thorax/shoulder_R/humerus_L.001/radius_L.001/hand_R/Primary.008_R/Primary.008_R_end
+        weight: 1
+      - path: Rig_01/Base/Thorax/shoulder_R/humerus_L.001/radius_L.001/hand_R/Primary.008_R/Primary008_R
+        weight: 1
+      - path: Rig_01/Base/Thorax/shoulder_R/humerus_L.001/radius_L.001/hand_R/Primary.009_R
+        weight: 1
+      - path: Rig_01/Base/Thorax/shoulder_R/humerus_L.001/radius_L.001/hand_R/Primary.009_R/Primary.009_R_end
+        weight: 1
+      - path: Rig_01/Base/Thorax/shoulder_R/humerus_L.001/radius_L.001/hand_R/Primary.009_R/Primary009_R
+        weight: 1
+      - path: Rig_01/Base/Thorax/shoulder_R/humerus_L.001/radius_L.001/Secondary.001_R
+        weight: 1
+      - path: Rig_01/Base/Thorax/shoulder_R/humerus_L.001/radius_L.001/Secondary.001_R/Secondary.001_R_end
+        weight: 1
+      - path: Rig_01/Base/Thorax/shoulder_R/humerus_L.001/radius_L.001/Secondary.001_R/Secondary001_R
+        weight: 1
+      - path: Rig_01/Base/Thorax/shoulder_R/humerus_L.001/radius_L.001/Secondary.002_R
+        weight: 1
+      - path: Rig_01/Base/Thorax/shoulder_R/humerus_L.001/radius_L.001/Secondary.002_R/Secondary.002_R_end
+        weight: 1
+      - path: Rig_01/Base/Thorax/shoulder_R/humerus_L.001/radius_L.001/Secondary.002_R/Secondary002_R
+        weight: 1
+      - path: Rig_01/Base/Thorax/shoulder_R/humerus_L.001/radius_L.001/Secondary.003_R
+        weight: 1
+      - path: Rig_01/Base/Thorax/shoulder_R/humerus_L.001/radius_L.001/Secondary.003_R/Secondary.003_R_end
+        weight: 1
+      - path: Rig_01/Base/Thorax/shoulder_R/humerus_L.001/radius_L.001/Secondary.003_R/Secondary003_R
+        weight: 1
+      - path: Rig_01/Base/Thorax/shoulder_R/humerus_L.001/radius_L.001/Secondary.004_R
+        weight: 1
+      - path: Rig_01/Base/Thorax/shoulder_R/humerus_L.001/radius_L.001/Secondary.004_R/Secondary.004_R_end
+        weight: 1
+      - path: Rig_01/Base/Thorax/shoulder_R/humerus_L.001/radius_L.001/Secondary.004_R/Secondary004_R
+        weight: 1
+      - path: Rig_01/Base/Thorax/shoulder_R/humerus_L.001/radius_L.001/Secondary.005_R
+        weight: 1
+      - path: Rig_01/Base/Thorax/shoulder_R/humerus_L.001/radius_L.001/Secondary.005_R/Secondary.005_R_end
+        weight: 1
+      - path: Rig_01/Base/Thorax/shoulder_R/humerus_L.001/radius_L.001/Secondary.005_R/Secondary005_R
+        weight: 1
+      - path: Rig_01/Base/Thorax/shoulder_R/humerus_L.001/radius_L.001/Secondary.006_R
+        weight: 1
+      - path: Rig_01/Base/Thorax/shoulder_R/humerus_L.001/radius_L.001/Secondary.006_R/Secondary.006_R_end
+        weight: 1
+      - path: Rig_01/Base/Thorax/shoulder_R/humerus_L.001/radius_L.001/Secondary.006_R/Secondary006_R
+        weight: 1
+      - path: Rig_01/Base/Thorax/shoulder_R/humerus_L.001/radius_L.001/wrist_R
+        weight: 1
+      - path: Rig_01/Base/Thorax/shoulder_R/humerus_L.001/radius_L.001/wrist_R/stretch1_R
+        weight: 1
+      - path: Rig_01/Base/Thorax/shoulder_R/humerus_L.001/radius_L.001/wrist_R/stretch1_R/stretch1_R.008
+        weight: 1
+      - path: Rig_01/Base/Thorax/shoulder_R/humerus_L.001/radius_L.001/wrist_R/stretch1_R/stretch1_R.008/stretch1_R.007
+        weight: 1
+      - path: Rig_01/Base/Thorax/shoulder_R/humerus_L.001/radius_L.001/wrist_R/stretch1_R/stretch1_R.008/stretch1_R.007/stretch1_R.006
+        weight: 1
+      - path: Rig_01/Base/Thorax/shoulder_R/humerus_L.001/radius_L.001/wrist_R/stretch1_R/stretch1_R.008/stretch1_R.007/stretch1_R.006/stretch1_R.005
+        weight: 1
+      - path: Rig_01/Base/Thorax/shoulder_R/humerus_L.001/radius_L.001/wrist_R/stretch1_R/stretch1_R.008/stretch1_R.007/stretch1_R.006/stretch1_R.005/stretch1_R.004
+        weight: 1
+      - path: Rig_01/Base/Thorax/shoulder_R/humerus_L.001/radius_L.001/wrist_R/stretch1_R/stretch1_R.008/stretch1_R.007/stretch1_R.006/stretch1_R.005/stretch1_R.004/stretch1_R.003
+        weight: 1
+      - path: Rig_01/Base/Thorax/shoulder_R/humerus_L.001/radius_L.001/wrist_R/stretch1_R/stretch1_R.008/stretch1_R.007/stretch1_R.006/stretch1_R.005/stretch1_R.004/stretch1_R.003/stretch1_R.002
+        weight: 1
+      - path: Rig_01/Base/Thorax/shoulder_R/humerus_L.001/radius_L.001/wrist_R/stretch1_R/stretch1_R.008/stretch1_R.007/stretch1_R.006/stretch1_R.005/stretch1_R.004/stretch1_R.003/stretch1_R.002/stretch1_R.001
+        weight: 1
+      - path: Rig_01/Base/Thorax/shoulder_R/humerus_L.001/radius_L.001/wrist_R/stretch1_R/stretch1_R.008/stretch1_R.007/stretch1_R.006/stretch1_R.005/stretch1_R.004/stretch1_R.003/stretch1_R.002/stretch1_R.001/stretch1_R.001_end
+        weight: 1
+      - path: Rig_01/Base/Thorax/shoulder_R/humerus_L.001/radius_L.001/wrist_R/stretch2_R
+        weight: 1
+      - path: Rig_01/Base/Thorax/shoulder_R/humerus_L.001/radius_L.001/wrist_R/stretch2_R/stretch2_R.006
+        weight: 1
+      - path: Rig_01/Base/Thorax/shoulder_R/humerus_L.001/radius_L.001/wrist_R/stretch2_R/stretch2_R.006/stretch2_R.005
+        weight: 1
+      - path: Rig_01/Base/Thorax/shoulder_R/humerus_L.001/radius_L.001/wrist_R/stretch2_R/stretch2_R.006/stretch2_R.005/stretch2_R.004
+        weight: 1
+      - path: Rig_01/Base/Thorax/shoulder_R/humerus_L.001/radius_L.001/wrist_R/stretch2_R/stretch2_R.006/stretch2_R.005/stretch2_R.004/stretch2_R.003
+        weight: 1
+      - path: Rig_01/Base/Thorax/shoulder_R/humerus_L.001/radius_L.001/wrist_R/stretch2_R/stretch2_R.006/stretch2_R.005/stretch2_R.004/stretch2_R.003/stretch2_R.002
+        weight: 1
+      - path: Rig_01/Base/Thorax/shoulder_R/humerus_L.001/radius_L.001/wrist_R/stretch2_R/stretch2_R.006/stretch2_R.005/stretch2_R.004/stretch2_R.003/stretch2_R.002/stretch2_R.001
+        weight: 1
+      - path: Rig_01/Base/Thorax/shoulder_R/humerus_L.001/radius_L.001/wrist_R/stretch2_R/stretch2_R.006/stretch2_R.005/stretch2_R.004/stretch2_R.003/stretch2_R.002/stretch2_R.001/stretch2_R.001_end
+        weight: 1
+      - path: Rig_01/Base/Thorax/shoulder_R/humerus_L.001/Tertiary.004
+        weight: 1
+      - path: Rig_01/Base/Thorax/shoulder_R/humerus_L.001/Tertiary.004/Tertiary.004_end
+        weight: 1
+      - path: Rig_01/Base/Thorax/shoulder_R/humerus_L.001/Tertiary.004/Tertiary001_R
+        weight: 1
+      - path: Rig_01/Base/Thorax/shoulder_R/humerus_L.001/Tertiary.005
+        weight: 1
+      - path: Rig_01/Base/Thorax/shoulder_R/humerus_L.001/Tertiary.005/Tertiary.005_end
+        weight: 1
+      - path: Rig_01/Base/Thorax/shoulder_R/humerus_L.001/Tertiary.005/Tertiary002_R
+        weight: 1
+      - path: Rig_01/Base/Thorax/shoulder_R/humerus_L.001/Tertiary.006
+        weight: 1
+      - path: Rig_01/Base/Thorax/shoulder_R/humerus_L.001/Tertiary.006/Tertiary.006_end
+        weight: 1
+      - path: Rig_01/Base/Thorax/shoulder_R/humerus_L.001/Tertiary.006/Tertiary003_R
+        weight: 1
+      - path: Rig_01/foot_IK_L
+        weight: 1
+      - path: Rig_01/foot_IK_L/foot_IK_L_end
+        weight: 1
+      - path: Rig_01/foot_IK_R
+        weight: 1
+      - path: Rig_01/foot_IK_R/foot_IK_R_end
+        weight: 1
+      - path: Rig_01/forearm_handle_L
+        weight: 1
+      - path: Rig_01/forearm_handle_L/forearm_handle.001_L
+        weight: 1
+      - path: Rig_01/forearm_handle_L/forearm_handle.001_L/forearm_handle.001_L_end
+        weight: 1
+      - path: Rig_01/forearm_handle_R
+        weight: 1
+      - path: Rig_01/forearm_handle_R/forearm_handle.001_R
+        weight: 1
+      - path: Rig_01/forearm_handle_R/forearm_handle.001_R/forearm_handle.001_R_end
+        weight: 1
+      - path: Rig_01/head_looksAt_IK
+        weight: 1
+      - path: Rig_01/head_looksAt_IK/head_looksAt_IK_end
+        weight: 1
+      - path: Rig_01/Spine_01
+        weight: 1
+      - path: Rig_01/Spine_01/Spine_02
+        weight: 1
+      - path: Rig_01/Spine_01/Spine_02/Tail
+        weight: 1
+      - path: Rig_01/Spine_01/Spine_02/Tail/Tail01_Feather1
+        weight: 1
+      - path: Rig_01/Spine_01/Spine_02/Tail/Tail01_Feather2
+        weight: 1
+      - path: Rig_01/Spine_01/Spine_02/Tail/Tail01_Feather3
+        weight: 1
+      - path: Rig_01/Spine_01/Spine_02/Tail/Tail01_Feather4
+        weight: 1
+      - path: Rig_01/Spine_01/Spine_02/Tail/Tail01_Feather5
+        weight: 1
+      - path: Rig_01/Spine_01/Spine_02/Tail/Tail_end
+        weight: 1
+      - path: Rig_01/stretch3_L
+        weight: 1
+      - path: Rig_01/stretch3_L/stretch3_L.003
+        weight: 1
+      - path: Rig_01/stretch3_L/stretch3_L.003/stretch3_L.002
+        weight: 1
+      - path: Rig_01/stretch3_L/stretch3_L.003/stretch3_L.002/stretch3_L.001
+        weight: 1
+      - path: Rig_01/stretch3_L/stretch3_L.003/stretch3_L.002/stretch3_L.001/stretch3_L.001_end
+        weight: 1
+      - path: Rig_01/stretch3_R
+        weight: 1
+      - path: Rig_01/stretch3_R/stretch3_R.003
+        weight: 1
+      - path: Rig_01/stretch3_R/stretch3_R.003/stretch3_R.002
+        weight: 1
+      - path: Rig_01/stretch3_R/stretch3_R.003/stretch3_R.002/stretch3_R.001
+        weight: 1
+      - path: Rig_01/stretch3_R/stretch3_R.003/stretch3_R.002/stretch3_R.001/stretch3_R.001_end
+        weight: 1
+      - path: Wing_L
+        weight: 1
+      - path: Wing_R
+        weight: 1
+      maskType: 3
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: Rig_01|T_pose
+      takeName: Rig_01|T_pose
+      firstFrame: 0
+      lastFrame: 1
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: Body
+        weight: 1
+      - path: head_feather001
+        weight: 1
+      - path: Leg_L
+        weight: 1
+      - path: Leg_R
+        weight: 1
+      - path: Rig_01
+        weight: 1
+      - path: Rig_01/Base
+        weight: 1
+      - path: Rig_01/Base/thigh.L
+        weight: 1
+      - path: Rig_01/Base/thigh.L/Leg01.L
+        weight: 1
+      - path: Rig_01/Base/thigh.L/Leg01.L/Leg02.L
+        weight: 1
+      - path: Rig_01/Base/thigh.L/Leg01.L/Leg02.L/foot01.L
+        weight: 1
+      - path: Rig_01/Base/thigh.L/Leg01.L/Leg02.L/foot01.L/foot03.L
+        weight: 1
+      - path: Rig_01/Base/thigh.L/Leg01.L/Leg02.L/foot01.L/foot03.L/foot03.L_end
+        weight: 1
+      - path: Rig_01/Base/thigh.L/Leg01.L/Leg02.L/foot02.L
+        weight: 1
+      - path: Rig_01/Base/thigh.L/Leg01.L/Leg02.L/foot02.L/foot04.L
+        weight: 1
+      - path: Rig_01/Base/thigh.L/Leg01.L/Leg02.L/foot02.L/foot04.L/foot04.L_end
+        weight: 1
+      - path: Rig_01/Base/thigh.R
+        weight: 1
+      - path: Rig_01/Base/thigh.R/Leg01.R
+        weight: 1
+      - path: Rig_01/Base/thigh.R/Leg01.R/Leg02.R
+        weight: 1
+      - path: Rig_01/Base/thigh.R/Leg01.R/Leg02.R/foot01.R
+        weight: 1
+      - path: Rig_01/Base/thigh.R/Leg01.R/Leg02.R/foot01.R/foot03.R
+        weight: 1
+      - path: Rig_01/Base/thigh.R/Leg01.R/Leg02.R/foot01.R/foot03.R/foot03.R_end
+        weight: 1
+      - path: Rig_01/Base/thigh.R/Leg01.R/Leg02.R/foot02.R
+        weight: 1
+      - path: Rig_01/Base/thigh.R/Leg01.R/Leg02.R/foot02.R/foot04.R
+        weight: 1
+      - path: Rig_01/Base/thigh.R/Leg01.R/Leg02.R/foot02.R/foot04.R/foot04.R_end
+        weight: 1
+      - path: Rig_01/Base/Thorax
+        weight: 1
+      - path: Rig_01/Base/Thorax/Neck_02
+        weight: 1
+      - path: Rig_01/Base/Thorax/Neck_02/Neck_01
+        weight: 1
+      - path: Rig_01/Base/Thorax/Neck_02/Neck_01/Head
+        weight: 1
+      - path: Rig_01/Base/Thorax/Neck_02/Neck_01/Head/Beak_bottom
+        weight: 1
+      - path: Rig_01/Base/Thorax/Neck_02/Neck_01/Head/Beak_bottom/Beak001_Bottom
+        weight: 1
+      - path: Rig_01/Base/Thorax/Neck_02/Neck_01/Head/Beak_bottom/Beak_bottom_end
+        weight: 1
+      - path: Rig_01/Base/Thorax/Neck_02/Neck_01/Head/Beak_top.001
+        weight: 1
+      - path: Rig_01/Base/Thorax/Neck_02/Neck_01/Head/Beak_top.001/Beak001_top
+        weight: 1
+      - path: Rig_01/Base/Thorax/Neck_02/Neck_01/Head/Beak_top.001/Beak_top.001_end
+        weight: 1
+      - path: Rig_01/Base/Thorax/Neck_02/Neck_01/Head/eye_L
+        weight: 1
+      - path: Rig_01/Base/Thorax/Neck_02/Neck_01/Head/eye_R
+        weight: 1
+      - path: Rig_01/Base/Thorax/Neck_02/Neck_01/Head/Head.002
+        weight: 1
+      - path: Rig_01/Base/Thorax/Neck_02/Neck_01/Head/Head.002/Head.002_end
+        weight: 1
+      - path: Rig_01/Base/Thorax/shoulder_L
+        weight: 1
+      - path: Rig_01/Base/Thorax/shoulder_L/humerus_L
+        weight: 1
+      - path: Rig_01/Base/Thorax/shoulder_L/humerus_L/elbow_L
+        weight: 1
+      - path: Rig_01/Base/Thorax/shoulder_L/humerus_L/elbow_L/elbow_IK_L
+        weight: 1
+      - path: Rig_01/Base/Thorax/shoulder_L/humerus_L/elbow_L/elbow_IK_L/elbow_IK_L_end
+        weight: 1
+      - path: Rig_01/Base/Thorax/shoulder_L/humerus_L/radius_L
+        weight: 1
+      - path: Rig_01/Base/Thorax/shoulder_L/humerus_L/radius_L/hand_L
+        weight: 1
+      - path: Rig_01/Base/Thorax/shoulder_L/humerus_L/radius_L/hand_L/hand_L.001
+        weight: 1
+      - path: Rig_01/Base/Thorax/shoulder_L/humerus_L/radius_L/hand_L/hand_L.001/hand_L.001_end
+        weight: 1
+      - path: Rig_01/Base/Thorax/shoulder_L/humerus_L/radius_L/hand_L/Primary.001_L
+        weight: 1
+      - path: Rig_01/Base/Thorax/shoulder_L/humerus_L/radius_L/hand_L/Primary.001_L/Primary.001_L_end
+        weight: 1
+      - path: Rig_01/Base/Thorax/shoulder_L/humerus_L/radius_L/hand_L/Primary.001_L/Primary001_L
+        weight: 1
+      - path: Rig_01/Base/Thorax/shoulder_L/humerus_L/radius_L/hand_L/Primary.002_L
+        weight: 1
+      - path: Rig_01/Base/Thorax/shoulder_L/humerus_L/radius_L/hand_L/Primary.002_L/Primary.002_L_end
+        weight: 1
+      - path: Rig_01/Base/Thorax/shoulder_L/humerus_L/radius_L/hand_L/Primary.002_L/Primary002_L
+        weight: 1
+      - path: Rig_01/Base/Thorax/shoulder_L/humerus_L/radius_L/hand_L/Primary.003_L
+        weight: 1
+      - path: Rig_01/Base/Thorax/shoulder_L/humerus_L/radius_L/hand_L/Primary.003_L/Primary.003_L_end
+        weight: 1
+      - path: Rig_01/Base/Thorax/shoulder_L/humerus_L/radius_L/hand_L/Primary.003_L/Primary003_L
+        weight: 1
+      - path: Rig_01/Base/Thorax/shoulder_L/humerus_L/radius_L/hand_L/Primary.004_L
+        weight: 1
+      - path: Rig_01/Base/Thorax/shoulder_L/humerus_L/radius_L/hand_L/Primary.004_L/Primary.004_L_end
+        weight: 1
+      - path: Rig_01/Base/Thorax/shoulder_L/humerus_L/radius_L/hand_L/Primary.004_L/Primary004_L
+        weight: 1
+      - path: Rig_01/Base/Thorax/shoulder_L/humerus_L/radius_L/hand_L/Primary.005_L
+        weight: 1
+      - path: Rig_01/Base/Thorax/shoulder_L/humerus_L/radius_L/hand_L/Primary.005_L/Primary.005_L_end
+        weight: 1
+      - path: Rig_01/Base/Thorax/shoulder_L/humerus_L/radius_L/hand_L/Primary.005_L/Primary005_L
+        weight: 1
+      - path: Rig_01/Base/Thorax/shoulder_L/humerus_L/radius_L/hand_L/Primary.006_L
+        weight: 1
+      - path: Rig_01/Base/Thorax/shoulder_L/humerus_L/radius_L/hand_L/Primary.006_L/Primary.006_L_end
+        weight: 1
+      - path: Rig_01/Base/Thorax/shoulder_L/humerus_L/radius_L/hand_L/Primary.006_L/Primary006_L
+        weight: 1
+      - path: Rig_01/Base/Thorax/shoulder_L/humerus_L/radius_L/hand_L/Primary.007_L
+        weight: 1
+      - path: Rig_01/Base/Thorax/shoulder_L/humerus_L/radius_L/hand_L/Primary.007_L/Primary.007_L_end
+        weight: 1
+      - path: Rig_01/Base/Thorax/shoulder_L/humerus_L/radius_L/hand_L/Primary.007_L/Primary007_L
+        weight: 1
+      - path: Rig_01/Base/Thorax/shoulder_L/humerus_L/radius_L/hand_L/Primary.008_L
+        weight: 1
+      - path: Rig_01/Base/Thorax/shoulder_L/humerus_L/radius_L/hand_L/Primary.008_L/Primary.008_L_end
+        weight: 1
+      - path: Rig_01/Base/Thorax/shoulder_L/humerus_L/radius_L/hand_L/Primary.008_L/Primary008_L
+        weight: 1
+      - path: Rig_01/Base/Thorax/shoulder_L/humerus_L/radius_L/hand_L/Primary.009_L
+        weight: 1
+      - path: Rig_01/Base/Thorax/shoulder_L/humerus_L/radius_L/hand_L/Primary.009_L/Primary.009_L_end
+        weight: 1
+      - path: Rig_01/Base/Thorax/shoulder_L/humerus_L/radius_L/hand_L/Primary.009_L/Primary009_L
+        weight: 1
+      - path: Rig_01/Base/Thorax/shoulder_L/humerus_L/radius_L/Secondary.001_L
+        weight: 1
+      - path: Rig_01/Base/Thorax/shoulder_L/humerus_L/radius_L/Secondary.001_L/Secondary.001_L_end
+        weight: 1
+      - path: Rig_01/Base/Thorax/shoulder_L/humerus_L/radius_L/Secondary.001_L/Secondary001_L
+        weight: 1
+      - path: Rig_01/Base/Thorax/shoulder_L/humerus_L/radius_L/Secondary.002_L
+        weight: 1
+      - path: Rig_01/Base/Thorax/shoulder_L/humerus_L/radius_L/Secondary.002_L/Secondary.002_L_end
+        weight: 1
+      - path: Rig_01/Base/Thorax/shoulder_L/humerus_L/radius_L/Secondary.002_L/Secondary002_L
+        weight: 1
+      - path: Rig_01/Base/Thorax/shoulder_L/humerus_L/radius_L/Secondary.003_L
+        weight: 1
+      - path: Rig_01/Base/Thorax/shoulder_L/humerus_L/radius_L/Secondary.003_L/Secondary.003_L_end
+        weight: 1
+      - path: Rig_01/Base/Thorax/shoulder_L/humerus_L/radius_L/Secondary.003_L/Secondary003_L
+        weight: 1
+      - path: Rig_01/Base/Thorax/shoulder_L/humerus_L/radius_L/Secondary.004_L
+        weight: 1
+      - path: Rig_01/Base/Thorax/shoulder_L/humerus_L/radius_L/Secondary.004_L/Secondary.004_L_end
+        weight: 1
+      - path: Rig_01/Base/Thorax/shoulder_L/humerus_L/radius_L/Secondary.004_L/Secondary004_L
+        weight: 1
+      - path: Rig_01/Base/Thorax/shoulder_L/humerus_L/radius_L/Secondary.005_L
+        weight: 1
+      - path: Rig_01/Base/Thorax/shoulder_L/humerus_L/radius_L/Secondary.005_L/Secondary.005_L_end
+        weight: 1
+      - path: Rig_01/Base/Thorax/shoulder_L/humerus_L/radius_L/Secondary.005_L/Secondary005_L
+        weight: 1
+      - path: Rig_01/Base/Thorax/shoulder_L/humerus_L/radius_L/Secondary.006_L
+        weight: 1
+      - path: Rig_01/Base/Thorax/shoulder_L/humerus_L/radius_L/Secondary.006_L/Secondary.006_L_end
+        weight: 1
+      - path: Rig_01/Base/Thorax/shoulder_L/humerus_L/radius_L/Secondary.006_L/Secondary006_L
+        weight: 1
+      - path: Rig_01/Base/Thorax/shoulder_L/humerus_L/radius_L/wrist_L
+        weight: 1
+      - path: Rig_01/Base/Thorax/shoulder_L/humerus_L/radius_L/wrist_L/stretch1_L
+        weight: 1
+      - path: Rig_01/Base/Thorax/shoulder_L/humerus_L/radius_L/wrist_L/stretch1_L/stretch1_L.008
+        weight: 1
+      - path: Rig_01/Base/Thorax/shoulder_L/humerus_L/radius_L/wrist_L/stretch1_L/stretch1_L.008/stretch1_L.007
+        weight: 1
+      - path: Rig_01/Base/Thorax/shoulder_L/humerus_L/radius_L/wrist_L/stretch1_L/stretch1_L.008/stretch1_L.007/stretch1_L.006
+        weight: 1
+      - path: Rig_01/Base/Thorax/shoulder_L/humerus_L/radius_L/wrist_L/stretch1_L/stretch1_L.008/stretch1_L.007/stretch1_L.006/stretch1_L.005
+        weight: 1
+      - path: Rig_01/Base/Thorax/shoulder_L/humerus_L/radius_L/wrist_L/stretch1_L/stretch1_L.008/stretch1_L.007/stretch1_L.006/stretch1_L.005/stretch1_L.004
+        weight: 1
+      - path: Rig_01/Base/Thorax/shoulder_L/humerus_L/radius_L/wrist_L/stretch1_L/stretch1_L.008/stretch1_L.007/stretch1_L.006/stretch1_L.005/stretch1_L.004/stretch1_L.003
+        weight: 1
+      - path: Rig_01/Base/Thorax/shoulder_L/humerus_L/radius_L/wrist_L/stretch1_L/stretch1_L.008/stretch1_L.007/stretch1_L.006/stretch1_L.005/stretch1_L.004/stretch1_L.003/stretch1_L.002
+        weight: 1
+      - path: Rig_01/Base/Thorax/shoulder_L/humerus_L/radius_L/wrist_L/stretch1_L/stretch1_L.008/stretch1_L.007/stretch1_L.006/stretch1_L.005/stretch1_L.004/stretch1_L.003/stretch1_L.002/stretch1_L.001
+        weight: 1
+      - path: Rig_01/Base/Thorax/shoulder_L/humerus_L/radius_L/wrist_L/stretch1_L/stretch1_L.008/stretch1_L.007/stretch1_L.006/stretch1_L.005/stretch1_L.004/stretch1_L.003/stretch1_L.002/stretch1_L.001/stretch1_L.001_end
+        weight: 1
+      - path: Rig_01/Base/Thorax/shoulder_L/humerus_L/radius_L/wrist_L/stretch2_L
+        weight: 1
+      - path: Rig_01/Base/Thorax/shoulder_L/humerus_L/radius_L/wrist_L/stretch2_L/stretch2_L.006
+        weight: 1
+      - path: Rig_01/Base/Thorax/shoulder_L/humerus_L/radius_L/wrist_L/stretch2_L/stretch2_L.006/stretch2_L.005
+        weight: 1
+      - path: Rig_01/Base/Thorax/shoulder_L/humerus_L/radius_L/wrist_L/stretch2_L/stretch2_L.006/stretch2_L.005/stretch2_L.004
+        weight: 1
+      - path: Rig_01/Base/Thorax/shoulder_L/humerus_L/radius_L/wrist_L/stretch2_L/stretch2_L.006/stretch2_L.005/stretch2_L.004/stretch2_L.003
+        weight: 1
+      - path: Rig_01/Base/Thorax/shoulder_L/humerus_L/radius_L/wrist_L/stretch2_L/stretch2_L.006/stretch2_L.005/stretch2_L.004/stretch2_L.003/stretch2_L.002
+        weight: 1
+      - path: Rig_01/Base/Thorax/shoulder_L/humerus_L/radius_L/wrist_L/stretch2_L/stretch2_L.006/stretch2_L.005/stretch2_L.004/stretch2_L.003/stretch2_L.002/stretch2_L.001
+        weight: 1
+      - path: Rig_01/Base/Thorax/shoulder_L/humerus_L/radius_L/wrist_L/stretch2_L/stretch2_L.006/stretch2_L.005/stretch2_L.004/stretch2_L.003/stretch2_L.002/stretch2_L.001/stretch2_L.001_end
+        weight: 1
+      - path: Rig_01/Base/Thorax/shoulder_L/humerus_L/Tertiary.001_L
+        weight: 1
+      - path: Rig_01/Base/Thorax/shoulder_L/humerus_L/Tertiary.001_L/Tertiary.001_L_end
+        weight: 1
+      - path: Rig_01/Base/Thorax/shoulder_L/humerus_L/Tertiary.001_L/Tertiary001_L
+        weight: 1
+      - path: Rig_01/Base/Thorax/shoulder_L/humerus_L/Tertiary.002_L
+        weight: 1
+      - path: Rig_01/Base/Thorax/shoulder_L/humerus_L/Tertiary.002_L/Tertiary.002_L_end
+        weight: 1
+      - path: Rig_01/Base/Thorax/shoulder_L/humerus_L/Tertiary.002_L/Tertiary002_L
+        weight: 1
+      - path: Rig_01/Base/Thorax/shoulder_L/humerus_L/Tertiary.003_L
+        weight: 1
+      - path: Rig_01/Base/Thorax/shoulder_L/humerus_L/Tertiary.003_L/Tertiary.003_L_end
+        weight: 1
+      - path: Rig_01/Base/Thorax/shoulder_L/humerus_L/Tertiary.003_L/Tertiary003_L
+        weight: 1
+      - path: Rig_01/Base/Thorax/shoulder_R
+        weight: 1
+      - path: Rig_01/Base/Thorax/shoulder_R/humerus_L.001
+        weight: 1
+      - path: Rig_01/Base/Thorax/shoulder_R/humerus_L.001/elbow_L.001
+        weight: 1
+      - path: Rig_01/Base/Thorax/shoulder_R/humerus_L.001/elbow_L.001/elbow_IK_L.001
+        weight: 1
+      - path: Rig_01/Base/Thorax/shoulder_R/humerus_L.001/elbow_L.001/elbow_IK_L.001/elbow_IK_L.001_end
+        weight: 1
+      - path: Rig_01/Base/Thorax/shoulder_R/humerus_L.001/radius_L.001
+        weight: 1
+      - path: Rig_01/Base/Thorax/shoulder_R/humerus_L.001/radius_L.001/hand_R
+        weight: 1
+      - path: Rig_01/Base/Thorax/shoulder_R/humerus_L.001/radius_L.001/hand_R/hand_R.001
+        weight: 1
+      - path: Rig_01/Base/Thorax/shoulder_R/humerus_L.001/radius_L.001/hand_R/hand_R.001/hand_R.001_end
+        weight: 1
+      - path: Rig_01/Base/Thorax/shoulder_R/humerus_L.001/radius_L.001/hand_R/Primary.001_R
+        weight: 1
+      - path: Rig_01/Base/Thorax/shoulder_R/humerus_L.001/radius_L.001/hand_R/Primary.001_R/Primary.001_R_end
+        weight: 1
+      - path: Rig_01/Base/Thorax/shoulder_R/humerus_L.001/radius_L.001/hand_R/Primary.001_R/Primary001_R
+        weight: 1
+      - path: Rig_01/Base/Thorax/shoulder_R/humerus_L.001/radius_L.001/hand_R/Primary.002_R
+        weight: 1
+      - path: Rig_01/Base/Thorax/shoulder_R/humerus_L.001/radius_L.001/hand_R/Primary.002_R/Primary.002_R_end
+        weight: 1
+      - path: Rig_01/Base/Thorax/shoulder_R/humerus_L.001/radius_L.001/hand_R/Primary.002_R/Primary002_R
+        weight: 1
+      - path: Rig_01/Base/Thorax/shoulder_R/humerus_L.001/radius_L.001/hand_R/Primary.003_R
+        weight: 1
+      - path: Rig_01/Base/Thorax/shoulder_R/humerus_L.001/radius_L.001/hand_R/Primary.003_R/Primary.003_R_end
+        weight: 1
+      - path: Rig_01/Base/Thorax/shoulder_R/humerus_L.001/radius_L.001/hand_R/Primary.003_R/Primary003_R
+        weight: 1
+      - path: Rig_01/Base/Thorax/shoulder_R/humerus_L.001/radius_L.001/hand_R/Primary.004_R
+        weight: 1
+      - path: Rig_01/Base/Thorax/shoulder_R/humerus_L.001/radius_L.001/hand_R/Primary.004_R/Primary.004_R_end
+        weight: 1
+      - path: Rig_01/Base/Thorax/shoulder_R/humerus_L.001/radius_L.001/hand_R/Primary.004_R/Primary004_R
+        weight: 1
+      - path: Rig_01/Base/Thorax/shoulder_R/humerus_L.001/radius_L.001/hand_R/Primary.005_R
+        weight: 1
+      - path: Rig_01/Base/Thorax/shoulder_R/humerus_L.001/radius_L.001/hand_R/Primary.005_R/Primary.005_R_end
+        weight: 1
+      - path: Rig_01/Base/Thorax/shoulder_R/humerus_L.001/radius_L.001/hand_R/Primary.005_R/Primary005_R
+        weight: 1
+      - path: Rig_01/Base/Thorax/shoulder_R/humerus_L.001/radius_L.001/hand_R/Primary.006_R
+        weight: 1
+      - path: Rig_01/Base/Thorax/shoulder_R/humerus_L.001/radius_L.001/hand_R/Primary.006_R/Primary.006_R_end
+        weight: 1
+      - path: Rig_01/Base/Thorax/shoulder_R/humerus_L.001/radius_L.001/hand_R/Primary.006_R/Primary006_R
+        weight: 1
+      - path: Rig_01/Base/Thorax/shoulder_R/humerus_L.001/radius_L.001/hand_R/Primary.007_R
+        weight: 1
+      - path: Rig_01/Base/Thorax/shoulder_R/humerus_L.001/radius_L.001/hand_R/Primary.007_R/Primary.007_R_end
+        weight: 1
+      - path: Rig_01/Base/Thorax/shoulder_R/humerus_L.001/radius_L.001/hand_R/Primary.007_R/Primary007_R
+        weight: 1
+      - path: Rig_01/Base/Thorax/shoulder_R/humerus_L.001/radius_L.001/hand_R/Primary.008_R
+        weight: 1
+      - path: Rig_01/Base/Thorax/shoulder_R/humerus_L.001/radius_L.001/hand_R/Primary.008_R/Primary.008_R_end
+        weight: 1
+      - path: Rig_01/Base/Thorax/shoulder_R/humerus_L.001/radius_L.001/hand_R/Primary.008_R/Primary008_R
+        weight: 1
+      - path: Rig_01/Base/Thorax/shoulder_R/humerus_L.001/radius_L.001/hand_R/Primary.009_R
+        weight: 1
+      - path: Rig_01/Base/Thorax/shoulder_R/humerus_L.001/radius_L.001/hand_R/Primary.009_R/Primary.009_R_end
+        weight: 1
+      - path: Rig_01/Base/Thorax/shoulder_R/humerus_L.001/radius_L.001/hand_R/Primary.009_R/Primary009_R
+        weight: 1
+      - path: Rig_01/Base/Thorax/shoulder_R/humerus_L.001/radius_L.001/Secondary.001_R
+        weight: 1
+      - path: Rig_01/Base/Thorax/shoulder_R/humerus_L.001/radius_L.001/Secondary.001_R/Secondary.001_R_end
+        weight: 1
+      - path: Rig_01/Base/Thorax/shoulder_R/humerus_L.001/radius_L.001/Secondary.001_R/Secondary001_R
+        weight: 1
+      - path: Rig_01/Base/Thorax/shoulder_R/humerus_L.001/radius_L.001/Secondary.002_R
+        weight: 1
+      - path: Rig_01/Base/Thorax/shoulder_R/humerus_L.001/radius_L.001/Secondary.002_R/Secondary.002_R_end
+        weight: 1
+      - path: Rig_01/Base/Thorax/shoulder_R/humerus_L.001/radius_L.001/Secondary.002_R/Secondary002_R
+        weight: 1
+      - path: Rig_01/Base/Thorax/shoulder_R/humerus_L.001/radius_L.001/Secondary.003_R
+        weight: 1
+      - path: Rig_01/Base/Thorax/shoulder_R/humerus_L.001/radius_L.001/Secondary.003_R/Secondary.003_R_end
+        weight: 1
+      - path: Rig_01/Base/Thorax/shoulder_R/humerus_L.001/radius_L.001/Secondary.003_R/Secondary003_R
+        weight: 1
+      - path: Rig_01/Base/Thorax/shoulder_R/humerus_L.001/radius_L.001/Secondary.004_R
+        weight: 1
+      - path: Rig_01/Base/Thorax/shoulder_R/humerus_L.001/radius_L.001/Secondary.004_R/Secondary.004_R_end
+        weight: 1
+      - path: Rig_01/Base/Thorax/shoulder_R/humerus_L.001/radius_L.001/Secondary.004_R/Secondary004_R
+        weight: 1
+      - path: Rig_01/Base/Thorax/shoulder_R/humerus_L.001/radius_L.001/Secondary.005_R
+        weight: 1
+      - path: Rig_01/Base/Thorax/shoulder_R/humerus_L.001/radius_L.001/Secondary.005_R/Secondary.005_R_end
+        weight: 1
+      - path: Rig_01/Base/Thorax/shoulder_R/humerus_L.001/radius_L.001/Secondary.005_R/Secondary005_R
+        weight: 1
+      - path: Rig_01/Base/Thorax/shoulder_R/humerus_L.001/radius_L.001/Secondary.006_R
+        weight: 1
+      - path: Rig_01/Base/Thorax/shoulder_R/humerus_L.001/radius_L.001/Secondary.006_R/Secondary.006_R_end
+        weight: 1
+      - path: Rig_01/Base/Thorax/shoulder_R/humerus_L.001/radius_L.001/Secondary.006_R/Secondary006_R
+        weight: 1
+      - path: Rig_01/Base/Thorax/shoulder_R/humerus_L.001/radius_L.001/wrist_R
+        weight: 1
+      - path: Rig_01/Base/Thorax/shoulder_R/humerus_L.001/radius_L.001/wrist_R/stretch1_R
+        weight: 1
+      - path: Rig_01/Base/Thorax/shoulder_R/humerus_L.001/radius_L.001/wrist_R/stretch1_R/stretch1_R.008
+        weight: 1
+      - path: Rig_01/Base/Thorax/shoulder_R/humerus_L.001/radius_L.001/wrist_R/stretch1_R/stretch1_R.008/stretch1_R.007
+        weight: 1
+      - path: Rig_01/Base/Thorax/shoulder_R/humerus_L.001/radius_L.001/wrist_R/stretch1_R/stretch1_R.008/stretch1_R.007/stretch1_R.006
+        weight: 1
+      - path: Rig_01/Base/Thorax/shoulder_R/humerus_L.001/radius_L.001/wrist_R/stretch1_R/stretch1_R.008/stretch1_R.007/stretch1_R.006/stretch1_R.005
+        weight: 1
+      - path: Rig_01/Base/Thorax/shoulder_R/humerus_L.001/radius_L.001/wrist_R/stretch1_R/stretch1_R.008/stretch1_R.007/stretch1_R.006/stretch1_R.005/stretch1_R.004
+        weight: 1
+      - path: Rig_01/Base/Thorax/shoulder_R/humerus_L.001/radius_L.001/wrist_R/stretch1_R/stretch1_R.008/stretch1_R.007/stretch1_R.006/stretch1_R.005/stretch1_R.004/stretch1_R.003
+        weight: 1
+      - path: Rig_01/Base/Thorax/shoulder_R/humerus_L.001/radius_L.001/wrist_R/stretch1_R/stretch1_R.008/stretch1_R.007/stretch1_R.006/stretch1_R.005/stretch1_R.004/stretch1_R.003/stretch1_R.002
+        weight: 1
+      - path: Rig_01/Base/Thorax/shoulder_R/humerus_L.001/radius_L.001/wrist_R/stretch1_R/stretch1_R.008/stretch1_R.007/stretch1_R.006/stretch1_R.005/stretch1_R.004/stretch1_R.003/stretch1_R.002/stretch1_R.001
+        weight: 1
+      - path: Rig_01/Base/Thorax/shoulder_R/humerus_L.001/radius_L.001/wrist_R/stretch1_R/stretch1_R.008/stretch1_R.007/stretch1_R.006/stretch1_R.005/stretch1_R.004/stretch1_R.003/stretch1_R.002/stretch1_R.001/stretch1_R.001_end
+        weight: 1
+      - path: Rig_01/Base/Thorax/shoulder_R/humerus_L.001/radius_L.001/wrist_R/stretch2_R
+        weight: 1
+      - path: Rig_01/Base/Thorax/shoulder_R/humerus_L.001/radius_L.001/wrist_R/stretch2_R/stretch2_R.006
+        weight: 1
+      - path: Rig_01/Base/Thorax/shoulder_R/humerus_L.001/radius_L.001/wrist_R/stretch2_R/stretch2_R.006/stretch2_R.005
+        weight: 1
+      - path: Rig_01/Base/Thorax/shoulder_R/humerus_L.001/radius_L.001/wrist_R/stretch2_R/stretch2_R.006/stretch2_R.005/stretch2_R.004
+        weight: 1
+      - path: Rig_01/Base/Thorax/shoulder_R/humerus_L.001/radius_L.001/wrist_R/stretch2_R/stretch2_R.006/stretch2_R.005/stretch2_R.004/stretch2_R.003
+        weight: 1
+      - path: Rig_01/Base/Thorax/shoulder_R/humerus_L.001/radius_L.001/wrist_R/stretch2_R/stretch2_R.006/stretch2_R.005/stretch2_R.004/stretch2_R.003/stretch2_R.002
+        weight: 1
+      - path: Rig_01/Base/Thorax/shoulder_R/humerus_L.001/radius_L.001/wrist_R/stretch2_R/stretch2_R.006/stretch2_R.005/stretch2_R.004/stretch2_R.003/stretch2_R.002/stretch2_R.001
+        weight: 1
+      - path: Rig_01/Base/Thorax/shoulder_R/humerus_L.001/radius_L.001/wrist_R/stretch2_R/stretch2_R.006/stretch2_R.005/stretch2_R.004/stretch2_R.003/stretch2_R.002/stretch2_R.001/stretch2_R.001_end
+        weight: 1
+      - path: Rig_01/Base/Thorax/shoulder_R/humerus_L.001/Tertiary.004
+        weight: 1
+      - path: Rig_01/Base/Thorax/shoulder_R/humerus_L.001/Tertiary.004/Tertiary.004_end
+        weight: 1
+      - path: Rig_01/Base/Thorax/shoulder_R/humerus_L.001/Tertiary.004/Tertiary001_R
+        weight: 1
+      - path: Rig_01/Base/Thorax/shoulder_R/humerus_L.001/Tertiary.005
+        weight: 1
+      - path: Rig_01/Base/Thorax/shoulder_R/humerus_L.001/Tertiary.005/Tertiary.005_end
+        weight: 1
+      - path: Rig_01/Base/Thorax/shoulder_R/humerus_L.001/Tertiary.005/Tertiary002_R
+        weight: 1
+      - path: Rig_01/Base/Thorax/shoulder_R/humerus_L.001/Tertiary.006
+        weight: 1
+      - path: Rig_01/Base/Thorax/shoulder_R/humerus_L.001/Tertiary.006/Tertiary.006_end
+        weight: 1
+      - path: Rig_01/Base/Thorax/shoulder_R/humerus_L.001/Tertiary.006/Tertiary003_R
+        weight: 1
+      - path: Rig_01/foot_IK_L
+        weight: 1
+      - path: Rig_01/foot_IK_L/foot_IK_L_end
+        weight: 1
+      - path: Rig_01/foot_IK_R
+        weight: 1
+      - path: Rig_01/foot_IK_R/foot_IK_R_end
+        weight: 1
+      - path: Rig_01/forearm_handle_L
+        weight: 1
+      - path: Rig_01/forearm_handle_L/forearm_handle.001_L
+        weight: 1
+      - path: Rig_01/forearm_handle_L/forearm_handle.001_L/forearm_handle.001_L_end
+        weight: 1
+      - path: Rig_01/forearm_handle_R
+        weight: 1
+      - path: Rig_01/forearm_handle_R/forearm_handle.001_R
+        weight: 1
+      - path: Rig_01/forearm_handle_R/forearm_handle.001_R/forearm_handle.001_R_end
+        weight: 1
+      - path: Rig_01/head_looksAt_IK
+        weight: 1
+      - path: Rig_01/head_looksAt_IK/head_looksAt_IK_end
+        weight: 1
+      - path: Rig_01/Spine_01
+        weight: 1
+      - path: Rig_01/Spine_01/Spine_02
+        weight: 1
+      - path: Rig_01/Spine_01/Spine_02/Tail
+        weight: 1
+      - path: Rig_01/Spine_01/Spine_02/Tail/Tail01_Feather1
+        weight: 1
+      - path: Rig_01/Spine_01/Spine_02/Tail/Tail01_Feather2
+        weight: 1
+      - path: Rig_01/Spine_01/Spine_02/Tail/Tail01_Feather3
+        weight: 1
+      - path: Rig_01/Spine_01/Spine_02/Tail/Tail01_Feather4
+        weight: 1
+      - path: Rig_01/Spine_01/Spine_02/Tail/Tail01_Feather5
+        weight: 1
+      - path: Rig_01/Spine_01/Spine_02/Tail/Tail_end
+        weight: 1
+      - path: Rig_01/stretch3_L
+        weight: 1
+      - path: Rig_01/stretch3_L/stretch3_L.003
+        weight: 1
+      - path: Rig_01/stretch3_L/stretch3_L.003/stretch3_L.002
+        weight: 1
+      - path: Rig_01/stretch3_L/stretch3_L.003/stretch3_L.002/stretch3_L.001
+        weight: 1
+      - path: Rig_01/stretch3_L/stretch3_L.003/stretch3_L.002/stretch3_L.001/stretch3_L.001_end
+        weight: 1
+      - path: Rig_01/stretch3_R
+        weight: 1
+      - path: Rig_01/stretch3_R/stretch3_R.003
+        weight: 1
+      - path: Rig_01/stretch3_R/stretch3_R.003/stretch3_R.002
+        weight: 1
+      - path: Rig_01/stretch3_R/stretch3_R.003/stretch3_R.002/stretch3_R.001
+        weight: 1
+      - path: Rig_01/stretch3_R/stretch3_R.003/stretch3_R.002/stretch3_R.001/stretch3_R.001_end
+        weight: 1
+      - path: Wing_L
+        weight: 1
+      - path: Wing_R
+        weight: 1
+      maskType: 3
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: Tail01_Feather3|T_pose
+      takeName: Tail01_Feather3|T_pose
+      firstFrame: 0
+      lastFrame: 1
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: Body
+        weight: 1
+      - path: head_feather001
+        weight: 1
+      - path: Leg_L
+        weight: 1
+      - path: Leg_R
+        weight: 1
+      - path: Rig_01
+        weight: 1
+      - path: Rig_01/Base
+        weight: 1
+      - path: Rig_01/Base/thigh.L
+        weight: 1
+      - path: Rig_01/Base/thigh.L/Leg01.L
+        weight: 1
+      - path: Rig_01/Base/thigh.L/Leg01.L/Leg02.L
+        weight: 1
+      - path: Rig_01/Base/thigh.L/Leg01.L/Leg02.L/foot01.L
+        weight: 1
+      - path: Rig_01/Base/thigh.L/Leg01.L/Leg02.L/foot01.L/foot03.L
+        weight: 1
+      - path: Rig_01/Base/thigh.L/Leg01.L/Leg02.L/foot01.L/foot03.L/foot03.L_end
+        weight: 1
+      - path: Rig_01/Base/thigh.L/Leg01.L/Leg02.L/foot02.L
+        weight: 1
+      - path: Rig_01/Base/thigh.L/Leg01.L/Leg02.L/foot02.L/foot04.L
+        weight: 1
+      - path: Rig_01/Base/thigh.L/Leg01.L/Leg02.L/foot02.L/foot04.L/foot04.L_end
+        weight: 1
+      - path: Rig_01/Base/thigh.R
+        weight: 1
+      - path: Rig_01/Base/thigh.R/Leg01.R
+        weight: 1
+      - path: Rig_01/Base/thigh.R/Leg01.R/Leg02.R
+        weight: 1
+      - path: Rig_01/Base/thigh.R/Leg01.R/Leg02.R/foot01.R
+        weight: 1
+      - path: Rig_01/Base/thigh.R/Leg01.R/Leg02.R/foot01.R/foot03.R
+        weight: 1
+      - path: Rig_01/Base/thigh.R/Leg01.R/Leg02.R/foot01.R/foot03.R/foot03.R_end
+        weight: 1
+      - path: Rig_01/Base/thigh.R/Leg01.R/Leg02.R/foot02.R
+        weight: 1
+      - path: Rig_01/Base/thigh.R/Leg01.R/Leg02.R/foot02.R/foot04.R
+        weight: 1
+      - path: Rig_01/Base/thigh.R/Leg01.R/Leg02.R/foot02.R/foot04.R/foot04.R_end
+        weight: 1
+      - path: Rig_01/Base/Thorax
+        weight: 1
+      - path: Rig_01/Base/Thorax/Neck_02
+        weight: 1
+      - path: Rig_01/Base/Thorax/Neck_02/Neck_01
+        weight: 1
+      - path: Rig_01/Base/Thorax/Neck_02/Neck_01/Head
+        weight: 1
+      - path: Rig_01/Base/Thorax/Neck_02/Neck_01/Head/Beak_bottom
+        weight: 1
+      - path: Rig_01/Base/Thorax/Neck_02/Neck_01/Head/Beak_bottom/Beak001_Bottom
+        weight: 1
+      - path: Rig_01/Base/Thorax/Neck_02/Neck_01/Head/Beak_bottom/Beak_bottom_end
+        weight: 1
+      - path: Rig_01/Base/Thorax/Neck_02/Neck_01/Head/Beak_top.001
+        weight: 1
+      - path: Rig_01/Base/Thorax/Neck_02/Neck_01/Head/Beak_top.001/Beak001_top
+        weight: 1
+      - path: Rig_01/Base/Thorax/Neck_02/Neck_01/Head/Beak_top.001/Beak_top.001_end
+        weight: 1
+      - path: Rig_01/Base/Thorax/Neck_02/Neck_01/Head/eye_L
+        weight: 1
+      - path: Rig_01/Base/Thorax/Neck_02/Neck_01/Head/eye_R
+        weight: 1
+      - path: Rig_01/Base/Thorax/Neck_02/Neck_01/Head/Head.002
+        weight: 1
+      - path: Rig_01/Base/Thorax/Neck_02/Neck_01/Head/Head.002/Head.002_end
+        weight: 1
+      - path: Rig_01/Base/Thorax/shoulder_L
+        weight: 1
+      - path: Rig_01/Base/Thorax/shoulder_L/humerus_L
+        weight: 1
+      - path: Rig_01/Base/Thorax/shoulder_L/humerus_L/elbow_L
+        weight: 1
+      - path: Rig_01/Base/Thorax/shoulder_L/humerus_L/elbow_L/elbow_IK_L
+        weight: 1
+      - path: Rig_01/Base/Thorax/shoulder_L/humerus_L/elbow_L/elbow_IK_L/elbow_IK_L_end
+        weight: 1
+      - path: Rig_01/Base/Thorax/shoulder_L/humerus_L/radius_L
+        weight: 1
+      - path: Rig_01/Base/Thorax/shoulder_L/humerus_L/radius_L/hand_L
+        weight: 1
+      - path: Rig_01/Base/Thorax/shoulder_L/humerus_L/radius_L/hand_L/hand_L.001
+        weight: 1
+      - path: Rig_01/Base/Thorax/shoulder_L/humerus_L/radius_L/hand_L/hand_L.001/hand_L.001_end
+        weight: 1
+      - path: Rig_01/Base/Thorax/shoulder_L/humerus_L/radius_L/hand_L/Primary.001_L
+        weight: 1
+      - path: Rig_01/Base/Thorax/shoulder_L/humerus_L/radius_L/hand_L/Primary.001_L/Primary.001_L_end
+        weight: 1
+      - path: Rig_01/Base/Thorax/shoulder_L/humerus_L/radius_L/hand_L/Primary.001_L/Primary001_L
+        weight: 1
+      - path: Rig_01/Base/Thorax/shoulder_L/humerus_L/radius_L/hand_L/Primary.002_L
+        weight: 1
+      - path: Rig_01/Base/Thorax/shoulder_L/humerus_L/radius_L/hand_L/Primary.002_L/Primary.002_L_end
+        weight: 1
+      - path: Rig_01/Base/Thorax/shoulder_L/humerus_L/radius_L/hand_L/Primary.002_L/Primary002_L
+        weight: 1
+      - path: Rig_01/Base/Thorax/shoulder_L/humerus_L/radius_L/hand_L/Primary.003_L
+        weight: 1
+      - path: Rig_01/Base/Thorax/shoulder_L/humerus_L/radius_L/hand_L/Primary.003_L/Primary.003_L_end
+        weight: 1
+      - path: Rig_01/Base/Thorax/shoulder_L/humerus_L/radius_L/hand_L/Primary.003_L/Primary003_L
+        weight: 1
+      - path: Rig_01/Base/Thorax/shoulder_L/humerus_L/radius_L/hand_L/Primary.004_L
+        weight: 1
+      - path: Rig_01/Base/Thorax/shoulder_L/humerus_L/radius_L/hand_L/Primary.004_L/Primary.004_L_end
+        weight: 1
+      - path: Rig_01/Base/Thorax/shoulder_L/humerus_L/radius_L/hand_L/Primary.004_L/Primary004_L
+        weight: 1
+      - path: Rig_01/Base/Thorax/shoulder_L/humerus_L/radius_L/hand_L/Primary.005_L
+        weight: 1
+      - path: Rig_01/Base/Thorax/shoulder_L/humerus_L/radius_L/hand_L/Primary.005_L/Primary.005_L_end
+        weight: 1
+      - path: Rig_01/Base/Thorax/shoulder_L/humerus_L/radius_L/hand_L/Primary.005_L/Primary005_L
+        weight: 1
+      - path: Rig_01/Base/Thorax/shoulder_L/humerus_L/radius_L/hand_L/Primary.006_L
+        weight: 1
+      - path: Rig_01/Base/Thorax/shoulder_L/humerus_L/radius_L/hand_L/Primary.006_L/Primary.006_L_end
+        weight: 1
+      - path: Rig_01/Base/Thorax/shoulder_L/humerus_L/radius_L/hand_L/Primary.006_L/Primary006_L
+        weight: 1
+      - path: Rig_01/Base/Thorax/shoulder_L/humerus_L/radius_L/hand_L/Primary.007_L
+        weight: 1
+      - path: Rig_01/Base/Thorax/shoulder_L/humerus_L/radius_L/hand_L/Primary.007_L/Primary.007_L_end
+        weight: 1
+      - path: Rig_01/Base/Thorax/shoulder_L/humerus_L/radius_L/hand_L/Primary.007_L/Primary007_L
+        weight: 1
+      - path: Rig_01/Base/Thorax/shoulder_L/humerus_L/radius_L/hand_L/Primary.008_L
+        weight: 1
+      - path: Rig_01/Base/Thorax/shoulder_L/humerus_L/radius_L/hand_L/Primary.008_L/Primary.008_L_end
+        weight: 1
+      - path: Rig_01/Base/Thorax/shoulder_L/humerus_L/radius_L/hand_L/Primary.008_L/Primary008_L
+        weight: 1
+      - path: Rig_01/Base/Thorax/shoulder_L/humerus_L/radius_L/hand_L/Primary.009_L
+        weight: 1
+      - path: Rig_01/Base/Thorax/shoulder_L/humerus_L/radius_L/hand_L/Primary.009_L/Primary.009_L_end
+        weight: 1
+      - path: Rig_01/Base/Thorax/shoulder_L/humerus_L/radius_L/hand_L/Primary.009_L/Primary009_L
+        weight: 1
+      - path: Rig_01/Base/Thorax/shoulder_L/humerus_L/radius_L/Secondary.001_L
+        weight: 1
+      - path: Rig_01/Base/Thorax/shoulder_L/humerus_L/radius_L/Secondary.001_L/Secondary.001_L_end
+        weight: 1
+      - path: Rig_01/Base/Thorax/shoulder_L/humerus_L/radius_L/Secondary.001_L/Secondary001_L
+        weight: 1
+      - path: Rig_01/Base/Thorax/shoulder_L/humerus_L/radius_L/Secondary.002_L
+        weight: 1
+      - path: Rig_01/Base/Thorax/shoulder_L/humerus_L/radius_L/Secondary.002_L/Secondary.002_L_end
+        weight: 1
+      - path: Rig_01/Base/Thorax/shoulder_L/humerus_L/radius_L/Secondary.002_L/Secondary002_L
+        weight: 1
+      - path: Rig_01/Base/Thorax/shoulder_L/humerus_L/radius_L/Secondary.003_L
+        weight: 1
+      - path: Rig_01/Base/Thorax/shoulder_L/humerus_L/radius_L/Secondary.003_L/Secondary.003_L_end
+        weight: 1
+      - path: Rig_01/Base/Thorax/shoulder_L/humerus_L/radius_L/Secondary.003_L/Secondary003_L
+        weight: 1
+      - path: Rig_01/Base/Thorax/shoulder_L/humerus_L/radius_L/Secondary.004_L
+        weight: 1
+      - path: Rig_01/Base/Thorax/shoulder_L/humerus_L/radius_L/Secondary.004_L/Secondary.004_L_end
+        weight: 1
+      - path: Rig_01/Base/Thorax/shoulder_L/humerus_L/radius_L/Secondary.004_L/Secondary004_L
+        weight: 1
+      - path: Rig_01/Base/Thorax/shoulder_L/humerus_L/radius_L/Secondary.005_L
+        weight: 1
+      - path: Rig_01/Base/Thorax/shoulder_L/humerus_L/radius_L/Secondary.005_L/Secondary.005_L_end
+        weight: 1
+      - path: Rig_01/Base/Thorax/shoulder_L/humerus_L/radius_L/Secondary.005_L/Secondary005_L
+        weight: 1
+      - path: Rig_01/Base/Thorax/shoulder_L/humerus_L/radius_L/Secondary.006_L
+        weight: 1
+      - path: Rig_01/Base/Thorax/shoulder_L/humerus_L/radius_L/Secondary.006_L/Secondary.006_L_end
+        weight: 1
+      - path: Rig_01/Base/Thorax/shoulder_L/humerus_L/radius_L/Secondary.006_L/Secondary006_L
+        weight: 1
+      - path: Rig_01/Base/Thorax/shoulder_L/humerus_L/radius_L/wrist_L
+        weight: 1
+      - path: Rig_01/Base/Thorax/shoulder_L/humerus_L/radius_L/wrist_L/stretch1_L
+        weight: 1
+      - path: Rig_01/Base/Thorax/shoulder_L/humerus_L/radius_L/wrist_L/stretch1_L/stretch1_L.008
+        weight: 1
+      - path: Rig_01/Base/Thorax/shoulder_L/humerus_L/radius_L/wrist_L/stretch1_L/stretch1_L.008/stretch1_L.007
+        weight: 1
+      - path: Rig_01/Base/Thorax/shoulder_L/humerus_L/radius_L/wrist_L/stretch1_L/stretch1_L.008/stretch1_L.007/stretch1_L.006
+        weight: 1
+      - path: Rig_01/Base/Thorax/shoulder_L/humerus_L/radius_L/wrist_L/stretch1_L/stretch1_L.008/stretch1_L.007/stretch1_L.006/stretch1_L.005
+        weight: 1
+      - path: Rig_01/Base/Thorax/shoulder_L/humerus_L/radius_L/wrist_L/stretch1_L/stretch1_L.008/stretch1_L.007/stretch1_L.006/stretch1_L.005/stretch1_L.004
+        weight: 1
+      - path: Rig_01/Base/Thorax/shoulder_L/humerus_L/radius_L/wrist_L/stretch1_L/stretch1_L.008/stretch1_L.007/stretch1_L.006/stretch1_L.005/stretch1_L.004/stretch1_L.003
+        weight: 1
+      - path: Rig_01/Base/Thorax/shoulder_L/humerus_L/radius_L/wrist_L/stretch1_L/stretch1_L.008/stretch1_L.007/stretch1_L.006/stretch1_L.005/stretch1_L.004/stretch1_L.003/stretch1_L.002
+        weight: 1
+      - path: Rig_01/Base/Thorax/shoulder_L/humerus_L/radius_L/wrist_L/stretch1_L/stretch1_L.008/stretch1_L.007/stretch1_L.006/stretch1_L.005/stretch1_L.004/stretch1_L.003/stretch1_L.002/stretch1_L.001
+        weight: 1
+      - path: Rig_01/Base/Thorax/shoulder_L/humerus_L/radius_L/wrist_L/stretch1_L/stretch1_L.008/stretch1_L.007/stretch1_L.006/stretch1_L.005/stretch1_L.004/stretch1_L.003/stretch1_L.002/stretch1_L.001/stretch1_L.001_end
+        weight: 1
+      - path: Rig_01/Base/Thorax/shoulder_L/humerus_L/radius_L/wrist_L/stretch2_L
+        weight: 1
+      - path: Rig_01/Base/Thorax/shoulder_L/humerus_L/radius_L/wrist_L/stretch2_L/stretch2_L.006
+        weight: 1
+      - path: Rig_01/Base/Thorax/shoulder_L/humerus_L/radius_L/wrist_L/stretch2_L/stretch2_L.006/stretch2_L.005
+        weight: 1
+      - path: Rig_01/Base/Thorax/shoulder_L/humerus_L/radius_L/wrist_L/stretch2_L/stretch2_L.006/stretch2_L.005/stretch2_L.004
+        weight: 1
+      - path: Rig_01/Base/Thorax/shoulder_L/humerus_L/radius_L/wrist_L/stretch2_L/stretch2_L.006/stretch2_L.005/stretch2_L.004/stretch2_L.003
+        weight: 1
+      - path: Rig_01/Base/Thorax/shoulder_L/humerus_L/radius_L/wrist_L/stretch2_L/stretch2_L.006/stretch2_L.005/stretch2_L.004/stretch2_L.003/stretch2_L.002
+        weight: 1
+      - path: Rig_01/Base/Thorax/shoulder_L/humerus_L/radius_L/wrist_L/stretch2_L/stretch2_L.006/stretch2_L.005/stretch2_L.004/stretch2_L.003/stretch2_L.002/stretch2_L.001
+        weight: 1
+      - path: Rig_01/Base/Thorax/shoulder_L/humerus_L/radius_L/wrist_L/stretch2_L/stretch2_L.006/stretch2_L.005/stretch2_L.004/stretch2_L.003/stretch2_L.002/stretch2_L.001/stretch2_L.001_end
+        weight: 1
+      - path: Rig_01/Base/Thorax/shoulder_L/humerus_L/Tertiary.001_L
+        weight: 1
+      - path: Rig_01/Base/Thorax/shoulder_L/humerus_L/Tertiary.001_L/Tertiary.001_L_end
+        weight: 1
+      - path: Rig_01/Base/Thorax/shoulder_L/humerus_L/Tertiary.001_L/Tertiary001_L
+        weight: 1
+      - path: Rig_01/Base/Thorax/shoulder_L/humerus_L/Tertiary.002_L
+        weight: 1
+      - path: Rig_01/Base/Thorax/shoulder_L/humerus_L/Tertiary.002_L/Tertiary.002_L_end
+        weight: 1
+      - path: Rig_01/Base/Thorax/shoulder_L/humerus_L/Tertiary.002_L/Tertiary002_L
+        weight: 1
+      - path: Rig_01/Base/Thorax/shoulder_L/humerus_L/Tertiary.003_L
+        weight: 1
+      - path: Rig_01/Base/Thorax/shoulder_L/humerus_L/Tertiary.003_L/Tertiary.003_L_end
+        weight: 1
+      - path: Rig_01/Base/Thorax/shoulder_L/humerus_L/Tertiary.003_L/Tertiary003_L
+        weight: 1
+      - path: Rig_01/Base/Thorax/shoulder_R
+        weight: 1
+      - path: Rig_01/Base/Thorax/shoulder_R/humerus_L.001
+        weight: 1
+      - path: Rig_01/Base/Thorax/shoulder_R/humerus_L.001/elbow_L.001
+        weight: 1
+      - path: Rig_01/Base/Thorax/shoulder_R/humerus_L.001/elbow_L.001/elbow_IK_L.001
+        weight: 1
+      - path: Rig_01/Base/Thorax/shoulder_R/humerus_L.001/elbow_L.001/elbow_IK_L.001/elbow_IK_L.001_end
+        weight: 1
+      - path: Rig_01/Base/Thorax/shoulder_R/humerus_L.001/radius_L.001
+        weight: 1
+      - path: Rig_01/Base/Thorax/shoulder_R/humerus_L.001/radius_L.001/hand_R
+        weight: 1
+      - path: Rig_01/Base/Thorax/shoulder_R/humerus_L.001/radius_L.001/hand_R/hand_R.001
+        weight: 1
+      - path: Rig_01/Base/Thorax/shoulder_R/humerus_L.001/radius_L.001/hand_R/hand_R.001/hand_R.001_end
+        weight: 1
+      - path: Rig_01/Base/Thorax/shoulder_R/humerus_L.001/radius_L.001/hand_R/Primary.001_R
+        weight: 1
+      - path: Rig_01/Base/Thorax/shoulder_R/humerus_L.001/radius_L.001/hand_R/Primary.001_R/Primary.001_R_end
+        weight: 1
+      - path: Rig_01/Base/Thorax/shoulder_R/humerus_L.001/radius_L.001/hand_R/Primary.001_R/Primary001_R
+        weight: 1
+      - path: Rig_01/Base/Thorax/shoulder_R/humerus_L.001/radius_L.001/hand_R/Primary.002_R
+        weight: 1
+      - path: Rig_01/Base/Thorax/shoulder_R/humerus_L.001/radius_L.001/hand_R/Primary.002_R/Primary.002_R_end
+        weight: 1
+      - path: Rig_01/Base/Thorax/shoulder_R/humerus_L.001/radius_L.001/hand_R/Primary.002_R/Primary002_R
+        weight: 1
+      - path: Rig_01/Base/Thorax/shoulder_R/humerus_L.001/radius_L.001/hand_R/Primary.003_R
+        weight: 1
+      - path: Rig_01/Base/Thorax/shoulder_R/humerus_L.001/radius_L.001/hand_R/Primary.003_R/Primary.003_R_end
+        weight: 1
+      - path: Rig_01/Base/Thorax/shoulder_R/humerus_L.001/radius_L.001/hand_R/Primary.003_R/Primary003_R
+        weight: 1
+      - path: Rig_01/Base/Thorax/shoulder_R/humerus_L.001/radius_L.001/hand_R/Primary.004_R
+        weight: 1
+      - path: Rig_01/Base/Thorax/shoulder_R/humerus_L.001/radius_L.001/hand_R/Primary.004_R/Primary.004_R_end
+        weight: 1
+      - path: Rig_01/Base/Thorax/shoulder_R/humerus_L.001/radius_L.001/hand_R/Primary.004_R/Primary004_R
+        weight: 1
+      - path: Rig_01/Base/Thorax/shoulder_R/humerus_L.001/radius_L.001/hand_R/Primary.005_R
+        weight: 1
+      - path: Rig_01/Base/Thorax/shoulder_R/humerus_L.001/radius_L.001/hand_R/Primary.005_R/Primary.005_R_end
+        weight: 1
+      - path: Rig_01/Base/Thorax/shoulder_R/humerus_L.001/radius_L.001/hand_R/Primary.005_R/Primary005_R
+        weight: 1
+      - path: Rig_01/Base/Thorax/shoulder_R/humerus_L.001/radius_L.001/hand_R/Primary.006_R
+        weight: 1
+      - path: Rig_01/Base/Thorax/shoulder_R/humerus_L.001/radius_L.001/hand_R/Primary.006_R/Primary.006_R_end
+        weight: 1
+      - path: Rig_01/Base/Thorax/shoulder_R/humerus_L.001/radius_L.001/hand_R/Primary.006_R/Primary006_R
+        weight: 1
+      - path: Rig_01/Base/Thorax/shoulder_R/humerus_L.001/radius_L.001/hand_R/Primary.007_R
+        weight: 1
+      - path: Rig_01/Base/Thorax/shoulder_R/humerus_L.001/radius_L.001/hand_R/Primary.007_R/Primary.007_R_end
+        weight: 1
+      - path: Rig_01/Base/Thorax/shoulder_R/humerus_L.001/radius_L.001/hand_R/Primary.007_R/Primary007_R
+        weight: 1
+      - path: Rig_01/Base/Thorax/shoulder_R/humerus_L.001/radius_L.001/hand_R/Primary.008_R
+        weight: 1
+      - path: Rig_01/Base/Thorax/shoulder_R/humerus_L.001/radius_L.001/hand_R/Primary.008_R/Primary.008_R_end
+        weight: 1
+      - path: Rig_01/Base/Thorax/shoulder_R/humerus_L.001/radius_L.001/hand_R/Primary.008_R/Primary008_R
+        weight: 1
+      - path: Rig_01/Base/Thorax/shoulder_R/humerus_L.001/radius_L.001/hand_R/Primary.009_R
+        weight: 1
+      - path: Rig_01/Base/Thorax/shoulder_R/humerus_L.001/radius_L.001/hand_R/Primary.009_R/Primary.009_R_end
+        weight: 1
+      - path: Rig_01/Base/Thorax/shoulder_R/humerus_L.001/radius_L.001/hand_R/Primary.009_R/Primary009_R
+        weight: 1
+      - path: Rig_01/Base/Thorax/shoulder_R/humerus_L.001/radius_L.001/Secondary.001_R
+        weight: 1
+      - path: Rig_01/Base/Thorax/shoulder_R/humerus_L.001/radius_L.001/Secondary.001_R/Secondary.001_R_end
+        weight: 1
+      - path: Rig_01/Base/Thorax/shoulder_R/humerus_L.001/radius_L.001/Secondary.001_R/Secondary001_R
+        weight: 1
+      - path: Rig_01/Base/Thorax/shoulder_R/humerus_L.001/radius_L.001/Secondary.002_R
+        weight: 1
+      - path: Rig_01/Base/Thorax/shoulder_R/humerus_L.001/radius_L.001/Secondary.002_R/Secondary.002_R_end
+        weight: 1
+      - path: Rig_01/Base/Thorax/shoulder_R/humerus_L.001/radius_L.001/Secondary.002_R/Secondary002_R
+        weight: 1
+      - path: Rig_01/Base/Thorax/shoulder_R/humerus_L.001/radius_L.001/Secondary.003_R
+        weight: 1
+      - path: Rig_01/Base/Thorax/shoulder_R/humerus_L.001/radius_L.001/Secondary.003_R/Secondary.003_R_end
+        weight: 1
+      - path: Rig_01/Base/Thorax/shoulder_R/humerus_L.001/radius_L.001/Secondary.003_R/Secondary003_R
+        weight: 1
+      - path: Rig_01/Base/Thorax/shoulder_R/humerus_L.001/radius_L.001/Secondary.004_R
+        weight: 1
+      - path: Rig_01/Base/Thorax/shoulder_R/humerus_L.001/radius_L.001/Secondary.004_R/Secondary.004_R_end
+        weight: 1
+      - path: Rig_01/Base/Thorax/shoulder_R/humerus_L.001/radius_L.001/Secondary.004_R/Secondary004_R
+        weight: 1
+      - path: Rig_01/Base/Thorax/shoulder_R/humerus_L.001/radius_L.001/Secondary.005_R
+        weight: 1
+      - path: Rig_01/Base/Thorax/shoulder_R/humerus_L.001/radius_L.001/Secondary.005_R/Secondary.005_R_end
+        weight: 1
+      - path: Rig_01/Base/Thorax/shoulder_R/humerus_L.001/radius_L.001/Secondary.005_R/Secondary005_R
+        weight: 1
+      - path: Rig_01/Base/Thorax/shoulder_R/humerus_L.001/radius_L.001/Secondary.006_R
+        weight: 1
+      - path: Rig_01/Base/Thorax/shoulder_R/humerus_L.001/radius_L.001/Secondary.006_R/Secondary.006_R_end
+        weight: 1
+      - path: Rig_01/Base/Thorax/shoulder_R/humerus_L.001/radius_L.001/Secondary.006_R/Secondary006_R
+        weight: 1
+      - path: Rig_01/Base/Thorax/shoulder_R/humerus_L.001/radius_L.001/wrist_R
+        weight: 1
+      - path: Rig_01/Base/Thorax/shoulder_R/humerus_L.001/radius_L.001/wrist_R/stretch1_R
+        weight: 1
+      - path: Rig_01/Base/Thorax/shoulder_R/humerus_L.001/radius_L.001/wrist_R/stretch1_R/stretch1_R.008
+        weight: 1
+      - path: Rig_01/Base/Thorax/shoulder_R/humerus_L.001/radius_L.001/wrist_R/stretch1_R/stretch1_R.008/stretch1_R.007
+        weight: 1
+      - path: Rig_01/Base/Thorax/shoulder_R/humerus_L.001/radius_L.001/wrist_R/stretch1_R/stretch1_R.008/stretch1_R.007/stretch1_R.006
+        weight: 1
+      - path: Rig_01/Base/Thorax/shoulder_R/humerus_L.001/radius_L.001/wrist_R/stretch1_R/stretch1_R.008/stretch1_R.007/stretch1_R.006/stretch1_R.005
+        weight: 1
+      - path: Rig_01/Base/Thorax/shoulder_R/humerus_L.001/radius_L.001/wrist_R/stretch1_R/stretch1_R.008/stretch1_R.007/stretch1_R.006/stretch1_R.005/stretch1_R.004
+        weight: 1
+      - path: Rig_01/Base/Thorax/shoulder_R/humerus_L.001/radius_L.001/wrist_R/stretch1_R/stretch1_R.008/stretch1_R.007/stretch1_R.006/stretch1_R.005/stretch1_R.004/stretch1_R.003
+        weight: 1
+      - path: Rig_01/Base/Thorax/shoulder_R/humerus_L.001/radius_L.001/wrist_R/stretch1_R/stretch1_R.008/stretch1_R.007/stretch1_R.006/stretch1_R.005/stretch1_R.004/stretch1_R.003/stretch1_R.002
+        weight: 1
+      - path: Rig_01/Base/Thorax/shoulder_R/humerus_L.001/radius_L.001/wrist_R/stretch1_R/stretch1_R.008/stretch1_R.007/stretch1_R.006/stretch1_R.005/stretch1_R.004/stretch1_R.003/stretch1_R.002/stretch1_R.001
+        weight: 1
+      - path: Rig_01/Base/Thorax/shoulder_R/humerus_L.001/radius_L.001/wrist_R/stretch1_R/stretch1_R.008/stretch1_R.007/stretch1_R.006/stretch1_R.005/stretch1_R.004/stretch1_R.003/stretch1_R.002/stretch1_R.001/stretch1_R.001_end
+        weight: 1
+      - path: Rig_01/Base/Thorax/shoulder_R/humerus_L.001/radius_L.001/wrist_R/stretch2_R
+        weight: 1
+      - path: Rig_01/Base/Thorax/shoulder_R/humerus_L.001/radius_L.001/wrist_R/stretch2_R/stretch2_R.006
+        weight: 1
+      - path: Rig_01/Base/Thorax/shoulder_R/humerus_L.001/radius_L.001/wrist_R/stretch2_R/stretch2_R.006/stretch2_R.005
+        weight: 1
+      - path: Rig_01/Base/Thorax/shoulder_R/humerus_L.001/radius_L.001/wrist_R/stretch2_R/stretch2_R.006/stretch2_R.005/stretch2_R.004
+        weight: 1
+      - path: Rig_01/Base/Thorax/shoulder_R/humerus_L.001/radius_L.001/wrist_R/stretch2_R/stretch2_R.006/stretch2_R.005/stretch2_R.004/stretch2_R.003
+        weight: 1
+      - path: Rig_01/Base/Thorax/shoulder_R/humerus_L.001/radius_L.001/wrist_R/stretch2_R/stretch2_R.006/stretch2_R.005/stretch2_R.004/stretch2_R.003/stretch2_R.002
+        weight: 1
+      - path: Rig_01/Base/Thorax/shoulder_R/humerus_L.001/radius_L.001/wrist_R/stretch2_R/stretch2_R.006/stretch2_R.005/stretch2_R.004/stretch2_R.003/stretch2_R.002/stretch2_R.001
+        weight: 1
+      - path: Rig_01/Base/Thorax/shoulder_R/humerus_L.001/radius_L.001/wrist_R/stretch2_R/stretch2_R.006/stretch2_R.005/stretch2_R.004/stretch2_R.003/stretch2_R.002/stretch2_R.001/stretch2_R.001_end
+        weight: 1
+      - path: Rig_01/Base/Thorax/shoulder_R/humerus_L.001/Tertiary.004
+        weight: 1
+      - path: Rig_01/Base/Thorax/shoulder_R/humerus_L.001/Tertiary.004/Tertiary.004_end
+        weight: 1
+      - path: Rig_01/Base/Thorax/shoulder_R/humerus_L.001/Tertiary.004/Tertiary001_R
+        weight: 1
+      - path: Rig_01/Base/Thorax/shoulder_R/humerus_L.001/Tertiary.005
+        weight: 1
+      - path: Rig_01/Base/Thorax/shoulder_R/humerus_L.001/Tertiary.005/Tertiary.005_end
+        weight: 1
+      - path: Rig_01/Base/Thorax/shoulder_R/humerus_L.001/Tertiary.005/Tertiary002_R
+        weight: 1
+      - path: Rig_01/Base/Thorax/shoulder_R/humerus_L.001/Tertiary.006
+        weight: 1
+      - path: Rig_01/Base/Thorax/shoulder_R/humerus_L.001/Tertiary.006/Tertiary.006_end
+        weight: 1
+      - path: Rig_01/Base/Thorax/shoulder_R/humerus_L.001/Tertiary.006/Tertiary003_R
+        weight: 1
+      - path: Rig_01/foot_IK_L
+        weight: 1
+      - path: Rig_01/foot_IK_L/foot_IK_L_end
+        weight: 1
+      - path: Rig_01/foot_IK_R
+        weight: 1
+      - path: Rig_01/foot_IK_R/foot_IK_R_end
+        weight: 1
+      - path: Rig_01/forearm_handle_L
+        weight: 1
+      - path: Rig_01/forearm_handle_L/forearm_handle.001_L
+        weight: 1
+      - path: Rig_01/forearm_handle_L/forearm_handle.001_L/forearm_handle.001_L_end
+        weight: 1
+      - path: Rig_01/forearm_handle_R
+        weight: 1
+      - path: Rig_01/forearm_handle_R/forearm_handle.001_R
+        weight: 1
+      - path: Rig_01/forearm_handle_R/forearm_handle.001_R/forearm_handle.001_R_end
+        weight: 1
+      - path: Rig_01/head_looksAt_IK
+        weight: 1
+      - path: Rig_01/head_looksAt_IK/head_looksAt_IK_end
+        weight: 1
+      - path: Rig_01/Spine_01
+        weight: 1
+      - path: Rig_01/Spine_01/Spine_02
+        weight: 1
+      - path: Rig_01/Spine_01/Spine_02/Tail
+        weight: 1
+      - path: Rig_01/Spine_01/Spine_02/Tail/Tail01_Feather1
+        weight: 1
+      - path: Rig_01/Spine_01/Spine_02/Tail/Tail01_Feather2
+        weight: 1
+      - path: Rig_01/Spine_01/Spine_02/Tail/Tail01_Feather3
+        weight: 1
+      - path: Rig_01/Spine_01/Spine_02/Tail/Tail01_Feather4
+        weight: 1
+      - path: Rig_01/Spine_01/Spine_02/Tail/Tail01_Feather5
+        weight: 1
+      - path: Rig_01/Spine_01/Spine_02/Tail/Tail_end
+        weight: 1
+      - path: Rig_01/stretch3_L
+        weight: 1
+      - path: Rig_01/stretch3_L/stretch3_L.003
+        weight: 1
+      - path: Rig_01/stretch3_L/stretch3_L.003/stretch3_L.002
+        weight: 1
+      - path: Rig_01/stretch3_L/stretch3_L.003/stretch3_L.002/stretch3_L.001
+        weight: 1
+      - path: Rig_01/stretch3_L/stretch3_L.003/stretch3_L.002/stretch3_L.001/stretch3_L.001_end
+        weight: 1
+      - path: Rig_01/stretch3_R
+        weight: 1
+      - path: Rig_01/stretch3_R/stretch3_R.003
+        weight: 1
+      - path: Rig_01/stretch3_R/stretch3_R.003/stretch3_R.002
+        weight: 1
+      - path: Rig_01/stretch3_R/stretch3_R.003/stretch3_R.002/stretch3_R.001
+        weight: 1
+      - path: Rig_01/stretch3_R/stretch3_R.003/stretch3_R.002/stretch3_R.001/stretch3_R.001_end
+        weight: 1
+      - path: Wing_L
+        weight: 1
+      - path: Wing_R
+        weight: 1
+      maskType: 3
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
     isReadable: 1
   meshes:
     lODScreenPercentages: []
