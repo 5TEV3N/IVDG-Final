@@ -38,14 +38,7 @@ public class GameUI : MonoBehaviour
         birdName = BirdSpawner.currentBirdName;     // if we're going for multiple birds in a scene instead of one being moved around at certain distances, then this needs to change;
     }
 
-    public void UnLoadUI()
-    {
-        TitleScreen.SetActive(false);
-        gamePause.SetActive(false);
-        Cursor.lockState = CursorLockMode.Locked;
-        Cursor.visible = false;
-        Time.timeScale = 1;
-    }
+    #region Main Menu
 
     public void NewGame()
     {
@@ -73,6 +66,17 @@ public class GameUI : MonoBehaviour
 
         Application.Quit();
     }
+
+    public void UnLoadUI()
+    {
+        TitleScreen.SetActive(false);
+        gamePause.SetActive(false);
+        Cursor.lockState = CursorLockMode.Locked;
+        Cursor.visible = false;
+        Time.timeScale = 1;
+    }
+    
+    #endregion
 
     public void MicInputUI(bool hold)
     {
