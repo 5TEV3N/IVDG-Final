@@ -520,6 +520,7 @@ MonoBehaviour:
   - {fileID: 256436038}
   - {fileID: 1377878842}
   - {fileID: 403393935}
+  imDoingTheTrailerRightNow: 0
   headLocation: {fileID: 114468637}
   bodyLocation: {fileID: 2018266236}
   leftWingLocation: {fileID: 119353193}
@@ -594,23 +595,6 @@ Prefab:
     - target: {fileID: 4713665658804172, guid: 4750df543703be747a324da4c5d76e28, type: 2}
       propertyPath: m_RootOrder
       value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 1536063779341560, guid: 4750df543703be747a324da4c5d76e28, type: 2}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1025981918352272, guid: 4750df543703be747a324da4c5d76e28, type: 2}
-      propertyPath: m_TagString
-      value: UI
-      objectReference: {fileID: 0}
-    - target: {fileID: 1934522510354464, guid: 4750df543703be747a324da4c5d76e28, type: 2}
-      propertyPath: m_TagString
-      value: UIBirdName
-      objectReference: {fileID: 0}
-    - target: {fileID: 114242020440556168, guid: 4750df543703be747a324da4c5d76e28,
-        type: 2}
-      propertyPath: isScreenshotMenuOpen
-      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 4750df543703be747a324da4c5d76e28, type: 2}
@@ -2067,7 +2051,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bb4cc3af19cfee546b34ac5e9101b3ec, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  birdName: 
   birdDistance: 0
   birdTriggerBirdcalls: 10
   birdTriggerHidden: 14
