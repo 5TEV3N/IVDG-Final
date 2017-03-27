@@ -1,27 +1,15 @@
 fileFormatVersion: 2
-guid: 1a51a0a1065bd9b448920e3d695ae5e8
-timeCreated: 1490051685
+guid: a0c25b162016e0e4ca252ba056b2d7e2
+timeCreated: 1490588418
 licenseType: Free
 ModelImporter:
   serializedVersion: 19
   fileIDToRecycleName:
-    100000: log_001
-    100002: log_002
-    100004: log_003
-    100006: //RootNode
-    400000: log_001
-    400002: log_002
-    400004: log_003
-    400006: //RootNode
-    2300000: log_001
-    2300002: log_002
-    2300004: log_003
-    3300000: log_001
-    3300002: log_002
-    3300004: log_003
-    4300000: log_001
-    4300002: log_003
-    4300004: log_002
+    100000: //RootNode
+    400000: //RootNode
+    2300000: //RootNode
+    3300000: //RootNode
+    4300000: stump_001
   materials:
     importMaterials: 1
     materialName: 0
