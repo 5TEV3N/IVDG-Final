@@ -15,6 +15,8 @@ public class InputManager3D : MonoBehaviour
     float mouseXAxis = 0;                        // left or right movement of mouse (camera). Positive numb = right, Negative numb = left
     float mouseYAxis = 0;                        // up or down movement of mouse (camera). Positive numb = up, Negative numb = down.
     bool cameraLock = true;                      // constantly lock the cursor in the center
+    bool isMicBeingUsed;
+    int buttonPressedCheck;
 
     void Awake()
     {
@@ -101,6 +103,7 @@ public class InputManager3D : MonoBehaviour
                 Time.timeScale = 0f;
             }
         }
+
         if (Input.GetKeyDown(KeyCode.Tab))
         {
             if (gameScreenshot.isScreenshotMenuOpen == false)
@@ -123,15 +126,28 @@ public class InputManager3D : MonoBehaviour
         }
 
         // This is for the trailer scene in which the microphone icon pops up. Can be used for the actual game
-        if (Input.GetKey(KeyCode.Space))
+        if (Input.GetKeyDown("space"))
         {
-            gameUi.MicInputUI(true);
+            buttonPressedCheck++;
+            if (buttonPressedCheck == 1)
+            {
+                isMicBeingUsed = true;
+            }
+            if (buttonPressedCheck == 2)
+            {
+                isMicBeingUsed = false;
+                buttonPressedCheck = 0;
+            }
             // Add the microphone checks from the AudioSpectrum
         }
 
-        if (!Input.GetKey(KeyCode.Space))
+        if (isMicBeingUsed == true)
         {
-            gameUi.MicInputUI(false);
+            gameUi.MicInputUI(isMicBeingUsed);
+        }
+        else
+        {
+            gameUi.MicInputUI(isMicBeingUsed);
         }
 
         #endregion
