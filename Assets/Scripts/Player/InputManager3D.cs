@@ -23,7 +23,6 @@ public class InputManager3D : MonoBehaviour
         playerController3D = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerController3D>();
         playerRaycast = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerRaycast>();
         gameScreenshot = GameObject.FindGameObjectWithTag("UI").GetComponent<GameScreenshot>();
-        birdController = GameObject.FindGameObjectWithTag("Bird").GetComponent<BirdController>();
         gameUi = GameObject.FindGameObjectWithTag("UI").GetComponent<GameUI>();
 
         Cursor.lockState = CursorLockMode.Locked;
@@ -53,6 +52,7 @@ public class InputManager3D : MonoBehaviour
 
     void Update()
     {
+        birdController = GameObject.FindGameObjectWithTag("Bird").GetComponent<BirdController>();
         #region Raycast Interaction
         if (Input.GetMouseButton(0))                                            //LMB
         {

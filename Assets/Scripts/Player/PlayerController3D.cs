@@ -18,6 +18,7 @@ public class PlayerController3D : MonoBehaviour
 
     public float valOfVelocity;                                      // Checks how fast the player goes
     public float maxVelocity;                                        // The max speed of how fast the player goes
+    public float focusSmoothing;
 
     private float verticalRotation = 0;                              // Contains the MouseYAxis
     private float originalMaxVelocity;                               // Contains the orginal MaxVelocity  
@@ -98,11 +99,11 @@ public class PlayerController3D : MonoBehaviour
     {
         if (focusIn == true)
         {
-            Camera.main.fieldOfView = Mathf.Lerp(Camera.main.fieldOfView,zoomAmount, Time.deltaTime *5);
+            Camera.main.fieldOfView = Mathf.Lerp(Camera.main.fieldOfView,zoomAmount, Time.deltaTime * focusSmoothing);
         }
         else
         {
-            Camera.main.fieldOfView = Mathf.Lerp(Camera.main.fieldOfView, originalFOV, Time.deltaTime * 5);
+            Camera.main.fieldOfView = Mathf.Lerp(Camera.main.fieldOfView, originalFOV, Time.deltaTime * focusSmoothing);
         }
     }
 
