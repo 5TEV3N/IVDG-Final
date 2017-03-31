@@ -48,25 +48,27 @@ public class BirdSpawner : MonoBehaviour
 
     public void BirdConstructor()
     {
-        GameObject head = headPart[Random.Range(0, headPart.Length)];
-        GameObject body = bodyPart[Random.Range(0, bodyPart.Length)];
-        GameObject leftWing = leftWingPart[Random.Range(0, leftWingPart.Length)];
-        GameObject rightWing = rightWingPart[Random.Range(0, rightWingPart.Length)];
-        
-        currentHeadInstance = Instantiate(head, headLocation.transform, false);
-        currentBodyInstance = Instantiate(body, bodyLocation.transform, false);
-        currentLeftWingInstance = Instantiate(leftWing, leftWingLocation.transform, false);
-        currentRightWingInstance = Instantiate(rightWing, rightWingLocation.transform, false);
+        // Depricated, please incorprate ana's model instead
+        //GameObject head = headPart[Random.Range(0, headPart.Length)];
+        //GameObject body = bodyPart[Random.Range(0, bodyPart.Length)];
+        //GameObject leftWing = leftWingPart[Random.Range(0, leftWingPart.Length)];
+        //GameObject rightWing = rightWingPart[Random.Range(0, rightWingPart.Length)];
+        //
+        //currentHeadInstance = Instantiate(head, headLocation.transform, false);
+        //currentBodyInstance = Instantiate(body, bodyLocation.transform, false);
+        //currentLeftWingInstance = Instantiate(leftWing, leftWingLocation.transform, false);
+        //currentRightWingInstance = Instantiate(rightWing, rightWingLocation.transform, false);
                                                           
         myState.state = BirdState.currentState.hidden;
     }
 
     public void Deconstructor()
     {
-        DestroyObject(currentHeadInstance);
-        DestroyObject(currentBodyInstance);
-        DestroyObject(currentLeftWingInstance);
-        DestroyObject(currentRightWingInstance);
+        // Depricated, please incorprate ana's model instead
+        //DestroyObject(currentHeadInstance);
+        //DestroyObject(currentBodyInstance);
+        //DestroyObject(currentLeftWingInstance);
+        //DestroyObject(currentRightWingInstance);
     }
 
     public void NewBirdLocation()
