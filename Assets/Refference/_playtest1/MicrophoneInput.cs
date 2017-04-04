@@ -1,24 +1,14 @@
-﻿// TESTING VERSION. Includes all weird ideas and stuff. See BirdAudioControl.cs for in-game version.
-
-/*	Some of the audio spectrum analysis is adapted from an example provided in the Unity scripting API,
- * 	and a modified version of the same example used in a Youtube tutorial by "Orion" thedeveloperguy4517@gmail.com
- */
-
-using System.Collections;
+﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using System.Linq; // This adds some of the dictionary/indexing functionality I'm using
 
-public class AudioSpectrum : MonoBehaviour {	
 
-	public GameObject prefab;
-	public GameObject[] bars;
-	public AudioSource audioInput;
+public class MicrophoneInput : MonoBehaviour {
 
-//	Gonna use these later to set volume thresholds based on a user mic test
+	//	Gonna use these later to set volume thresholds based on a user mic test
 	public float volumeThreshold;
-//	public float volumeTrigger;
-	private float radius = 1f;
+	//	public float volumeTrigger;
 
 	// This is the frequencies of all "musical" pitches from E3 to B8, divided by 11.71875 to exactly match their corresponding "slices" of the audio spectrum data when using the spectrum size of 2048.
 	// Can calculate pitches from E2 up if using a spectrum size of 4096. Probably overkill? Revisit for "easy" mode with humming (will need the lower frequencies).
@@ -38,37 +28,38 @@ public class AudioSpectrum : MonoBehaviour {
 	 * Or redo the allNotes declaration to have index as key, sub-dictionary as value.
 	 * This will be ~very annoying~ to refactor everything so we'll see if it's necessary.
 	 */
-   
+
+	private string micDevice;
+	public AudioSource micInput;
+
 	private Dictionary<string, int[]> allNotes; // Dictionary of all notes: KEY="note name" => VALUE=[lower freq bound, higher freq bound]
 	private Dictionary<string, float> notesTemplate;
 	private Dictionary<string, float> noteVolumes; // Dictionary of all note volumes: KEY="note name" => VALUE=note volume
-	private Dictionary<string, float> notePeaks; // Dictionary of "peak" notes
-	private bool detectionActive;
+	private Dictionary<string, int> notePeaks; // Dictionary of "peak" notes
 
-	public Dictionary<string, float> correctNotes; // Dictionary of correct notes, from the "song" itself.
+	public bool listeningToPlayer = false;
 
-    public static AudioSpectrum instance;
-    private BirdState closestBird;
-    void Awake()
-    {
-        if(instance == null)
-        {
-            instance = this;
-        }
-        else if(instance != this)
-        {
-            Destroy(this.gameObject);
-        }
-    }
-    public void SetClosestBird(BirdState bird)
-    {
-        //audioInput = bird.birdsong
-        //Need to detect birdsong 
-        closestBird = bird;
-    }
+	void Awake() {
+		// Listing all Audio Input devices
+		foreach (string device in Microphone.devices) { Debug.Log(device); }
+
+		// Setting microphone to the default first detected device for now
+		// Can make menu option to decide this later
+		micDevice = Microphone.devices[0];
+
+		// Right now just starts recording right away for 999 seconds.
+		// Later wrap this in a function that is called at relevant points.
+		micInput = gameObject.GetComponent<AudioSource> ();
+
+		micInput.clip = Microphone.Start (micDevice, true, 5, 44100);
+		micInput.loop = true;
+
+		while (!(Microphone.GetPosition(null) > 500)) {}
+		micInput.Play ();
+	}
 
 	void Start () {
-
+		// Setting up pitch arrays
 		allNotes = new Dictionary<string, int[]> ();
 		notesTemplate = new Dictionary<string, float> ();
 
@@ -82,35 +73,26 @@ public class AudioSpectrum : MonoBehaviour {
 				allNotes [pitchArray2048 [i]] [1] = i+23;
 			}
 		}
-
-		for (int i=0; i < allNotes.Count; i++) {
-			Vector3 position = new Vector3 (i*radius, 0, 0);
-			Instantiate (prefab, position, Quaternion.identity);
-		}
-		bars = GameObject.FindGameObjectsWithTag ("audiobars");
-
-
-		// TESTING VALUE
-		correctNotes = new Dictionary<string, float>();
-		correctNotes.Add ("B6", 51.0f);
-		correctNotes.Add ("D6", 30.0f);
 	}
 
-	void songStart () {
+	public void SongStart () {
+		// Resetting the noteVolumes every time there's a new song.
 		noteVolumes = notesTemplate;
-		notePeaks = new Dictionary<string, float> ();
+		notePeaks = new Dictionary<string, int> ();
 
-		detectionActive = true;
+		listeningToPlayer = true;
 	}
 
-	void songEnd () {
-		detectionActive = false;
-		bool whistleIsGood = true;
+	public bool SongEnd (Dictionary<string,float> correctNotes) {
+		listeningToPlayer = false;
+
+		//// EDIT THIS
+		bool whistleIsGood = false;
 
 		foreach (string key in correctNotes.Keys) {
 			if (notePeaks.ContainsKey (key)) {
-				if (notePeaks [key] < (correctNotes [key] - correctNotes [key] * 0.10) && notePeaks [key] > (correctNotes [key] + correctNotes [key] * 0.10)) {
-					whistleIsGood = false;
+				if (notePeaks [key] > (correctNotes [key] - correctNotes [key] * 0.20) && notePeaks [key] < (correctNotes [key] + correctNotes [key] * 0.20)) {
+					whistleIsGood = true;
 				}
 			} else {
 				whistleIsGood = false;
@@ -120,19 +102,16 @@ public class AudioSpectrum : MonoBehaviour {
 		Debug.Log (whistleIsGood);
 
 		foreach (string key in notePeaks.Keys) {
-			Debug.Log (key + ": " + notePeaks [key]);
+			Debug.Log ("Sung notes : " + key + ": " + notePeaks [key]);
 		}
 
-        if (whistleIsGood == true)                          //prototype test
-        {
-            closestBird.state = BirdState.currentState.interacting;
-        }
+		return whistleIsGood;
 	}
 
 	void Update () {
-		if (detectionActive) {
+		if (listeningToPlayer) {
 			spectrum = new float[2048];
-			audioInput.GetSpectrumData(spectrum, 0, FFTWindow.BlackmanHarris);
+			micInput.GetSpectrumData(spectrum, 0, FFTWindow.BlackmanHarris);
 
 			for (int i=0; i < allNotes.Count; i++) {
 				var note = allNotes.ElementAt (i);
@@ -144,12 +123,6 @@ public class AudioSpectrum : MonoBehaviour {
 					volume += spectrum [k];
 				}
 				noteVolumes [note.Key] = volume;
-
-				bars[i].transform.localScale = new Vector3(1, volume*10, 1);
-
-				Vector3 prevScale = bars[i].transform.localScale;
-				prevScale.y = Mathf.Lerp (prevScale.y, volume*10, Time.deltaTime * 30);
-				bars[i].transform.localScale = prevScale;
 			}
 
 			Dictionary<string, float> localPeaks = new Dictionary<string, float> ();
@@ -172,20 +145,12 @@ public class AudioSpectrum : MonoBehaviour {
 			}
 
 			if (localMaxNote != "" && !notePeaks.ContainsKey (localMaxNote)) {
-				notePeaks.Add (localMaxNote, 1.0f);	
+				notePeaks.Add (localMaxNote, 1);	
 			} else if (localMaxNote != "" && notePeaks.ContainsKey(localMaxNote)) {
 				notePeaks [localMaxNote] += 1;
 			}
 		}
 
-		// Temporary key to toggle songStart/songEnd
-		if (Input.GetKeyDown ("space")) {
-			if (detectionActive) {
-				songEnd ();
-			} else {
-				songStart ();
-			}
-		}
 	}
-		
+
 }
