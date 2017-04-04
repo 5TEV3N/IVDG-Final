@@ -8,7 +8,7 @@ public class PlayerController3D : MonoBehaviour
 
     [Header("Containers")]
     public Rigidbody rb;                                             // Access the rigidbody to move
-    //public Camera cam;                                               // Acess the Camera of the gameobject
+    public GameObject sittable;
 
     [Header("Values")]
     public float mouseSensitivity = 1;                               // Mouse sensitivity
@@ -24,6 +24,7 @@ public class PlayerController3D : MonoBehaviour
     private float originalMaxVelocity;                               // Contains the orginal MaxVelocity  
     private float zoomAmount= 40f;
     private float originalFOV;
+    private Transform previousPosition;
 
     void Awake()
     {
@@ -107,10 +108,15 @@ public class PlayerController3D : MonoBehaviour
         }
     }
 
-    public void Sit()
+    public void Sit(bool isSitting)
     {
-        GameObject sittable = playerRaycast.hitObject();
-        //gameObject.GetComponent<BoxCollider>().enabled = false;
-        gameObject.transform.position = Vector3.Lerp(gameObject.transform.position, sittable.transform.position,Time.deltaTime * 5f);
+        if (isSitting == true)
+        {
+            gameObject.transform.position = playerRaycast.hitObjectTransform();
+        }
+        else
+        {
+
+        }
     }
 }

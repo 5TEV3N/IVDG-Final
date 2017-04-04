@@ -7,6 +7,7 @@ public class PlayerRaycast : MonoBehaviour
     public RaycastHit mouseHit;
     public Ray mouseRay;
     public Vector3 mousePosition;
+    public GameObject hit;
 
     private LayerMask interactiveMask;
 
@@ -35,7 +36,12 @@ public class PlayerRaycast : MonoBehaviour
 
     public GameObject hitObject()
     {
-        GameObject hit = mouseHit.transform.gameObject;
+        hit = mouseHit.transform.gameObject;
         return hit;
+    }
+
+    public Vector3 hitObjectTransform()
+    {
+        return hit.transform.position;
     }
 }

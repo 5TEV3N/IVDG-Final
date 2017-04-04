@@ -15,8 +15,13 @@ public class InputManager3D : MonoBehaviour
     float mouseXAxis = 0;                        // left or right movement of mouse (camera). Positive numb = right, Negative numb = left
     float mouseYAxis = 0;                        // up or down movement of mouse (camera). Positive numb = up, Negative numb = down.
     bool cameraLock = true;                      // constantly lock the cursor in the center
-    bool isMicBeingUsed;
-    int buttonPressedCheck;
+    bool check;
+    int micButtonCheck;
+    
+    [Header ("Debug")]
+    public bool isMicBeingUsed;
+    public bool isSitting;
+    public int sittingButtonCheck;
 
     void Awake()
     {
@@ -53,17 +58,39 @@ public class InputManager3D : MonoBehaviour
     void Update()
     {
         birdController = GameObject.FindGameObjectWithTag("Bird").GetComponent<BirdController>();
+
         #region Raycast Interaction
-        if (Input.GetMouseButton(0))                                            //LMB
+        if (Input.GetKeyDown(KeyCode.E))
         {
-            if (playerRaycast.PlayerInteraction() == true)
+            if (sittingButtonCheck == 1)
+            {
+                isSitting = false;
+                sittingButtonCheck = 0;
+            }
+
+            if (playerRaycast.PlayerInteraction() == true) 
             {
                 if (playerRaycast.hitObject().transform.tag == "Sittable")
                 {
-                    playerController3D.Sit();
+                    isSitting = true;
+                    if (sittingButtonCheck == 0)
+                    {
+                        sittingButtonCheck++;
+                    }
                 }
             }
         }
+
+        if (isSitting == true)
+        {
+            playerController3D.Sit(isSitting);                                       // display the ui icon that you dismount the sittable
+        }
+
+        if (isSitting == false)
+        {
+            playerController3D.Sit(isSitting);
+        }
+
         if (Input.GetMouseButtonDown(1))                                        //RMB
         {
             if (playerRaycast.PlayerInteraction() == true)
@@ -125,18 +152,17 @@ public class InputManager3D : MonoBehaviour
             }
         }
 
-        // This is for the trailer scene in which the microphone icon pops up. Can be used for the actual game
-        if (Input.GetKeyDown("space"))
+        if (Input.GetKeyDown(KeyCode.Space))
         {
-            buttonPressedCheck++;
-            if (buttonPressedCheck == 1)
+            micButtonCheck++;
+            if (micButtonCheck == 1)
             {
                 isMicBeingUsed = true;
             }
-            if (buttonPressedCheck == 2)
+            if (micButtonCheck == 2)
             {
                 isMicBeingUsed = false;
-                buttonPressedCheck = 0;
+                micButtonCheck = 0;
             }
             // Add the microphone checks from the AudioSpectrum
         }
