@@ -112,7 +112,8 @@ public class PlayerController3D : MonoBehaviour
     {
         if (isSitting == true)
         {
-            gameObject.transform.position = playerRaycast.hitObjectTransform();
+            // Gets the position of the object and moves the player towards it AND changes the y by 5. Change this to be more flexible with different sittable objects
+            gameObject.transform.position = new Vector3 (playerRaycast.hitObjectTransform().x, playerRaycast.hitObjectTransform().y * 5, playerRaycast.hitObjectTransform().z);
         }
         else
         {

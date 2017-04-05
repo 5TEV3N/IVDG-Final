@@ -6,6 +6,7 @@ public class BirdSpawner : MonoBehaviour
 {
     // Spawn a bird. State is hidden. Put them in a random location. Give them their name.
     BirdState myState;
+    BirdController birdController;
 
     public static string currentBirdName;
     public GameObject bird;
@@ -39,6 +40,7 @@ public class BirdSpawner : MonoBehaviour
     void Awake()
     {
         myState = GameObject.FindGameObjectWithTag("Bird").GetComponent<BirdState>();
+        birdController = GameObject.FindGameObjectWithTag("Bird").GetComponent<BirdController>();
     }
 
     public void BirdNamer()
@@ -73,6 +75,7 @@ public class BirdSpawner : MonoBehaviour
 
     public void NewBirdLocation()
     {
+        // please spawn it at a close range using birdController
         bird.transform.position = birdSpawnLocation[Random.Range(0, birdSpawnLocation.Length)].transform.position;
     }
 

@@ -25,7 +25,8 @@ public class BirdController : MonoBehaviour
     void Update()
     {
         birdDistance = Vector3.Distance(gameObject.transform.position, player.transform.position);
-
+        
+        // if the player is close to the bird 
         if (birdDistance <= birdTriggerBirdcalls)
         {
             if (myState.state != BirdState.currentState.interacting)
@@ -34,7 +35,8 @@ public class BirdController : MonoBehaviour
                 gameUI.BirdDiscovered(true);
             }
         }
-
+        
+        // else, if the the player is far from the bird
         else if (birdDistance >= birdTriggerHidden)
         {
             if (myState.state != BirdState.currentState.interacting)

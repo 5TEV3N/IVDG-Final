@@ -613,7 +613,7 @@ BoxCollider:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 347767753}
   m_Material: {fileID: 0}
-  m_IsTrigger: 1
+  m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
@@ -2000,6 +2000,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rb: {fileID: 1952922257}
+  sittable: {fileID: 0}
   mouseSensitivity: 1
   jumpHeightIntensifier: 1
   playerSpeedIntensifier: 0.5
@@ -2033,6 +2034,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2a01902d33ce7a843a35151d296b44be, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isMicBeingUsed: 0
+  isSitting: 0
+  sittingButtonCheck: 0
 --- !u!114 &1952922259
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2046,6 +2050,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   mouseRayDistance: 2.5
   mousePosition: {x: 0, y: 0, z: 0}
+  hit: {fileID: 0}
 --- !u!1 &2018266235
 GameObject:
   m_ObjectHideFlags: 0
@@ -2149,7 +2154,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   state: 0
-  birdsong: {fileID: 0}
 --- !u!65 &2091863532
 BoxCollider:
   m_ObjectHideFlags: 0
