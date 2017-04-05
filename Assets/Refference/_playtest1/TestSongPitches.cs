@@ -1,10 +1,12 @@
-﻿using System.Collections;
+﻿/* This is the same as the MicrophoneInput script but just used to test the samples for their dominant notes */
+
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using System.Linq; // This adds some of the dictionary/indexing functionality I'm using
 
 
-public class MicrophoneInput : MonoBehaviour {
+public class TestSongPitches : MonoBehaviour {
 
 	//	Gonna use these later to set volume thresholds based on a user mic test
 	public float volumeThreshold;
@@ -30,7 +32,7 @@ public class MicrophoneInput : MonoBehaviour {
 	 */
 
 	private string micDevice;
-	public AudioSource micInput;
+	public AudioSource song;
 
 	private Dictionary<string, int[]> allNotes; // Dictionary of all notes: KEY="note name" => VALUE=[lower freq bound, higher freq bound]
 	private Dictionary<string, float> notesTemplate;
@@ -39,26 +41,9 @@ public class MicrophoneInput : MonoBehaviour {
 
 	public bool listeningToPlayer = false;
 
-	void Awake() {
-		// Listing all Audio Input devices
-		foreach (string device in Microphone.devices) { Debug.Log(device); }
-
-		// Setting microphone to the default first detected device for now
-		// Can make menu option to decide this later
-		micDevice = Microphone.devices[0];
-
-		// Right now just starts recording right away for 999 seconds.
-		// Later wrap this in a function that is called at relevant points.
-		micInput = gameObject.GetComponent<AudioSource> ();
-
-		micInput.clip = Microphone.Start (micDevice, true, 5, 44100);
-		micInput.loop = true;
-
-		while (!(Microphone.GetPosition(null) > 500)) {}
-		micInput.Play ();
-	}
-		
 	void Start () {
+		song = GetComponent<AudioSource> ();
+
 		// Setting up pitch arrays
 		allNotes = new Dictionary<string, int[]> ();
 		notesTemplate = new Dictionary<string, float> ();
@@ -75,49 +60,34 @@ public class MicrophoneInput : MonoBehaviour {
 		}
 	}
 
-	public void SongStart () {
+	void SongStart () {
 		// Resetting the noteVolumes every time there's a new song.
 		noteVolumes = notesTemplate;
 		notePeaks = new Dictionary<string, int> ();
 
+		song.Play ();
+
 		listeningToPlayer = true;
 	}
 
-	public bool SongEnd (Dictionary<string,float> correctNotes) {
+	void SongEnd () {
 		listeningToPlayer = false;
 
-		//// EDIT THIS
-		bool whistleIsGood = false;
-
-		var numberTotal = 0;
-		int numberCorrect = 0;
-
-		foreach (string key in correctNotes.Keys) {
-			numberTotal++;
-
-			if (notePeaks.ContainsKey (key)) {
-				if (notePeaks [key] > (correctNotes [key] - 15.0f) && notePeaks [key] < (correctNotes [key] + 15.0f)) {
-					numberCorrect++;
-				}
-			}
-		}
-
-		if (numberTotal == numberCorrect) {
-			whistleIsGood = true;
-		}
-
-		Debug.Log (whistleIsGood);
 		foreach (string key in notePeaks.Keys) {
-			Debug.Log ("Sung notes : " + key + ": " + notePeaks [key]);
+			Debug.Log ("Song notes : " + key + ": " + notePeaks [key]);
 		}
-
-		return whistleIsGood;
 	}
 
 	void FixedUpdate () {
+		if (Input.GetKeyUp (KeyCode.P) && !listeningToPlayer) {
+			SongStart ();
+		} else if (Input.GetKeyUp(KeyCode.P) && listeningToPlayer) { 
+			SongEnd ();
+		}
+
 		if (listeningToPlayer) {
 			spectrum = new float[2048];
-			micInput.GetSpectrumData(spectrum, 0, FFTWindow.BlackmanHarris);
+			song.GetSpectrumData(spectrum, 0, FFTWindow.BlackmanHarris);
 
 			for (int i=0; i < allNotes.Count; i++) {
 				var note = allNotes.ElementAt (i);

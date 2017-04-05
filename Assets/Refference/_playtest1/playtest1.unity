@@ -1874,7 +1874,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 69078e583db9b1940a6c3eaaebfaedfa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  playerInRange: 0
   birdDifficulty: 0
+  birdSong: {fileID: 0}
+  allSongs: {fileID: 0}
+  audioManager: {fileID: 0}
 --- !u!82 &1653263224
 AudioSource:
   m_ObjectHideFlags: 0
@@ -2198,7 +2202,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f03b72dbac37db34698bf11fccd2be02, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ListOfSongs:
+  listOfSongs:
   - {fileID: 8300000, guid: e75e5771730ed9849bb4d8f969f664c0, type: 3}
   - {fileID: 8300000, guid: e271ce70d7227f24293d2a0c7a4036ba, type: 3}
 --- !u!1 &1952922251

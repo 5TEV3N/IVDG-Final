@@ -17,8 +17,8 @@ public class AllSongs : MonoBehaviour {
 			new Dictionary<string, float> ()
 		};
 
-		songPitches [0].Add ("B6", 51.0f);
-		songPitches [0].Add ("D6", 30.0f);
+		songPitches [0].Add ("B6", 40.0f);
+		songPitches [0].Add ("D6", 26.0f);
 
 		songPitches [1].Add ("C5", 20.0f);
 	}
