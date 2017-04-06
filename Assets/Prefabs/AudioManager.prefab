@@ -20,11 +20,9 @@ GameObject:
   m_Component:
   - component: {fileID: 4591138052603570}
   - component: {fileID: 114733356967206486}
-  - component: {fileID: 114959747396549448}
-  - component: {fileID: 82022091436628922}
-  - component: {fileID: 164784169237399626}
+  - component: {fileID: 82800075285214120}
   m_Layer: 0
-  m_Name: AudioSpectrum
+  m_Name: AudioManager
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -36,14 +34,14 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1529152144631560}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 50, y: -41.484978, z: 150}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!82 &82022091436628922
+--- !u!82 &82800075285214120
 AudioSource:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
@@ -52,11 +50,11 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: e75e5771730ed9849bb4d8f969f664c0, type: 3}
+  m_audioClip: {fileID: 0}
   m_PlayOnAwake: 1
   m_Volume: 1
   m_Pitch: 1
-  Loop: 1
+  Loop: 0
   Mute: 0
   Spatialize: 0
   SpatializePostEffects: 0
@@ -134,42 +132,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c0db438a9e90a5b4fa965499c4f4edf6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  micInput: {fileID: 0}
---- !u!114 &114959747396549448
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1529152144631560}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 16b20fcde3b3da848b72551bb3ab49bd, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  prefab: {fileID: 1831581429714128, guid: 9c6ed478cdc216442a110a1e43627642, type: 2}
-  bars: []
-  audioInput: {fileID: 82022091436628922}
   volumeThreshold: 0
---- !u!164 &164784169237399626
-AudioReverbFilter:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1529152144631560}
-  m_Enabled: 0
-  m_DryLevel: 0
-  m_Room: 0
-  m_RoomHF: 0
-  m_RoomRolloff: 0
-  m_DecayTime: 1
-  m_DecayHFRatio: 0.5
-  m_ReflectionsLevel: -10000
-  m_ReverbLevel: 0
-  m_ReverbDelay: 0.04
-  m_Diffusion: 100
-  m_Density: 100
-  m_HFReference: 5000
-  m_RoomLF: 0
-  m_LFReference: 250
-  m_ReflectionsDelay: 0
-  m_ReverbPreset: 27
+  micInput: {fileID: 0}
+  listeningToPlayer: 0
