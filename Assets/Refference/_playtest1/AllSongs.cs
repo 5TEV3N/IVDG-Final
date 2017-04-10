@@ -9,17 +9,17 @@ using UnityEngine;
 public class AllSongs : MonoBehaviour {
 
 	public AudioClip[] listOfSongs;
-	public Dictionary<string, float>[] songPitches;
+	public Dictionary<int, float>[] songPitches;
 
 	void Awake() {
-		songPitches = new Dictionary<string, float>[] {
-			new Dictionary<string, float> (),
-			new Dictionary<string, float> ()
+		songPitches = new Dictionary<int, float>[] {
+			new Dictionary<int, float> (),
+			new Dictionary<int, float> ()
 		};
 
-		songPitches [0].Add ("B6", 40.0f);
-		songPitches [0].Add ("D6", 26.0f);
+		songPitches [0].Add (23, 34.0f);
+		songPitches [0].Add (26, 26.0f);
 
-		songPitches [1].Add ("C5", 20.0f);
+		songPitches [1].Add (12, 20.0f);
 	}
 }

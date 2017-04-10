@@ -23,7 +23,7 @@ public class BirdAudioControl: MonoBehaviour {
 	public bool birdSuccess;
 	public bool birdFailure;
 
-	public Dictionary<string, float> correctNotes;
+	public Dictionary<int, float> correctNotes;
 
 	public AudioSource birdSong;
 	public GameObject allSongs;
@@ -94,7 +94,7 @@ public class BirdAudioControl: MonoBehaviour {
 	void StopListening() {
 		whistleIsGood = audioManager.GetComponent<MicrophoneInput> ().SongEnd (correctNotes);
 
-		foreach (string key in correctNotes.Keys) {
+		foreach (int key in correctNotes.Keys) {
 			Debug.Log ("Correct notes : " + key + ": " + correctNotes [key]);
 		}
 	}
