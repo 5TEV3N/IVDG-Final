@@ -13,6 +13,9 @@ public class BirdAudioControl: MonoBehaviour {
 
 	public bool playerInRange;
 	public bool whistleIsGood;
+
+	private Coroutine newCoroutine;
+	private float timer;
 	public int birdWait;
 
 	public int birdDifficulty; // Determines what songs bird chooses from, how accurate song needs to be, and how many attempts are required.
@@ -63,12 +66,23 @@ public class BirdAudioControl: MonoBehaviour {
 
 	// Sing and StopSinging functions that in turn call SongStart and SongEnd functions in the MicrophoneInput script, to start/stop recording and check whistling accuracy
 
-	public IEnumerator SingLoop() {
-		testingOn = true;
+	public void SingLoop() {
 		SingAndListenToPlayer ();
-		yield return new WaitForSeconds (birdWait);
-		StopListening ();
+		Invoke ("StopListening", birdWait);
+	}
+
+	void SingAndListenToPlayer () {
+		testingOn = true;
+
+		birdSong.Play ();
+		whistleIsGood = false;
+		audioManager.GetComponent<MicrophoneInput> ().SongStart ();
+	}
+
+	void StopListening() {
 		testingOn = false;
+
+		whistleIsGood = audioManager.GetComponent<MicrophoneInput> ().SongEnd (correctNotes);
 
 		if (whistleIsGood) {
 			successCurrent += 1;	
@@ -84,26 +98,13 @@ public class BirdAudioControl: MonoBehaviour {
 
 		Debug.Log ("successCurrent : " + successCurrent + ", attemptsRemaining : " + attemptsRemaining);
 	}
-
-	void SingAndListenToPlayer () {
-		birdSong.Play ();
-		whistleIsGood = false;
-		audioManager.GetComponent<MicrophoneInput> ().SongStart ();
-	}
-
-	void StopListening() {
-		whistleIsGood = audioManager.GetComponent<MicrophoneInput> ().SongEnd (correctNotes);
-
-		foreach (int key in correctNotes.Keys) {
-			Debug.Log ("Correct notes : " + key + ": " + correctNotes [key]);
-		}
-	}
+		
 
 	void Update () {
 		// Using space key as universal "play song" button for testing
-		if (Input.GetKeyUp (KeyCode.Space) && !testingOn) {
-			StartCoroutine (SingLoop ());
-		}
+		//		if (Input.GetKeyUp (KeyCode.Space) && !testingOn) {
+		//			SingLoop ();
+		//		}
 	}
 
 }

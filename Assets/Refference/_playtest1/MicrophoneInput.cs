@@ -9,6 +9,7 @@ public class MicrophoneInput : MonoBehaviour {
 	//	Gonna use these later to set volume thresholds based on a user mic test
 	public float volumeThreshold;
 	//	public float volumeTrigger;
+	public bool hummingMode;
 
 	// This is the frequencies of all "musical" pitches from E3 to B8, divided by 11.71875 to exactly match their corresponding "slices" of the audio spectrum data when using the spectrum size of 2048.
 	// Can calculate pitches from E2 up if using a spectrum size of 4096. Probably overkill? Revisit for "easy" mode with humming (will need the lower frequencies).
@@ -36,10 +37,11 @@ public class MicrophoneInput : MonoBehaviour {
 	private string micDevice;
 	public AudioSource micInput;
 
-	private Dictionary<int, int[]> allNotes; // Dictionary of all notes: KEY="note ID" => VALUE=[lower freq bound, higher freq bound]
-	private Dictionary<int, float> notesTemplate;
-	private Dictionary<int, float> noteVolumes; // Dictionary of all note volumes: KEY="note name" => VALUE=note volume
-	private Dictionary<int, int> notePeaks; // Dictionary of "peak" notes
+	private Dictionary<int, int[]> allNotes; // Dictionary of all notes: KEY=note ID => VALUE=[lower freq bound, higher freq bound]
+	private int numberOfNotes;
+	private float[] notesTemplate;
+	private float[] noteVolumes; // Array of all note volumes, including null or 0 entries: INDEX=note ID => VALUE=note volume
+	private int[] notePeaks; // Array of "peak" notes; as in, noteVolumes with null and 0 entries removed: INDEX=noteID => VALUE=number of frames this note was dominant
 
 	public bool listeningToPlayer = false;
 
@@ -65,24 +67,35 @@ public class MicrophoneInput : MonoBehaviour {
 	void Start () {
 		// Setting up pitch arrays
 		allNotes = new Dictionary<int, int[]> ();
-		notesTemplate = new Dictionary<int, float> ();
+		numberOfNotes = 0;
 
 		for (int i = 0; i < pitchArray2048.Length; i++) {
 			if (!allNotes.ContainsKey (pitchArray2048 [i])) {
 				int[] temparray = new int[2] { i + 23, i + 23 };
 				allNotes.Add (pitchArray2048 [i], temparray);
-
-				notesTemplate.Add (pitchArray2048 [i], 0);
+				numberOfNotes++;
 			} else {
 				allNotes [pitchArray2048 [i]] [1] = i+23;
 			}
 		}
+
+		notesTemplate = new float[numberOfNotes];
+		for (int i = 0; i < numberOfNotes; i++) {
+			notesTemplate [i] = 0.0f;
+		}
+
+		hummingMode = false;
+
+		notePeaks = new int[numberOfNotes];
 	}
 
 	public void SongStart () {
-		// Resetting the noteVolumes every time there's a new song.
-		noteVolumes = notesTemplate;
-		notePeaks = new Dictionary<int, int> ();
+		// Resetting the notePeaks every time there's a new song.
+		notePeaks = new int[numberOfNotes];
+		for (int i = 0; i < numberOfNotes; i++) {
+			notePeaks [i] = 0;
+			Debug.Log ("i: " + i + ", notePeaks[i]: " + notePeaks [i]);
+		}
 
 		listeningToPlayer = true;
 	}
@@ -90,7 +103,6 @@ public class MicrophoneInput : MonoBehaviour {
 	public bool SongEnd (Dictionary<int, float> correctNotes) {
 		listeningToPlayer = false;
 
-		//// EDIT THIS
 		bool whistleIsGood = false;
 
 		int numberTotal = 0;
@@ -98,21 +110,28 @@ public class MicrophoneInput : MonoBehaviour {
 
 		foreach (int key in correctNotes.Keys) {
 			numberTotal++;
+			int thisKey = key;
 
-			if (notePeaks.ContainsKey (key)) {
-				if (notePeaks [key] > (correctNotes [key] - 30.0f) && notePeaks [key] < (correctNotes [key] + 30.0f)) {
-					numberCorrect++;
-				}
+			if (hummingMode) {
+				thisKey = key % 12;
 			}
+
+			if (notePeaks [thisKey] > (correctNotes [key] - 20.0f) && notePeaks [thisKey] < (correctNotes [key] + 20.0f)) {
+				numberCorrect++;
+			}
+
+			Debug.Log ("Correct notes : " + thisKey + ": " + correctNotes [key]);
+		}
+
+		Debug.Log (numberOfNotes);
+		Debug.Log (whistleIsGood);
+
+		for (int i=0; i < notePeaks.Length; i++) {
+			Debug.Log ("Sung notes : " + i + ": " + notePeaks[i]);
 		}
 
 		if (numberTotal == numberCorrect) {
 			whistleIsGood = true;
-		}
-
-		Debug.Log (whistleIsGood);
-		foreach (int key in notePeaks.Keys) {
-			Debug.Log ("Sung notes : " + key + ": " + notePeaks [key]);
 		}
 
 		return whistleIsGood;
@@ -123,6 +142,7 @@ public class MicrophoneInput : MonoBehaviour {
 			spectrum = new float[2048];
 			micInput.GetSpectrumData(spectrum, 0, FFTWindow.BlackmanHarris);
 
+			noteVolumes = notesTemplate;
 			for (int i=0; i < allNotes.Count; i++) {
 				var note = allNotes.ElementAt (i);
 				int lower = note.Value [0];
@@ -136,28 +156,29 @@ public class MicrophoneInput : MonoBehaviour {
 			}
 
 			Dictionary<int, float> localPeaks = new Dictionary<int, float> ();
-			for (int i = 1; i < noteVolumes.Count - 1; i++) {
-				var note = noteVolumes.ElementAt (i);
-				float volume = note.Value;
+			for (int i = 1; i < noteVolumes.Length - 1; i++) {
 
-				if (volume > 0.02 && volume > noteVolumes.ElementAt (i - 1).Value && volume > noteVolumes.ElementAt (i + 1).Value) {
-					localPeaks.Add (note.Key, volume);
+				// Set 0.02 to volumeThreshold later
+				if (noteVolumes[i] > 0.02 && noteVolumes[i] > noteVolumes[i - 1] && noteVolumes[i] > noteVolumes[i + 1]) {
+					localPeaks.Add (i, noteVolumes[i]);
 				}
 			}
 
 			int localMaxNote = -1;
 			float localMaxVolume = 0.0f;
-			foreach (int note in localPeaks.Keys) {
-				if (localPeaks [note] > localMaxVolume) {
-					localMaxNote = note;
-					localMaxVolume = localPeaks [note];
+			int arrayLength = 0;
+			foreach (int key in localPeaks.Keys) {
+				if (localPeaks [key] > localMaxVolume) {
+					localMaxNote = key;
+					localMaxVolume = localPeaks [key];
 				}
 			}
 
-			if (localMaxNote != -1 && !notePeaks.ContainsKey (localMaxNote)) {
-				notePeaks.Add (localMaxNote, 1);	
-			} else if (localMaxNote != -1 && notePeaks.ContainsKey(localMaxNote)) {
-				notePeaks [localMaxNote] += 1;
+			if (hummingMode) {
+				localMaxNote = localMaxNote % 12;
+			}	
+			if (localMaxNote != -1) {
+				notePeaks [localMaxNote]++;
 			}
 		}
 
