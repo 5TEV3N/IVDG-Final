@@ -62,7 +62,7 @@ public class BirdSpawner : MonoBehaviour
         //currentBodyInstance = Instantiate(body, bodyLocation.transform, false);
         //currentLeftWingInstance = Instantiate(leftWing, leftWingLocation.transform, false);
         //currentRightWingInstance = Instantiate(rightWing, rightWingLocation.transform, false);
-        birdAudioControl.Initialize();
+        //birdAudioControl.Initialize();
         myState.state = BirdState.currentState.hidden;
         
     }

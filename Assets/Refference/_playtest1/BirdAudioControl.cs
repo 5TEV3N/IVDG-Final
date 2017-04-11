@@ -32,16 +32,17 @@ public class BirdAudioControl: MonoBehaviour {
 	public GameObject allSongs;
 	public GameObject audioManager;
 
-	// TESTING VARIABLES
-	private bool testingOn;
+	public bool birdSingingOn;
 
 	void Start() {
-		testingOn = false;
+		birdSingingOn = false;
 
 		birdSong = GetComponent<AudioSource> ();
 
 		allSongs = GameObject.Find ("AllSongs");
 		audioManager = GameObject.Find ("AudioManager");
+
+		Initialize ();
 	}
 
 	public void Initialize() {
@@ -70,7 +71,7 @@ public class BirdAudioControl: MonoBehaviour {
 	}
 
 	void SingAndListenToPlayer () {
-		testingOn = true;
+		birdSingingOn = true;
 
 		birdSong.Play ();
 		whistleIsGood = false;
@@ -78,7 +79,7 @@ public class BirdAudioControl: MonoBehaviour {
 	}
 
 	void StopListening() {
-		testingOn = false;
+		birdSingingOn = false;
 
 		whistleIsGood = audioManager.GetComponent<MicrophoneInput> ().SongEnd (correctNotes);
 

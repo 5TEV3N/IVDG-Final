@@ -33,7 +33,10 @@ public class BirdState : MonoBehaviour
                 break;
             case currentState.birdcalls:
                 print("State: bird calls. player must persude the bird with bird calls inorder to interact.");
-                birdAudioControler.SingLoop();
+                if (birdAudioControler.birdSingingOn == false)
+                {
+                    birdAudioControler.SingLoop();
+                }
                 if (birdAudioControler.whistleIsGood == true)
                 {
                     state = currentState.interacting;
