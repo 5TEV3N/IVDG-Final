@@ -29,17 +29,19 @@ public class BirdState : MonoBehaviour
         {
             case currentState.hidden:
                 print("State: hidden. Bird is hidden and singing");
-
                 // if the distance is too great between the bird and player, then call NewBirdLocation
                 break;
             case currentState.birdcalls:
                 print("State: bird calls. player must persude the bird with bird calls inorder to interact.");
+                birdAudioControler.SingLoop();
+                if (birdAudioControler.whistleIsGood == true)
+                {
+                    state = currentState.interacting;
+                }
 
-                //if (birdAudioControler.isWhistleGood?) { state = currentState.Interacting }
                 break;
             case currentState.interacting:
                 print("State: interacting. Bird is out of hiding and his in plain view to the player");
-
                 break;
             case currentState.flyaway:
                 print("State: runaway. Bird flies away from the player because of reasons");

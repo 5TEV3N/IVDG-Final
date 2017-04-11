@@ -42,8 +42,6 @@ public class BirdAudioControl: MonoBehaviour {
 
 		allSongs = GameObject.Find ("AllSongs");
 		audioManager = GameObject.Find ("AudioManager");
-
-		Initialize ();
 	}
 
 	public void Initialize() {
