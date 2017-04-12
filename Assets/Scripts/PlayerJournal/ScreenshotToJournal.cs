@@ -29,7 +29,7 @@ public class ScreenshotToJournal: MonoBehaviour
     }
 
     public void AddThumbnail(byte[] screenshotBytes)
-    {//Side note: Please make it so that players won't be able to see the screenshot page unless they took one
+    {
         info.AddInfo();
 		info.AddInputField();
         if (slotIndex < screenshotSlot.Count)

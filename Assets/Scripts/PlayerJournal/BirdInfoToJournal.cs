@@ -16,6 +16,7 @@ public class BirdInfoToJournal : MonoBehaviour
 
     [Header ("Values")]
     public int birdInfoSlot;
+    public int inputFieldSlot;
     private int birdJournalPageNumber;
 	private int inputFieldNumber;
     
@@ -33,13 +34,11 @@ public class BirdInfoToJournal : MonoBehaviour
         gameUI = GameObject.FindGameObjectWithTag("UI").GetComponent<GameUI>();
         if (birdInfoSlot < birdNames.Count)
         {
-            print("Boot Strap");
             birdNames[birdInfoSlot].text = gameUI.birdName;
             birdInfoSlot++;
         }
         else
         {
-            print("Start of cycle");
             newBirdName = Instantiate(newBirdName, birdNameTransform, false);
             newBirdName.name = "BirdName" + ++birdJournalPageNumber;
             newBirdName.SetActive(false);
@@ -53,19 +52,19 @@ public class BirdInfoToJournal : MonoBehaviour
         }
     }
 
-	public void AddInputField()
-	{
-		newBirdInputField = Instantiate(newBirdInputField, inputFieldTransform, false);
-		newBirdInputField.name = "InputFieldsPage" + ++inputFieldNumber;
-		newBirdInputField.SetActive(true);
+    public void AddInputField()
+    {
+        newBirdInputField = Instantiate(newBirdInputField, inputFieldTransform, false);
+        newBirdInputField.name = "InputFieldsPage" + ++inputFieldNumber;
+        newBirdInputField.SetActive(false);
+        inputFieldSlot++;
+        for (int i = 0; i < newBirdInputField.transform.childCount; i++)
+        {
+            newInputFieldComponents = newBirdInputField.GetComponentsInChildren<InputField>();
+        }
 
-		for (int i = 0; i < newBirdInputField.transform.childCount; i++)
-		{
-			newInputFieldComponents = newBirdInputField.GetComponentsInChildren<InputField>();
-		}
-
-		inputFieldsList.AddRange(newInputFieldComponents);
-		newInputFieldsList.Add(newBirdInputField);
+        inputFieldsList.AddRange(newInputFieldComponents);
+        newInputFieldsList.Add(newBirdInputField);
 	}
 }
 /*
