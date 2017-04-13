@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class BirdSpawner : MonoBehaviour
 {
-    // Spawn a bird. State is hidden. Put them in a random location. Give them their name.
     BirdState myState;
     BirdController birdController;
     BirdAudioControl birdAudioControl;
@@ -85,9 +84,9 @@ public class BirdSpawner : MonoBehaviour
         }
         else { BirdNamer(); }
     }
-    void Update()
+
+    void Update()//DEBUG
     {
-        // DEBUG
         if (Input.GetKeyDown(KeyCode.DownArrow))
         {
             Deconstructor();

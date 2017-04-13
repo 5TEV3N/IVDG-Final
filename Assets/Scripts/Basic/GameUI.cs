@@ -3,6 +3,9 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
+[RequireComponent(typeof(GameScreenshot))]
+[RequireComponent(typeof(ScreenshotToJournal))]
+[RequireComponent(typeof(BirdInfoToJournal))]
 
 public class GameUI : MonoBehaviour
 {

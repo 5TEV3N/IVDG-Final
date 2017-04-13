@@ -261,7 +261,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4008679654450124, guid: 0f06ad92576159e42866a95456f68434, type: 2}
       propertyPath: m_RootOrder
-      value: 2
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 0f06ad92576159e42866a95456f68434, type: 2}
@@ -378,7 +378,7 @@ Mesh:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
-  m_Name: pb_Mesh24282
+  m_Name: pb_Mesh15070
   serializedVersion: 8
   m_SubMeshes:
   - serializedVersion: 2
@@ -567,88 +567,34 @@ Prefab:
 Transform:
   m_PrefabParentObject: {fileID: 400000, guid: a212c30ca4cb89b40b5e45a81fa19daa, type: 3}
   m_PrefabInternal: {fileID: 111565788}
---- !u!1 &114468636
+--- !u!1 &140033694
 GameObject:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   serializedVersion: 5
   m_Component:
-  - component: {fileID: 114468637}
-  - component: {fileID: 114468639}
-  m_Layer: 8
-  m_Name: Head
-  m_TagString: Untagged
+  - component: {fileID: 140033695}
+  m_Layer: 0
+  m_Name: PlaceholderBird
+  m_TagString: Bird
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &114468637
+--- !u!4 &140033695
 Transform:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 114468636}
-  m_LocalRotation: {x: 0.10452846, y: -0, z: -0, w: 0.9945219}
-  m_LocalPosition: {x: 0, y: 1.12, z: -0.46}
-  m_LocalScale: {x: 1, y: 1.0000002, z: 1.0000002}
+  m_GameObject: {fileID: 140033694}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
-  m_Father: {fileID: 2091863529}
-  m_RootOrder: 1
-  m_LocalEulerAnglesHint: {x: 12, y: 0, z: 0}
---- !u!65 &114468639
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 114468636}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 0
-  serializedVersion: 2
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
---- !u!1 &119353192
-GameObject:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  serializedVersion: 5
-  m_Component:
-  - component: {fileID: 119353193}
-  - component: {fileID: 119353195}
-  m_Layer: 8
-  m_Name: LeftWing
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &119353193
-Transform:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 119353192}
-  m_LocalRotation: {x: 0.10452846, y: -0, z: -0, w: 0.9945219}
-  m_LocalPosition: {x: 0.968, y: -0.001, z: -0.008}
-  m_LocalScale: {x: 1, y: 0.14, z: 1.0000002}
-  m_Children: []
-  m_Father: {fileID: 2091863529}
-  m_RootOrder: 2
-  m_LocalEulerAnglesHint: {x: 12, y: 0, z: 0}
---- !u!65 &119353195
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 119353192}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 0
-  serializedVersion: 2
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &140808269 stripped
 GameObject:
   m_PrefabParentObject: {fileID: 100000, guid: a212c30ca4cb89b40b5e45a81fa19daa, type: 3}
@@ -1123,7 +1069,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4591138052603570, guid: 6ba3c36a871a8b64a8d3cbbe4d3fc6fc, type: 2}
       propertyPath: m_RootOrder
-      value: 3
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 114959747396549448, guid: 6ba3c36a871a8b64a8d3cbbe4d3fc6fc,
         type: 2}
@@ -1365,47 +1311,6 @@ MeshCollider:
   m_InflateMesh: 0
   m_SkinWidth: 0.01
   m_Mesh: {fileID: 4300000, guid: a212c30ca4cb89b40b5e45a81fa19daa, type: 3}
---- !u!1 &222930774
-GameObject:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  serializedVersion: 5
-  m_Component:
-  - component: {fileID: 222930775}
-  - component: {fileID: 222930777}
-  m_Layer: 8
-  m_Name: RightWing
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &222930775
-Transform:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 222930774}
-  m_LocalRotation: {x: 0.10452846, y: -0, z: -0, w: 0.9945219}
-  m_LocalPosition: {x: -1.032, y: -0.001, z: -0.008}
-  m_LocalScale: {x: 1, y: 0.14000003, z: 1.0000002}
-  m_Children: []
-  m_Father: {fileID: 2091863529}
-  m_RootOrder: 3
-  m_LocalEulerAnglesHint: {x: 12, y: 0, z: 0}
---- !u!65 &222930777
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 222930774}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 0
-  serializedVersion: 2
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1001 &228681541
 Prefab:
   m_ObjectHideFlags: 0
@@ -2038,7 +1943,7 @@ Mesh:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
-  m_Name: pb_Mesh24482
+  m_Name: pb_Mesh15270
   serializedVersion: 8
   m_SubMeshes:
   - serializedVersion: 2
@@ -2286,90 +2191,6 @@ MeshCollider:
   m_InflateMesh: 0
   m_SkinWidth: 0.01
   m_Mesh: {fileID: 4300000, guid: a212c30ca4cb89b40b5e45a81fa19daa, type: 3}
---- !u!1 &334798681
-GameObject:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  serializedVersion: 5
-  m_Component:
-  - component: {fileID: 334798683}
-  - component: {fileID: 334798684}
-  m_Layer: 0
-  m_Name: BirdManager
-  m_TagString: BirdManager
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &334798683
-Transform:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 334798681}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 1276359336}
-  m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &334798684
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 334798681}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f9e4fe13ce626e5478e86bb5ea65db4d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  bird: {fileID: 2091863528}
-  birdSpawnLocation:
-  - {fileID: 1643202060}
-  - {fileID: 592713939}
-  - {fileID: 256436038}
-  - {fileID: 1377878842}
-  - {fileID: 403393935}
-  imDoingTheTrailerRightNow: 0
-  headLocation: {fileID: 114468637}
-  bodyLocation: {fileID: 2018266236}
-  leftWingLocation: {fileID: 119353193}
-  rightWingLocation: {fileID: 222930775}
-  birdPrefix:
-  - Common
-  - Common
-  - Common
-  - Common
-  - Un-Common
-  - Un-Common
-  - Un-Common
-  - Rare
-  - Rare
-  - Mythical
-  birdName:
-  - Dingaling
-  - Mikmak
-  - Wallmer
-  - Jay
-  birdLastName:
-  - Dookie
-  - Starling
-  - Bingbam
-  - Raymoo
-  - Adidas
-  headPart:
-  - {fileID: 1455994896069222, guid: 9ef9ce2f4012bea4c8f095e8d8e79740, type: 2}
-  bodyPart:
-  - {fileID: 1455994896069222, guid: 9ef9ce2f4012bea4c8f095e8d8e79740, type: 2}
-  leftWingPart:
-  - {fileID: 1455994896069222, guid: 9ef9ce2f4012bea4c8f095e8d8e79740, type: 2}
-  - {fileID: 1071465336895994, guid: e442939e5aeb4dd4f8e178f6a10719dd, type: 2}
-  rightWingPart:
-  - {fileID: 1455994896069222, guid: 9ef9ce2f4012bea4c8f095e8d8e79740, type: 2}
-  - {fileID: 1071465336895994, guid: e442939e5aeb4dd4f8e178f6a10719dd, type: 2}
 --- !u!1 &340656788 stripped
 GameObject:
   m_PrefabParentObject: {fileID: 100000, guid: a212c30ca4cb89b40b5e45a81fa19daa, type: 3}
@@ -4901,7 +4722,7 @@ Mesh:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
-  m_Name: pb_Mesh24886
+  m_Name: pb_Mesh15674
   serializedVersion: 8
   m_SubMeshes:
   - serializedVersion: 2
@@ -5029,7 +4850,7 @@ Mesh:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
-  m_Name: pb_Mesh16868
+  m_Name: pb_Mesh15450
   serializedVersion: 8
   m_SubMeshes:
   - serializedVersion: 2
@@ -6130,7 +5951,7 @@ Mesh:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
-  m_Name: pb_Mesh17148
+  m_Name: pb_Mesh15972
   serializedVersion: 8
   m_SubMeshes:
   - serializedVersion: 2
@@ -6949,7 +6770,7 @@ Mesh:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
-  m_Name: pb_Mesh16804
+  m_Name: pb_Mesh15324
   serializedVersion: 8
   m_SubMeshes:
   - serializedVersion: 2
@@ -7616,7 +7437,7 @@ Mesh:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
-  m_Name: pb_Mesh24438
+  m_Name: pb_Mesh15226
   serializedVersion: 8
   m_SubMeshes:
   - serializedVersion: 2
@@ -7849,7 +7670,7 @@ Mesh:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
-  m_Name: pb_Mesh16728
+  m_Name: pb_Mesh15190
   serializedVersion: 8
   m_SubMeshes:
   - serializedVersion: 2
@@ -8360,7 +8181,7 @@ Mesh:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
-  m_Name: pb_Mesh16570
+  m_Name: pb_Mesh14882
   serializedVersion: 8
   m_SubMeshes:
   - serializedVersion: 2
@@ -8700,7 +8521,7 @@ Mesh:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
-  m_Name: pb_Mesh16684
+  m_Name: pb_Mesh15104
   serializedVersion: 8
   m_SubMeshes:
   - serializedVersion: 2
@@ -9804,7 +9625,7 @@ Mesh:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
-  m_Name: pb_Mesh16956
+  m_Name: pb_Mesh15588
   serializedVersion: 8
   m_SubMeshes:
   - serializedVersion: 2
@@ -9932,7 +9753,7 @@ Mesh:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
-  m_Name: pb_Mesh16890
+  m_Name: pb_Mesh15484
   serializedVersion: 8
   m_SubMeshes:
   - serializedVersion: 2
@@ -10735,7 +10556,6 @@ Transform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
-  - {fileID: 334798683}
   - {fileID: 1580152240}
   - {fileID: 12615757}
   - {fileID: 181534422}
@@ -11456,7 +11276,7 @@ Mesh:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
-  m_Name: pb_Mesh16970
+  m_Name: pb_Mesh15606
   serializedVersion: 8
   m_SubMeshes:
   - serializedVersion: 2
@@ -11854,7 +11674,7 @@ Mesh:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
-  m_Name: pb_Mesh17056
+  m_Name: pb_Mesh15762
   serializedVersion: 8
   m_SubMeshes:
   - serializedVersion: 2
@@ -11982,7 +11802,7 @@ Mesh:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
-  m_Name: pb_Mesh16942
+  m_Name: pb_Mesh15570
   serializedVersion: 8
   m_SubMeshes:
   - serializedVersion: 2
@@ -13868,7 +13688,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1276359336}
-  m_RootOrder: 1
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1580152241
 MonoBehaviour:
@@ -14866,7 +14686,7 @@ Mesh:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
-  m_Name: pb_Mesh25166
+  m_Name: pb_Mesh15954
   serializedVersion: 8
   m_SubMeshes:
   - serializedVersion: 2
@@ -15510,7 +15330,7 @@ Mesh:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
-  m_Name: pb_Mesh16928
+  m_Name: pb_Mesh15556
   serializedVersion: 8
   m_SubMeshes:
   - serializedVersion: 2
@@ -16977,7 +16797,7 @@ Mesh:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
-  m_Name: pb_Mesh24146
+  m_Name: pb_Mesh14934
   serializedVersion: 8
   m_SubMeshes:
   - serializedVersion: 2
@@ -17118,47 +16938,6 @@ MeshCollider:
   m_InflateMesh: 0
   m_SkinWidth: 0.01
   m_Mesh: {fileID: 4300000, guid: a212c30ca4cb89b40b5e45a81fa19daa, type: 3}
---- !u!1 &2018266235
-GameObject:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  serializedVersion: 5
-  m_Component:
-  - component: {fileID: 2018266236}
-  - component: {fileID: 2018266238}
-  m_Layer: 8
-  m_Name: Body
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &2018266236
-Transform:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 2018266235}
-  m_LocalRotation: {x: 0.10452846, y: 0, z: 0, w: 0.9945219}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 2091863529}
-  m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 12, y: 0, z: 0}
---- !u!65 &2018266238
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 2018266235}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 0
-  serializedVersion: 2
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1001 &2022616492
 Prefab:
   m_ObjectHideFlags: 0
@@ -17464,7 +17243,7 @@ Mesh:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
-  m_Name: pb_Mesh16648
+  m_Name: pb_Mesh15052
   serializedVersion: 8
   m_SubMeshes:
   - serializedVersion: 2
@@ -17605,80 +17384,6 @@ MeshCollider:
   m_InflateMesh: 0
   m_SkinWidth: 0.01
   m_Mesh: {fileID: 4300000, guid: a212c30ca4cb89b40b5e45a81fa19daa, type: 3}
---- !u!1 &2091863528
-GameObject:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  serializedVersion: 5
-  m_Component:
-  - component: {fileID: 2091863529}
-  - component: {fileID: 2091863530}
-  - component: {fileID: 2091863531}
-  - component: {fileID: 2091863532}
-  m_Layer: 8
-  m_Name: Bird
-  m_TagString: Bird
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &2091863529
-Transform:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 2091863528}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 1, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children:
-  - {fileID: 2018266236}
-  - {fileID: 114468637}
-  - {fileID: 119353193}
-  - {fileID: 222930775}
-  m_Father: {fileID: 0}
-  m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &2091863530
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 2091863528}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: bb4cc3af19cfee546b34ac5e9101b3ec, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  birdDistance: 0
-  birdTriggerBirdcalls: 10
-  birdTriggerHidden: 14
-  playerTookPicture: 0
---- !u!114 &2091863531
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 2091863528}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7074e739f6e9b86479721a0f30aed6c5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  state: 0
---- !u!65 &2091863532
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 2091863528}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 1.5, y: 1.5, z: 1.5}
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &2114553501 stripped
 GameObject:
   m_PrefabParentObject: {fileID: 100000, guid: a212c30ca4cb89b40b5e45a81fa19daa, type: 3}

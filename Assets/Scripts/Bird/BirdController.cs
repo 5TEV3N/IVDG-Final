@@ -9,6 +9,7 @@ public class BirdController : MonoBehaviour
     GameUI gameUI;
 
     public float birdDistance;                      // distance between bird and player
+    public float maxDistance = 500f;                // max distance before the bird changes spawn points;
     public float birdTriggerBirdcalls;              // distance to trigger the birdcalls state 
     public float birdTriggerHidden;                 // distance to trigger the hidden state
     public bool playerTookPicture = false;          // if the player took a screenshot, bird switches state to runaway. This is subject to change
@@ -49,13 +50,18 @@ public class BirdController : MonoBehaviour
         if (myState.state == BirdState.currentState.interacting)
         {
             gameUI.BirdDiscovered(false);
-            gameObject.transform.position = Vector3.Lerp(gameObject.transform.position, new Vector3(0, 0, 0), Time.deltaTime);
+            gameObject.transform.position = Vector3.Lerp(gameObject.transform.position, new Vector3(0, 0, 0), Time.deltaTime);  // changes this later
 
             if (playerTookPicture == true)
             {
                 myState.state = BirdState.currentState.flyaway;
                 playerTookPicture = false;
             }
+        }
+
+        if (birdDistance >= maxDistance)
+        {
+            myState.state = BirdState.currentState.flyaway;
         }
     }
 }

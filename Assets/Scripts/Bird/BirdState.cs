@@ -29,7 +29,6 @@ public class BirdState : MonoBehaviour
         {
             case currentState.hidden:
                 print("State: hidden. Bird is hidden and singing");
-                // if the distance is too great between the bird and player, then call NewBirdLocation
                 break;
             case currentState.birdcalls:
                 print("State: bird calls. player must persude the bird with bird calls inorder to interact.");
@@ -50,9 +49,8 @@ public class BirdState : MonoBehaviour
                 print("State: runaway. Bird flies away from the player because of reasons");
 
                 birdSpawner.NewBirdLocation();
-                birdSpawner.Deconstructor();
                 birdSpawner.BirdNamer();
-                birdSpawner.BirdConstructor();
+                birdSpawner.Deconstructor();
                 break;
         }
     }

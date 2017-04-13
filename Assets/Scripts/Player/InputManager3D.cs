@@ -1,7 +1,8 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+[RequireComponent(typeof(PlayerController3D))]
+[RequireComponent(typeof(PlayerRaycast))]
 public class InputManager3D : MonoBehaviour
 {
     PlayerController3D playerController3D;      
