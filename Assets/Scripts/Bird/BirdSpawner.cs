@@ -16,27 +16,23 @@ public class BirdSpawner : MonoBehaviour
     [Header("The Trailer Button")]
     public bool imDoingTheTrailerRightNow;
 
-    [Header("Bird's Container")]
-    public Transform headLocation;
-    public Transform bodyLocation;
-    public Transform leftWingLocation;
-    public Transform rightWingLocation;
-
     [Header("Bird Name")]
     public string[] birdPrefix;
     public string[] birdName;
     public string[] birdLastName;
 
     [Header("Bird Parts")]
-    public GameObject[] headPart;
-    public GameObject[] bodyPart;
-    public GameObject[] leftWingPart;
-    public GameObject[] rightWingPart;
+    public GameObject[] headPieceParts;
+    public GameObject[] baseBodyParts;
+    public GameObject[] beakParts;
+    public GameObject[] wingParts;
 
-    private GameObject currentHeadInstance;
-    private GameObject currentBodyInstance;
-    private GameObject currentLeftWingInstance;
-    private GameObject currentRightWingInstance;
+    private GameObject currentHeadPiecePart;
+    private GameObject currentBaseBodyPart;
+    private GameObject currentBeakPart;
+    private GameObject currentWingPart;
+
+    //COMMENTED OUT THE WING PARTS DUE TO THERE NOT BEING ANY WING PARTS YET, ADD BACK LATER??
 
     void Awake()
     {
@@ -52,33 +48,30 @@ public class BirdSpawner : MonoBehaviour
 
     public void BirdConstructor()
     {
-        // Depricated, please incorprate ana's model instead
-        //GameObject head = headPart[Random.Range(0, headPart.Length)];
-        //GameObject body = bodyPart[Random.Range(0, bodyPart.Length)];
-        //GameObject leftWing = leftWingPart[Random.Range(0, leftWingPart.Length)];
-        //GameObject rightWing = rightWingPart[Random.Range(0, rightWingPart.Length)];
-        //
-        //currentHeadInstance = Instantiate(head, headLocation.transform, false);
-        //currentBodyInstance = Instantiate(body, bodyLocation.transform, false);
-        //currentLeftWingInstance = Instantiate(leftWing, leftWingLocation.transform, false);
-        //currentRightWingInstance = Instantiate(rightWing, rightWingLocation.transform, false);
-        //birdAudioControl.Initialize();
+        currentHeadPiecePart = headPieceParts[Random.Range(0, headPieceParts.Length)];
+        currentBaseBodyPart = baseBodyParts[Random.Range(0, baseBodyParts.Length)];
+        currentBeakPart = beakParts[Random.Range(0, beakParts.Length)];
+        //currentWingPart = wingParts[Random.Range(0, wingParts.Length)];
+
+        currentHeadPiecePart.SetActive(true);
+        currentBaseBodyPart.SetActive(true);
+        currentBeakPart.SetActive(true);
+        //currentWingPart.SetActive(true);
+
         myState.state = BirdState.currentState.hidden;
-        
     }
 
     public void Deconstructor()
     {
-        // Depricated, please incorprate ana's model instead
-        //DestroyObject(currentHeadInstance);
-        //DestroyObject(currentBodyInstance);
-        //DestroyObject(currentLeftWingInstance);
-        //DestroyObject(currentRightWingInstance);
+        currentHeadPiecePart.SetActive(false);
+        currentBaseBodyPart.SetActive(false);
+        currentBeakPart.SetActive(false);
+        //currentWingPart.SetActive(false);
+        BirdConstructor();
     }
 
     public void NewBirdLocation()
     {
-        // please spawn it at a close range using birdController
         bird.transform.position = birdSpawnLocation[Random.Range(0, birdSpawnLocation.Length)].transform.position;
     }
 
@@ -92,4 +85,24 @@ public class BirdSpawner : MonoBehaviour
         }
         else { BirdNamer(); }
     }
+    void Update()
+    {
+        // DEBUG
+        if (Input.GetKeyDown(KeyCode.DownArrow))
+        {
+            Deconstructor();
+        }
+    }
 }
+
+// Depricated, please incorprate ana's model instead
+//GameObject head = headPart[Random.Range(0, headPart.Length)];
+//GameObject body = bodyPart[Random.Range(0, bodyPart.Length)];
+//GameObject leftWing = leftWingPart[Random.Range(0, leftWingPart.Length)];
+//GameObject rightWing = rightWingPart[Random.Range(0, rightWingPart.Length)];
+//
+//currentHeadInstance = Instantiate(head, headLocation.transform, false);
+//currentBodyInstance = Instantiate(body, bodyLocation.transform, false);
+//currentLeftWingInstance = Instantiate(leftWing, leftWingLocation.transform, false);
+//currentRightWingInstance = Instantiate(rightWing, rightWingLocation.transform, false);
+//birdAudioControl.Initialize();
