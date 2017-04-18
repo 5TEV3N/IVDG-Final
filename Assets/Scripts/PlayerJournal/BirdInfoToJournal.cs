@@ -5,7 +5,7 @@ using UnityEngine.UI;
 
 public class BirdInfoToJournal : MonoBehaviour
 {
-    // NOT THE BEST WAY TO GO ABOUT THIS. PLEASE FIGURE OUT A MORE OPTIMAL WAY OF GOING ABOUT THIS LATER
+    // Functions similarly to ScreenshotToJournal
     GameUI gameUI;
 
     [Header("Containers")]
@@ -67,41 +67,3 @@ public class BirdInfoToJournal : MonoBehaviour
         newInputFieldsList.Add(newBirdInputField);
 	}
 }
-/*
-newBirdInputField = Instantiate(newBirdInputField, birdNameTransform, false);
-newBirdInputField.name = "InputFieldsPage" + ++inputFieldNumber;
-newBirdInputField.SetActive(false);
-
-for (int i = 0; i < newBirdInputField.transform.childCount; i++)
-{
-    newInputFieldComponents = newBirdInputField.GetComponentsInChildren<InputField>();
-}
-
-inputFieldsList.AddRange(newInputFieldComponents);
-newInputFieldsList.Add(newBirdInputField);
-
-
-
-
-
-
-
-
-            if (birdInfoSlot < birdNames.Count)
-        {
-            //print("if");
-
-            newBirdName = Instantiate(newBirdName, birdNameTransform, false);
-            newBirdName.name = "BirdName" + ++birdJournalPageNumber;
-            newBirdName.SetActive(true);
-
-            newTextComponents = newBirdName.GetComponentsInChildren<Text>();
-            birdNames.AddRange(newTextComponents);
-            newBirdNamePageList.Add(newBirdName);
-
-            birdNames[birdInfoSlot].text = currentBirdName.birdName;
-            birdInfoSlot++;
-        }
-        else
-        {
-*/

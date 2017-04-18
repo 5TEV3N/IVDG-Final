@@ -98,11 +98,14 @@ public class InputManager3D : MonoBehaviour
             {
                 if (playerRaycast.hitObject().transform.tag == "Bird")
                 {
-                    StartCoroutine(gameScreenshot.GetSnapshot());
-                    birdController.playerTookPicture = true;
-                    print("Screenshot saved!");
+                    //StartCoroutine(gameScreenshot.GetSnapshot());
+                    //birdController.playerTookPicture = true;
+                    //print("Screenshot saved!");
                 }
             }
+            StartCoroutine(gameScreenshot.GetSnapshot());
+            birdController.playerTookPicture = true;
+            print("Screenshot saved!");
         }
         #endregion
 

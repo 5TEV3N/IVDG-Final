@@ -29,9 +29,11 @@ public class BirdState : MonoBehaviour
         {
             case currentState.hidden:
                 print("State: hidden. Bird is hidden and singing");
+                // Audio or visual indicator here
                 break;
             case currentState.birdcalls:
                 print("State: bird calls. player must persude the bird with bird calls inorder to interact.");
+
                 if (birdAudioControler.birdSingingOn == false)
                 {
                     birdAudioControler.SingLoop();
@@ -44,6 +46,7 @@ public class BirdState : MonoBehaviour
                 break;
             case currentState.interacting:
                 print("State: interacting. Bird is out of hiding and his in plain view to the player");
+                // cycle/change current bird animation
                 break;
             case currentState.flyaway:
                 print("State: runaway. Bird flies away from the player because of reasons");
@@ -55,10 +58,3 @@ public class BirdState : MonoBehaviour
         }
     }
 }
-/*
- * Kaermack's suggestion:
- * Birdcall must be randomized and assigned to the bird.
- * For the AudioSpectrum, look for the bird that is closest to the player.
- * Then, that bird must push the birdcall into the AudioSpectrum
- * Set the audio input to the birdcall.
-*/

@@ -93,15 +93,3 @@ public class BirdSpawner : MonoBehaviour
         }
     }
 }
-
-// Depricated, please incorprate ana's model instead
-//GameObject head = headPart[Random.Range(0, headPart.Length)];
-//GameObject body = bodyPart[Random.Range(0, bodyPart.Length)];
-//GameObject leftWing = leftWingPart[Random.Range(0, leftWingPart.Length)];
-//GameObject rightWing = rightWingPart[Random.Range(0, rightWingPart.Length)];
-//
-//currentHeadInstance = Instantiate(head, headLocation.transform, false);
-//currentBodyInstance = Instantiate(body, bodyLocation.transform, false);
-//currentLeftWingInstance = Instantiate(leftWing, leftWingLocation.transform, false);
-//currentRightWingInstance = Instantiate(rightWing, rightWingLocation.transform, false);
-//birdAudioControl.Initialize();

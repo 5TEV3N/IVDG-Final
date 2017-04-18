@@ -106,4 +106,5 @@ public class GameUI : MonoBehaviour
             discovered.color = Color.Lerp(discovered.color, Color.clear, Time.deltaTime * textSmoothFade); 
         }
     }
+
 }

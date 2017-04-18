@@ -37,6 +37,28 @@ public class PlayerController3D : MonoBehaviour
         valOfVelocity = rb.velocity.magnitude;
     }
 
+    public void Focus(bool focusIn)
+    {
+        if (focusIn == true)
+        {
+            Camera.main.fieldOfView = Mathf.Lerp(Camera.main.fieldOfView, zoomAmount, Time.deltaTime * focusSmoothing);
+        }
+        else
+        {
+            Camera.main.fieldOfView = Mathf.Lerp(Camera.main.fieldOfView, originalFOV, Time.deltaTime * focusSmoothing);
+        }
+    }
+
+    public void Sit(bool isSitting)
+    {
+        if (isSitting == true)
+        {
+            // Gets the position of the object and moves the player towards it AND changes the y by 5. Change this to be more flexible with different sittable objects
+            gameObject.transform.position = new Vector3(playerRaycast.hitObjectTransform().x, playerRaycast.hitObjectTransform().y * 5, playerRaycast.hitObjectTransform().z);
+        }
+    }
+
+    #region Movement Related
     public void PlayerMove(float xAxis, float zAxis)
     {
 
@@ -95,29 +117,5 @@ public class PlayerController3D : MonoBehaviour
             Camera.main.transform.localRotation = Quaternion.Euler(verticalRotation, 0, 0);
         }
     }
-
-    public void Focus(bool focusIn)
-    {
-        if (focusIn == true)
-        {
-            Camera.main.fieldOfView = Mathf.Lerp(Camera.main.fieldOfView,zoomAmount, Time.deltaTime * focusSmoothing);
-        }
-        else
-        {
-            Camera.main.fieldOfView = Mathf.Lerp(Camera.main.fieldOfView, originalFOV, Time.deltaTime * focusSmoothing);
-        }
-    }
-
-    public void Sit(bool isSitting)
-    {
-        if (isSitting == true)
-        {
-            // Gets the position of the object and moves the player towards it AND changes the y by 5. Change this to be more flexible with different sittable objects
-            gameObject.transform.position = new Vector3 (playerRaycast.hitObjectTransform().x, playerRaycast.hitObjectTransform().y * 5, playerRaycast.hitObjectTransform().z);
-        }
-        else
-        {
-
-        }
-    }
+    #endregion
 }

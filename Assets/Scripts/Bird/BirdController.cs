@@ -27,6 +27,7 @@ public class BirdController : MonoBehaviour
     {
         birdDistance = Vector3.Distance(gameObject.transform.position, player.transform.position);
         
+        #region Hidden to Birdcall
         // if the player is close to the bird 
         if (birdDistance <= birdTriggerBirdcalls)
         {
@@ -36,7 +37,9 @@ public class BirdController : MonoBehaviour
                 gameUI.BirdDiscovered(true);
             }
         }
-        
+        #endregion
+
+        #region Hidden to Flyaway
         // else, if the the player is far from the bird
         else if (birdDistance >= birdTriggerHidden)
         {
@@ -47,6 +50,14 @@ public class BirdController : MonoBehaviour
             }
         }
 
+        // reset the bird position once it reaches a certain threshold
+        if (birdDistance >= maxDistance)
+        {
+            myState.state = BirdState.currentState.flyaway;
+        }
+        #endregion
+
+        #region Hidden to Interaction
         if (myState.state == BirdState.currentState.interacting)
         {
             gameUI.BirdDiscovered(false);
@@ -58,10 +69,7 @@ public class BirdController : MonoBehaviour
                 playerTookPicture = false;
             }
         }
+        #endregion
 
-        if (birdDistance >= maxDistance)
-        {
-            myState.state = BirdState.currentState.flyaway;
-        }
     }
 }
