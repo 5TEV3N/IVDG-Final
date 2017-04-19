@@ -5,8 +5,8 @@ using UnityEngine;
 public class BirdSpawner : MonoBehaviour
 {
     BirdState myState;
-    BirdController birdController;
-    BirdAudioControl birdAudioControl;
+    //BirdController birdController;
+    //BirdAudioControl birdAudioControl;
 
     public static string currentBirdName;
     public GameObject bird;
@@ -36,8 +36,8 @@ public class BirdSpawner : MonoBehaviour
     void Awake()
     {
         myState = GameObject.FindGameObjectWithTag("Bird").GetComponent<BirdState>();
-        birdController = GameObject.FindGameObjectWithTag("Bird").GetComponent<BirdController>();
-        birdAudioControl = GameObject.FindGameObjectWithTag("Bird").GetComponent<BirdAudioControl>();
+        //birdController = GameObject.FindGameObjectWithTag("Bird").GetComponent<BirdController>();
+        //birdAudioControl = GameObject.FindGameObjectWithTag("Bird").GetComponent<BirdAudioControl>();
     }
 
     public void BirdNamer()
