@@ -10,6 +10,9 @@ public class MicrophoneInput : MonoBehaviour {
 	public float volumeThreshold;
 	//	public float volumeTrigger;
 	public bool hummingMode;
+	public bool easyMode;
+	public float leniencyLength = 20.0f;
+	public float leniencyPitch = 1;
 
 	// This is the frequencies of all "musical" pitches from E3 to B8, divided by 11.71875 to exactly match their corresponding "slices" of the audio spectrum data when using the spectrum size of 2048.
 	// Can calculate pitches from E2 up if using a spectrum size of 4096. Probably overkill? Revisit for "easy" mode with humming (will need the lower frequencies).
@@ -60,7 +63,7 @@ public class MicrophoneInput : MonoBehaviour {
 		micInput.clip = Microphone.Start (micDevice, true, 5, 44100);
 		micInput.loop = true;
 
-		while (!(Microphone.GetPosition(null) > 500)) {}
+		while (!(Microphone.GetPosition(null) > 200)) {}
 		micInput.Play ();
 	}
 		
@@ -84,18 +87,18 @@ public class MicrophoneInput : MonoBehaviour {
 			notesTemplate [i] = 0.0f;
 		}
 
-		hummingMode = false;
-
 		notePeaks = new int[numberOfNotes];
+
+		hummingMode = false;
+		easyMode = false;
 	}
 
 	public void SongStart () {
 		// Resetting the notePeaks every time there's a new song.
 		notePeaks = new int[numberOfNotes];
-		for (int i = 0; i < numberOfNotes; i++) {
-			notePeaks [i] = 0;
-			Debug.Log ("i: " + i + ", notePeaks[i]: " + notePeaks [i]);
-		}
+//		for (int i = 0; i < numberOfNotes; i++) {
+//			notePeaks [i] = 0;
+//		}
 
 		listeningToPlayer = true;
 	}
@@ -108,6 +111,7 @@ public class MicrophoneInput : MonoBehaviour {
 		int numberTotal = 0;
 		int numberCorrect = 0;
 
+
 		foreach (int key in correctNotes.Keys) {
 			numberTotal++;
 			int thisKey = key;
@@ -116,21 +120,25 @@ public class MicrophoneInput : MonoBehaviour {
 				thisKey = key % 12;
 			}
 
-			if (notePeaks [thisKey] > (correctNotes [key] - 20.0f) && notePeaks [thisKey] < (correctNotes [key] + 20.0f)) {
+			if (notePeaks [thisKey] > (correctNotes [key] - leniencyLength) && notePeaks [thisKey] < (correctNotes [key] + leniencyLength)) {
 				numberCorrect++;
+			} else if (easyMode) {
+				if (notePeaks [thisKey - 1] > (correctNotes [key] - leniencyLength) && notePeaks [thisKey - 1] < (correctNotes [key] + leniencyLength)) {
+					numberCorrect++;
+				} else if (notePeaks [thisKey + 1] > (correctNotes [key] - leniencyLength) && notePeaks [thisKey + 1] < (correctNotes [key] + leniencyLength)) {
+					numberCorrect++;
+				}
 			}
 
 			Debug.Log ("Correct notes : " + thisKey + ": " + correctNotes [key]);
 		}
 
-		Debug.Log (numberOfNotes);
-		Debug.Log (whistleIsGood);
 
 		for (int i=0; i < notePeaks.Length; i++) {
 			Debug.Log ("Sung notes : " + i + ": " + notePeaks[i]);
 		}
 
-		if (numberTotal == numberCorrect) {
+		if (numberCorrect == numberTotal) {
 			whistleIsGood = true;
 		}
 

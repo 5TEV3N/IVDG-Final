@@ -16,10 +16,11 @@ public class BirdAudioControl: MonoBehaviour {
 
 	private Coroutine newCoroutine;
 	private float timer;
+	public float songLength;
 	public int birdWait;
 
 	public int birdDifficulty; // Determines what songs bird chooses from, how accurate song needs to be, and how many attempts are required.
-	public int attemptsRemaining;
+	public int failsRemaining;
 	public int successNeeded;
 	public int successCurrent;
 
@@ -50,24 +51,31 @@ public class BirdAudioControl: MonoBehaviour {
 		birdFailure = false;
 
 		// Randomize later
-		birdDifficulty = 0;
-		attemptsRemaining = 5 - birdDifficulty;
+		birdDifficulty = 0; // Three levels? 0,1,2?
+		failsRemaining = 3 - birdDifficulty;
 		successNeeded = 3 + birdDifficulty;
 		successCurrent = 0;
 
-		// Pulls bird song and corresponding "correct pitches" dictionary from the AllSongs script (randomize later)
+		// Pulls bird song and corresponding "correct pitches" dictionary from the AllSongs script (randomize later, organize based on bird difficulty)
 		birdSong.clip = allSongs.GetComponent<AllSongs>().listOfSongs[0];
 		correctNotes = allSongs.GetComponent<AllSongs>().songPitches[0];
 
-		// Tie to song length
-		birdWait = 5;
+		// Tie bird waiting time between songs to song length
+		songLength = 0.0f;
+		foreach (int key in correctNotes.Keys) {
+			songLength += correctNotes [key];
+		}
+		songLength = songLength / 60;
+		songLength = Mathf.Round (songLength);
+		int songLengthInt = (int)songLength;
+		birdWait = 4 + songLengthInt;
 	}
 
-	// Sing and StopSinging functions that in turn call SongStart and SongEnd functions in the MicrophoneInput script, to start/stop recording and check whistling accuracy
-
+	// SingAndListenToPlayer and StopListening functions that in turn call SongStart and SongEnd functions in the MicrophoneInput script, to start/stop recording and check whistling accuracy
+	// SingLoop includes both of these functions, with StopListening invoked on a timer
 	public void SingLoop() {
 		SingAndListenToPlayer ();
-		Invoke ("StopListening", birdWait);
+		Invoke ("StopListening", Random.Range(birdWait - 1, birdWait + 2));
 	}
 
 	void SingAndListenToPlayer () {
@@ -89,13 +97,13 @@ public class BirdAudioControl: MonoBehaviour {
 				birdSuccess = true;
 			}
 		} else { 
-			attemptsRemaining -= 1;
-			if (attemptsRemaining == 0) {
+			failsRemaining -= 1;
+			if (failsRemaining == 0) {
 				birdFailure = true;
 			}
 		}
 
-		Debug.Log ("successCurrent : " + successCurrent + ", attemptsRemaining : " + attemptsRemaining);
+		Debug.Log ("successCurrent : " + successCurrent + ", failsRemaining : " + failsRemaining);
 	}
 		
 
