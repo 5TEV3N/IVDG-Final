@@ -24,9 +24,10 @@
 
 		half4 LightingCelShadingForward(SurfaceOutput s, half3 lightDir, half atten) {
 			half NdotL = dot(s.Normal, lightDir);
-			if (NdotL <= 0.5 && NdotL > 0.0) NdotL = 0.25;
-			if (NdotL <= 0.0) NdotL = 0;
-			//if (NdotL >= 0.8) NdotL = 1;
+			if (NdotL <= 0.3) NdotL = 0.2;
+			if (NdotL > 0.3 && NdotL < 0.9) NdotL = 0.6;
+			//if (NdotL <= 0.0) NdotL = 0;
+			if (NdotL >= 0.9) NdotL = 1;
 			//else NdotL = 1;
 			half4 c;
 			c.rgb = s.Albedo * _LightColor0.rgb * (NdotL * atten * 1.5);
