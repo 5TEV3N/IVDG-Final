@@ -158,7 +158,7 @@ public class InputManager3D : MonoBehaviour
             }
         }
 
-        if (Input.GetKeyDown(KeyCode.Space))
+        if (Input.GetKeyDown(KeyCode.Space))    //for easy mode
         {
             micButtonCheck++;
             if (micButtonCheck == 1)
@@ -170,7 +170,6 @@ public class InputManager3D : MonoBehaviour
                 isMicBeingUsed = false;
                 micButtonCheck = 0;
             }
-            // Add the microphone checks from the AudioSpectrum
         }
 
         if (isMicBeingUsed == true)
