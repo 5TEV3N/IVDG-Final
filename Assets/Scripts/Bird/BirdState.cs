@@ -39,9 +39,13 @@ public class BirdState : MonoBehaviour
                 {
                     birdAudioControler.SingLoop();
                 }
-                if (birdAudioControler.whistleIsGood == true)
+                if (birdAudioControler.birdSuccess == true && birdAudioControler.birdFailure == false)
                 {
                     state = currentState.interacting;
+                }
+                if (birdAudioControler.birdFailure == true && birdAudioControler.birdSuccess == false)
+                {
+                    state = currentState.flyaway;
                 }
 
                 break;
