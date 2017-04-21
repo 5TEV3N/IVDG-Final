@@ -139,25 +139,29 @@ public class InputManager3D : MonoBehaviour
 
         if (Input.GetKeyDown(KeyCode.Tab))
         {
-            if (gameScreenshot.isScreenshotMenuOpen == false)
+            if (gameScreenshot.screenshotTook == true)
             {
-                gameScreenshot.screenshotMenu.SetActive(true);
-                gameScreenshot.isScreenshotMenuOpen = true;
-                Cursor.lockState = CursorLockMode.None;
-                Cursor.visible = true;
-                Time.timeScale = 0f;
-            }
+                if (gameScreenshot.isScreenshotMenuOpen == false)
+                {
+                    gameScreenshot.screenshotMenu.SetActive(true);
+                    gameScreenshot.isScreenshotMenuOpen = true;
+                    Cursor.lockState = CursorLockMode.None;
+                    Cursor.visible = true;
+                    Time.timeScale = 0f;
+                }
 
-            else
-            {
-                gameScreenshot.screenshotMenu.SetActive(false);
-                gameScreenshot.isScreenshotMenuOpen = false;
-                Cursor.lockState = CursorLockMode.Locked;
-                Cursor.visible = false;
-                Time.timeScale = 1f;
+                else
+                {
+                    gameScreenshot.screenshotMenu.SetActive(false);
+                    gameScreenshot.isScreenshotMenuOpen = false;
+                    Cursor.lockState = CursorLockMode.Locked;
+                    Cursor.visible = false;
+                    Time.timeScale = 1f;
+                }
             }
+            else { Debug.Log("Debug: Can't open journal if there's nothing inside of it."); }
         }
-
+        /*
         if (Input.GetKeyDown(KeyCode.Space))    //for easy mode
         {
             micButtonCheck++;
@@ -180,6 +184,7 @@ public class InputManager3D : MonoBehaviour
         {
             gameUi.MicInputUI(isMicBeingUsed);
         }
+        */
 
         #endregion
     }

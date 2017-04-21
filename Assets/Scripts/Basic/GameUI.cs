@@ -81,9 +81,9 @@ public class GameUI : MonoBehaviour
     
     #endregion
 
-    public void MicInputUI(bool hold)
+    public void MicInputUI(bool mic)
     {
-        if (hold == true)
+        if (mic == true)
         {
             micImg.transform.localPosition = Vector2.Lerp(micImg.transform.localPosition, new Vector2(0, -320), curveJuice1.Evaluate(Time.deltaTime * 8));
         }

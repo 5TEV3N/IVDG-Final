@@ -27,6 +27,7 @@ public class GameScreenshot : MonoBehaviour
 
     public IEnumerator GetSnapshot()                                                                        //the act of taking a screenshot
     {
+        screenshotTook = true;
         yield return new WaitForEndOfFrame();                                                               //apparently you need wait for the end of the frame or else you get some sort of error
         screenShot.ReadPixels(new Rect(0, 0, Screen.width, Screen.height), 0, 0, true);                     //something about reading the texture from the screen into the saved texture data
         screenShot.Apply();                                                                                 //apply the texture into screenShot
