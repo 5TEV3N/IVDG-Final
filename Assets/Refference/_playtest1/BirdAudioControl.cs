@@ -39,6 +39,7 @@ public class BirdAudioControl: MonoBehaviour {
 		birdSingingOn = false;
 
 		birdSong = GetComponent<AudioSource> ();
+		birdSong.volume = 0.5f;
 
 		allSongs = GameObject.Find ("AllSongs");
 		audioManager = GameObject.Find ("AudioManager");
@@ -108,10 +109,13 @@ public class BirdAudioControl: MonoBehaviour {
 		
 
 	void Update () {
-		// Using space key as universal "play song" button for testing
-		//		if (Input.GetKeyUp (KeyCode.Space) && !testingOn) {
-		//			SingLoop ();
-		//		}
+		// Use 1 key to force success, 2 key to force failure
+		if (Input.GetKeyUp (KeyCode.Alpha1)) {
+			birdSuccess = true;
+		}
+		if (Input.GetKeyUp (KeyCode.Alpha2)) {
+			birdFailure = true;
+		}
 	}
 
 }

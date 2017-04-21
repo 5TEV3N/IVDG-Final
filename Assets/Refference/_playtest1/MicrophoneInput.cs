@@ -39,6 +39,7 @@ public class MicrophoneInput : MonoBehaviour {
 
 	private string micDevice;
 	public AudioSource micInput;
+	private bool micStarted = false;
 
 	private Dictionary<int, int[]> allNotes; // Dictionary of all notes: KEY=note ID => VALUE=[lower freq bound, higher freq bound]
 	private int numberOfNotes;
@@ -50,7 +51,7 @@ public class MicrophoneInput : MonoBehaviour {
 
 	void Awake() {
 		// Listing all Audio Input devices
-		foreach (string device in Microphone.devices) { Debug.Log(device); }
+//		foreach (string device in Microphone.devices) { Debug.Log(device); }
 
 		// Setting microphone to the default first detected device for now
 		// Can make menu option to decide this later
@@ -59,13 +60,8 @@ public class MicrophoneInput : MonoBehaviour {
 		// Right now just starts recording right away for 999 seconds.
 		// Later wrap this in a function that is called at relevant points.
 		micInput = gameObject.GetComponent<AudioSource> ();
-
-		micInput.clip = Microphone.Start (micDevice, true, 5, 44100);
-		micInput.loop = true;
-
-		while (!(Microphone.GetPosition(null) > 200)) {}
-		micInput.Play ();
 	}
+
 		
 	void Start () {
 		// Setting up pitch arrays
@@ -130,13 +126,13 @@ public class MicrophoneInput : MonoBehaviour {
 				}
 			}
 
-			Debug.Log ("Correct notes : " + thisKey + ": " + correctNotes [key]);
+//			Debug.Log ("Correct notes : " + thisKey + ": " + correctNotes [key]);
 		}
 
 
-		for (int i=0; i < notePeaks.Length; i++) {
-			Debug.Log ("Sung notes : " + i + ": " + notePeaks[i]);
-		}
+//		for (int i=0; i < notePeaks.Length; i++) {
+//			Debug.Log ("Sung notes : " + i + ": " + notePeaks[i]);
+//		}
 
 		if (numberCorrect == numberTotal) {
 			whistleIsGood = true;
@@ -146,6 +142,16 @@ public class MicrophoneInput : MonoBehaviour {
 	}
 
 	void FixedUpdate () {
+		if (!micStarted) {
+			micInput.clip = Microphone.Start (micDevice, true, 1, 44100);
+			micInput.loop = true;
+
+			while (!(Microphone.GetPosition(micDevice) > 200)) {} // Not sure if this is even working in Unity5
+			micInput.Play ();
+
+			micStarted = true;
+		}
+
 		if (listeningToPlayer) {
 			spectrum = new float[2048];
 			micInput.GetSpectrumData(spectrum, 0, FFTWindow.BlackmanHarris);

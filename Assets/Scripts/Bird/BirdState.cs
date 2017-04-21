@@ -35,7 +35,7 @@ public class BirdState : MonoBehaviour
             case currentState.birdcalls:
                 // State: bird calls. player must persude the bird with bird calls inorder to interact
 
-                if (birdAudioControler.birdSingingOn == false)
+				if (birdAudioControler.birdSingingOn == false && birdAudioControler.birdSuccess == false && birdAudioControler.birdFailure == false)
                 {
                     birdAudioControler.SingLoop();
                 }
