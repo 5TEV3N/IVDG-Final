@@ -15,10 +15,12 @@ public class BirdController : MonoBehaviour
     public bool playerTookPicture = false;          // if the player took a screenshot, bird switches state to runaway. This is subject to change
 
     private GameObject player;
+    private Animator birdAnimatorComponent;
 
     void Awake()
     {
         myState = GetComponent<BirdState>();
+        birdAnimatorComponent = GetComponent<Animator>();
         player = GameObject.FindGameObjectWithTag("Player");
         gameUI = GameObject.FindGameObjectWithTag("UI").GetComponent<GameUI>();
     }
@@ -48,9 +50,10 @@ public class BirdController : MonoBehaviour
                 timer.CountDownFrom(3);
                 if (timer.timerLeft == 0)
                 {
-                    print("Player couldn't find the bird in time, Reseting bird and location...");
-                    myState.state = BirdState.currentState.flyaway;
+                    Debug.Log("Player couldn't find the bird in time, Reseting bird and location...");
                     gameUI.BirdDiscovered(false);
+                    CurrentBirdAnimation("reset");
+                    myState.state = BirdState.currentState.flyaway;
                     timer.ResetTimer();
                 }
             }
@@ -61,14 +64,14 @@ public class BirdController : MonoBehaviour
         if (myState.state == BirdState.currentState.interacting)
         {
             gameUI.BirdDiscovered(false);
-            gameObject.transform.position = Vector3.Lerp(gameObject.transform.position, new Vector3(0, 0, 0), Time.deltaTime);  // changes this later
+            CurrentBirdAnimation("caught");
 
             if (playerTookPicture == true)
             {
+                CurrentBirdAnimation("flyaway");
                 timer.CountDownFrom(5);
                 if (timer.timerLeft == 0)
                 {
-                    // Change animation to flying animation. At end of animation , change state.
                     myState.state = BirdState.currentState.flyaway;
                     playerTookPicture = false;
                 }
@@ -76,5 +79,43 @@ public class BirdController : MonoBehaviour
         }
         #endregion
 
+    }
+
+    public void CurrentBirdAnimation(string animation)
+    {
+        if (animation == "caught")
+        {
+            // move the bird next to the player after reaching this state
+            birdAnimatorComponent.SetBool("isCaught", true);
+            birdAnimatorComponent.SetBool("isInteracting", true);
+            birdAnimatorComponent.SetBool("isPecking", true);
+            birdAnimatorComponent.SetBool("isFlyingAway", false);
+            birdAnimatorComponent.SetBool("isHidden", false);
+            //randomly switch between idle and pecking here
+            /*
+            string[] ani = new string[] { "Idle", "Pecking" };
+            string randomIdle = ani [Random.Range(0,ani.Length)];
+
+            birdAnimatorComponent.Play(randomIdle);
+            */
+        }
+
+        if (animation == "flyaway")
+        {
+            birdAnimatorComponent.SetBool("isCaught", false);
+            birdAnimatorComponent.SetBool("isInteracting", false);
+            birdAnimatorComponent.SetBool("isPecking", false);
+            birdAnimatorComponent.SetBool("isFlyingAway", true);
+            birdAnimatorComponent.SetBool("isHidden", true);
+        }
+
+        if (animation == "reset")
+        {
+            birdAnimatorComponent.SetBool("isCaught", false);
+            birdAnimatorComponent.SetBool("isInteracting", false);
+            birdAnimatorComponent.SetBool("isPecking", false);
+            birdAnimatorComponent.SetBool("isFlyingAway", false);
+            birdAnimatorComponent.SetBool("isHidden", true);
+        }
     }
 }

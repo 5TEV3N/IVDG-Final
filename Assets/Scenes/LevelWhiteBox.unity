@@ -676,6 +676,31 @@ Prefab:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4582904016068164, guid: d4dbf617483bd2142bb4d060285e793a, type: 2}
+      propertyPath: m_RootOrder
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4099398283173096, guid: d4dbf617483bd2142bb4d060285e793a, type: 2}
+      propertyPath: m_LocalRotation.x
+      value: -0.056063738
+      objectReference: {fileID: 0}
+    - target: {fileID: 4099398283173096, guid: d4dbf617483bd2142bb4d060285e793a, type: 2}
+      propertyPath: m_LocalRotation.y
+      value: -0.5551978
+      objectReference: {fileID: 0}
+    - target: {fileID: 4099398283173096, guid: d4dbf617483bd2142bb4d060285e793a, type: 2}
+      propertyPath: m_LocalRotation.z
+      value: -0.27051726
+      objectReference: {fileID: 0}
+    - target: {fileID: 4099398283173096, guid: d4dbf617483bd2142bb4d060285e793a, type: 2}
+      propertyPath: m_LocalRotation.w
+      value: 0.7844951
+      objectReference: {fileID: 0}
+    - target: {fileID: 95274023290546220, guid: d4dbf617483bd2142bb4d060285e793a,
+        type: 2}
+      propertyPath: m_Controller
+      value: 
+      objectReference: {fileID: 9100000, guid: 4f5e71c18eb97ef4ab40e26cfa7d3605, type: 2}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: d4dbf617483bd2142bb4d060285e793a, type: 2}
   m_IsPrefabParent: 0
@@ -7873,6 +7898,7 @@ GameObject:
   - component: {fileID: 1020660107}
   - component: {fileID: 1020660106}
   - component: {fileID: 1020660105}
+  - component: {fileID: 1020660110}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -7948,6 +7974,32 @@ Transform:
   m_Father: {fileID: 1952922252}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1020660110
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1020660104}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 646b5bc27a658f447b1d929fd5ffbd70, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  mode: 1
+  showGeneratedNormals: 0
+  offsetScale: 0.2
+  blurRadius: 18
+  edgeThresholdMin: 0.05
+  edgeThreshold: 0.2
+  edgeSharpness: 4
+  dlaaSharp: 0
+  ssaaShader: {fileID: 4800000, guid: b3728d1488b02490cbd196c7941bf1f8, type: 3}
+  dlaaShader: {fileID: 4800000, guid: 017ca72b9e8a749058d13ebd527e98fa, type: 3}
+  nfaaShader: {fileID: 4800000, guid: ce0cb2621f6d84e21a87414e471a3cce, type: 3}
+  shaderFXAAPreset2: {fileID: 4800000, guid: 6f1418cffd12146f2a83be795f6fa5a7, type: 3}
+  shaderFXAAPreset3: {fileID: 4800000, guid: c182fa94a5a0a4c02870641efcd38cd5, type: 3}
+  shaderFXAAII: {fileID: 4800000, guid: cd5b323dcc592457790ff18b528f5e67, type: 3}
+  shaderFXAAIII: {fileID: 4800000, guid: c547503fff0e8482ea5793727057041c, type: 3}
 --- !u!43 &1025194607
 Mesh:
   m_ObjectHideFlags: 0
@@ -16394,7 +16446,7 @@ Transform:
   m_Children:
   - {fileID: 1020660109}
   m_Father: {fileID: 0}
-  m_RootOrder: 1
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 45.000004, z: 0}
 --- !u!23 &1952922253
 MeshRenderer:

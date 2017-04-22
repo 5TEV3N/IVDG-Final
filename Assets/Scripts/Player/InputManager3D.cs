@@ -9,7 +9,7 @@ public class InputManager3D : MonoBehaviour
     PlayerRaycast playerRaycast;                
     GameScreenshot gameScreenshot;
     BirdController birdController;
-    GameUI gameUi;
+    //GameUI gameUi;
 
     float xAxis = 0;                             // 1 = right, -1 = left
     float zAxis = 0;                             // 1 = front, -1 back
@@ -29,7 +29,7 @@ public class InputManager3D : MonoBehaviour
         playerController3D = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerController3D>();
         playerRaycast = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerRaycast>();
         gameScreenshot = GameObject.FindGameObjectWithTag("UI").GetComponent<GameScreenshot>();
-        gameUi = GameObject.FindGameObjectWithTag("UI").GetComponent<GameUI>();
+        //gameUi = GameObject.FindGameObjectWithTag("UI").GetComponent<GameUI>();
 
         Cursor.lockState = CursorLockMode.Locked;
         Cursor.visible = false;

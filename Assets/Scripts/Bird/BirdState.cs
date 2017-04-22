@@ -52,7 +52,6 @@ public class BirdState : MonoBehaviour
             case currentState.interacting:
                 // State: interacting. Bird is out of hiding and his in plain view to the player
 
-                // cycle/change current bird animation
                 break;
             case currentState.flyaway:
                 // State: runaway. Bird flies away from the player because of reasons
