@@ -23,12 +23,18 @@ public class BirdSpawner : MonoBehaviour
     [Header("Bird Parts")]
     public GameObject[] headPieceParts;
     public GameObject[] baseBodyParts;
-    public GameObject[] beakParts;
+
+    public GameObject[] topBeakParts;
+    public GameObject[] bottomBeakParts;
+
     public GameObject[] tailParts;
 
     private GameObject currentHeadPiecePart;
     private GameObject currentBaseBodyPart;
-    private GameObject currentBeakPart;
+
+    private GameObject currentTopBeakParts;
+    private GameObject currentBottomBeakParts;
+
     private GameObject currentTailParts;
 
     //COMMENTED OUT THE WING PARTS DUE TO THERE NOT BEING ANY WING PARTS YET, ADD BACK LATER??
@@ -49,12 +55,16 @@ public class BirdSpawner : MonoBehaviour
     {
         currentHeadPiecePart = headPieceParts[Random.Range(0, headPieceParts.Length)];
         currentBaseBodyPart = baseBodyParts[Random.Range(0, baseBodyParts.Length)];
-        currentBeakPart = beakParts[Random.Range(0, beakParts.Length)];
+
+        currentTopBeakParts = topBeakParts[Random.Range(0, topBeakParts.Length)];
+        currentBottomBeakParts = bottomBeakParts[Random.Range(0, bottomBeakParts.Length)];
+
         currentTailParts = tailParts[Random.Range(0, tailParts.Length)];
 
         currentHeadPiecePart.SetActive(true);
         currentBaseBodyPart.SetActive(true);
-        currentBeakPart.SetActive(true);
+        currentTopBeakParts.SetActive(true);
+
         currentTailParts.SetActive(true);
 
         myState.state = BirdState.currentState.hidden;
@@ -64,7 +74,10 @@ public class BirdSpawner : MonoBehaviour
     {
         currentHeadPiecePart.SetActive(false);
         currentBaseBodyPart.SetActive(false);
-        currentBeakPart.SetActive(false);
+
+        currentTopBeakParts.SetActive(false);
+        currentBottomBeakParts.SetActive(false);
+
         currentTailParts.SetActive(false);
         BirdConstructor();
     }
