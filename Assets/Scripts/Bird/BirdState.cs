@@ -39,18 +39,10 @@ public class BirdState : MonoBehaviour
                 {
                     birdAudioControler.SingLoop();
                 }
-                if (birdAudioControler.birdSuccess == true && birdAudioControler.birdFailure == false)
-                {
-                    updateState(currentState.interacting);
-                }
-                if (birdAudioControler.birdFailure == true && birdAudioControler.birdSuccess == false)
-                {
-                    updateState(currentState.flyaway);
-                }
 
                 break;
             case currentState.interacting:
-                // State: interacting. Bird is out of hiding and his in plain view to the player
+                // State: interacting. Bird is out of hiding and is in plain view to the player
 
                 break;
             case currentState.flyaway:
