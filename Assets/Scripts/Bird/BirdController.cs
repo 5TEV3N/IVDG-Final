@@ -19,7 +19,7 @@ public class BirdController : MonoBehaviour
     private GameObject player;
     private Animator birdAnimatorComponent;
     private Transform chosenInteractionZone;
-
+    private Transform pickingChosenLocation;
     void Awake()
     {
         myState = GetComponent<BirdState>();
@@ -32,6 +32,12 @@ public class BirdController : MonoBehaviour
     void Update()
     {
         birdDistance = Vector3.Distance(gameObject.transform.position, player.transform.position);
+        gameObject.transform.forward = player.transform.position;
+
+        if (myState.state == BirdState.currentState.hidden)
+        {
+            gameUI.BirdDiscovered(false);
+        }
 
         #region Hidden to Birdcall
         // if the player is close to the bird 
@@ -40,7 +46,17 @@ public class BirdController : MonoBehaviour
             if (myState.state != BirdState.currentState.interacting)
             {
                 myState.state = BirdState.currentState.birdcalls;
+                pickingChosenLocation = birdInteractionZones[Random.Range(0, birdInteractionZones.Length)];
+                float InteractionZoneDistance = Vector3.Distance(player.transform.position, pickingChosenLocation.transform.position);
+
+                if (InteractionZoneDistance < birdDistance)
+                {
+                    pickedInteractionZone = true;
+                    chosenInteractionZone = pickingChosenLocation;
+                }
+
                 gameUI.BirdDiscovered(true);
+
             }
         }
         #endregion
@@ -62,13 +78,14 @@ public class BirdController : MonoBehaviour
                 }
             }
         }
+
         #endregion
 
         #region Hidden to Interaction
         if (myState.state == BirdState.currentState.interacting)
         {
             gameUI.BirdDiscovered(false);
-            BirdMover();
+            BirdMover(chosenInteractionZone);
 
             if (playerTookPicture == true)
             {
@@ -77,31 +94,22 @@ public class BirdController : MonoBehaviour
                 timer.CountDownFrom(5);
                 if (timer.timerLeft == 0)
                 {
-                    //myState.state = BirdState.currentState.flyaway;
-                    print("asdfsdafasdfasdfsdafasdf");
-                    //playerTookPicture = false;
+                    myState.state = BirdState.currentState.flyaway;
+                    playerTookPicture = false;
                 }
             }
         }
         #endregion
-
     }
-    public void BirdMover()
-    {
-        Transform pickingChosenLocation = birdInteractionZones[Random.Range(0,birdInteractionZones.Length)];
-        float InteractionZoneDistance = Vector3.Distance(player.transform.position, pickingChosenLocation.transform.position);
-        
-        if (InteractionZoneDistance < birdDistance)
-        {
-            pickedInteractionZone = true;
-            chosenInteractionZone = pickingChosenLocation;
-        }
 
+    public void BirdMover(Transform pos)
+    {
         if (pickedInteractionZone == true)
         {
-            gameObject.transform.position = Vector3.Lerp (gameObject.transform.position, chosenInteractionZone.transform.position, Time.deltaTime * 2);
+            gameObject.transform.position = Vector3.Lerp(gameObject.transform.position, pos.transform.position, Time.deltaTime * 2);
             CurrentBirdAnimation("caught");
         }
+        else { Debug.Log("Error. Something went wrong!"); }
     }
 
     public void CurrentBirdAnimation(string animation)
@@ -141,4 +149,5 @@ public class BirdController : MonoBehaviour
             birdAnimatorComponent.SetBool("isHidden", true);
         }
     }
+
 }

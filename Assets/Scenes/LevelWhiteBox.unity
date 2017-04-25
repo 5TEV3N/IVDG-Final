@@ -2795,6 +2795,16 @@ Prefab:
       propertyPath: m_Enabled
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 114733356967206486, guid: 6ba3c36a871a8b64a8d3cbbe4d3fc6fc,
+        type: 2}
+      propertyPath: easyMode
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 114733356967206486, guid: 6ba3c36a871a8b64a8d3cbbe4d3fc6fc,
+        type: 2}
+      propertyPath: hummingMode
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 6ba3c36a871a8b64a8d3cbbe4d3fc6fc, type: 2}
   m_IsPrefabParent: 0
@@ -4349,6 +4359,10 @@ Prefab:
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1350803178625000, guid: 4750df543703be747a324da4c5d76e28, type: 2}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1993776868884126, guid: 4750df543703be747a324da4c5d76e28, type: 2}
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
@@ -13506,7 +13520,7 @@ Mesh:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
-  m_Name: pb_Mesh161800
+  m_Name: pb_Mesh12344
   serializedVersion: 8
   m_SubMeshes:
   - serializedVersion: 2
@@ -16189,7 +16203,7 @@ Mesh:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
-  m_Name: pb_Mesh12186
+  m_Name: pb_Mesh12548
   serializedVersion: 8
   m_SubMeshes:
   - serializedVersion: 2
@@ -22023,7 +22037,7 @@ MeshRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1952922251}
-  m_Enabled: 1
+  m_Enabled: 0
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_MotionVectors: 1

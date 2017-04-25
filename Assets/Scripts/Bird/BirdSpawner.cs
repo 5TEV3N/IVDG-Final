@@ -63,7 +63,9 @@ public class BirdSpawner : MonoBehaviour
 
         currentHeadPiecePart.SetActive(true);
         currentBaseBodyPart.SetActive(true);
+
         currentTopBeakParts.SetActive(true);
+        currentBottomBeakParts.SetActive(true);
 
         currentTailParts.SetActive(true);
 
@@ -79,7 +81,6 @@ public class BirdSpawner : MonoBehaviour
         currentBottomBeakParts.SetActive(false);
 
         currentTailParts.SetActive(false);
-        BirdConstructor();
     }
 
     public void NewBirdLocation()

@@ -41,11 +41,11 @@ public class BirdState : MonoBehaviour
                 }
                 if (birdAudioControler.birdSuccess == true && birdAudioControler.birdFailure == false)
                 {
-                    state = currentState.interacting;
+                    updateState(currentState.interacting);
                 }
                 if (birdAudioControler.birdFailure == true && birdAudioControler.birdSuccess == false)
                 {
-                    state = currentState.flyaway;
+                    updateState(currentState.flyaway);
                 }
 
                 break;
@@ -55,10 +55,12 @@ public class BirdState : MonoBehaviour
                 break;
             case currentState.flyaway:
                 // State: runaway. Bird flies away from the player because of reasons
-
+                birdAudioControler.birdFailure = false;
+                birdAudioControler.birdSuccess = false;
                 birdSpawner.NewBirdLocation();
                 birdSpawner.BirdNamer();
                 birdSpawner.Deconstructor();
+                birdSpawner.BirdConstructor();
                 break;
         }
     }
