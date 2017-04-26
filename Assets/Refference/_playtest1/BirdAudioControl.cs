@@ -28,12 +28,16 @@ public class BirdAudioControl: MonoBehaviour {
 	public bool birdFailure;
 
 	public Dictionary<int, float> correctNotes;
+	public int[] correctNotesArray;
 
 	public AudioSource birdSong;
 	public GameObject allSongs;
 	public GameObject audioManager;
 
 	public bool birdSingingOn;
+
+	private GameObject UI;
+	private bool audioUIExists;
 
 	void Start() {
 		birdSingingOn = false;
@@ -43,6 +47,9 @@ public class BirdAudioControl: MonoBehaviour {
 
 		allSongs = GameObject.Find ("AllSongs");
 		audioManager = GameObject.Find ("AudioManager");
+
+		UI = GameObject.Find ("UI");
+		audioUIExists = false;
 
 		Initialize ();
 	}
@@ -70,13 +77,24 @@ public class BirdAudioControl: MonoBehaviour {
 		songLength = Mathf.Round (songLength);
 		int songLengthInt = (int)songLength;
 		birdWait = 4 + songLengthInt;
+
+		// Push all correctNotes into a new array to be easily accessed by UI
+		var correctNotesList = new List<int>();
+		foreach (int key in correctNotes.Keys) {
+			correctNotesList.Add (key);
+		}
+		correctNotesArray = new int[correctNotes.Count];
+		correctNotesArray = correctNotesList.ToArray ();
 	}
 
 	// SingAndListenToPlayer and StopListening functions that in turn call SongStart and SongEnd functions in the MicrophoneInput script, to start/stop recording and check whistling accuracy
 	// SingLoop includes both of these functions, with StopListening invoked on a timer
 	public void SingLoop() {
+		if (!audioUIExists) {
+			AudioUIControl ("build");
+		}
 		SingAndListenToPlayer ();
-		Invoke ("StopListening", Random.Range(birdWait - 1, birdWait + 2));
+		Invoke ("StopListening", Random.Range(birdWait, birdWait + 3));
 	}
 
 	void SingAndListenToPlayer () {
@@ -96,11 +114,13 @@ public class BirdAudioControl: MonoBehaviour {
 			successCurrent += 1;	
 			if (successCurrent == successNeeded) {
 				birdSuccess = true;
+				AudioUIControl ("hide");
 			}
 		} else { 
 			failsRemaining -= 1;
 			if (failsRemaining == 0) {
 				birdFailure = true;
+				AudioUIControl ("hide");
 			}
 		}
 
@@ -112,9 +132,24 @@ public class BirdAudioControl: MonoBehaviour {
 		// Use 1 key to force success, 2 key to force failure
 		if (Input.GetKeyUp (KeyCode.Alpha1)) {
 			birdSuccess = true;
+			AudioUIControl ("hide");
 		}
 		if (Input.GetKeyUp (KeyCode.Alpha2)) {
 			birdFailure = true;
+			AudioUIControl ("hide");
+		}
+	}
+
+	void AudioUIControl(string instruction) {
+		switch (instruction) {
+		case "build":
+			UI.GetComponent<GameUI> ().AudioHUDSetup ();
+			audioUIExists = true;
+			break;
+		case "hide":
+			UI.GetComponent<GameUI> ().AudioHUDClear ();
+			audioUIExists = false;
+			break;
 		}
 	}
 

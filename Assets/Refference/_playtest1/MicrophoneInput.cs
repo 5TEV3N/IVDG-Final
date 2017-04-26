@@ -49,6 +49,8 @@ public class MicrophoneInput : MonoBehaviour {
 
 	public bool listeningToPlayer = false;
 
+	private GameObject UI;
+
 	void Awake() {
 		// Listing all Audio Input devices
 //		foreach (string device in Microphone.devices) { Debug.Log(device); }
@@ -87,6 +89,8 @@ public class MicrophoneInput : MonoBehaviour {
 
 		hummingMode = false;
 		easyMode = false;
+
+		UI = GameObject.Find ("UI");
 	}
 
 	public void SongStart () {
@@ -194,6 +198,9 @@ public class MicrophoneInput : MonoBehaviour {
 			if (localMaxNote != -1) {
 				notePeaks [localMaxNote]++;
 			}
+				
+			// Push localMaxNote to UI ("red" note)
+			UI.GetComponent<GameUI>().AudioHUDCurrentNote(localMaxNote);
 		}
 
 	}
