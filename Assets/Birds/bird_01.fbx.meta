@@ -241,6 +241,11 @@ ModelImporter:
     100466: wrist_L
     100468: wrist_R
     100470: Tail_02
+    100472: Beak001_Top
+    100474: Wing_L_01
+    100476: Wing_L_02
+    100478: Wing_R_01
+    100480: Wing_R_02
     400000: Base
     400002: Beak001_Bottom
     400004: Beak001_top
@@ -477,6 +482,11 @@ ModelImporter:
     400466: wrist_L
     400468: wrist_R
     400470: Tail_02
+    400472: Beak001_Top
+    400474: Wing_L_01
+    400476: Wing_L_02
+    400478: Wing_R_01
+    400480: Wing_R_02
     2300000: Beak001_Bottom
     2300002: Beak001_top
     2300004: Beak002_Bottom
@@ -521,6 +531,7 @@ ModelImporter:
     2300082: Tertiary003_L
     2300084: Tertiary003_R
     2300086: Tail_02
+    2300088: Beak001_Top
     3300000: Beak001_Bottom
     3300002: Beak001_top
     3300004: Beak002_Bottom
@@ -565,6 +576,7 @@ ModelImporter:
     3300082: Tertiary003_L
     3300084: Tertiary003_R
     3300086: Tail_02
+    3300088: Beak001_Top
     4300000: eye_L
     4300002: eye_R
     4300004: Beak002_Bottom
@@ -616,6 +628,11 @@ ModelImporter:
     4300096: Body
     4300098: head_feather001
     4300100: Tail_02
+    4300102: Beak001_Top
+    4300104: Wing_R_02
+    4300106: Wing_L_02
+    4300108: Wing_R_01
+    4300110: Wing_L_01
     7400000: Flight
     7400002: TakeOff_01
     7400004: Landing_01
@@ -635,6 +652,10 @@ ModelImporter:
     13700008: Leg_R
     13700010: Wing_L
     13700012: Wing_R
+    13700014: Wing_L_01
+    13700016: Wing_L_02
+    13700018: Wing_R_01
+    13700020: Wing_R_02
   materials:
     importMaterials: 1
     materialName: 0
