@@ -53,7 +53,7 @@ public class MicrophoneInput : MonoBehaviour {
 
 	void Awake() {
 		// Listing all Audio Input devices
-//		foreach (string device in Microphone.devices) { Debug.Log(device); }
+		// foreach (string device in Microphone.devices) { Debug.Log(device); }
 
 		// Setting microphone to the default first detected device for now
 		// Can make menu option to decide this later

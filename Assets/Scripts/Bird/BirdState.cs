@@ -44,11 +44,12 @@ public class BirdState : MonoBehaviour
             case currentState.interacting:
                 // State: interacting. Bird is out of hiding and is in plain view to the player
 
+                birdAudioControler.AudioUIControl("hide");
                 break;
             case currentState.flyaway:
                 // State: runaway. Bird flies away from the player because of reasons
-                birdAudioControler.birdFailure = false;
-                birdAudioControler.birdSuccess = false;
+
+                birdAudioControler.Initialize();
                 birdSpawner.NewBirdLocation();
                 birdSpawner.BirdNamer();
                 birdSpawner.Deconstructor();

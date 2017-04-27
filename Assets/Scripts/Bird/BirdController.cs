@@ -9,18 +9,29 @@ public class BirdController : MonoBehaviour
     BirdAudioControl birdAudioControler;
     BirdState myState;
     GameUI gameUI;
+    
+    public enum currentAnimation { caught, flyaway, reset };
+    public currentAnimation animationState;
 
+    [Header("Values")]
+    public AnimationCurve takeOff;
     public float birdDistance;                      // distance between bird and player
     public float birdTriggerBirdcalls = 15f;        // distance to trigger the birdcalls state 
     public float birdTriggerFlyaway = 35f;          // distance to trigger the hidden state
-    public bool playerTookPicture = false;          // if the player took a screenshot, bird switches state to runaway. This is subject to change
-    public Transform[] birdInteractionZones;
 
-    private bool pickedInteractionZone;
-    private GameObject player;
-    private Animator birdAnimatorComponent;
-    private Transform chosenInteractionZone;
-    private Transform pickingChosenLocation;
+    [Header ("Logic Check")]
+    public bool playerTookPicture = false;          // if the player took a screenshot, bird switches state to runaway. This is subject to change
+
+    [Header("Containers")]
+    public Transform[] birdInteractionZones;
+    public GameObject BirdExitZone;                 // container where the bird will fly towards when the bird finishes it's cycle
+
+    private bool pickedInteractionZone;             // value to check if the script has chosen a zone for the bird to land
+    private GameObject player;                      // refference to the player
+    private Animator birdAnimatorComponent;         // self explanatory
+    private Transform pickingChosenLocation;        // chosing a random transform in birdInteractionZones 
+    private Transform chosenInteractionZone;        // the chosen zone where the bird is going to land
+
     void Awake()
     {
         myState = GetComponent<BirdState>();
@@ -28,7 +39,6 @@ public class BirdController : MonoBehaviour
         player = GameObject.FindGameObjectWithTag("Player");
         gameUI = GameObject.FindGameObjectWithTag("UI").GetComponent<GameUI>();
         birdAudioControler = GameObject.FindGameObjectWithTag("Bird").GetComponent<BirdAudioControl>();
-
     }
 
     void Update()
@@ -74,7 +84,7 @@ public class BirdController : MonoBehaviour
                 {
                     Debug.Log("Player couldn't find the bird in time, Reseting bird and location...");
                     gameUI.BirdDiscovered(false);
-                    CurrentBirdAnimation("reset");
+                    CurrentBirdAnimation(currentAnimation.reset);
                     myState.state = BirdState.currentState.flyaway;
                     timer.ResetTimer();
                 }
@@ -83,7 +93,18 @@ public class BirdController : MonoBehaviour
 
         #endregion
 
-        #region Birdcall to Interaction
+        #region Birdcall to Interaction or Flyaway
+
+        if (birdAudioControler.birdFailure == false && birdAudioControler.birdSuccess == true)
+        {
+            myState.state = BirdState.currentState.interacting;
+        }
+
+        if (birdAudioControler.birdFailure == false && birdAudioControler.birdSuccess == true)
+        {
+            myState.state = BirdState.currentState.interacting;
+        }
+
         if (myState.state == BirdState.currentState.interacting)
         {
             gameUI.BirdDiscovered(false);
@@ -91,28 +112,20 @@ public class BirdController : MonoBehaviour
 
             if (playerTookPicture == true)
             {
-                CurrentBirdAnimation("flyaway");
-                timer.CountDownFrom(3);
+                CurrentBirdAnimation(currentAnimation.flyaway);
+                gameObject.transform.position = Vector3.Lerp(gameObject.transform.position,BirdExitZone.transform.position,takeOff.Evaluate(Time.deltaTime * 5f));
+
+                timer.CountDownFrom(1);
                 if (timer.timerLeft == 0)
                 {
+                    CurrentBirdAnimation(currentAnimation.reset);
                     myState.state = BirdState.currentState.flyaway;
                     playerTookPicture = false;
                 }
             }
         }
-
-        if (birdAudioControler.birdSuccess == true && birdAudioControler.birdFailure == false)
-        {
-            myState.state = BirdState.currentState.interacting;
-        }
         #endregion
 
-        #region Birdcall to Flyaway
-        if (birdAudioControler.birdFailure == true && birdAudioControler.birdSuccess == false)
-        {
-            myState.state = BirdState.currentState.flyaway;
-        }
-        #endregion
     }
 
     public void BirdMover(Transform pos)
@@ -120,43 +133,41 @@ public class BirdController : MonoBehaviour
         if (pickedInteractionZone == true)
         {
             gameObject.transform.position = Vector3.Lerp(gameObject.transform.position, pos.transform.position, Time.deltaTime * 2);
-            CurrentBirdAnimation("caught");
+            CurrentBirdAnimation(currentAnimation.caught);
         }
-        else { Debug.Log("Error. Something went wrong!"); }
+        else { Debug.Log("Error. Did not see player and went straight to the next state. Check Hidden to Birdcall In BirdController"); }
     }
 
-    public void CurrentBirdAnimation(string animation)
+    public void CurrentBirdAnimation(currentAnimation animation)
     {
-        if (animation == "caught")
+        if (animation == currentAnimation.caught)
         {
-            // move the bird next to the player after reaching this state
             birdAnimatorComponent.SetBool("isCaught", true);
-            birdAnimatorComponent.SetBool("isInteracting", true);
-            birdAnimatorComponent.SetBool("isPecking", true);
+            birdAnimatorComponent.SetBool("isIdle", true);
             birdAnimatorComponent.SetBool("isFlyingAway", false);
             birdAnimatorComponent.SetBool("isHidden", false);
-            //randomly switch between idle and pecking here
-            /*
-            string[] ani = new string[] { "Idle", "Pecking" };
-            string randomIdle = ani [Random.Range(0,ani.Length)];
 
-            birdAnimatorComponent.Play(randomIdle);
+            /* Implament this once you figure out how to fix this
+            string[] aniBoolName = new string[] { "isPecking", "isIdle" };
+            string randomIdle = aniBoolName[Random.Range(0, aniBoolName.Length)];
+            
+            birdAnimatorComponent.SetBool(randomIdle, true);
             */
         }
 
-        if (animation == "flyaway")
+        if (animation == currentAnimation.flyaway)
         {
             birdAnimatorComponent.SetBool("isCaught", false);
-            birdAnimatorComponent.SetBool("isInteracting", false);
+            birdAnimatorComponent.SetBool("isIdle", false);
             birdAnimatorComponent.SetBool("isPecking", false);
             birdAnimatorComponent.SetBool("isFlyingAway", true);
             birdAnimatorComponent.SetBool("isHidden", true);
         }
 
-        if (animation == "reset")
+        if (animation == currentAnimation.reset)
         {
             birdAnimatorComponent.SetBool("isCaught", false);
-            birdAnimatorComponent.SetBool("isInteracting", false);
+            birdAnimatorComponent.SetBool("isIdle", false);
             birdAnimatorComponent.SetBool("isPecking", false);
             birdAnimatorComponent.SetBool("isFlyingAway", false);
             birdAnimatorComponent.SetBool("isHidden", true);

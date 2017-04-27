@@ -140,7 +140,7 @@ public class BirdAudioControl: MonoBehaviour {
 		}
 	}
 
-	void AudioUIControl(string instruction) {
+	public void AudioUIControl(string instruction) {
 		switch (instruction) {
 		case "build":
 			UI.GetComponent<GameUI> ().AudioHUDSetup ();

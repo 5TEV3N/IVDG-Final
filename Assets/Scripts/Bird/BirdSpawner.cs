@@ -6,7 +6,7 @@ public class BirdSpawner : MonoBehaviour
 {
     BirdState myState;
     //BirdController birdController;
-    //BirdAudioControl birdAudioControl;
+    BirdAudioControl birdAudioControl;
 
     public static string currentBirdName;
     public GameObject bird;
@@ -43,7 +43,7 @@ public class BirdSpawner : MonoBehaviour
     {
         myState = GameObject.FindGameObjectWithTag("Bird").GetComponent<BirdState>();
         //birdController = GameObject.FindGameObjectWithTag("Bird").GetComponent<BirdController>();
-        //birdAudioControl = GameObject.FindGameObjectWithTag("Bird").GetComponent<BirdAudioControl>();
+        birdAudioControl = GameObject.FindGameObjectWithTag("Bird").GetComponent<BirdAudioControl>();
     }
 
     public void BirdNamer()
@@ -68,8 +68,9 @@ public class BirdSpawner : MonoBehaviour
         currentBottomBeakParts.SetActive(true);
 
         currentTailParts.SetActive(true);
-
+        birdAudioControl.Initialize();
         myState.state = BirdState.currentState.hidden;
+        
     }
 
     public void Deconstructor()
