@@ -133,5 +133,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   volumeThreshold: 0
+  hummingMode: 0
+  easyMode: 0
+  leniencyLength: 20
+  leniencyPitch: 1
   micInput: {fileID: 0}
   listeningToPlayer: 0
