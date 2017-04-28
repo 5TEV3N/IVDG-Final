@@ -6,6 +6,8 @@ public class BirdState : MonoBehaviour
 {
     BirdSpawner birdSpawner;
     BirdAudioControl birdAudioControler;
+    BasicTimer timer = new BasicTimer();
+
     //AllSongs allSongs;
 
     public enum currentState { hidden, birdcalls, interacting, flyaway };
@@ -48,12 +50,16 @@ public class BirdState : MonoBehaviour
                 break;
             case currentState.flyaway:
                 // State: runaway. Bird flies away from the player because of reasons
-
-                birdAudioControler.Initialize();
                 birdSpawner.NewBirdLocation();
-                birdSpawner.BirdNamer();
                 birdSpawner.Deconstructor();
-                birdSpawner.BirdConstructor();
+                timer.CountDownFrom(2);
+
+                if (timer.timerLeft == 0)
+                {
+                    birdAudioControler.Initialize();
+                    birdSpawner.BirdNamer();
+                    birdSpawner.BirdConstructor();
+                }
                 break;
         }
     }
