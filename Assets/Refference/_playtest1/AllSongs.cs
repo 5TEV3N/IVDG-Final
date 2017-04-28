@@ -14,12 +14,55 @@ public class AllSongs : MonoBehaviour {
 	void Awake() {
 		songPitches = new Dictionary<int, float>[] {
 			new Dictionary<int, float> (),
+			new Dictionary<int, float> (),
+			new Dictionary<int, float> (),
+			new Dictionary<int, float> (),
+			new Dictionary<int, float> (),
+			new Dictionary<int, float> (),
+			new Dictionary<int, float> (),
+			new Dictionary<int, float> (),
 			new Dictionary<int, float> ()
 		};
 
-		songPitches [0].Add (23, 34.0f);
-		songPitches [0].Add (26, 26.0f);
+		// birdsong-easy-dingdong
+		songPitches [0].Add (20, 39.0f);
+		songPitches [0].Add (23, 21.0f);
 
-		songPitches [1].Add (12, 20.0f);
+		// birdsong-easy-single
+		songPitches [1].Add (24, 33.0f);
+
+		// birdsong-easy-slide
+		songPitches [2].Add (22, 10.0f);
+		songPitches [2].Add (23, 49.0f);
+
+		// birdsong-medium-ascending
+		songPitches [3].Add (20, 40.0f);
+		songPitches [3].Add (25, 2.0f);
+		songPitches [3].Add (27, 22.0f);
+
+		// birdsong-medium-dingdong
+		songPitches [4].Add (19, 21.0f);
+		songPitches [4].Add (23, 28.0f);
+		songPitches [4].Add (26, 23.0f);
+
+		// birdsong-medium-punch
+		songPitches [5].Add (24, 10.0f);
+		songPitches [5].Add (25, 10.0f);
+
+		// birdsong-hard-ascending
+		songPitches [6].Add (24, 23.0f);
+		songPitches [6].Add (25, 11.0f);
+		songPitches [6].Add (27, 10.0f);
+
+		// birdsong-hard-descending
+		songPitches [7].Add (23, 17.0f);
+		songPitches [7].Add (24, 6.0f);
+		songPitches [7].Add (29, 6.0f);
+		songPitches [7].Add (30, 10.0f);
+
+		// birdsong-hard-slide
+		songPitches [8].Add (21, 9.0f);
+		songPitches [8].Add (26, 24.0f);
+		songPitches [8].Add (27, 18.0f);
 	}
 }
