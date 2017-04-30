@@ -11,18 +11,30 @@ public class InputManager3D : MonoBehaviour
     BirdController birdController;
     //GameUI gameUi;
 
-    float xAxis = 0;                             // 1 = right, -1 = left
-    float zAxis = 0;                             // 1 = front, -1 back
-    float mouseXAxis = 0;                        // left or right movement of mouse (camera). Positive numb = right, Negative numb = left
-    float mouseYAxis = 0;                        // up or down movement of mouse (camera). Positive numb = up, Negative numb = down.
-    bool cameraLock = true;                      // constantly lock the cursor in the center
-    bool check;
-    int micButtonCheck;
-    
+    [Header("Interaction Keys")]
+    //Default
+    public KeyCode snapshotCaptureKey = KeyCode.Mouse1;
+    public KeyCode playerJournalKey = KeyCode.Tab;
+    public KeyCode interactionKey = KeyCode.E;
+    public KeyCode focusKey = KeyCode.F;
+    public KeyCode crouchKey = KeyCode.C;
+
     [Header ("Debug")]
     public bool isMicBeingUsed;
     public bool isSitting;
-    public int sittingButtonCheck;
+    public bool isToggleCrouch;
+    public bool isToggleFocus;
+
+    private float xAxis = 0;                             // 1 = right, -1 = left
+    private float zAxis = 0;                             // 1 = front, -1 back
+    private float mouseXAxis = 0;                        // left or right movement of mouse (camera). Positive numb = right, Negative numb = left
+    private float mouseYAxis = 0;                        // up or down movement of mouse (camera). Positive numb = up, Negative numb = down.
+    private bool cameraLock = true;                      // constantly lock the cursor in the centers
+    private bool crouchCheck;
+    private bool focusCheck;
+    private int crouchButtonCheck = 0;
+    private int focusButtonCheck = 0;
+    private int sittingButtonCheck = 0;
 
     void Awake()
     {
@@ -60,8 +72,10 @@ public class InputManager3D : MonoBehaviour
     {
         birdController = GameObject.FindGameObjectWithTag("Bird").GetComponent<BirdController>();
 
-        #region Raycast Interaction
-        if (Input.GetKeyDown(KeyCode.E))
+        #region Interactions
+
+        #region >InteractionKey
+        if (Input.GetKeyDown(interactionKey))
         {
             if (sittingButtonCheck == 1)
             {
@@ -69,7 +83,7 @@ public class InputManager3D : MonoBehaviour
                 sittingButtonCheck = 0;
             }
 
-            if (playerRaycast.PlayerInteraction() == true) 
+            if (playerRaycast.PlayerInteraction() == true)
             {
                 if (playerRaycast.hitObject().transform.tag == "Sittable")
                 {
@@ -84,15 +98,17 @@ public class InputManager3D : MonoBehaviour
 
         if (isSitting == true)
         {
-            playerController3D.Sit(isSitting);                                       // display the ui icon that you dismount the sittable
+            playerController3D.Sit(isSitting);                                  // display the ui icon that you dismount the sittable
         }
 
         if (isSitting == false)
         {
             playerController3D.Sit(isSitting);
         }
+        #endregion
 
-        if (Input.GetMouseButtonDown(1))                                        //RMB
+        #region >SnapshotKey
+        if (Input.GetKeyDown(snapshotCaptureKey))                                        //RMB
         {
             if (playerRaycast.PlayerInteraction() == true)
             {
@@ -103,25 +119,100 @@ public class InputManager3D : MonoBehaviour
                     print("Screenshot saved!");
                 }
             }
-            /*
-            StartCoroutine(gameScreenshot.GetSnapshot());
-            birdController.playerTookPicture = true;
-            print("Screenshot saved!");
-            */
         }
         #endregion
 
+        #region >CrouchKey
+
+        if (isToggleCrouch == false)
+        {
+            if (Input.GetKey(crouchKey))
+            {
+                crouchCheck = true;
+                playerController3D.Crouch(crouchCheck);
+            }
+
+            if (!Input.GetKey(crouchKey))
+            {
+                crouchCheck = false;
+                playerController3D.Crouch(crouchCheck);
+            }
+        }
+
+        if (isToggleCrouch == true)
+        {
+            if (Input.GetKeyDown(crouchKey))
+            {
+                crouchButtonCheck++;
+            }
+
+            if (crouchButtonCheck == 1)
+            {
+                crouchCheck = true;
+            }
+
+            if (crouchButtonCheck == 2)
+            {
+                crouchCheck = false;
+                crouchButtonCheck = 0;
+            }
+
+            if (crouchCheck == true)
+            {
+                playerController3D.Crouch(true);
+            }
+
+            if (crouchCheck == false)
+            {
+                playerController3D.Crouch(false);
+            }
+        }
+        #endregion
+
+        #endregion
+
         #region Camera + UI
-        if (Input.GetKey(KeyCode.F))
+
+        #region >FocusKey
+        if (isToggleFocus == false)
         {
-            playerController3D.Focus(true);
+            if (Input.GetKey(focusKey))
+            {
+                playerController3D.Focus(true);
+            }
+
+            if (!Input.GetKey(focusKey))
+            {
+                playerController3D.Focus(false);
+            }
         }
 
-        if (!Input.GetKey(KeyCode.F))
+        if (isToggleFocus == true)
         {
-            playerController3D.Focus(false);
+            if (Input.GetKeyDown(focusKey))
+            {
+                focusButtonCheck++;
+            }
+
+            if (focusButtonCheck == 0)
+            {
+                playerController3D.Focus(false);
+            }
+
+            if (focusButtonCheck == 1)
+            {
+                playerController3D.Focus(true);
+            }
+
+            if (focusButtonCheck == 2)
+            {
+                focusButtonCheck = 0;
+            }
         }
 
+        #endregion
+
+        #region >MenuScreen
         if (Input.GetKeyDown(KeyCode.Escape))
         {
             cameraLock = true;
@@ -136,8 +227,10 @@ public class InputManager3D : MonoBehaviour
                 Time.timeScale = 0f;
             }
         }
+        #endregion
 
-        if (Input.GetKeyDown(KeyCode.Tab))
+        #region >PlayerJournal
+        if (Input.GetKeyDown(playerJournalKey))
         {
             if (gameScreenshot.screenshotTook == true)
             {
@@ -161,30 +254,7 @@ public class InputManager3D : MonoBehaviour
             }
             else { Debug.Log("Debug: Can't open journal if there's nothing inside of it."); }
         }
-        /*
-        if (Input.GetKeyDown(KeyCode.Space))    //for easy mode
-        {
-            micButtonCheck++;
-            if (micButtonCheck == 1)
-            {
-                isMicBeingUsed = true;
-            }
-            if (micButtonCheck == 2)
-            {
-                isMicBeingUsed = false;
-                micButtonCheck = 0;
-            }
-        }
-
-        if (isMicBeingUsed == true)
-        {
-            gameUi.MicInputUI(isMicBeingUsed);
-        }
-        else
-        {
-            gameUi.MicInputUI(isMicBeingUsed);
-        }
-        */
+        #endregion
 
         #endregion
     }

@@ -8,7 +8,9 @@ public class PlayerController3D : MonoBehaviour
 
     [Header("Containers")]
     public Rigidbody rb;                                             // Access the rigidbody to move
-    public GameObject sittable;
+    public GameObject cam;                                           // Refference to the camera
+    public Transform originalCameraPosition;                         // Camera's default position
+    public Transform crouchTarget;                                   // Where the camera goes when the player crouches
 
     [Header("Values")]
     public float mouseSensitivity = 1;                               // Mouse sensitivity
@@ -18,17 +20,17 @@ public class PlayerController3D : MonoBehaviour
 
     public float valOfVelocity;                                      // Checks how fast the player goes
     public float maxVelocity;                                        // The max speed of how fast the player goes
-    public float focusSmoothing;
+    public float zoomAmount = 40f;                                   // How much the camera zooms in 
+    public float focusSmoothing = 4f;
 
     private float verticalRotation = 0;                              // Contains the MouseYAxis
     private float originalMaxVelocity;                               // Contains the orginal MaxVelocity  
-    private float zoomAmount= 40f;
-    private float originalFOV;
-    private Transform previousPosition;
+    private float originalFOV;                                       
+
 
     void Awake()
     {
-        playerRaycast = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerRaycast>();
+        playerRaycast = GetComponent<PlayerRaycast>();
         originalFOV = Camera.main.fieldOfView;
     }
     
@@ -54,6 +56,18 @@ public class PlayerController3D : MonoBehaviour
         if (isSitting == true)
         {
             gameObject.transform.position = new Vector3(playerRaycast.hitObjectTransform().x, playerRaycast.hitObjectTransform().y + 1f, playerRaycast.hitObjectTransform().z);
+        }
+    }
+
+    public void Crouch(bool isCrouching)
+    {
+        if (isCrouching == true)
+        {
+            cam.transform.position = Vector3.Lerp(cam.transform.position, crouchTarget.transform.position, Time.deltaTime * focusSmoothing);
+        }
+        else
+        {
+            cam.transform.position = Vector3.Lerp(cam.transform.position, originalCameraPosition.transform.position, Time.deltaTime * focusSmoothing);
         }
     }
 
