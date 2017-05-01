@@ -37,7 +37,12 @@ public class AllSongs : MonoBehaviour {
 
 		// birdsong-medium-ascending
 		songPitches [3].Add (20, 40.0f);
-		songPitches [3].Add (25, 2.0f);
+		songPitches [3].Add (21, 1.0f);
+		songPitches [3].Add (22, 1.0f);
+		songPitches [3].Add (23, 1.0f);
+		songPitches [3].Add (24, 1.0f);
+		songPitches [3].Add (25, 1.0f);
+		songPitches [3].Add (26, 2.0f);
 		songPitches [3].Add (27, 22.0f);
 
 		// birdsong-medium-dingdong
@@ -52,17 +57,26 @@ public class AllSongs : MonoBehaviour {
 		// birdsong-hard-ascending
 		songPitches [6].Add (24, 23.0f);
 		songPitches [6].Add (25, 11.0f);
+		songPitches [6].Add (26, 8.0f);
 		songPitches [6].Add (27, 10.0f);
 
 		// birdsong-hard-descending
-		songPitches [7].Add (23, 17.0f);
-		songPitches [7].Add (24, 6.0f);
-		songPitches [7].Add (29, 6.0f);
+		songPitches [7].Add (23, 15.0f);
+		songPitches [7].Add (24, 4.0f);
+		songPitches [7].Add (25, 4.0f);
+		songPitches [7].Add (26, 4.0f);
+		songPitches [7].Add (27, 4.0f);
+		songPitches [7].Add (28, 4.0f);
+		songPitches [7].Add (29, 4.0f);
 		songPitches [7].Add (30, 10.0f);
 
 		// birdsong-hard-slide
 		songPitches [8].Add (21, 9.0f);
+		songPitches [8].Add (22, 1.0f);
+		songPitches [8].Add (23, 1.0f);
+		songPitches [8].Add (24, 1.0f);
 		songPitches [8].Add (26, 24.0f);
 		songPitches [8].Add (27, 18.0f);
+		songPitches [8].Add (28, 8.0f);
 	}
 }
