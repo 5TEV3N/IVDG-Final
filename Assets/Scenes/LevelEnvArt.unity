@@ -20,12 +20,12 @@ RenderSettings:
   m_FogDensity: 0.01
   m_LinearFogStart: 0
   m_LinearFogEnd: 300
-  m_AmbientSkyColor: {r: 0.212, g: 0.227, b: 0.259, a: 1}
+  m_AmbientSkyColor: {r: 0.08326126, g: 0.35387883, b: 0.4044118, a: 1}
   m_AmbientEquatorColor: {r: 0.114, g: 0.125, b: 0.133, a: 1}
   m_AmbientGroundColor: {r: 0.047, g: 0.043, b: 0.035, a: 1}
-  m_AmbientIntensity: 1
+  m_AmbientIntensity: 0.57
   m_AmbientMode: 0
-  m_SkyboxMaterial: {fileID: 10304, guid: 0000000000000000f000000000000000, type: 0}
+  m_SkyboxMaterial: {fileID: 2100000, guid: 00008a40c6fe1a44fa932bd695834225, type: 2}
   m_HaloStrength: 0.5
   m_FlareStrength: 1
   m_FlareFadeSpeed: 3
@@ -34,10 +34,10 @@ RenderSettings:
   m_DefaultReflectionMode: 0
   m_DefaultReflectionResolution: 128
   m_ReflectionBounces: 1
-  m_ReflectionIntensity: 1
-  m_CustomReflection: {fileID: 0}
+  m_ReflectionIntensity: 0.837
+  m_CustomReflection: {fileID: 8900000, guid: 36b522d1957fc454b9153a8134608464, type: 3}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.44657844, g: 0.49641222, b: 0.57481694, a: 1}
+  m_IndirectSpecularColor: {r: 0.41073743, g: 0.45701027, b: 0.52981246, a: 0.837}
 --- !u!157 &3
 LightmapSettings:
   m_ObjectHideFlags: 0
@@ -714,16 +714,6 @@ GameObject:
   m_PrefabParentObject: {fileID: 1269788788061954, guid: d4dbf617483bd2142bb4d060285e793a,
     type: 2}
   m_PrefabInternal: {fileID: 159306855}
---- !u!1 &159306858 stripped
-GameObject:
-  m_PrefabParentObject: {fileID: 1074582626511036, guid: d4dbf617483bd2142bb4d060285e793a,
-    type: 2}
-  m_PrefabInternal: {fileID: 159306855}
---- !u!1 &159306859 stripped
-GameObject:
-  m_PrefabParentObject: {fileID: 1223307828452658, guid: d4dbf617483bd2142bb4d060285e793a,
-    type: 2}
-  m_PrefabInternal: {fileID: 159306855}
 --- !u!1 &159306860 stripped
 GameObject:
   m_PrefabParentObject: {fileID: 1131707151780040, guid: d4dbf617483bd2142bb4d060285e793a,
@@ -760,10 +750,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bb4cc3af19cfee546b34ac5e9101b3ec, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  animationState: 0
+  takeOff:
+    serializedVersion: 2
+    m_Curve: []
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
   birdDistance: 0
   birdTriggerBirdcalls: 15
   birdTriggerFlyaway: 35
   playerTookPicture: 0
+  birdInteractionZones: []
+  BirdExitZone: {fileID: 0}
 --- !u!114 &159306866
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3034,9 +3033,8 @@ MonoBehaviour:
   baseBodyParts:
   - {fileID: 159306861}
   - {fileID: 159306860}
-  beakParts:
-  - {fileID: 159306859}
-  - {fileID: 159306858}
+  topBeakParts: []
+  bottomBeakParts: []
   tailParts:
   - {fileID: 159306857}
   - {fileID: 159306856}
@@ -7899,6 +7897,8 @@ GameObject:
   - component: {fileID: 1020660106}
   - component: {fileID: 1020660105}
   - component: {fileID: 1020660110}
+  - component: {fileID: 1020660111}
+  - component: {fileID: 1020660112}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -7935,7 +7935,7 @@ Camera:
   m_GameObject: {fileID: 1020660104}
   m_Enabled: 1
   serializedVersion: 2
-  m_ClearFlags: 2
+  m_ClearFlags: 1
   m_BackGroundColor: {r: 0.36862746, g: 0.69411767, b: 0.7490196, a: 1}
   m_NormalizedViewPortRect:
     serializedVersion: 2
@@ -8000,6 +8000,31 @@ MonoBehaviour:
   shaderFXAAPreset3: {fileID: 4800000, guid: c182fa94a5a0a4c02870641efcd38cd5, type: 3}
   shaderFXAAII: {fileID: 4800000, guid: cd5b323dcc592457790ff18b528f5e67, type: 3}
   shaderFXAAIII: {fileID: 4800000, guid: c547503fff0e8482ea5793727057041c, type: 3}
+--- !u!45 &1020660111
+Skybox:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1020660104}
+  m_Enabled: 1
+  m_CustomSkybox: {fileID: 2100000, guid: 00008a40c6fe1a44fa932bd695834225, type: 2}
+--- !u!114 &1020660112
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1020660104}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4975a6e437fc3b149a8cd508ce5bdd69, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  threshold: 0.086
+  intensity: 0.25
+  blurSize: 0.46
+  blurIterations: 3
+  blurType: 0
+  fastBloomShader: {fileID: 4800000, guid: 68a00c837b82e4c6d92e7da765dc5f1d, type: 3}
 --- !u!43 &1025194607
 Mesh:
   m_ObjectHideFlags: 0
@@ -16511,13 +16536,16 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rb: {fileID: 1952922257}
-  sittable: {fileID: 0}
+  cam: {fileID: 0}
+  originalCameraPosition: {fileID: 0}
+  crouchTarget: {fileID: 0}
   mouseSensitivity: 1
   jumpHeightIntensifier: 1
   playerSpeedIntensifier: 0.5
   upDownRange: 90
   valOfVelocity: 0
   maxVelocity: 2
+  zoomAmount: 40
   focusSmoothing: 4
 --- !u!54 &1952922257
 Rigidbody:
@@ -16545,9 +16573,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2a01902d33ce7a843a35151d296b44be, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  snapshotCaptureKey: 324
+  playerJournalKey: 9
+  interactionKey: 101
+  focusKey: 102
+  crouchKey: 99
   isMicBeingUsed: 0
   isSitting: 0
-  sittingButtonCheck: 0
+  isToggleCrouch: 0
+  isToggleFocus: 0
 --- !u!114 &1952922259
 MonoBehaviour:
   m_ObjectHideFlags: 0
