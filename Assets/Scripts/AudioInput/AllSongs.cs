@@ -29,7 +29,7 @@ public class AllSongs : MonoBehaviour {
 		songPitches [0].Add (23, 21.0f);
 
 		// birdsong-easy-single
-		songPitches [1].Add (24, 33.0f);
+		songPitches [1].Add (26, 33.0f);
 
 		// birdsong-easy-slide
 		songPitches [2].Add (22, 10.0f);

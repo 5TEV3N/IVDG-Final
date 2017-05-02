@@ -47,8 +47,8 @@ public class BirdController : MonoBehaviour
     void Update()
     {
         birdDistance = Vector3.Distance(gameObject.transform.position, player.transform.position);
-        gameObject.transform.LookAt(player.transform.position);
-        
+        gameObject.transform.forward = player.transform.position;
+
         #region Hidden to Birdcall
 
         if (myState.state == BirdState.currentState.hidden)

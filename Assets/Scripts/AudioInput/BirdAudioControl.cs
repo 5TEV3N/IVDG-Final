@@ -65,8 +65,8 @@ public class BirdAudioControl: MonoBehaviour {
 		successCurrent = 0;
 
 		// Pulls bird song and corresponding "correct pitches" dictionary from the AllSongs script (randomize later, organize based on bird difficulty)
-		birdSong.clip = allSongs.GetComponent<AllSongs>().listOfSongs[0];
-		correctNotes = allSongs.GetComponent<AllSongs>().songPitches[0];
+		birdSong.clip = allSongs.GetComponent<AllSongs>().listOfSongs[1];
+		correctNotes = allSongs.GetComponent<AllSongs>().songPitches[1];
 
 		// Tie bird waiting time between songs to song length
 		songLength = 0.0f;

@@ -11,6 +11,7 @@ public class GameScreenshot : MonoBehaviour
 {
     PlayerRaycast playerRaycast;
     BirdState birdState;
+    GameUI gameUI;
 
     [Header ("Containers")]
     public GameObject screenshotMenu;                                                                       //Container for the screenshot menu. InputManager access this
@@ -22,12 +23,14 @@ public class GameScreenshot : MonoBehaviour
 
     void Awake()
     {
+        gameUI = GetComponent<GameUI>();
         screenShot = new Texture2D(Screen.width, Screen.height, TextureFormat.ARGB32, true);
     }
 
     public IEnumerator GetSnapshot()                                                                        //the act of taking a screenshot
     {
         screenshotTook = true;
+        gameUI.cameraScreen.SetActive(false);
         yield return new WaitForEndOfFrame();                                                               //apparently you need wait for the end of the frame or else you get some sort of error
         screenShot.ReadPixels(new Rect(0, 0, Screen.width, Screen.height), 0, 0, true);                     //something about reading the texture from the screen into the saved texture data
         screenShot.Apply();                                                                                 //apply the texture into screenShot

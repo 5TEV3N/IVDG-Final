@@ -11,12 +11,12 @@ public class GameUI : MonoBehaviour
 {
     public static GameUI gameUi;
 
-    public AnimationCurve curveJuice1;
-
     [Header ("Containers")]
     public GameObject gamePause;
-    public GameObject TitleScreen;
-//    public GameObject micImg;
+    public GameObject titleScreen;
+    public GameObject cameraScreen;
+    public Color textColor;
+
     private Text discovered;
 
     [Header("Values")]
@@ -61,11 +61,7 @@ public class GameUI : MonoBehaviour
 
     void Update()
     {
-        birdName = BirdSpawner.currentBirdName;     // if we're going for multiple birds in a scene instead of one being moved around at certain distances, then this needs to change;
-
-//		if (Input.GetKeyUp (KeyCode.Alpha9) {
-//			
-//		}
+        birdName = BirdSpawner.currentBirdName;
     }
 
     #region Main Menu
@@ -99,30 +95,18 @@ public class GameUI : MonoBehaviour
 
     public void UnLoadUI()
     {
-        TitleScreen.SetActive(false);
+        titleScreen.SetActive(false);
         gamePause.SetActive(false);
         Cursor.lockState = CursorLockMode.Locked;
         Cursor.visible = false;
         Time.timeScale = 1;
     }
-    
+
     #endregion
 
-//    public void MicInputUI(bool mic)
-//    {
-//        if (mic == true)
-//        {
-//            micImg.transform.localPosition = Vector2.Lerp(micImg.transform.localPosition, new Vector2(0, -320), curveJuice1.Evaluate(Time.deltaTime * 8));
-//        }
-//        else
-//        {
-//            micImg.transform.localPosition = Vector2.Lerp(micImg.transform.localPosition, new Vector2(0, -400), curveJuice1.Evaluate(Time.deltaTime * 8));
-//        }
-//    }
-
-
-	// AUDIO UI FROM MICROPHONE INPUT
-	public void AudioHUDSetup() {
+    #region Audio UI
+    // AUDIO UI FROM MICROPHONE INPUT
+    public void AudioHUDSetup() {
 		var correctNotesArray = GameObject.FindGameObjectWithTag("Bird").GetComponent<BirdAudioControl>().correctNotesArray;
 
 		audioHUD.transform.Find ("Line").GetComponent<Image> ().CrossFadeAlpha (1.0f, 0.5f, false);
@@ -148,19 +132,22 @@ public class GameUI : MonoBehaviour
 			audioDots [i].transform.Find ("white").GetComponent<Image> ().CrossFadeAlpha (0.0f, 1.0f, false);
 		}
 	}
+    #endregion
 
+    #region Bird Related
     public void BirdDiscovered(bool encountering)
     {
         discovered = GameObject.FindGameObjectWithTag("UIBirdName").GetComponent<Text>();
         if (encountering == true)
         {
             discovered.text = "Discovered a\n " + birdName;
-            discovered.color = Color.Lerp(discovered.color, Color.black, Time.deltaTime * textSmoothFade);
+            discovered.color = Color.Lerp(discovered.color, textColor, Time.deltaTime * textSmoothFade);
         }
         else
         {
             discovered.color = Color.Lerp(discovered.color, Color.clear, Time.deltaTime * textSmoothFade); 
         }
     }
+    #endregion
 
 }

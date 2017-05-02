@@ -130,13 +130,17 @@ public class MicrophoneInput : MonoBehaviour {
 				}
 			}
 
-//			Debug.Log ("Correct notes : " + thisKey + ": " + correctNotes [key]);
+			Debug.Log ("Correct notes : " + thisKey + ": " + correctNotes [key]);
 		}
 
 
-//		for (int i=0; i < notePeaks.Length; i++) {
-//			Debug.Log ("Sung notes : " + i + ": " + notePeaks[i]);
-//		}
+		for (int i=0; i < notePeaks.Length; i++) {
+            if (notePeaks[i] != 0)
+            {
+                Debug.Log("Sung notes : " + i + ": " + notePeaks[i]);
+            }
+			
+		}
 
 		if (numberCorrect == numberTotal) {
 			whistleIsGood = true;
@@ -150,7 +154,7 @@ public class MicrophoneInput : MonoBehaviour {
 			micInput.clip = Microphone.Start (micDevice, true, 1, 44100);
 			micInput.loop = true;
 
-			while (!(Microphone.GetPosition(micDevice) > 200)) {} // Not sure if this is even working in Unity5
+			while (!(Microphone.GetPosition(micDevice) > 0)) {} // Not sure if this is even working in Unity5
 			micInput.Play ();
 
 			micStarted = true;

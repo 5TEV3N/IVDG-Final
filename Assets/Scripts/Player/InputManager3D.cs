@@ -9,11 +9,12 @@ public class InputManager3D : MonoBehaviour
     PlayerRaycast playerRaycast;                
     GameScreenshot gameScreenshot;
     BirdController birdController;
-    //GameUI gameUi;
+    GameUI gameUi;
 
     [Header("Interaction Keys")]
-    //Default
+    //Default Keys
     public KeyCode snapshotCaptureKey = KeyCode.Mouse1;
+    public KeyCode cameraKey = KeyCode.Space;
     public KeyCode playerJournalKey = KeyCode.Tab;
     public KeyCode interactionKey = KeyCode.E;
     public KeyCode focusKey = KeyCode.F;
@@ -35,13 +36,14 @@ public class InputManager3D : MonoBehaviour
     private int crouchButtonCheck = 0;
     private int focusButtonCheck = 0;
     private int sittingButtonCheck = 0;
+    private int cameraButtonCheck = 0;
 
     void Awake()
     {
         playerController3D = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerController3D>();
         playerRaycast = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerRaycast>();
         gameScreenshot = GameObject.FindGameObjectWithTag("UI").GetComponent<GameScreenshot>();
-        //gameUi = GameObject.FindGameObjectWithTag("UI").GetComponent<GameUI>();
+        gameUi = GameObject.FindGameObjectWithTag("UI").GetComponent<GameUI>();
 
         Cursor.lockState = CursorLockMode.Locked;
         Cursor.visible = false;
@@ -107,7 +109,21 @@ public class InputManager3D : MonoBehaviour
         }
         #endregion
 
-        #region >SnapshotKey
+        #region >CameraKeys
+        if (Input.GetKeyDown(cameraKey))
+        {
+            cameraButtonCheck++;
+        }
+        if (cameraButtonCheck == 1)
+        {
+            gameUi.cameraScreen.SetActive(true);
+        }
+        if (cameraButtonCheck == 2)
+        {
+            gameUi.cameraScreen.SetActive(false);
+            cameraButtonCheck = 0;
+        }
+
         if (Input.GetKeyDown(snapshotCaptureKey))                                        //RMB
         {
             if (playerRaycast.PlayerInteraction() == true)
