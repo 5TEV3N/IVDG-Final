@@ -9,12 +9,17 @@ using UnityEngine.SceneManagement;
 
 public class GameUI : MonoBehaviour
 {
+    BirdState myState;
+
     public static GameUI gameUi;
 
-    [Header ("Containers")]
+    [Header("Containers")]
     public GameObject gamePause;
     public GameObject titleScreen;
     public GameObject cameraScreen;
+    public GameObject journalIcon;
+    public GameObject cameraIcon;
+
     public Color textColor;
 
     private Text discovered;
@@ -23,9 +28,9 @@ public class GameUI : MonoBehaviour
     public string birdName;
     public float textSmoothFade;
 
-	[Header("Audio HUD")]
-	public GameObject[] audioDots;
-	private GameObject audioHUD;
+    [Header("Audio HUD")]
+    public GameObject[] audioDots;
+    private GameObject audioHUD;
 
     void Awake()
     {
@@ -40,24 +45,28 @@ public class GameUI : MonoBehaviour
         }
     }
 
-	void Start() {
-		audioDots = new GameObject[37]; // 37 is the number of notes measured by our audio script
-		audioHUD = GameObject.Find("AudioHUD");
+    void Start()
+    {
+        audioDots = new GameObject[37]; // 37 is the number of notes measured by our audio script
+        audioHUD = GameObject.Find("AudioHUD");
 
-		for (int i = 0; i < 37; i++) {
-			var dotName = i.ToString ();
-			var allDots = GameObject.FindGameObjectsWithTag ("AudioDot");
-			foreach (GameObject dot in allDots) {
-				if (dot.name == dotName) {
-					audioDots [i] = dot;
-					audioDots [i].transform.Find ("red").GetComponent<Image> ().CrossFadeAlpha (0.0f, 0.01f, false); // hide Red on default
-					audioDots [i].transform.Find ("white").GetComponent<Image> ().CrossFadeAlpha (0.0f, 0.01f, false); // hide Red on default
-				}
-			}
-		}
+        for (int i = 0; i < 37; i++)
+        {
+            var dotName = i.ToString();
+            var allDots = GameObject.FindGameObjectsWithTag("AudioDot");
+            foreach (GameObject dot in allDots)
+            {
+                if (dot.name == dotName)
+                {
+                    audioDots[i] = dot;
+                    audioDots[i].transform.Find("red").GetComponent<Image>().CrossFadeAlpha(0.0f, 0.01f, false); // hide Red on default
+                    audioDots[i].transform.Find("white").GetComponent<Image>().CrossFadeAlpha(0.0f, 0.01f, false); // hide Red on default
+                }
+            }
+        }
 
-		audioHUD.transform.Find ("Line").GetComponent<Image> ().CrossFadeAlpha (0.0f, 0.01f, false);
-	}
+        audioHUD.transform.Find("Line").GetComponent<Image>().CrossFadeAlpha(0.0f, 0.01f, false);
+    }
 
     void Update()
     {
@@ -70,13 +79,14 @@ public class GameUI : MonoBehaviour
     {
         UnLoadUI();
         SceneManager.LoadScene("Main");
+        myState = GameObject.FindGameObjectWithTag("Bird").GetComponent<BirdState>();
         print("New Game");
     }
 
     public void LoadGamePlayScene()
     {
         UnLoadUI();
-        SceneManager.LoadScene("Main");
+        SceneManager.LoadScene("LevelWhiteBox");
         GameSaveLoad.gameState.PlayerLoad();
     }
 
@@ -106,32 +116,41 @@ public class GameUI : MonoBehaviour
 
     #region Audio UI
     // AUDIO UI FROM MICROPHONE INPUT
-    public void AudioHUDSetup() {
-		var correctNotesArray = GameObject.FindGameObjectWithTag("Bird").GetComponent<BirdAudioControl>().correctNotesArray;
+    public void AudioHUDSetup()
+    {
+        var correctNotesArray = GameObject.FindGameObjectWithTag("Bird").GetComponent<BirdAudioControl>().correctNotesArray;
 
-		audioHUD.transform.Find ("Line").GetComponent<Image> ().CrossFadeAlpha (1.0f, 0.5f, false);
-		for (int i = 0; i < correctNotesArray.Length; i++) {
-			audioDots [correctNotesArray[i]].transform.Find ("white").GetComponent<Image> ().CrossFadeAlpha (1.0f, 0.5f, false);
-		}
-	}
+        audioHUD.transform.Find("Line").GetComponent<Image>().CrossFadeAlpha(1.0f, 0.5f, false);
+        for (int i = 0; i < correctNotesArray.Length; i++)
+        {
+            audioDots[correctNotesArray[i]].transform.Find("white").GetComponent<Image>().CrossFadeAlpha(1.0f, 0.5f, false);
+        }
+    }
 
-	public void AudioHUDCurrentNote(int currentNote) {
-		for (int i = 0; i < audioDots.Length; i++) {
-			if (i == currentNote) {
-				audioDots [i].transform.Find ("red").GetComponent<Image> ().CrossFadeAlpha (1.0f, 0.1f, false);
-			} else {
-				audioDots [i].transform.Find ("red").GetComponent<Image> ().CrossFadeAlpha (0.0f, 0.1f, false);
-			}
-		}
-	}
+    public void AudioHUDCurrentNote(int currentNote)
+    {
+        for (int i = 0; i < audioDots.Length; i++)
+        {
+            if (i == currentNote)
+            {
+                audioDots[i].transform.Find("red").GetComponent<Image>().CrossFadeAlpha(1.0f, 0.1f, false);
+            }
+            else
+            {
+                audioDots[i].transform.Find("red").GetComponent<Image>().CrossFadeAlpha(0.0f, 0.1f, false);
+            }
+        }
+    }
 
-	public void AudioHUDClear() {
-		audioHUD.transform.Find ("Line").GetComponent<Image> ().CrossFadeAlpha (0.0f, 1.2f, false);
-		for (int i = 0; i < audioDots.Length; i++) {
-			audioDots [i].transform.Find ("red").GetComponent<Image> ().CrossFadeAlpha (0.0f, 1.0f, false);
-			audioDots [i].transform.Find ("white").GetComponent<Image> ().CrossFadeAlpha (0.0f, 1.0f, false);
-		}
-	}
+    public void AudioHUDClear()
+    {
+        audioHUD.transform.Find("Line").GetComponent<Image>().CrossFadeAlpha(0.0f, 1.2f, false);
+        for (int i = 0; i < audioDots.Length; i++)
+        {
+            audioDots[i].transform.Find("red").GetComponent<Image>().CrossFadeAlpha(0.0f, 1.0f, false);
+            audioDots[i].transform.Find("white").GetComponent<Image>().CrossFadeAlpha(0.0f, 1.0f, false);
+        }
+    }
     #endregion
 
     #region Bird Related
@@ -145,9 +164,19 @@ public class GameUI : MonoBehaviour
         }
         else
         {
-            discovered.color = Color.Lerp(discovered.color, Color.clear, Time.deltaTime * textSmoothFade); 
+            discovered.color = Color.Lerp(discovered.color, Color.clear, Time.deltaTime * textSmoothFade);
         }
     }
     #endregion
 
+    #region General Gameplay UI
+    public void IconFadeIn(bool fadingIn)
+    {
+        if (fadingIn == true)
+        {
+            journalIcon.GetComponent<Image>().CrossFadeAlpha(1f, 1f,false);
+            cameraIcon.GetComponent<Image>().CrossFadeAlpha(1f, 1f, false);
+        }
+    }
+    #endregion
 }
