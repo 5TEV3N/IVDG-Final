@@ -10,6 +10,7 @@ using UnityEngine.SceneManagement;
 public class GameUI : MonoBehaviour
 {
     BirdState myState;
+    BirdAudioControl birdAudioControler;
 
     public static GameUI gameUi;
 
@@ -19,10 +20,13 @@ public class GameUI : MonoBehaviour
     public GameObject cameraScreen;
     public GameObject journalIcon;
     public GameObject cameraIcon;
-
     public Color textColor;
-
     private Text discovered;
+
+    [Header("Condition Icons")]
+    public GameObject[] correctIcons;
+    public GameObject[] wrongIcons;
+    public GameObject[] triesIcons;
 
     [Header("Values")]
     public string birdName;
@@ -31,6 +35,10 @@ public class GameUI : MonoBehaviour
     [Header("Audio HUD")]
     public GameObject[] audioDots;
     private GameObject audioHUD;
+
+    int measureTries;
+    int measureCorrect;
+    int measureFailure;
 
     void Awake()
     {
@@ -64,7 +72,7 @@ public class GameUI : MonoBehaviour
                 }
             }
         }
-
+        BirdcallsIcons();
         audioHUD.transform.Find("Line").GetComponent<Image>().CrossFadeAlpha(0.0f, 0.01f, false);
     }
 
@@ -153,7 +161,7 @@ public class GameUI : MonoBehaviour
     }
     #endregion
 
-    #region Bird Related
+    #region Text
     public void BirdDiscovered(bool encountering)
     {
         discovered = GameObject.FindGameObjectWithTag("UIBirdName").GetComponent<Text>();
@@ -174,9 +182,30 @@ public class GameUI : MonoBehaviour
     {
         if (fadingIn == true)
         {
-            journalIcon.GetComponent<Image>().CrossFadeAlpha(1f, 1f,false);
-            cameraIcon.GetComponent<Image>().CrossFadeAlpha(1f, 1f, false);
+            journalIcon.GetComponent<Image>().CrossFadeAlpha(1f, 0.5f,false);
+            cameraIcon.GetComponent<Image>().CrossFadeAlpha(1f, 0.5f, false);
         }
+        if (fadingIn == false)
+        {
+            journalIcon.GetComponent<Image>().CrossFadeAlpha(0.25f, 0.5f, false);
+            cameraIcon.GetComponent<Image>().CrossFadeAlpha(0.25f, 0.5f, false);
+        }
+    }
+
+    public void BirdcallsIcons()
+    {
+        birdAudioControler = GameObject.FindGameObjectWithTag("Bird").GetComponent<BirdAudioControl>();
+        measureTries = birdAudioControler.successNeeded;
+        measureCorrect = birdAudioControler.successCurrent;
+        measureFailure = birdAudioControler.failsRemaining;
+
+        /*
+        for (int i = 0; i < measureTries; i++)
+        {
+            //triesIcons.GetComponentInChildren<GameObject>().SetActive(true);
+            triesIcons[measureTries].GetComponentInChildren<Image>().enabled = enabled;
+            print("1");
+        }*/
     }
     #endregion
 }

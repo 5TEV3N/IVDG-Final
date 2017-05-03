@@ -6,17 +6,20 @@ public class BirdState : MonoBehaviour
 {
     BirdSpawner birdSpawner;
     BirdAudioControl birdAudioControler;
+    GameUI gameUI;
     BasicTimer timer = new BasicTimer();
 
     //AllSongs allSongs;
 
     public enum currentState { hidden, birdcalls, interacting, flyaway };
     public currentState state;
+    public bool tutorialSession;
 
     void Awake()
     {
         birdSpawner = GameObject.FindGameObjectWithTag("BirdManager").GetComponent<BirdSpawner>();
         birdAudioControler = GameObject.FindGameObjectWithTag("Bird").GetComponent<BirdAudioControl>();
+        gameUI = GameObject.FindGameObjectWithTag("UI").GetComponent<GameUI>();
         //allSongs = GameObject.Find("AllSongs").GetComponent<AllSongs>();
     }
 
@@ -31,7 +34,7 @@ public class BirdState : MonoBehaviour
         {
             case currentState.hidden:
                 // State: hidden. Bird is hidden and singing
-
+                gameUI.IconFadeIn(false);
                 // Audio or visual indicator here
                 break;
             case currentState.birdcalls:
@@ -45,7 +48,7 @@ public class BirdState : MonoBehaviour
                 break;
             case currentState.interacting:
                 // State: interacting. Bird is out of hiding and is in plain view to the player
-
+                gameUI.IconFadeIn(true);
                 birdAudioControler.AudioUIControl("hide");
                 break;
             case currentState.flyaway:

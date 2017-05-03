@@ -1271,7 +1271,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &85082299
 RectTransform:
   m_ObjectHideFlags: 0
@@ -1755,7 +1755,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &119972281
 RectTransform:
   m_ObjectHideFlags: 0
@@ -3911,7 +3911,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &160665819
 RectTransform:
   m_ObjectHideFlags: 0
@@ -5578,7 +5578,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &303903544
 RectTransform:
   m_ObjectHideFlags: 0
@@ -9030,6 +9030,12 @@ MonoBehaviour:
   journalIcon: {fileID: 686777304}
   cameraIcon: {fileID: 1732451563}
   textColor: {r: 0.7921569, g: 0.7647059, b: 0.7647059, a: 1}
+  correctIcons: []
+  wrongIcons: []
+  triesIcons:
+  - {fileID: 1061755139}
+  - {fileID: 231756384}
+  - {fileID: 1933500840}
   birdName: 
   textSmoothFade: 4
   audioDots: []
@@ -11155,7 +11161,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &647346317
 RectTransform:
   m_ObjectHideFlags: 0
@@ -11731,7 +11737,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 0.039215688}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
@@ -12356,7 +12362,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &748939168
 RectTransform:
   m_ObjectHideFlags: 0
@@ -16273,6 +16279,7 @@ GameObject:
   - component: {fileID: 1020660106}
   - component: {fileID: 1020660105}
   - component: {fileID: 1020660110}
+  - component: {fileID: 1020660111}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -16374,6 +16381,23 @@ MonoBehaviour:
   shaderFXAAPreset3: {fileID: 4800000, guid: c182fa94a5a0a4c02870641efcd38cd5, type: 3}
   shaderFXAAII: {fileID: 4800000, guid: cd5b323dcc592457790ff18b528f5e67, type: 3}
   shaderFXAAIII: {fileID: 4800000, guid: c547503fff0e8482ea5793727057041c, type: 3}
+--- !u!114 &1020660111
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1020660104}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4975a6e437fc3b149a8cd508ce5bdd69, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  threshold: 0.086
+  intensity: 0.25
+  blurSize: 0.46
+  blurIterations: 3
+  blurType: 0
+  fastBloomShader: {fileID: 4800000, guid: 68a00c837b82e4c6d92e7da765dc5f1d, type: 3}
 --- !u!1 &1024087309
 GameObject:
   m_ObjectHideFlags: 0
@@ -17548,7 +17572,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1064840467
 RectTransform:
   m_ObjectHideFlags: 0
@@ -23261,7 +23285,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1409389557
 RectTransform:
   m_ObjectHideFlags: 0
@@ -28676,7 +28700,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &1723775206
 RectTransform:
   m_ObjectHideFlags: 0
@@ -28753,7 +28777,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 0.039215688}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
