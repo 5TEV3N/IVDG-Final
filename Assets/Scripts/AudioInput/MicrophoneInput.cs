@@ -154,7 +154,6 @@ public class MicrophoneInput : MonoBehaviour {
 			micInput.clip = Microphone.Start (micDevice, true, 1, 44100);
 			micInput.loop = true;
 
-			while (!(Microphone.GetPosition(micDevice) > 0)) {} // Not sure if this is even working in Unity5
 			micInput.Play ();
 
 			micStarted = true;

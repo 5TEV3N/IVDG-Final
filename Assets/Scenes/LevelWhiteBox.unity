@@ -4075,6 +4075,12 @@ Prefab:
       propertyPath: panLevelCustomCurve.m_Curve.Array.data[0].value
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 82800075285214120, guid: 6ba3c36a871a8b64a8d3cbbe4d3fc6fc,
+        type: 2}
+      propertyPath: OutputAudioMixerGroup
+      value: 
+      objectReference: {fileID: 243898900319679440, guid: d66813af7dc59d74ab8d9f45db2cd254,
+        type: 2}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 6ba3c36a871a8b64a8d3cbbe4d3fc6fc, type: 2}
   m_IsPrefabParent: 0
