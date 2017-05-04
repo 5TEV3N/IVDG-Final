@@ -6,10 +6,10 @@ Material:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
-  m_Name: Material.005
+  m_Name: Material.003
   m_Shader: {fileID: 4800000, guid: ecc9350e9176f33458aeedba7b36aac5, type: 3}
-  m_ShaderKeywords: _EMISSION
-  m_LightmapFlags: 1
+  m_ShaderKeywords: 
+  m_LightmapFlags: 5
   m_CustomRenderQueue: -1
   stringTagMap: {}
   m_SavedProperties:
@@ -265,7 +265,7 @@ Material:
     m_Colors:
     - first:
         name: _Color
-      second: {r: 0.0042171315, g: 0.28676468, b: 0.14646527, a: 1}
+      second: {r: 0.65837497, g: 0.3371637, b: 0.1046165, a: 1}
     - first:
         name: _DisplaceTex_1_Scroll
       second: {r: 0, g: 0, b: 0, a: 0}

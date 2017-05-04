@@ -7,7 +7,7 @@ Material:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_Name: Material.001
-  m_Shader: {fileID: 4800000, guid: a00b4a2b5def96449b8395571285f3ac, type: 3}
+  m_Shader: {fileID: 4800000, guid: ecc9350e9176f33458aeedba7b36aac5, type: 3}
   m_ShaderKeywords: _EMISSION
   m_LightmapFlags: 1
   m_CustomRenderQueue: -1
@@ -17,6 +17,12 @@ Material:
     m_TexEnvs:
     - first:
         name: _BumpMap
+      second:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - first:
+        name: _Cube
       second:
         m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
@@ -35,6 +41,18 @@ Material:
         m_Offset: {x: 0, y: 0}
     - first:
         name: _DetailNormalMap
+      second:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - first:
+        name: _DisplaceTex_1
+      second:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - first:
+        name: _DisplaceTex_2
       second:
         m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
@@ -69,10 +87,34 @@ Material:
         m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
+    - first:
+        name: _PixelTex
+      second:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - first:
+        name: _ReflectionTex
+      second:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - first:
+        name: _SecondTex
+      second:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
     m_Floats:
+    - first:
+        name: _BUMP_LABEL
+      second: 0
     - first:
         name: _BumpScale
       second: 1
+    - first:
+        name: _CubeIsHDR
+      second: 0
     - first:
         name: _Cutoff
       second: 0.5
@@ -80,7 +122,40 @@ Material:
         name: _DetailNormalMapScale
       second: 1
     - first:
+        name: _DisplaceAmplitude
+      second: 0.5
+    - first:
+        name: _DisplaceBlendType
+      second: 1
+    - first:
+        name: _DisplaceDirection
+      second: 45
+    - first:
+        name: _DisplaceFrequency
+      second: 0.2
+    - first:
+        name: _DisplaceNoiseCoef
+      second: -0.5
+    - first:
+        name: _DisplaceScriptSynchronize
+      second: 0
+    - first:
+        name: _DisplaceSpeed
+      second: 1
+    - first:
+        name: _DisplaceStrength
+      second: 1
+    - first:
+        name: _DisplaceType
+      second: 0
+    - first:
+        name: _Dsiplace_LABEL
+      second: 0
+    - first:
         name: _DstBlend
+      second: 0
+    - first:
+        name: _FORWARD_RENDERING_LABEL
       second: 0
     - first:
         name: _GlossMapScale
@@ -92,6 +167,9 @@ Material:
         name: _GlossyReflections
       second: 1
     - first:
+        name: _LowPolyLightID
+      second: 0
+    - first:
         name: _Metallic
       second: 0
     - first:
@@ -101,8 +179,62 @@ Material:
         name: _OcclusionStrength
       second: 1
     - first:
+        name: _PAPERCRAFT_LABEL
+      second: 0
+    - first:
+        name: _PIXEL_LABEL
+      second: 0
+    - first:
+        name: _PaperCrat
+      second: 0
+    - first:
         name: _Parallax
       second: 0.02
+    - first:
+        name: _PixelTex_AlphaOffset
+      second: 0
+    - first:
+        name: _PixelTex_BlendType
+      second: 0
+    - first:
+        name: _PixelTextureID
+      second: 0
+    - first:
+        name: _REFLECTION_LABEL
+      second: 0
+    - first:
+        name: _RENDERING_MODE_LABEL
+      second: 0
+    - first:
+        name: _ReflectionDistortion
+      second: 1
+    - first:
+        name: _ReflectionFresnel
+      second: 1
+    - first:
+        name: _ReflectionRoughness
+      second: 0
+    - first:
+        name: _ReflectionStrengthOffset
+      second: 0
+    - first:
+        name: _SHADER_TYPE_LABEL
+      second: 0
+    - first:
+        name: _SPECULAR_LABEL
+      second: 0
+    - first:
+        name: _SamplingType
+      second: 0
+    - first:
+        name: _SecondTex_AlphaOffset
+      second: 0
+    - first:
+        name: _SecondTex_BlendType
+      second: 0
+    - first:
+        name: _SecondTextureID
+      second: 0
     - first:
         name: _SmoothnessTextureChannel
       second: 0
@@ -116,12 +248,45 @@ Material:
         name: _UVSec
       second: 0
     - first:
+        name: _VERTEX_LABEL
+      second: 0
+    - first:
+        name: _V_WIRE_FixedSize
+      second: 0
+    - first:
+        name: _V_WIRE_Size
+      second: 0.5
+    - first:
+        name: _VertexColor
+      second: 0
+    - first:
         name: _ZWrite
       second: 1
     m_Colors:
     - first:
         name: _Color
-      second: {r: 0.13235295, g: 0.07325209, b: 0.045739617, a: 1}
+      second: {r: 0, g: 0.27205884, b: 0.1464041, a: 1}
+    - first:
+        name: _DisplaceTex_1_Scroll
+      second: {r: 0, g: 0, b: 0, a: 0}
+    - first:
+        name: _DisplaceTex_2_Scroll
+      second: {r: 0, g: 0, b: 0, a: 0}
     - first:
         name: _EmissionColor
+      second: {r: 0, g: 0, b: 0, a: 1}
+    - first:
+        name: _MainTex_Scroll
+      second: {r: 0, g: 0, b: 0, a: 0}
+    - first:
+        name: _PixelTex_Scroll
+      second: {r: 0, g: 0, b: 0, a: 0}
+    - first:
+        name: _ReflectColor
+      second: {r: 1, g: 1, b: 1, a: 0.5}
+    - first:
+        name: _SecondTex_Scroll
+      second: {r: 0, g: 0, b: 0, a: 0}
+    - first:
+        name: _V_WIRE_Color
       second: {r: 0, g: 0, b: 0, a: 1}
