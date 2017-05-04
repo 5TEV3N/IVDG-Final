@@ -34,13 +34,15 @@ public class BirdState : MonoBehaviour
         {
             case currentState.hidden:
                 // State: hidden. Bird is hidden and singing
-                gameUI.IconFadeIn(false);
+                gameUI.InteractionIconsFade(false);
+                gameUI.DisplayBirdcallsIcons(false);
+
                 // Audio or visual indicator here
                 break;
             case currentState.birdcalls:
                 // State: bird calls. player must persude the bird with bird calls inorder to interact
-
-				if (birdAudioControler.birdSingingOn == false && birdAudioControler.birdSuccess == false && birdAudioControler.birdFailure == false)
+                gameUI.DisplayBirdcallsIcons(true);
+                if (birdAudioControler.birdSingingOn == false && birdAudioControler.birdSuccess == false && birdAudioControler.birdFailure == false)
                 {
                     birdAudioControler.SingLoop();
                 }
@@ -48,7 +50,9 @@ public class BirdState : MonoBehaviour
                 break;
             case currentState.interacting:
                 // State: interacting. Bird is out of hiding and is in plain view to the player
-                gameUI.IconFadeIn(true);
+                gameUI.InteractionIconsFade(true);
+                gameUI.DisplayBirdcallsIcons(false);
+
                 birdAudioControler.AudioUIControl("hide");
                 break;
             case currentState.flyaway:

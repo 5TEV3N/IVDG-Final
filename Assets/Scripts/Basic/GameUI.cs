@@ -20,13 +20,15 @@ public class GameUI : MonoBehaviour
     public GameObject cameraScreen;
     public GameObject journalIcon;
     public GameObject cameraIcon;
+
     public Color textColor;
     private Text discovered;
 
     [Header("Condition Icons")]
     public GameObject[] correctIcons;
     public GameObject[] wrongIcons;
-    public GameObject[] triesIcons;
+    public GameObject[] successsfulTries;
+    public GameObject[] failedTries;
 
     [Header("Values")]
     public string birdName;
@@ -78,7 +80,6 @@ public class GameUI : MonoBehaviour
     void Update()
     {
         birdName = BirdSpawner.currentBirdName;
-        BirdcallsTries();
     }
 
     #region Main Menu
@@ -127,7 +128,6 @@ public class GameUI : MonoBehaviour
     public void AudioHUDSetup()
     {
         var correctNotesArray = GameObject.FindGameObjectWithTag("Bird").GetComponent<BirdAudioControl>().correctNotesArray;
-
         audioHUD.transform.Find("Line").GetComponent<Image>().CrossFadeAlpha(1.0f, 0.5f, false);
         for (int i = 0; i < correctNotesArray.Length; i++)
         {
@@ -178,7 +178,7 @@ public class GameUI : MonoBehaviour
     #endregion
 
     #region General Gameplay UI
-    public void IconFadeIn(bool fadingIn)
+    public void InteractionIconsFade(bool fadingIn)
     {
         if (fadingIn == true)
         {
@@ -192,14 +192,29 @@ public class GameUI : MonoBehaviour
         }
     }
 
-    public void BirdcallsTries()
+    public void DisplayBirdcallsIcons(bool displayTheIcons)
     {
         birdAudioControler = GameObject.FindGameObjectWithTag("Bird").GetComponent<BirdAudioControl>();
         measureTries = birdAudioControler.successNeeded;
-
-        for (int i = 0; i < measureTries; i++)
+        if (displayTheIcons == true)
         {
-            triesIcons[i].GetComponentInChildren<Image>().enabled = enabled;
+            for (int i = 0; i < measureTries; i++)
+            {
+                successsfulTries[i].GetComponentInChildren<Image>().enabled = enabled;
+                failedTries[i].GetComponentInChildren<Image>().enabled = enabled;
+            }
+        }
+
+        if (displayTheIcons == false)
+        {
+            for (int z = 0; z < measureTries; z++)
+            {
+                successsfulTries[z].GetComponentInChildren<Image>().enabled = !enabled;
+                failedTries[z].GetComponentInChildren<Image>().enabled = !enabled;
+
+                correctIcons[z].GetComponentInChildren<Image>().enabled = false;
+                wrongIcons[z].GetComponentInChildren<Image>().enabled = false;
+            }
         }
     }
 
@@ -212,17 +227,5 @@ public class GameUI : MonoBehaviour
     {
         correctIcons[remainder - 1].GetComponentInChildren<Image>().enabled = enabled;
     }
-
     #endregion
 }
-/*
-        birdAudioControler = GameObject.FindGameObjectWithTag("Bird").GetComponent<BirdAudioControl>();
-        measureCorrect = birdAudioControler.successCurrent;
-        measureFailure = birdAudioControler.failsRemaining;
-        if (birdAudioControler.whistleIsGood == false)
-        {
-            for (int c = 0; c < measureCorrect; c++)
-            {
-                correctIcons[c].GetComponentInChildren<Image>().enabled = enabled;
-            }
-        }*/
