@@ -72,13 +72,13 @@ public class GameUI : MonoBehaviour
                 }
             }
         }
-        BirdcallsIcons();
         audioHUD.transform.Find("Line").GetComponent<Image>().CrossFadeAlpha(0.0f, 0.01f, false);
     }
 
     void Update()
     {
         birdName = BirdSpawner.currentBirdName;
+        BirdcallsTries();
     }
 
     #region Main Menu
@@ -192,20 +192,37 @@ public class GameUI : MonoBehaviour
         }
     }
 
-    public void BirdcallsIcons()
+    public void BirdcallsTries()
     {
         birdAudioControler = GameObject.FindGameObjectWithTag("Bird").GetComponent<BirdAudioControl>();
         measureTries = birdAudioControler.successNeeded;
-        measureCorrect = birdAudioControler.successCurrent;
-        measureFailure = birdAudioControler.failsRemaining;
 
-        /*
         for (int i = 0; i < measureTries; i++)
         {
-            //triesIcons.GetComponentInChildren<GameObject>().SetActive(true);
-            triesIcons[measureTries].GetComponentInChildren<Image>().enabled = enabled;
-            print("1");
-        }*/
+            triesIcons[i].GetComponentInChildren<Image>().enabled = enabled;
+        }
     }
+
+    public void FailedBirdCallIcons(int remainder)
+    {
+        wrongIcons[remainder].GetComponentInChildren<Image>().enabled = enabled;
+    }
+
+    public void SuccessBirdCallIcons(int remainder)
+    {
+        correctIcons[remainder - 1].GetComponentInChildren<Image>().enabled = enabled;
+    }
+
     #endregion
 }
+/*
+        birdAudioControler = GameObject.FindGameObjectWithTag("Bird").GetComponent<BirdAudioControl>();
+        measureCorrect = birdAudioControler.successCurrent;
+        measureFailure = birdAudioControler.failsRemaining;
+        if (birdAudioControler.whistleIsGood == false)
+        {
+            for (int c = 0; c < measureCorrect; c++)
+            {
+                correctIcons[c].GetComponentInChildren<Image>().enabled = enabled;
+            }
+        }*/

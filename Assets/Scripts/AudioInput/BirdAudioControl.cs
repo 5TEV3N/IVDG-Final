@@ -113,13 +113,15 @@ public class BirdAudioControl: MonoBehaviour {
 		whistleIsGood = audioManager.GetComponent<MicrophoneInput> ().SongEnd (correctNotes);
 
 		if (whistleIsGood) {
-			successCurrent += 1;	
-			if (successCurrent == successNeeded) {
+			successCurrent += 1;
+            UI.GetComponent<GameUI>().SuccessBirdCallIcons(successCurrent);
+            if (successCurrent == successNeeded) {
 				birdSuccess = true;
 				AudioUIControl ("hide");
 			}
 		} else { 
 			failsRemaining -= 1;
+            UI.GetComponent<GameUI>().FailedBirdCallIcons(failsRemaining);
 			if (failsRemaining == 0) {
 				birdFailure = true;
 				AudioUIControl ("hide");
