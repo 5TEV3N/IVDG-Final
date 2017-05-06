@@ -28,6 +28,7 @@ public class BirdSpawner : MonoBehaviour
     public GameObject[] bottomBeakParts;
 
     public GameObject[] tailParts;
+    public GameObject[] wingsParts;
 
     private GameObject currentHeadPiecePart;
     private GameObject currentBaseBodyPart;
@@ -36,6 +37,7 @@ public class BirdSpawner : MonoBehaviour
     private GameObject currentBottomBeakParts;
 
     private GameObject currentTailParts;
+    private GameObject currentWingsPart;
 
     //COMMENTED OUT THE WING PARTS DUE TO THERE NOT BEING ANY WING PARTS YET, ADD BACK LATER??
 
@@ -60,12 +62,14 @@ public class BirdSpawner : MonoBehaviour
         currentBottomBeakParts = bottomBeakParts[Random.Range(0, bottomBeakParts.Length)];
 
         currentTailParts = tailParts[Random.Range(0, tailParts.Length)];
+        currentWingsPart = wingsParts[Random.Range(0, wingsParts.Length)];
 
         currentHeadPiecePart.SetActive(true);
         currentBaseBodyPart.SetActive(true);
 
         currentTopBeakParts.SetActive(true);
         currentBottomBeakParts.SetActive(true);
+        currentWingsPart.SetActive(true);
 
         currentTailParts.SetActive(true);
         birdAudioControl.Initialize();
@@ -82,6 +86,7 @@ public class BirdSpawner : MonoBehaviour
         currentBottomBeakParts.SetActive(false);
 
         currentTailParts.SetActive(false);
+        currentWingsPart.SetActive(false);
     }
 
     public void NewBirdLocation()
