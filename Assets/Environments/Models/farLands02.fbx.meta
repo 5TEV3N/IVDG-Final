@@ -1,6 +1,6 @@
 fileFormatVersion: 2
-guid: 57f1605fd6dc1f9408e1a4358bd31b06
-timeCreated: 1493775323
+guid: 70dee151b3ab6d04bb85cbe84e868680
+timeCreated: 1494044916
 licenseType: Free
 ModelImporter:
   serializedVersion: 19
@@ -9,8 +9,7 @@ ModelImporter:
     400000: //RootNode
     2300000: //RootNode
     3300000: //RootNode
-    4300000: farLands
-    4300002: farLands01
+    4300000: farLands_02
   materials:
     importMaterials: 1
     materialName: 0
