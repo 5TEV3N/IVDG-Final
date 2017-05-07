@@ -9,7 +9,7 @@ public class PlayerPositionOnLoad : MonoBehaviour
         if (GameObject.FindGameObjectWithTag("Player") != null)
         {
             GameObject player = GameObject.FindGameObjectWithTag("Player");
-            player.transform.localPosition = new Vector3(GameSaveLoad.gameState.data.x, GameSaveLoad.gameState.data.y, GameSaveLoad.gameState.data.z);
+            //player.transform.localPosition = new Vector3(GameSaveLoad.gameState.data.x, GameSaveLoad.gameState.data.y, GameSaveLoad.gameState.data.z);
             print("Current player position" + player.transform.localPosition);
         }
     }

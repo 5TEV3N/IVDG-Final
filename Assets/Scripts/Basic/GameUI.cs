@@ -120,7 +120,7 @@ public class GameUI : MonoBehaviour
     public void ExitGame()
     {
         UnLoadUI();
-        GameSaveLoad.gameState.PlayerSave();
+        //GameSaveLoad.gameState.PlayerSave();
 
         Application.Quit();
     }
