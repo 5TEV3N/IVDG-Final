@@ -79,7 +79,6 @@ public class BirdState : MonoBehaviour
                 // State: runaway. Bird flies away from the player because of reasons
 				birdSpawner.BirdLocationBuffer ();
 				flyawayToHiddenTimer -= Time.time;
-				print ("FLYAWAY " + flyawayToHiddenTimer);
 				if (flyawayToHiddenTimer <= 0)
 				{
 					birdSpawner.NewBirdLocation();

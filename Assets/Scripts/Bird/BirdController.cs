@@ -5,9 +5,6 @@ using UnityEngine;
 [RequireComponent (typeof(BirdState))]
 public class BirdController : MonoBehaviour
 {
-    //BasicTimer interactionToFlyaway = new BasicTimer();
-	//BasicTimer hiddenToFlyAway = new BasicTimer();
-
     BirdAudioControl birdAudioControler;
     BirdState myState;
     GameUI gameUI;
@@ -100,7 +97,6 @@ public class BirdController : MonoBehaviour
 				if (myState.state != BirdState.currentState.interacting)
 				{
 					hiddenToFlyawayTimer -= Time.time;
-					print ("HIDDEN TO FLYAWAY : " + hiddenToFlyawayTimer);
 					if (hiddenToFlyawayTimer <= 0)
 					{
 						gameUI.BirdDiscovered(false);
@@ -134,28 +130,13 @@ public class BirdController : MonoBehaviour
             if (playerTookPicture == true)
             {
 				interactionToFlyawayTimer -= Time.time;
-				print ("INTERACTION TO FLYAWAY " + interactionToFlyawayTimer);
 				if (interactionToFlyawayTimer <= 0)
 				{
 					CurrentBirdAnimation(currentAnimation.reset);
 					myState.state = BirdState.currentState.flyaway;
 					playerTookPicture = false;
 					interactionToFlyawayTimer = iToFOriginal;
-					print ("BYE BYE");
 				}
-				/*
-                CurrentBirdAnimation(currentAnimation.flyaway);
-				interactionToFlyaway.ResetTimer();
-				print ("INTERACTION TO FLYAWAY " + interactionToFlyaway.timerLeft);
-				interactionToFlyaway.CountDownFrom(1);
-				if (interactionToFlyaway.timerLeft == 0)
-                {
-                    CurrentBirdAnimation(currentAnimation.reset);
-                    myState.state = BirdState.currentState.flyaway;
-                    playerTookPicture = false;
-					print ("END " +interactionToFlyaway);
-                }
-                */
             }
         }
         #endregion
