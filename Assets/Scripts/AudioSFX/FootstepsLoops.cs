@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class FootstepsList : MonoBehaviour {
+public class FootstepsLoops : MonoBehaviour {
 
 	public AudioClip[] listOfSongs;
 
