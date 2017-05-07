@@ -17,6 +17,7 @@ public class GameUI : MonoBehaviour
 
     [Header("Containers")]
     public GameObject gamePause;
+	public GameObject birdCallChecks;
     public GameObject titleScreen;
     public GameObject cameraScreen;
     public GameObject journalIcon;
@@ -61,7 +62,11 @@ public class GameUI : MonoBehaviour
 
     void Start()
     {
-        audioDots = new GameObject[37]; // 37 is the number of notes measured by our audio script
+		journalIcon.SetActive (false);
+		cameraIcon.SetActive (false);
+		birdCallChecks.SetActive (false);
+        
+		audioDots = new GameObject[37]; // 37 is the number of notes measured by our audio script
         audioHUD = GameObject.Find("AudioHUD");
 
         for (int i = 0; i < 37; i++)
@@ -88,18 +93,23 @@ public class GameUI : MonoBehaviour
 
     #region Main Menu
 
-    public void NewGame()
+    public void Play()
     {
         UnLoadUI();
-        SceneManager.LoadScene("Main");
-        print("New Game");
+		SceneManager.LoadScene("LevelWhiteBox");
+		journalIcon.SetActive (true);
+		cameraIcon.SetActive (true);
+		birdCallChecks.SetActive (true);
+
+		print("New Game");
     }
 
     public void LoadGamePlayScene()
     {
-        UnLoadUI();
-        SceneManager.LoadScene("LevelWhiteBox");
-        GameSaveLoad.gameState.PlayerLoad();
+        //UnLoadUI();
+        //SceneManager.LoadScene("LevelWhiteBox");
+        //GameSaveLoad.gameState.PlayerLoad();
+		print ("no more loading!, this should be replaced with options");
     }
 
     public void MainMenuExitGame()
