@@ -11,6 +11,7 @@ public class GameUI : MonoBehaviour
 {
     BirdState myState;
     BirdAudioControl birdAudioControler;
+	BasicTimer timer = new BasicTimer();
 
     public static GameUI gameUi;
 
@@ -20,9 +21,11 @@ public class GameUI : MonoBehaviour
     public GameObject cameraScreen;
     public GameObject journalIcon;
     public GameObject cameraIcon;
+	public GameObject blackBackground;
+	public Text birdCallingTutorial;
+	public Text discovered;
 
     public Color textColor;
-    private Text discovered;
 
     [Header("Condition Icons")]
     public GameObject[] correctIcons;
@@ -41,6 +44,7 @@ public class GameUI : MonoBehaviour
     int measureTries;
     int measureCorrect;
     int measureFailure;
+	bool birdEncountered;	
 
     void Awake()
     {
@@ -88,7 +92,6 @@ public class GameUI : MonoBehaviour
     {
         UnLoadUI();
         SceneManager.LoadScene("Main");
-        myState = GameObject.FindGameObjectWithTag("Bird").GetComponent<BirdState>();
         print("New Game");
     }
 
@@ -164,17 +167,34 @@ public class GameUI : MonoBehaviour
     #region Text
     public void BirdDiscovered(bool encountering)
     {
-        discovered = GameObject.FindGameObjectWithTag("UIBirdName").GetComponent<Text>();
-        if (encountering == true)
-        {
-            discovered.text = "Discovered a\n " + birdName;
-            discovered.color = Color.Lerp(discovered.color, textColor, Time.deltaTime * textSmoothFade);
-        }
-        else
-        {
-            discovered.color = Color.Lerp(discovered.color, Color.clear, Time.deltaTime * textSmoothFade);
-        }
+		if (encountering == true)
+		{
+			discovered.text = "Discovered a\n " + birdName;
+			discovered.color = Color.Lerp(discovered.color, textColor, Time.deltaTime * textSmoothFade);
+		}
+		else
+		{
+			discovered.color = Color.Lerp(discovered.color, Color.clear, Time.deltaTime * textSmoothFade);
+			TutorialTexts (false,false,false);
+		}
+
     }
+	public void TutorialTexts (bool birdTutorial , bool controlsTutorial, bool pictureTutorial)
+	{
+		if (birdTutorial == true) 
+		{
+			blackBackground.SetActive (true);
+			birdCallingTutorial.color = Color.Lerp (birdCallingTutorial.color, textColor, Time.deltaTime * textSmoothFade);	
+		} 
+		else 
+		{
+			birdCallingTutorial.color = Color.Lerp (birdCallingTutorial.color, Color.clear, Time.deltaTime * textSmoothFade);
+			blackBackground.SetActive (false);
+		}
+
+
+	}
+
     #endregion
 
     #region General Gameplay UI

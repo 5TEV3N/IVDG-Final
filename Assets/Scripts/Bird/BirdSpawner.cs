@@ -11,6 +11,7 @@ public class BirdSpawner : MonoBehaviour
     public static string currentBirdName;
     public GameObject bird;
     public Transform[] birdSpawnLocation;
+	public GameObject bufferLocation;
 
     [Header("The Trailer Button")]
     public bool imDoingTheTrailerRightNow;
@@ -93,6 +94,11 @@ public class BirdSpawner : MonoBehaviour
     {
         bird.transform.position = birdSpawnLocation[Random.Range(0, birdSpawnLocation.Length)].transform.position;
     }
+
+	public void BirdLocationBuffer()
+	{
+		bird.transform.position = bufferLocation.transform.position;
+	}
 
     void Start()
     {

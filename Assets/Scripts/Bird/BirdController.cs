@@ -5,7 +5,8 @@ using UnityEngine;
 [RequireComponent (typeof(BirdState))]
 public class BirdController : MonoBehaviour
 {
-    BasicTimer timer = new BasicTimer();
+    //BasicTimer interactionToFlyaway = new BasicTimer();
+	//BasicTimer hiddenToFlyAway = new BasicTimer();
 
     BirdAudioControl birdAudioControler;
     BirdState myState;
@@ -19,6 +20,12 @@ public class BirdController : MonoBehaviour
     public float birdDistance;                                                      // distance between bird and player
     public float birdTriggerBirdcalls = 15f;                                        // distance to trigger the birdcalls state 
     public float birdTriggerFlyaway = 35f;                                          // distance to trigger the hidden state
+
+	[Header ("Timers")]
+	public float hiddenToFlyawayTimer = 1f;
+	public float interactionToFlyawayTimer = 1f;
+	public float hToFOriginal = 100f;
+	public float iToFOriginal = 100f;
 
     [Header ("Logic Check")]
     public bool playerTookPicture = false;                                          // if the player took a screenshot, bird switches state to runaway. This is subject to change
@@ -42,7 +49,9 @@ public class BirdController : MonoBehaviour
         birdAudioControler = GetComponent<BirdAudioControl>();
         player = GameObject.FindGameObjectWithTag("Player");
         gameUI = GameObject.FindGameObjectWithTag("UI").GetComponent<GameUI>();
-    }
+        hiddenToFlyawayTimer = hToFOriginal;
+		interactionToFlyawayTimer = iToFOriginal;
+	}
 
     void Update()
     {
@@ -82,21 +91,26 @@ public class BirdController : MonoBehaviour
 
         #region Hidden to Flyaway
         // else, if the the player is far from the bird after triggering the birdcall state
-        else if (birdDistance > birdTriggerFlyaway)
-        {
-            if (myState.state != BirdState.currentState.interacting)
-            {
-                timer.CountDownFrom(3);
-                if (timer.timerLeft == 0)
-                {
-                    Debug.Log("Player couldn't find the bird in time, Reseting bird and location...");
-                    gameUI.BirdDiscovered(false);
-                    CurrentBirdAnimation(currentAnimation.reset);
-                    myState.state = BirdState.currentState.flyaway;
-                    timer.ResetTimer();
-                }
-            }
-        }
+
+		if (myState.state == BirdState.currentState.hidden)
+		{
+
+			if (birdDistance > birdTriggerFlyaway)
+			{
+				if (myState.state != BirdState.currentState.interacting)
+				{
+					hiddenToFlyawayTimer -= Time.time;
+					print ("HIDDEN TO FLYAWAY : " + hiddenToFlyawayTimer);
+					if (hiddenToFlyawayTimer <= 0)
+					{
+						gameUI.BirdDiscovered(false);
+						CurrentBirdAnimation(currentAnimation.reset);
+						myState.state = BirdState.currentState.flyaway;
+						hiddenToFlyawayTimer = hToFOriginal;
+					}
+				}
+			}
+		}
 
         #endregion
 
@@ -119,16 +133,29 @@ public class BirdController : MonoBehaviour
 
             if (playerTookPicture == true)
             {
+				interactionToFlyawayTimer -= Time.time;
+				print ("INTERACTION TO FLYAWAY " + interactionToFlyawayTimer);
+				if (interactionToFlyawayTimer <= 0)
+				{
+					CurrentBirdAnimation(currentAnimation.reset);
+					myState.state = BirdState.currentState.flyaway;
+					playerTookPicture = false;
+					interactionToFlyawayTimer = iToFOriginal;
+					print ("BYE BYE");
+				}
+				/*
                 CurrentBirdAnimation(currentAnimation.flyaway);
-                //gameObject.transform.position = Vector3.Lerp(gameObject.transform.position,BirdExitZone.transform.position,takeOff.Evaluate(Time.deltaTime * 5f));
-
-                timer.CountDownFrom(1);
-                if (timer.timerLeft == 0)
+				interactionToFlyaway.ResetTimer();
+				print ("INTERACTION TO FLYAWAY " + interactionToFlyaway.timerLeft);
+				interactionToFlyaway.CountDownFrom(1);
+				if (interactionToFlyaway.timerLeft == 0)
                 {
                     CurrentBirdAnimation(currentAnimation.reset);
                     myState.state = BirdState.currentState.flyaway;
                     playerTookPicture = false;
+					print ("END " +interactionToFlyaway);
                 }
+                */
             }
         }
         #endregion

@@ -4,13 +4,13 @@ using UnityEngine;
 
 public class BasicTimer
 {
-    public float intialTimer = 0f;
+    private float intialTimer = 0f;
     public float timerLeft;
 
     public void CountDownFrom(float t)
     {
-        intialTimer = t;
-        timerLeft -= Time.deltaTime;
+		timerLeft = t;
+        timerLeft -= Time.time;
 
         if (timerLeft <= 0)
         {
@@ -20,7 +20,7 @@ public class BasicTimer
 
     public void CountUpTo(float t)
     {
-        timerLeft += Time.deltaTime;
+        timerLeft += Time.time;
         if (timerLeft >= t)
         {
             timerLeft = t;
