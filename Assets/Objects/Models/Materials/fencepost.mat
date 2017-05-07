@@ -6,7 +6,7 @@ Material:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
-  m_Name: log_001
+  m_Name: fencepost
   m_Shader: {fileID: 4800000, guid: 22c0784a4c40f07449b6fd72ae9e31fe, type: 3}
   m_ShaderKeywords: _EMISSION
   m_LightmapFlags: 1
@@ -17,6 +17,12 @@ Material:
     m_TexEnvs:
     - first:
         name: _BumpMap
+      second:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - first:
+        name: _Cube
       second:
         m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
@@ -60,7 +66,7 @@ Material:
     - first:
         name: _MainTex
       second:
-        m_Texture: {fileID: 2800000, guid: bc96756c2de3c024cafa0612339f536c, type: 3}
+        m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - first:
@@ -88,6 +94,12 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - first:
+        name: _ReflectionTex
+      second:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - first:
         name: _SecondTex
       second:
         m_Texture: {fileID: 0}
@@ -100,6 +112,9 @@ Material:
     - first:
         name: _BumpScale
       second: 1
+    - first:
+        name: _CubeIsHDR
+      second: 0
     - first:
         name: _Cutoff
       second: 0.5
@@ -191,6 +206,18 @@ Material:
         name: _RENDERING_MODE_LABEL
       second: 0
     - first:
+        name: _ReflectionDistortion
+      second: 1
+    - first:
+        name: _ReflectionFresnel
+      second: 1
+    - first:
+        name: _ReflectionRoughness
+      second: 0
+    - first:
+        name: _ReflectionStrengthOffset
+      second: 0
+    - first:
         name: _SHADER_TYPE_LABEL
       second: 0
     - first:
@@ -238,7 +265,7 @@ Material:
     m_Colors:
     - first:
         name: _Color
-      second: {r: 0.5735294, g: 0.5735294, b: 0.5735294, a: 0}
+      second: {r: 0.5514706, g: 0.4017084, b: 0.11353807, a: 1}
     - first:
         name: _DisplaceTex_1_Scroll
       second: {r: 0, g: 0, b: 0, a: 0}
@@ -254,6 +281,9 @@ Material:
     - first:
         name: _PixelTex_Scroll
       second: {r: 0, g: 0, b: 0, a: 0}
+    - first:
+        name: _ReflectColor
+      second: {r: 1, g: 1, b: 1, a: 0.5}
     - first:
         name: _SecondTex_Scroll
       second: {r: 0, g: 0, b: 0, a: 0}

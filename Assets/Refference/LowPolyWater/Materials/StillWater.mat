@@ -8,7 +8,7 @@ Material:
   m_PrefabInternal: {fileID: 0}
   m_Name: StillWater
   m_Shader: {fileID: 4800000, guid: 32a20430b41e0fb428a2bd177df8e106, type: 3}
-  m_ShaderKeywords: _SHADING_FLAT _WAVES_OFF
+  m_ShaderKeywords: _EDGEBLEND_ON _SHADING_FLAT _WAVES_OFF
   m_LightmapFlags: 1
   m_CustomRenderQueue: -1
   stringTagMap: {}
@@ -33,10 +33,10 @@ Material:
       second: 180
     - first:
         name: _EdgeBlend
-      second: 0
+      second: 1
     - first:
         name: _Gloss
-      second: 0.7
+      second: 1
     - first:
         name: _Height
       second: 1
@@ -48,7 +48,7 @@ Material:
       second: 3.3
     - first:
         name: _Opacity
-      second: 0.7
+      second: 0.85
     - first:
         name: _RHeight
       second: 0.25
@@ -69,7 +69,7 @@ Material:
       second: 0
     - first:
         name: _ShoreDistance
-      second: 1
+      second: 0.05
     - first:
         name: _ShoreIntensity
       second: 0
@@ -78,7 +78,7 @@ Material:
       second: 1
     - first:
         name: _Specular
-      second: 0.5
+      second: 1
     - first:
         name: _Speed
       second: 0.5
@@ -121,7 +121,7 @@ Material:
     m_Colors:
     - first:
         name: _Color
-      second: {r: 0, g: 0.6312964, b: 0.718, a: 1}
+      second: {r: 0, g: 0.718, b: 0.6882895, a: 1}
     - first:
         name: _Direction_
       second: {r: -1, g: -0.00000008742278, b: -1.65, a: -0.00000014424758}

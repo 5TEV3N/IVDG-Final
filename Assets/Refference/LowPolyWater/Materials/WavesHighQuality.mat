@@ -36,7 +36,7 @@ Material:
       second: 1
     - first:
         name: _Gloss
-      second: 0.7
+      second: 0.631
     - first:
         name: _Height
       second: 1
@@ -48,7 +48,7 @@ Material:
       second: 3.3
     - first:
         name: _Opacity
-      second: 0.7
+      second: 1
     - first:
         name: _RHeight
       second: 0.2
@@ -69,7 +69,7 @@ Material:
       second: 2
     - first:
         name: _ShoreDistance
-      second: 1
+      second: 0.5
     - first:
         name: _ShoreIntensity
       second: 0.5
@@ -78,7 +78,7 @@ Material:
       second: 1
     - first:
         name: _Specular
-      second: 0.6
+      second: 1.18
     - first:
         name: _Speed
       second: 0.5
@@ -87,7 +87,7 @@ Material:
       second: 0.5
     - first:
         name: _Steepness
-      second: 0.5
+      second: 1
     - first:
         name: _Stretch
       second: 10
@@ -124,13 +124,13 @@ Material:
       second: {r: 0, g: 0.6312964, b: 0.718, a: 1}
     - first:
         name: _Direction_
-      second: {r: -1, g: -0.00000008742278, b: -1.65, a: -0.00000014424758}
+      second: {r: -1, g: -0.00000008742278, b: -3.3, a: -0.00000028849516}
     - first:
         name: _ShoreColor
       second: {r: 1, g: 1, b: 1, a: 1}
     - first:
         name: _SpecColor
-      second: {r: 1, g: 1, b: 1, a: 1}
+      second: {r: 0.7607844, g: 1, b: 1, a: 1}
     - first:
         name: __Direction
-      second: {r: -1, g: -0.00000008742278, b: -1.65, a: -0.00000014424758}
+      second: {r: -1, g: -0.00000008742278, b: -3.3, a: -0.00000028849516}
