@@ -51,6 +51,7 @@ public class GameUI : MonoBehaviour
     [Header ("Fade In/Out")]
 	public GameObject tutorialBlackBackground;
     public GameObject mainMenuToLoadingBlackBackground;
+    public GameObject LoadingToGameplayBlackBackground;
 
     float mainMenutoLoadingResetTimer;
     float loadingToGameplayResetTimer;
@@ -124,6 +125,14 @@ public class GameUI : MonoBehaviour
                 LoadingScreenTexts(true);
             }
         }
+        if (currentSceneName == "_Gameplay")
+        {
+            mainMenuToLoadingBlackBackground.SetActive(false);
+            LoadingToGameplayBlackBackground.SetActive(true);
+            journalIcon.SetActive(true);
+            cameraIcon.SetActive(true);
+            birdCallChecks.SetActive(true);
+        }
     }
 
     #region Main Menu
@@ -171,7 +180,7 @@ public class GameUI : MonoBehaviour
             loadingBodyText.gameObject.SetActive(false);
             LoadingSource.gameObject.SetActive(false);
             loadingAuthor.gameObject.SetActive(false);
-            LoadGamePlayScene();
+            SceneManager.LoadScene("_Gameplay");
         }
         if (gameplayReady == false)
         {
@@ -179,14 +188,6 @@ public class GameUI : MonoBehaviour
             LoadingSource.color = Color.Lerp(loadingBodyText.color, Color.white, Time.deltaTime * 5f);
             loadingAuthor.color = Color.Lerp(loadingBodyText.color, Color.white, Time.deltaTime * 5f);
         }
-    }
-
-    public void LoadGamePlayScene()
-    {
-        journalIcon.SetActive(true);
-        cameraIcon.SetActive(true);
-        birdCallChecks.SetActive(true);
-        SceneManager.LoadScene("_Gameplay");
     }
     #endregion
 
