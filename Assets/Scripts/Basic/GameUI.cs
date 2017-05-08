@@ -159,7 +159,6 @@ public class GameUI : MonoBehaviour
         Application.Quit();
     }
 
-
     public void UnLoadUI()
     {
         titleScreen.SetActive(false);
@@ -251,7 +250,7 @@ public class GameUI : MonoBehaviour
 	{
 		if (birdTutorial == true) 
 		{
-            tutorialBlackBackground.GetComponent<Image>().color = Color.Lerp(tutorialBlackBackground.GetComponent<Image>().color, Color.grey, Time.deltaTime *textSmoothFade);
+            tutorialBlackBackground.GetComponent<Image>().color = Color.Lerp(tutorialBlackBackground.GetComponent<Image>().color, new Color(0,0,0,125f) , Time.deltaTime *textSmoothFade);
 			birdCallingTutorial.color = Color.Lerp (birdCallingTutorial.color, textColor, Time.deltaTime * textSmoothFade);	
 		} 
 		else 
@@ -317,4 +316,5 @@ public class GameUI : MonoBehaviour
     }
     
     #endregion
+
 }
