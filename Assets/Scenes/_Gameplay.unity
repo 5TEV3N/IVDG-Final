@@ -17240,7 +17240,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   threshold: 0.086
   intensity: 0.25
-  blurSize: 0.46
+  blurSize: 0.32
   blurIterations: 3
   blurType: 0
   fastBloomShader: {fileID: 4800000, guid: 68a00c837b82e4c6d92e7da765dc5f1d, type: 3}

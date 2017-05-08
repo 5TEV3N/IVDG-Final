@@ -7,9 +7,13 @@ EditorBuildSettings:
   m_Scenes:
   - enabled: 1
     path: Assets/Scenes/MainMenu.unity
+  - enabled: 1
+    path: Assets/Scenes/LoadingScreen.unity
+  - enabled: 1
+    path: Assets/Scenes/_Gameplay.unity
   - enabled: 0
     path: Assets/Scenes/Main.unity
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/LevelWhiteBox.unity
   - enabled: 0
     path: Assets/Scenes/TrailerScene.unity

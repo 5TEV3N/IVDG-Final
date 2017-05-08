@@ -8,6 +8,7 @@ public class BasicFade : MonoBehaviour
     // please attach this to a ui.panel object in the scene with image component that has no source image
      
     public Image objectFade;
+    public bool startFade;
     public bool fadeOut;
     public float smooth;
 
@@ -18,14 +19,19 @@ public class BasicFade : MonoBehaviour
 
     void Update()
     {
-        if (fadeOut == true)    // if you want to fade out =
+        if (startFade == true)
         {
-            objectFade.color = Color.Lerp(objectFade.color, Color.clear, Time.deltaTime *smooth);
+            if (fadeOut == true)    // if you want to fade out =
+            {
+                objectFade.color = Color.Lerp(objectFade.color, Color.clear, Time.deltaTime *smooth);
                                                                     
-        }
-        if (fadeOut == false)   // if you want to fade in =         
-        {
-            objectFade.color = Color.Lerp(objectFade.color, Color.black, Time.deltaTime * smooth);
+            }
+
+            if (fadeOut == false)   // if you want to fade in =         
+            {
+                objectFade.color = Color.Lerp(objectFade.color, Color.black, Time.deltaTime * smooth);
+            }
+
         }
     }
 }

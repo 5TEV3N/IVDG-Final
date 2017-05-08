@@ -10,8 +10,8 @@ using UnityEngine.SceneManagement;
 public class GameUI : MonoBehaviour
 {
     BirdState myState;
+    BasicFade fade;
     BirdAudioControl birdAudioControler;
-	BasicTimer timer = new BasicTimer();
 
     public static GameUI gameUi;
 
@@ -22,9 +22,13 @@ public class GameUI : MonoBehaviour
     public GameObject cameraScreen;
     public GameObject journalIcon;
     public GameObject cameraIcon;
-	public GameObject blackBackground;
-	public Text birdCallingTutorial;
+
+    [Header("Text")]
+    public Text birdCallingTutorial;
 	public Text discovered;
+    public Text loadingBodyText;
+    public Text loadingAuthor;
+    public Text LoadingSource;
 
     public Color textColor;
 
@@ -37,18 +41,30 @@ public class GameUI : MonoBehaviour
     [Header("Values")]
     public string birdName;
     public float textSmoothFade;
+    public float mainMenuToLoadingTimer;
+    public float loadingToGameplayTimer;
 
     [Header("Audio HUD")]
     public GameObject[] audioDots;
     private GameObject audioHUD;
 
-    int measureTries;
-    int measureCorrect;
-    int measureFailure;
-	bool birdEncountered;	
+    [Header ("Fade In/Out")]
+	public GameObject tutorialBlackBackground;
+    public GameObject mainMenuToLoadingBlackBackground;
+
+    float mainMenutoLoadingResetTimer;
+    float loadingToGameplayResetTimer;
+
+    Scene currentScene;
+    string currentSceneName;
+    bool readyToPlay;
+
 
     void Awake()
     {
+        mainMenutoLoadingResetTimer = mainMenuToLoadingTimer;
+        loadingToGameplayResetTimer = loadingToGameplayTimer;
+
         if (gameUi == null)
         {
             DontDestroyOnLoad(gameObject);
@@ -89,6 +105,25 @@ public class GameUI : MonoBehaviour
     void Update()
     {
         birdName = BirdSpawner.currentBirdName;
+        currentScene = SceneManager.GetActiveScene();
+        currentSceneName = currentScene.name;
+
+        if (readyToPlay == true)
+        {
+            FadeIntoLoading();
+            mainMenuToLoadingBlackBackground.GetComponent<BasicFade>().startFade = true;
+        }
+
+        if (currentSceneName == "LoadingScreen")
+        {
+            LoadingScreenTexts(false);
+            loadingToGameplayTimer = loadingToGameplayResetTimer;
+            loadingToGameplayTimer -= Time.time;
+            if (loadingToGameplayTimer <= 0f)
+            {
+                LoadingScreenTexts(true);
+            }
+        }
     }
 
     #region Main Menu
@@ -96,34 +131,25 @@ public class GameUI : MonoBehaviour
     public void Play()
     {
         UnLoadUI();
-		SceneManager.LoadScene("LevelWhiteBox");
-		journalIcon.SetActive (true);
-		cameraIcon.SetActive (true);
-		birdCallChecks.SetActive (true);
-
-		print("New Game");
+        readyToPlay = true;
     }
 
-    public void LoadGamePlayScene()
+    public void FadeIntoLoading()
     {
-        //UnLoadUI();
-        //SceneManager.LoadScene("LevelWhiteBox");
-        //GameSaveLoad.gameState.PlayerLoad();
-		print ("no more loading!, this should be replaced with options");
-    }
-
-    public void MainMenuExitGame()
-    {
-        Application.Quit();
+        mainMenuToLoadingTimer = mainMenutoLoadingResetTimer;
+        mainMenuToLoadingTimer -= Time.time;
+        if (mainMenuToLoadingTimer <= 0)
+        {
+            SceneManager.LoadScene("LoadingScreen");
+            readyToPlay = false;
+        }
     }
 
     public void ExitGame()
     {
-        UnLoadUI();
-        //GameSaveLoad.gameState.PlayerSave();
-
         Application.Quit();
     }
+
 
     public void UnLoadUI()
     {
@@ -134,6 +160,34 @@ public class GameUI : MonoBehaviour
         Time.timeScale = 1;
     }
 
+    #endregion
+
+    #region LoadingScreen
+
+    public void LoadingScreenTexts(bool gameplayReady)
+    {
+        if (gameplayReady == true)
+        {
+            loadingBodyText.gameObject.SetActive(false);
+            LoadingSource.gameObject.SetActive(false);
+            loadingAuthor.gameObject.SetActive(false);
+            LoadGamePlayScene();
+        }
+        if (gameplayReady == false)
+        {
+            loadingBodyText.color = Color.Lerp(loadingBodyText.color, Color.white, Time.deltaTime * 5f);
+            LoadingSource.color = Color.Lerp(loadingBodyText.color, Color.white, Time.deltaTime * 5f);
+            loadingAuthor.color = Color.Lerp(loadingBodyText.color, Color.white, Time.deltaTime * 5f);
+        }
+    }
+
+    public void LoadGamePlayScene()
+    {
+        journalIcon.SetActive(true);
+        cameraIcon.SetActive(true);
+        birdCallChecks.SetActive(true);
+        SceneManager.LoadScene("_Gameplay");
+    }
     #endregion
 
     #region Audio UI
@@ -172,9 +226,11 @@ public class GameUI : MonoBehaviour
             audioDots[i].transform.Find("white").GetComponent<Image>().CrossFadeAlpha(0.0f, 1.0f, false);
         }
     }
+
     #endregion
 
     #region Text
+
     public void BirdDiscovered(bool encountering)
     {
 		if (encountering == true)
@@ -189,25 +245,25 @@ public class GameUI : MonoBehaviour
 		}
 
     }
+
 	public void TutorialTexts (bool birdTutorial , bool controlsTutorial, bool pictureTutorial)
 	{
 		if (birdTutorial == true) 
 		{
-			blackBackground.SetActive (true);
+            tutorialBlackBackground.GetComponent<Image>().color = Color.Lerp(tutorialBlackBackground.GetComponent<Image>().color, Color.grey, Time.deltaTime *textSmoothFade);
 			birdCallingTutorial.color = Color.Lerp (birdCallingTutorial.color, textColor, Time.deltaTime * textSmoothFade);	
 		} 
 		else 
 		{
 			birdCallingTutorial.color = Color.Lerp (birdCallingTutorial.color, Color.clear, Time.deltaTime * textSmoothFade);
-			blackBackground.SetActive (false);
-		}
-
-
+            tutorialBlackBackground.GetComponent<Image>().color = Color.Lerp(tutorialBlackBackground.GetComponent<Image>().color, Color.clear, Time.deltaTime * textSmoothFade);
+        }
 	}
 
     #endregion
 
     #region General Gameplay UI
+
     public void InteractionIconsFade(bool fadingIn)
     {
         if (fadingIn == true)
@@ -225,7 +281,8 @@ public class GameUI : MonoBehaviour
     public void DisplayBirdcallsIcons(bool displayTheIcons)
     {
         birdAudioControler = GameObject.FindGameObjectWithTag("Bird").GetComponent<BirdAudioControl>();
-        measureTries = birdAudioControler.successNeeded;
+        int measureTries = birdAudioControler.successNeeded;
+
         if (displayTheIcons == true)
         {
             for (int i = 0; i < measureTries; i++)
@@ -257,5 +314,6 @@ public class GameUI : MonoBehaviour
     {
         correctIcons[remainder - 1].GetComponentInChildren<Image>().enabled = enabled;
     }
+    
     #endregion
 }
