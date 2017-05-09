@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class WingFlaps : MonoBehaviour {
+public class Wingflaps : MonoBehaviour {
 
 	public AudioClip[] listOfWingflaps;
 	private AudioSource audioSource;

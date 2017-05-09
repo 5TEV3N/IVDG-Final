@@ -1403,6 +1403,51 @@ MeshFilter:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 76054797}
   m_Mesh: {fileID: 4300000, guid: 3b55224b6bce14a4a94ace8f2e2c2588, type: 3}
+--- !u!1 &83572818
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 83572819}
+  - component: {fileID: 83572820}
+  m_Layer: 0
+  m_Name: UIClicks
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &83572819
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 83572818}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1296991790}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &83572820
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 83572818}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c60e83e8cc32a1248b4b8244ffc8a9f2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  listOfClicks:
+  - {fileID: 8300000, guid: d0f276a9cf119814fa74f6ceb1a5c14c, type: 3}
+  - {fileID: 8300000, guid: 3f02af1a02a77f844bdb4aa271a76c0f, type: 3}
+  - {fileID: 8300000, guid: b8668d35b31573843aa760d1b890f06c, type: 3}
+  - {fileID: 8300000, guid: a5ef8ad22986ecd4bb45216473430217, type: 3}
 --- !u!1 &89079109
 GameObject:
   m_ObjectHideFlags: 0
@@ -3103,11 +3148,11 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 0}
+  m_audioClip: {fileID: 8300000, guid: 580601a1186fc334eae81334b654a8e5, type: 3}
   m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
-  Loop: 0
+  Loop: 1
   Mute: 0
   Spatialize: 0
   SpatializePostEffects: 0
@@ -3185,7 +3230,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 25419f657759ab3478c0ac9faa46160c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  listOfSongs:
+  listOfFootsteps:
   - {fileID: 8300000, guid: 580601a1186fc334eae81334b654a8e5, type: 3}
   - {fileID: 8300000, guid: c104342bbd9486f4e9a0c1ff75ff1f94, type: 3}
   - {fileID: 8300000, guid: fb4c86757a0c17b46b8d634ed92e602a, type: 3}
@@ -19045,41 +19090,6 @@ Prefab:
       propertyPath: BirdExitZone
       value: 
       objectReference: {fileID: 285570343}
-    - target: {fileID: 114593378971537964, guid: 5ed9f252d97a1ee40b0bbd4a706ad794,
-        type: 2}
-      propertyPath: fToHOriginal
-      value: 1500
-      objectReference: {fileID: 0}
-    - target: {fileID: 114114682569478300, guid: 5ed9f252d97a1ee40b0bbd4a706ad794,
-        type: 2}
-      propertyPath: interactionToFlyawayTimer
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 114114682569478300, guid: 5ed9f252d97a1ee40b0bbd4a706ad794,
-        type: 2}
-      propertyPath: hiddenToFlyawayTimer
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 114114682569478300, guid: 5ed9f252d97a1ee40b0bbd4a706ad794,
-        type: 2}
-      propertyPath: hToFOriginal
-      value: 100
-      objectReference: {fileID: 0}
-    - target: {fileID: 114114682569478300, guid: 5ed9f252d97a1ee40b0bbd4a706ad794,
-        type: 2}
-      propertyPath: iToFOriginal
-      value: 1000
-      objectReference: {fileID: 0}
-    - target: {fileID: 114593378971537964, guid: 5ed9f252d97a1ee40b0bbd4a706ad794,
-        type: 2}
-      propertyPath: tutorialSession
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 82001589553887126, guid: 5ed9f252d97a1ee40b0bbd4a706ad794,
-        type: 2}
-      propertyPath: spreadCustomCurve.m_RotationOrder
-      value: 0
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 5ed9f252d97a1ee40b0bbd4a706ad794, type: 2}
   m_IsPrefabParent: 0
@@ -22824,6 +22834,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 191200140}
+  - {fileID: 83572819}
   m_Father: {fileID: 1276359336}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
