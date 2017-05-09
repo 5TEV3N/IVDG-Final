@@ -10,7 +10,7 @@ public class InputManager3D : MonoBehaviour
     GameScreenshot gameScreenshot;
     BirdController birdController;
     GameUI gameUi;
-
+    FootstepsLoops footstepsLoops;
     [Header("Interaction Keys")]
     //Default Keys
     public KeyCode snapshotCaptureKey = KeyCode.Mouse1;
@@ -37,6 +37,7 @@ public class InputManager3D : MonoBehaviour
     private int focusButtonCheck = 0;
     private int sittingButtonCheck = 0;
     private int cameraButtonCheck = 0;
+    private bool footstepsStarted = false;
 
     void Awake()
     {
@@ -44,6 +45,7 @@ public class InputManager3D : MonoBehaviour
         playerRaycast = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerRaycast>();
         gameScreenshot = GameObject.FindGameObjectWithTag("UI").GetComponent<GameScreenshot>();
         gameUi = GameObject.FindGameObjectWithTag("UI").GetComponent<GameUI>();
+        footstepsLoops = GameObject.Find("Footsteps").GetComponent<FootstepsLoops>();
 
         Cursor.lockState = CursorLockMode.Locked;
         Cursor.visible = false;
@@ -66,10 +68,11 @@ public class InputManager3D : MonoBehaviour
         if (xAxis != 0 || zAxis != 0)
         {
             playerController3D.PlayerMove(xAxis, zAxis);
+            PlayFootsteps(true);
         }
+        else { PlayFootsteps(false); }
         #endregion
     }
-
     void Update()
     {
         birdController = GameObject.FindGameObjectWithTag("Bird").GetComponent<BirdController>();
@@ -273,5 +276,22 @@ public class InputManager3D : MonoBehaviour
         #endregion
 
         #endregion
+    }
+    public void PlayFootsteps(bool isWalking)
+    {   
+        if (isWalking == true) {
+            print(" YES ");
+            if (footstepsStarted == false)
+            {
+                footstepsLoops.FootstepsStart();
+                footstepsStarted = true;
+            }
+        }
+        if (isWalking == false)
+        {
+            print(" non ");
+            footstepsLoops.FootstepsStop();
+            footstepsStarted = false;
+        }
     }
 }
