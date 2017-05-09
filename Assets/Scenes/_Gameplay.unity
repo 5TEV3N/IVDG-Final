@@ -12092,11 +12092,26 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 1025981918352272, guid: 4750df543703be747a324da4c5d76e28, type: 2}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1536063779341560, guid: 4750df543703be747a324da4c5d76e28, type: 2}
       propertyPath: m_IsActive
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 114695140757341878, guid: 4750df543703be747a324da4c5d76e28,
+        type: 2}
+      propertyPath: m_Color.a
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 114869390731130216, guid: 4750df543703be747a324da4c5d76e28,
+        type: 2}
+      propertyPath: testBackground.a
+      value: 0.503
+      objectReference: {fileID: 0}
+    - target: {fileID: 114869390731130216, guid: 4750df543703be747a324da4c5d76e28,
+        type: 2}
+      propertyPath: blackTint.a
+      value: 0.49019608
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 4750df543703be747a324da4c5d76e28, type: 2}

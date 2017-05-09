@@ -30,7 +30,9 @@ public class GameUI : MonoBehaviour
     public Text loadingAuthor;
     public Text LoadingSource;
 
+    [Header("Color")]
     public Color textColor;
+    public Color blackTint;
 
     [Header("Condition Icons")]
     public GameObject[] correctIcons;
@@ -250,7 +252,7 @@ public class GameUI : MonoBehaviour
 	{
 		if (birdTutorial == true) 
 		{
-            tutorialBlackBackground.GetComponent<Image>().color = Color.Lerp(tutorialBlackBackground.GetComponent<Image>().color, new Color(0,0,0,125f) , Time.deltaTime *textSmoothFade);
+            tutorialBlackBackground.GetComponent<Image>().color = Color.Lerp(tutorialBlackBackground.GetComponent<Image>().color, blackTint, Time.deltaTime *textSmoothFade);
 			birdCallingTutorial.color = Color.Lerp (birdCallingTutorial.color, textColor, Time.deltaTime * textSmoothFade);	
 		} 
 		else 
