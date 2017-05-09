@@ -11,19 +11,22 @@ using System.Linq; // This adds some of the dictionary/indexing functionality I'
 
 public class BirdAudioControl: MonoBehaviour {	
 
+	// Bools that get passed to other scripts
 	public bool playerInRange;
 	public bool whistleIsGood;
 
-	private Coroutine newCoroutine;
-	private float timer;
+	// Floats for the length of the song, which contributes to how long the bird waits between singing cycles
 	public float songLength;
 	public int birdWait;
 
-	public int birdDifficulty; // Determines what songs bird chooses from, how accurate song needs to be, and how many attempts are required.
+	// Not in place right now, but exists if we want to scale difficulty.
+	// Determines what song to select from and how many successful whistles required or failures allowed
+	public int birdDifficulty;
+
+	// Variables
 	public int failsRemaining;
 	public int successNeeded;
 	public int successCurrent;
-
 	public bool birdSuccess;
 	public bool birdFailure;
 
@@ -58,14 +61,14 @@ public class BirdAudioControl: MonoBehaviour {
 		birdSuccess = false;
 		birdFailure = false;
 
-		// Randomize later
+		// Variables in place so we can randomize this later
 		birdDifficulty = 0; // Three levels? 0,1,2?
 		failsRemaining = 3 - birdDifficulty;
 		successNeeded = 3 + birdDifficulty;
 		successCurrent = 0;
 
 		// Pulls bird song and corresponding "correct pitches" dictionary from the AllSongs script (randomize later, organize based on bird difficulty)
-		int thisSong = Random.Range(0,8);
+		int thisSong = Random.Range(0, 8);
 
 		birdSong.clip = allSongs.GetComponent<AllSongs>().listOfSongs[thisSong];
 		correctNotes = allSongs.GetComponent<AllSongs>().songPitches[thisSong];

@@ -4,15 +4,21 @@ using UnityEngine;
 
 public class FootstepsLoops : MonoBehaviour {
 
-	public AudioClip[] listOfSongs;
+	public AudioClip[] listOfFootsteps;
+	private AudioSource audioSource;
 
-	// Use this for initialization
-	void Start () {
-		
+	void Start() {
+		audioSource = this.GetComponent<AudioSource> ();
+		audioSource.clip = listOfFootsteps[Random.Range(0, 2)];
+		audioSource.loop = true;
 	}
-	
-	// Update is called once per frame
-	void Update () {
-		
+
+	public void FootstepsStart() {
+		audioSource.Play ();
+	}
+
+	public void FootstepsStop() {
+		audioSource.Stop ();
+		this.GetComponent<AudioSource>().clip = listOfFootsteps[Random.Range(0, 2)];
 	}
 }

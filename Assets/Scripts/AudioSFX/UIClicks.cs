@@ -2,20 +2,19 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class WingFlaps : MonoBehaviour {
+public class UIClicks : MonoBehaviour {
 
-	public AudioClip[] listOfWingflaps;
+	public AudioClip[] listOfClicks;
 	private AudioSource audioSource;
 
 	void Start () {
 		audioSource = this.GetComponent<AudioSource> ();
-		audioSource.clip = listOfWingflaps[Random.Range(0, 1)];
+		audioSource.clip = listOfClicks[Random.Range(0, 3)];
 		audioSource.loop = false;
 	}
 
-	public void FlapPlay() {
+	public void UIClick() {
 		audioSource.Play ();
-		audioSource.clip = listOfWingflaps[Random.Range(0, 1)];
+		audioSource.clip = listOfClicks[Random.Range(0, 3)];
 	}
-
 }
