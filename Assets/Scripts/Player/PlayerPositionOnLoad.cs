@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class PlayerPositionOnLoad : MonoBehaviour
 {
+    // TO BE REMOVED AS CURRENTLY NOT USING
     private void Awake()
     {
         if (GameObject.FindGameObjectWithTag("Player") != null)

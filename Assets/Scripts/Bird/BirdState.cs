@@ -53,25 +53,27 @@ public class BirdState : MonoBehaviour
 			case currentState.birdcalls:
                 // State: bird calls. player must persude the bird with bird calls inorder to interact	
                 gameUI.DisplayBirdcallsIcons (true);
-				
 				if (tutorialSession == true) 
 				{
 					gameUI.TutorialTexts (true,false,false);
 				}
 
-				if (birdAudioControler.birdSingingOn == false && birdAudioControler.birdSuccess == false && birdAudioControler.birdFailure == false)
+                // keeps doing the singloop until it reaches to a conclusion. once that's done, change states
+                if (birdAudioControler.birdSingingOn == false && birdAudioControler.birdSuccess == false && birdAudioControler.birdFailure == false)
 				{ 
 					birdAudioControler.SingLoop(); 
 				}
 				
-				//tutorialCheck++;
                 break;
             case currentState.interacting:
                 // State: interacting. Bird is out of hiding and is in plain view to the player
+                // PLEASE ADD LATER : TUTORIAL SESSIONS FOR THE JOURNAL AND CAMERA
+
                 gameUI.InteractionIconsFade(true);
                 gameUI.DisplayBirdcallsIcons(false);
                 birdAudioControler.AudioUIControl("hide");
-				tutorialCheck++;
+
+                tutorialCheck = 2;
 
                 break;
 		case currentState.flyaway:

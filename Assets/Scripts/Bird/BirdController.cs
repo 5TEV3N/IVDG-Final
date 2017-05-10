@@ -9,11 +9,10 @@ public class BirdController : MonoBehaviour
     BirdState myState;
     GameUI gameUI;
     
-    public enum currentAnimation { caught, flyaway, reset };
+    public enum currentAnimation { caught, flyaway, reset };                        // enum of the different animation states of the bird
     public currentAnimation animationState;
 
     [Header("Values")]
-    public AnimationCurve takeOff;
     public float birdDistance;                                                      // distance between bird and player
     public float birdTriggerBirdcalls = 15f;                                        // distance to trigger the birdcalls state 
     public float birdTriggerFlyaway = 35f;                                          // distance to trigger the hidden state
@@ -22,8 +21,8 @@ public class BirdController : MonoBehaviour
     public bool playerTookPicture = false;                                          // if the player took a screenshot, bird switches state to runaway. This is subject to change
 
     [Header("Containers")]
-    public Transform[] birdInteractionZones;
-    public GameObject wingFlapsSFX;
+    public Transform[] birdInteractionZones;                                        // contains all of the bird's landingzones
+    public GameObject wingFlapsSFX;                                                 // contains the gameobject that has the audiosource for the wingflapssfx
 
     private bool pickedInteractionZone;                                             // value to check if the script has chosen a zone for the bird to land
     private string[] aniBoolName = new string[] { "isPecking", "isIdle" };          // an array of different interaction animation states can add more into the array but be sure to edit the code below!
@@ -32,9 +31,11 @@ public class BirdController : MonoBehaviour
     private Animator birdAnimatorComponent;                                         // self explanatory
     private Transform pickingChosenLocation;                                        // chosing a random transform in birdInteractionZones 
     private Transform chosenInteractionZone;                                        // the chosen zone where the bird is going to land
-    private bool flyingSFXStarted;
+    private bool flyingSFXStarted;                                                  // logic to check for the bird flapping
+
     void Awake()
     {
+        // Refferences
         myState = GetComponent<BirdState>();
         birdAnimatorComponent = GetComponent<Animator>();
         birdAudioControler = GetComponent<BirdAudioControl>();
@@ -45,7 +46,9 @@ public class BirdController : MonoBehaviour
     void Update()
     {
         birdDistance = Vector3.Distance(gameObject.transform.position, player.transform.position);
-        gameObject.transform.forward = player.transform.position;
+        gameObject.transform.forward = player.transform.position // IMPORTANT, TO BE REPLACED SOMETHING MORE BELIEVEABLE FOR THE VERNISAGE!
+
+        // this section revolves around the bird interacting with the states and changing them accordingly
 
         #region Hidden to Birdcall
 
@@ -60,7 +63,7 @@ public class BirdController : MonoBehaviour
             if (myState.state != BirdState.currentState.interacting)
             {
                 myState.state = BirdState.currentState.birdcalls;
-
+                // picking out where the bird will land
                 pickingChosenLocation = birdInteractionZones[Random.Range(0, birdInteractionZones.Length)];
                 float InteractionZoneDistance = Vector3.Distance(player.transform.position, pickingChosenLocation.transform.position);
 
@@ -95,7 +98,7 @@ public class BirdController : MonoBehaviour
         #endregion
 
         #region Birdcall to Interaction or Flyaway
-
+        //failure/success logic from the birdcalls
         if (birdAudioControler.birdFailure == false && birdAudioControler.birdSuccess == true)
         {
             myState.state = BirdState.currentState.interacting;
@@ -118,6 +121,7 @@ public class BirdController : MonoBehaviour
                 myState.state = BirdState.currentState.flyaway;
             }
         }
+
         #endregion
 
     }
@@ -137,7 +141,6 @@ public class BirdController : MonoBehaviour
             flyingSFXStarted = false;
         }
     }
-
 
     public void BirdMover(Transform pos)
     {
@@ -180,6 +183,7 @@ public class BirdController : MonoBehaviour
             birdAnimatorComponent.SetBool("isHidden", true);
         }
     }
+
     public IEnumerator GettingReadyToLeave()
     {
         yield return new WaitForSeconds(5f);

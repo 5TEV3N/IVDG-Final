@@ -5,6 +5,7 @@ using System;
 using System.IO;
 using System.Runtime.Serialization.Formatters.Binary;
 
+// TO BE REMOVED CURRENTLY NOT USED ANYMORE
 [System.Serializable]
 public class PlayerData
 {

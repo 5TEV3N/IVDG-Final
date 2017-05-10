@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class BasicTimer
 {
+    // TO BE REMOVED AND USING COROUTINES INSTEAD
+
     private float intialTimer = 0f;
     public float timerLeft;
 

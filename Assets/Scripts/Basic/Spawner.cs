@@ -4,6 +4,7 @@ using System.Collections;
 public class Spawner
 {
 	//CREDITS TO Ryon E FOR THE SCRIPT!
+    // TO BE REMOVED BECAUSE IT'S NOT BEING USED
 
 	public Spawner()
     {

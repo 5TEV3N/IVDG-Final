@@ -25,7 +25,7 @@ public class PlayerController3D : MonoBehaviour
 
     private float verticalRotation = 0;                              // Contains the MouseYAxis
     private float originalMaxVelocity;                               // Contains the orginal MaxVelocity  
-    private float originalFOV;                                       
+    private float originalFOV;                                       // Contains the original FOV
 
 
     void Awake()
@@ -74,7 +74,7 @@ public class PlayerController3D : MonoBehaviour
     #region Movement Related
     public void PlayerMove(float xAxis, float zAxis)
     {
-
+        // left and right movement
         if (xAxis != 0)
         {
             if (xAxis > 0)
@@ -94,6 +94,7 @@ public class PlayerController3D : MonoBehaviour
             }
         }
 
+        // forward and backward movement
         if (zAxis != 0)
         {
             if (zAxis > 0)

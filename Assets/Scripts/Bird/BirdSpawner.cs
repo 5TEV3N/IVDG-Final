@@ -5,57 +5,56 @@ using UnityEngine;
 public class BirdSpawner : MonoBehaviour
 {
     BirdState myState;
-    //BirdController birdController;
     BirdAudioControl birdAudioControl;
 
-    public static string currentBirdName;
-    public GameObject bird;
-    public Transform[] birdSpawnLocation;
-	public GameObject bufferLocation;
+    public static string currentBirdName;                   // name of current bird
+    public GameObject bird;                                 // contains the bird's gameobject
+    public Transform[] birdSpawnLocation;                   // contains the possible areas the bird can spawn in
+	public GameObject bufferLocation;                       // contains the location where the bird will stay during it's buffer period
+                                                            
+    [Header("The Trailer Button")]                          
+    public bool imDoingTheTrailerRightNow;                  // logic to check whether or not you're doing the trailer
+                                                            
+    [Header("Bird Name")]                                   
+    public string[] birdPrefix;                             //  describer/rarity
+    public string[] birdName;                               //  main name
+    public string[] birdLastName;                           //  last name
+                                                            
+    [Header("Bird Parts")]                                  
+    public GameObject[] headPieceParts;                     // the many bird head piece that the bird can spawn with
+    public GameObject[] baseBodyParts;                      // the many body types the bird can spawn with
+                                                            
+    public GameObject[] topBeakParts;                       // the many top beaks that the bird can spawn with
+    public GameObject[] bottomBeakParts;                    // the many bottom beaks that the bird can spawn with
+                                                            
+    public GameObject[] tailParts;                          // the many tail pieces the bird can spawn with
+    public GameObject[] wingsParts;                         // the many wings pieces the bird can spawn with
+                                                            
+    private GameObject currentHeadPiecePart;                // the current head piece the bird spawned with
+    private GameObject currentBaseBodyPart;                 // the current body piece the bird spawned with
+                                                            
+    private GameObject currentTopBeakParts;                 // the current top beak the bird spawned with
+    private GameObject currentBottomBeakParts;              // the current bottom beak the bird spawned with
+                                                            
+    private GameObject currentTailParts;                    // the current tail piece the bird spawned with
+    private GameObject currentWingsPart;                    // the current wings piece the bird spawned with
 
-    [Header("The Trailer Button")]
-    public bool imDoingTheTrailerRightNow;
-
-    [Header("Bird Name")]
-    public string[] birdPrefix;
-    public string[] birdName;
-    public string[] birdLastName;
-
-    [Header("Bird Parts")]
-    public GameObject[] headPieceParts;
-    public GameObject[] baseBodyParts;
-
-    public GameObject[] topBeakParts;
-    public GameObject[] bottomBeakParts;
-
-    public GameObject[] tailParts;
-    public GameObject[] wingsParts;
-
-    private GameObject currentHeadPiecePart;
-    private GameObject currentBaseBodyPart;
-
-    private GameObject currentTopBeakParts;
-    private GameObject currentBottomBeakParts;
-
-    private GameObject currentTailParts;
-    private GameObject currentWingsPart;
-
-    //COMMENTED OUT THE WING PARTS DUE TO THERE NOT BEING ANY WING PARTS YET, ADD BACK LATER??
 
     void Awake()
     {
         myState = GameObject.FindGameObjectWithTag("Bird").GetComponent<BirdState>();
-        //birdController = GameObject.FindGameObjectWithTag("Bird").GetComponent<BirdController>();
         birdAudioControl = GameObject.FindGameObjectWithTag("Bird").GetComponent<BirdAudioControl>();
     }
 
     public void BirdNamer()
     {
+        // pick a name from each array randomly
         currentBirdName = birdPrefix[Random.Range(0, birdPrefix.Length)] + " " + birdName[Random.Range(0, birdName.Length)] + " " + birdLastName[Random.Range(0, birdLastName.Length)];
     }
 
     public void BirdConstructor()
     {
+        // pick a piece at random and set it to active to true
         currentHeadPiecePart = headPieceParts[Random.Range(0, headPieceParts.Length)];
         currentBaseBodyPart = baseBodyParts[Random.Range(0, baseBodyParts.Length)];
 
@@ -80,6 +79,8 @@ public class BirdSpawner : MonoBehaviour
 
     public void Deconstructor()
     {
+        // set everything to false in preperation for the constructor
+
         currentHeadPiecePart.SetActive(false);
         currentBaseBodyPart.SetActive(false);
 
@@ -92,6 +93,8 @@ public class BirdSpawner : MonoBehaviour
 
     public void NewBirdLocation()
     {
+        // changes the location of the bird. spawns in location 1 for the first time as a tutorial
+
         if (myState.tutorialSession == true)
         {
             bird.transform.position = birdSpawnLocation[1].transform.position;
@@ -104,6 +107,7 @@ public class BirdSpawner : MonoBehaviour
 
 	public void BirdLocationBuffer()
 	{
+        // the bird stays here for a couple seconds to avoid the player rencountering it too quickly
 		bird.transform.position = bufferLocation.transform.position;
 	}
 
