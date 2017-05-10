@@ -7,8 +7,8 @@ Material:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_Name: Material.001
-  m_Shader: {fileID: 4800000, guid: ecc9350e9176f33458aeedba7b36aac5, type: 3}
-  m_ShaderKeywords: _EMISSION
+  m_Shader: {fileID: 4800000, guid: 22c0784a4c40f07449b6fd72ae9e31fe, type: 3}
+  m_ShaderKeywords: V_LP_PIXEL_TEXTURE_ON _EMISSION
   m_LightmapFlags: 1
   m_CustomRenderQueue: -1
   stringTagMap: {}
@@ -17,6 +17,12 @@ Material:
     m_TexEnvs:
     - first:
         name: _BumpMap
+      second:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - first:
+        name: _BumpTex
       second:
         m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
@@ -66,7 +72,7 @@ Material:
     - first:
         name: _MainTex
       second:
-        m_Texture: {fileID: 0}
+        m_Texture: {fileID: 2800000, guid: 052093826203aba499cb9c71c088dfb3, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - first:
@@ -111,6 +117,9 @@ Material:
       second: 0
     - first:
         name: _BumpScale
+      second: 1
+    - first:
+        name: _BumpStrength
       second: 1
     - first:
         name: _CubeIsHDR
@@ -161,6 +170,9 @@ Material:
         name: _GlossMapScale
       second: 1
     - first:
+        name: _GlossOffset
+      second: 0
+    - first:
         name: _Glossiness
       second: 0.384
     - first:
@@ -192,10 +204,10 @@ Material:
       second: 0.02
     - first:
         name: _PixelTex_AlphaOffset
-      second: 0
+      second: 0.405
     - first:
         name: _PixelTex_BlendType
-      second: 0
+      second: 1
     - first:
         name: _PixelTextureID
       second: 0
@@ -236,6 +248,9 @@ Material:
         name: _SecondTextureID
       second: 0
     - first:
+        name: _Shininess
+      second: 0.078125
+    - first:
         name: _SmoothnessTextureChannel
       second: 0
     - first:
@@ -264,8 +279,11 @@ Material:
       second: 1
     m_Colors:
     - first:
+        name: _BumpTex_Scroll
+      second: {r: 0, g: 0, b: 0, a: 0}
+    - first:
         name: _Color
-      second: {r: 0, g: 0.27205884, b: 0.1464041, a: 1}
+      second: {r: 0, g: 0.41176468, b: 0.22158451, a: 1}
     - first:
         name: _DisplaceTex_1_Scroll
       second: {r: 0, g: 0, b: 0, a: 0}
@@ -287,6 +305,9 @@ Material:
     - first:
         name: _SecondTex_Scroll
       second: {r: 0, g: 0, b: 0, a: 0}
+    - first:
+        name: _SpecColor
+      second: {r: 0.5, g: 0.5, b: 0.5, a: 1}
     - first:
         name: _V_WIRE_Color
       second: {r: 0, g: 0, b: 0, a: 1}

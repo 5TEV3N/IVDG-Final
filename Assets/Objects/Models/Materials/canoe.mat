@@ -6,10 +6,10 @@ Material:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
-  m_Name: Material.005
-  m_Shader: {fileID: 4800000, guid: 22c0784a4c40f07449b6fd72ae9e31fe, type: 3}
-  m_ShaderKeywords: _EMISSION
-  m_LightmapFlags: 1
+  m_Name: canoe
+  m_Shader: {fileID: 4800000, guid: ecc9350e9176f33458aeedba7b36aac5, type: 3}
+  m_ShaderKeywords: 
+  m_LightmapFlags: 5
   m_CustomRenderQueue: -1
   stringTagMap: {}
   m_SavedProperties:
@@ -162,7 +162,7 @@ Material:
       second: 1
     - first:
         name: _Glossiness
-      second: 0.038
+      second: 0
     - first:
         name: _GlossyReflections
       second: 1
@@ -265,7 +265,7 @@ Material:
     m_Colors:
     - first:
         name: _Color
-      second: {r: 0.03582966, g: 0.31617647, b: 0.030222742, a: 1}
+      second: {r: 0.7058823, g: 0.12679279, b: 0, a: 1}
     - first:
         name: _DisplaceTex_1_Scroll
       second: {r: 0, g: 0, b: 0, a: 0}
