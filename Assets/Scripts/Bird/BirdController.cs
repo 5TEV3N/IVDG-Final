@@ -46,7 +46,7 @@ public class BirdController : MonoBehaviour
     void Update()
     {
         birdDistance = Vector3.Distance(gameObject.transform.position, player.transform.position);
-        gameObject.transform.forward = player.transform.position // IMPORTANT, TO BE REPLACED SOMETHING MORE BELIEVEABLE FOR THE VERNISAGE!
+        gameObject.transform.forward = player.transform.position; // IMPORTANT, TO BE REPLACED SOMETHING MORE BELIEVEABLE FOR THE VERNISAGE!
 
         // this section revolves around the bird interacting with the states and changing them accordingly
 
