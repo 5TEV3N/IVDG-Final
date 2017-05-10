@@ -122,7 +122,7 @@ public class BirdAudioControl: MonoBehaviour {
 		if (whistleIsGood) {
 			successCurrent += 1; // increment current success count
             UI.GetComponent<GameUI>().SuccessBirdCallIcons(successCurrent);
-            if (successCurrent == successNeeded) { // if current success count matches success needed...
+            if (successCurrent == successNeeded) { // if current success count matches success needed, this bool will end the bird singing loop
 				birdSuccess = true;
 				AudioUIControl ("hide");
 			}

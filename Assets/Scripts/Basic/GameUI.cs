@@ -194,7 +194,8 @@ public class GameUI : MonoBehaviour
     #endregion
 
     #region Audio UI
-    // AUDIO UI FROM MICROPHONE INPUT
+	// This builds the audio HUD (the white/red dots on the right hand side of the screen)
+	// All of the dots already exist in the scene, and this script simply hides the notes that are not relevant and shows the notes corresponding to correctNotesArray.
     public void AudioHUDSetup()
     {
         var correctNotesArray = GameObject.FindGameObjectWithTag("Bird").GetComponent<BirdAudioControl>().correctNotesArray;
@@ -205,6 +206,7 @@ public class GameUI : MonoBehaviour
         }
     }
 
+	// This function takes the currentNote being sung (from MicrophoneInput.cs) and fades in the corresponding red dot, to show the player what note they are currently singing.
     public void AudioHUDCurrentNote(int currentNote)
     {
         for (int i = 0; i < audioDots.Length; i++)
@@ -215,11 +217,12 @@ public class GameUI : MonoBehaviour
             }
             else
             {
-                audioDots[i].transform.Find("red").GetComponent<Image>().CrossFadeAlpha(0.0f, 0.1f, false);
+                audioDots[i].transform.Find("red").GetComponent<Image>().CrossFadeAlpha(0.0f, 0.1f, false); // fade out all notes that are not the current note being sung
             }
         }
     }
 
+	// Fade out the entire audio HUD once the bird singing loop is finished
     public void AudioHUDClear()
     {
         audioHUD.transform.Find("Line").GetComponent<Image>().CrossFadeAlpha(0.0f, 1.2f, false);
@@ -229,7 +232,6 @@ public class GameUI : MonoBehaviour
             audioDots[i].transform.Find("white").GetComponent<Image>().CrossFadeAlpha(0.0f, 1.0f, false);
         }
     }
-
     #endregion
 
     #region Text
