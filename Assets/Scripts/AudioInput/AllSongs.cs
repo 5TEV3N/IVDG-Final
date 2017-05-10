@@ -1,5 +1,6 @@
 ﻿/* This script is just a container for all of the bird songs.
  * Every element in this script is necessarily placed manually. So things need to stay in a specific order for it to work.
+ * For our purposes and the scale of this game, it didn't seem worth our time to automate this process
  */
 
 using System.Collections;
@@ -8,7 +9,11 @@ using UnityEngine;
 
 public class AllSongs : MonoBehaviour {
 
+	// An empty array of all of the birdsongs, which are then manually added thru the editor
 	public AudioClip[] listOfSongs;
+
+	// An array of dictionaries of all of the corresponding "correct pitches" for each of the songs.
+	// The scripts require songPithces and listOfSongs to have their indexes align.
 	public Dictionary<int, float>[] songPitches;
 
 	void Awake() {
@@ -23,6 +28,11 @@ public class AllSongs : MonoBehaviour {
 			new Dictionary<int, float> (),
 			new Dictionary<int, float> ()
 		};
+
+
+		// Here's where the correct pitches are entered manually.
+		// Discrepancy between the pitches detected by the "test" script and the in-game "MicrophoneInput" script.
+		// We never found the cause of this. For now, these new values work. Old values kept for reference.
 
 		// birdsong-easy-dingdong
 //		songPitches [0].Add (20, 39.0f); old version
