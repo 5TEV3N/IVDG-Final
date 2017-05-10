@@ -6,10 +6,10 @@ Material:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
-  m_Name: Skybox
-  m_Shader: {fileID: 4800000, guid: 516cdafb0439ddc4e8b798e625939ae5, type: 3}
-  m_ShaderKeywords: _EMISSION
-  m_LightmapFlags: 1
+  m_Name: tentMat_01
+  m_Shader: {fileID: 4800000, guid: c6b2555ace7f72c428b4eb5c38a55f5c, type: 3}
+  m_ShaderKeywords: 
+  m_LightmapFlags: 5
   m_CustomRenderQueue: -1
   stringTagMap: {}
   m_SavedProperties:
@@ -69,16 +69,7 @@ Material:
         m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
-    - first:
-        name: _Tex
-      second:
-        m_Texture: {fileID: 8900000, guid: 58b2b9081490dec4d87da756a777b230, type: 3}
-        m_Scale: {x: 1, y: 1}
-        m_Offset: {x: 0, y: 0}
     m_Floats:
-    - first:
-        name: _Blur
-      second: 0.286
     - first:
         name: _BumpScale
       second: 1
@@ -91,9 +82,6 @@ Material:
     - first:
         name: _DstBlend
       second: 0
-    - first:
-        name: _Exposure
-      second: 0.8
     - first:
         name: _GlossMapScale
       second: 1
@@ -113,20 +101,8 @@ Material:
         name: _OcclusionStrength
       second: 1
     - first:
-        name: _PAPERCRAFT_LABEL
-      second: 0
-    - first:
-        name: _PaperCrat
-      second: 0
-    - first:
         name: _Parallax
       second: 0.02
-    - first:
-        name: _Rotation
-      second: 69
-    - first:
-        name: _Skybox_Type
-      second: 0
     - first:
         name: _SmoothnessTextureChannel
       second: 0
@@ -140,24 +116,12 @@ Material:
         name: _UVSec
       second: 0
     - first:
-        name: _V_WIRE_FixedSize
-      second: 0
-    - first:
-        name: _V_WIRE_Size
-      second: 0.5
-    - first:
         name: _ZWrite
       second: 1
     m_Colors:
     - first:
         name: _Color
-      second: {r: 1, g: 1, b: 1, a: 1}
+      second: {r: 0.20069206, g: 0.21219726, b: 0.21323532, a: 1}
     - first:
         name: _EmissionColor
-      second: {r: 0, g: 0, b: 0, a: 1}
-    - first:
-        name: _Tint
-      second: {r: 0.77205884, g: 0.9434077, b: 1, a: 0.5}
-    - first:
-        name: _V_WIRE_Color
       second: {r: 0, g: 0, b: 0, a: 1}

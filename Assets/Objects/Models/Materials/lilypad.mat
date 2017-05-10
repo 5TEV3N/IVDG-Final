@@ -7,7 +7,7 @@ Material:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_Name: lilypad
-  m_Shader: {fileID: 4800000, guid: a00b4a2b5def96449b8395571285f3ac, type: 3}
+  m_Shader: {fileID: 4800000, guid: c6b2555ace7f72c428b4eb5c38a55f5c, type: 3}
   m_ShaderKeywords: _EMISSION
   m_LightmapFlags: 1
   m_CustomRenderQueue: -1
@@ -238,7 +238,7 @@ Material:
     m_Colors:
     - first:
         name: _Color
-      second: {r: 0.033162937, g: 0.43382353, b: 0.009569646, a: 1}
+      second: {r: 0.33916432, g: 0.86764705, b: 0.10845588, a: 1}
     - first:
         name: _DisplaceTex_1_Scroll
       second: {r: 0, g: 0, b: 0, a: 0}
