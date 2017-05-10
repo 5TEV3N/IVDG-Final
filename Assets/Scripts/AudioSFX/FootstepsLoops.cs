@@ -13,12 +13,12 @@ public class FootstepsLoops : MonoBehaviour {
 		audioSource.loop = true;
 	}
 
+	// Making play/stop functions easily accessible to other scripts.
 	public void FootstepsStart() {
 		audioSource.Play ();
 	}
-
 	public void FootstepsStop() {
 		audioSource.Stop ();
-		this.GetComponent<AudioSource>().clip = listOfFootsteps[Random.Range(0, 2)];
+		this.GetComponent<AudioSource>().clip = listOfFootsteps[Random.Range(0, 2)]; // Every time the footsteps are stopped, a random footstep audio loop is selected for the next time.
 	}
 }

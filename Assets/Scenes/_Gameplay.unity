@@ -991,6 +991,11 @@ Prefab:
       propertyPath: m_Name
       value: ShorelineAudio (5)
       objectReference: {fileID: 0}
+    - target: {fileID: 82217841667363976, guid: 0d3374a7a4a5bd94cb063a285d27fc7f,
+        type: 2}
+      propertyPath: m_Volume
+      value: 0.4
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 0d3374a7a4a5bd94cb063a285d27fc7f, type: 2}
   m_IsPrefabParent: 0
@@ -1327,6 +1332,11 @@ Prefab:
     - target: {fileID: 1906892992281422, guid: 0d3374a7a4a5bd94cb063a285d27fc7f, type: 2}
       propertyPath: m_Name
       value: ShorelineAudio (4)
+      objectReference: {fileID: 0}
+    - target: {fileID: 82217841667363976, guid: 0d3374a7a4a5bd94cb063a285d27fc7f,
+        type: 2}
+      propertyPath: m_Volume
+      value: 0.4
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 0d3374a7a4a5bd94cb063a285d27fc7f, type: 2}
@@ -3231,7 +3241,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: 580601a1186fc334eae81334b654a8e5, type: 3}
   m_PlayOnAwake: 0
-  m_Volume: 1
+  m_Volume: 0.124
   m_Pitch: 1
   Loop: 1
   Mute: 0
@@ -4116,6 +4126,11 @@ Prefab:
     - target: {fileID: 1906892992281422, guid: 0d3374a7a4a5bd94cb063a285d27fc7f, type: 2}
       propertyPath: m_Name
       value: ShorelineAudio (2)
+      objectReference: {fileID: 0}
+    - target: {fileID: 82217841667363976, guid: 0d3374a7a4a5bd94cb063a285d27fc7f,
+        type: 2}
+      propertyPath: m_Volume
+      value: 0.4
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 0d3374a7a4a5bd94cb063a285d27fc7f, type: 2}
@@ -12216,29 +12231,31 @@ Prefab:
       propertyPath: m_RootOrder
       value: 7
       objectReference: {fileID: 0}
-    - target: {fileID: 1025981918352272, guid: 4750df543703be747a324da4c5d76e28, type: 2}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 1536063779341560, guid: 4750df543703be747a324da4c5d76e28, type: 2}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 114695140757341878, guid: 4750df543703be747a324da4c5d76e28,
+    - target: {fileID: 114276421252726494, guid: 4750df543703be747a324da4c5d76e28,
         type: 2}
-      propertyPath: m_Color.a
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 114869390731130216, guid: 4750df543703be747a324da4c5d76e28,
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Target
+      value: 
+      objectReference: {fileID: 83572820}
+    - target: {fileID: 114568335433191478, guid: 4750df543703be747a324da4c5d76e28,
         type: 2}
-      propertyPath: testBackground.a
-      value: 0.503
-      objectReference: {fileID: 0}
-    - target: {fileID: 114869390731130216, guid: 4750df543703be747a324da4c5d76e28,
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Target
+      value: 
+      objectReference: {fileID: 83572820}
+    - target: {fileID: 114421951894629658, guid: 4750df543703be747a324da4c5d76e28,
         type: 2}
-      propertyPath: blackTint.a
-      value: 0.49019608
-      objectReference: {fileID: 0}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Target
+      value: 
+      objectReference: {fileID: 83572820}
+    - target: {fileID: 114059510826323048, guid: 4750df543703be747a324da4c5d76e28,
+        type: 2}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Target
+      value: 
+      objectReference: {fileID: 83572820}
+    - target: {fileID: 114285646259335682, guid: 4750df543703be747a324da4c5d76e28,
+        type: 2}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Target
+      value: 
+      objectReference: {fileID: 83572820}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 4750df543703be747a324da4c5d76e28, type: 2}
   m_IsPrefabParent: 0
@@ -14865,7 +14882,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 0}
   m_PlayOnAwake: 1
-  m_Volume: 1
+  m_Volume: 0.4
   m_Pitch: 1
   Loop: 0
   Mute: 0
@@ -14903,7 +14920,7 @@ AudioSource:
     m_Curve:
     - serializedVersion: 2
       time: 0
-      value: 0
+      value: 1
       inSlope: 0
       outSlope: 0
       tangentMode: 0
@@ -18145,6 +18162,11 @@ Prefab:
       propertyPath: m_Name
       value: ShorelineAudio (3)
       objectReference: {fileID: 0}
+    - target: {fileID: 82217841667363976, guid: 0d3374a7a4a5bd94cb063a285d27fc7f,
+        type: 2}
+      propertyPath: m_Volume
+      value: 0.4
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 0d3374a7a4a5bd94cb063a285d27fc7f, type: 2}
   m_IsPrefabParent: 0
@@ -19256,6 +19278,43 @@ Prefab:
       propertyPath: BirdExitZone
       value: 
       objectReference: {fileID: 285570343}
+    - target: {fileID: 1049595898291692, guid: 5ed9f252d97a1ee40b0bbd4a706ad794, type: 2}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1863826730301188, guid: 5ed9f252d97a1ee40b0bbd4a706ad794, type: 2}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1118419105887776, guid: 5ed9f252d97a1ee40b0bbd4a706ad794, type: 2}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1296950838129182, guid: 5ed9f252d97a1ee40b0bbd4a706ad794, type: 2}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1940093375818856, guid: 5ed9f252d97a1ee40b0bbd4a706ad794, type: 2}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1984842537499582, guid: 5ed9f252d97a1ee40b0bbd4a706ad794, type: 2}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1730251634709732, guid: 5ed9f252d97a1ee40b0bbd4a706ad794, type: 2}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1289235548308832, guid: 5ed9f252d97a1ee40b0bbd4a706ad794, type: 2}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 114114682569478300, guid: 5ed9f252d97a1ee40b0bbd4a706ad794,
+        type: 2}
+      propertyPath: wingFlapsSFX
+      value: 
+      objectReference: {fileID: 881253955}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 5ed9f252d97a1ee40b0bbd4a706ad794, type: 2}
   m_IsPrefabParent: 0
@@ -23001,6 +23060,7 @@ Transform:
   m_Children:
   - {fileID: 191200140}
   - {fileID: 83572819}
+  - {fileID: 1368064872}
   m_Father: {fileID: 1276359336}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -24483,6 +24543,115 @@ MeshFilter:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1363728674}
   m_Mesh: {fileID: 4300000, guid: a212c30ca4cb89b40b5e45a81fa19daa, type: 3}
+--- !u!1 &1368064871
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 1368064872}
+  - component: {fileID: 1368064873}
+  m_Layer: 0
+  m_Name: sfx-background-loop
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1368064872
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1368064871}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1296991790}
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!82 &1368064873
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1368064871}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 8300000, guid: 905888a87aa79724ebc16af41b42507b, type: 3}
+  m_PlayOnAwake: 1
+  m_Volume: 0.096
+  m_Pitch: 1
+  Loop: 1
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 2
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    - serializedVersion: 2
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 2
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 0
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 2
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 0
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 2
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 0
 --- !u!1001 &1375750242
 Prefab:
   m_ObjectHideFlags: 0
@@ -25167,6 +25336,11 @@ Prefab:
     - target: {fileID: 1906892992281422, guid: 0d3374a7a4a5bd94cb063a285d27fc7f, type: 2}
       propertyPath: m_Name
       value: ShorelineAudio (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 82217841667363976, guid: 0d3374a7a4a5bd94cb063a285d27fc7f,
+        type: 2}
+      propertyPath: m_Volume
+      value: 0.4
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 0d3374a7a4a5bd94cb063a285d27fc7f, type: 2}
@@ -30066,6 +30240,11 @@ Prefab:
     - target: {fileID: 4988500389983256, guid: 0d3374a7a4a5bd94cb063a285d27fc7f, type: 2}
       propertyPath: m_RootOrder
       value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 82217841667363976, guid: 0d3374a7a4a5bd94cb063a285d27fc7f,
+        type: 2}
+      propertyPath: m_Volume
+      value: 0.4
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 0d3374a7a4a5bd94cb063a285d27fc7f, type: 2}

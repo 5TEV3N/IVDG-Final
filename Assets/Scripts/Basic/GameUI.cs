@@ -19,6 +19,7 @@ public class GameUI : MonoBehaviour
     public GameObject gamePause;
 	public GameObject birdCallChecks;
     public GameObject titleScreen;
+    public GameObject cameraFlashPanel;
     public GameObject cameraScreen;
     public GameObject journalIcon;
     public GameObject cameraIcon;
@@ -316,7 +317,19 @@ public class GameUI : MonoBehaviour
     {
         correctIcons[remainder - 1].GetComponentInChildren<Image>().enabled = enabled;
     }
-    
+
+    public void CameraFlash(bool tookPicture)
+    {
+        if (tookPicture == true)
+        {
+            cameraFlashPanel.SetActive(true);
+        }
+        else
+        {
+            cameraFlashPanel.GetComponent<Image>().color = new Color(255f, 255f, 255f);
+            cameraFlashPanel.SetActive(false);
+        }
+    }
     #endregion
 
 }

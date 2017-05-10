@@ -18,18 +18,12 @@ public class BirdController : MonoBehaviour
     public float birdTriggerBirdcalls = 15f;                                        // distance to trigger the birdcalls state 
     public float birdTriggerFlyaway = 35f;                                          // distance to trigger the hidden state
 
-	[Header ("Timers")]
-	public float hiddenToFlyawayTimer = 1f;
-	public float interactionToFlyawayTimer = 1f;
-	public float hToFOriginal = 100f;
-	public float iToFOriginal = 100f;
-
     [Header ("Logic Check")]
     public bool playerTookPicture = false;                                          // if the player took a screenshot, bird switches state to runaway. This is subject to change
 
     [Header("Containers")]
     public Transform[] birdInteractionZones;
-    public GameObject BirdExitZone;                                                 // container where the bird will fly towards when the bird finishes it's cycle
+    public GameObject wingFlapsSFX;
 
     private bool pickedInteractionZone;                                             // value to check if the script has chosen a zone for the bird to land
     private string[] aniBoolName = new string[] { "isPecking", "isIdle" };          // an array of different interaction animation states can add more into the array but be sure to edit the code below!
@@ -38,7 +32,7 @@ public class BirdController : MonoBehaviour
     private Animator birdAnimatorComponent;                                         // self explanatory
     private Transform pickingChosenLocation;                                        // chosing a random transform in birdInteractionZones 
     private Transform chosenInteractionZone;                                        // the chosen zone where the bird is going to land
-
+    private bool flyingSFXStarted;
     void Awake()
     {
         myState = GetComponent<BirdState>();
@@ -46,9 +40,7 @@ public class BirdController : MonoBehaviour
         birdAudioControler = GetComponent<BirdAudioControl>();
         player = GameObject.FindGameObjectWithTag("Player");
         gameUI = GameObject.FindGameObjectWithTag("UI").GetComponent<GameUI>();
-        hiddenToFlyawayTimer = hToFOriginal;
-		interactionToFlyawayTimer = iToFOriginal;
-	}
+    }
 
     void Update()
     {
@@ -91,20 +83,12 @@ public class BirdController : MonoBehaviour
 
 		if (myState.state == BirdState.currentState.hidden)
 		{
-
 			if (birdDistance > birdTriggerFlyaway)
 			{
 				if (myState.state != BirdState.currentState.interacting)
 				{
-					hiddenToFlyawayTimer -= Time.time;
-					if (hiddenToFlyawayTimer <= 0)
-					{
-						gameUI.BirdDiscovered(false);
-						CurrentBirdAnimation(currentAnimation.reset);
-						myState.state = BirdState.currentState.flyaway;
-						hiddenToFlyawayTimer = hToFOriginal;
-					}
-				}
+                    StartCoroutine("GettingReadyToLeave");
+                }
 			}
 		}
 
@@ -115,6 +99,7 @@ public class BirdController : MonoBehaviour
         if (birdAudioControler.birdFailure == false && birdAudioControler.birdSuccess == true)
         {
             myState.state = BirdState.currentState.interacting;
+            //PlayWingFlaps(true);
         }
 
         if (birdAudioControler.birdFailure == true && birdAudioControler.birdSuccess == false)
@@ -126,22 +111,34 @@ public class BirdController : MonoBehaviour
         {
             gameUI.BirdDiscovered(false);
             BirdMover(chosenInteractionZone);
-
+            PlayWingFlaps(true);
             if (playerTookPicture == true)
             {
-				interactionToFlyawayTimer -= Time.time;
-				if (interactionToFlyawayTimer <= 0)
-				{
-					CurrentBirdAnimation(currentAnimation.reset);
-					myState.state = BirdState.currentState.flyaway;
-					playerTookPicture = false;
-					interactionToFlyawayTimer = iToFOriginal;
-				}
+                CurrentBirdAnimation(currentAnimation.reset);
+                PlayWingFlaps(false);
+                myState.state = BirdState.currentState.flyaway;
             }
         }
         #endregion
 
     }
+
+    public void PlayWingFlaps(bool isFlying)
+    {
+        if (isFlying == true)
+        {
+            if (flyingSFXStarted == false)
+            {
+                wingFlapsSFX.GetComponent<Wingflaps>().FlapPlay();
+                flyingSFXStarted = true;
+            }
+        }
+        if (isFlying == false)
+        {
+            flyingSFXStarted = false;
+        }
+    }
+
 
     public void BirdMover(Transform pos)
     {
@@ -183,5 +180,11 @@ public class BirdController : MonoBehaviour
             birdAnimatorComponent.SetBool("isFlyingAway", false);
             birdAnimatorComponent.SetBool("isHidden", true);
         }
+    }
+    public IEnumerator GettingReadyToLeave()
+    {
+        yield return new WaitForSeconds(5f);
+        myState.state = BirdState.currentState.flyaway;
+        StopCoroutine("GettingReadyToLeave");
     }
 }
