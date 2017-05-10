@@ -36,7 +36,6 @@ public class BirdState : MonoBehaviour
         {
             case currentState.hidden:
                 // State: hidden. Bird is hidden and singing
-                print("Hidden");
                 gameUI.DisplayBirdcallsIcons(false);
                 birdController.playerTookPicture = false;
                 if (tutorialCheck <= 1) 
@@ -53,7 +52,6 @@ public class BirdState : MonoBehaviour
                 break;
 			case currentState.birdcalls:
                 // State: bird calls. player must persude the bird with bird calls inorder to interact	
-                print("Birdcalls");
                 gameUI.DisplayBirdcallsIcons (true);
 				
 				if (tutorialSession == true) 
@@ -70,7 +68,6 @@ public class BirdState : MonoBehaviour
                 break;
             case currentState.interacting:
                 // State: interacting. Bird is out of hiding and is in plain view to the player
-                print("Interacting");
                 gameUI.InteractionIconsFade(true);
                 gameUI.DisplayBirdcallsIcons(false);
                 birdAudioControler.AudioUIControl("hide");
@@ -79,7 +76,6 @@ public class BirdState : MonoBehaviour
                 break;
 		case currentState.flyaway:
                 // State: runaway. Bird flies away from the player because of reasons
-                print("Flyaway");
                 birdSpawner.BirdLocationBuffer ();
                 StartCoroutine("BufferTime");
                 break;

@@ -111,13 +111,13 @@ public class GameUI : MonoBehaviour
         birdName = BirdSpawner.currentBirdName;
         currentScene = SceneManager.GetActiveScene();
         currentSceneName = currentScene.name;
-
+        
+        // This section deals with the logic behind the loading screen. WILL BE REPLACED USING COROUTINES
         if (readyToPlay == true)
         {
             FadeIntoLoading();
             mainMenuToLoadingBlackBackground.GetComponent<BasicFade>().startFade = true;
         }
-
         if (currentSceneName == "LoadingScreen")
         {
             LoadingScreenTexts(false);
@@ -139,7 +139,7 @@ public class GameUI : MonoBehaviour
     }
 
     #region Main Menu
-
+    // This section here deals with the logic behind the main menu. It has some logic for the loading screen but itll be replaced later as seen above
     public void Play()
     {
         UnLoadUI();
@@ -175,7 +175,7 @@ public class GameUI : MonoBehaviour
 
     #region LoadingScreen
 
-    public void LoadingScreenTexts(bool gameplayReady)
+    public void LoadingScreenTexts(bool gameplayReady)         // This section deals with the logic behind the loading screen. WILL BE REPLACED USING COROUTINES
     {
         if (gameplayReady == true)
         {
@@ -234,7 +234,7 @@ public class GameUI : MonoBehaviour
 
     #region Text
 
-    public void BirdDiscovered(bool encountering)
+    public void BirdDiscovered(bool encountering)               
     {
 		if (encountering == true)
 		{

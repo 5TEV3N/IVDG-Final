@@ -99,7 +99,6 @@ public class BirdController : MonoBehaviour
         if (birdAudioControler.birdFailure == false && birdAudioControler.birdSuccess == true)
         {
             myState.state = BirdState.currentState.interacting;
-            //PlayWingFlaps(true);
         }
 
         if (birdAudioControler.birdFailure == true && birdAudioControler.birdSuccess == false)
@@ -114,7 +113,7 @@ public class BirdController : MonoBehaviour
             PlayWingFlaps(true);
             if (playerTookPicture == true)
             {
-                CurrentBirdAnimation(currentAnimation.reset);
+                CurrentBirdAnimation(currentAnimation.flyaway);
                 PlayWingFlaps(false);
                 myState.state = BirdState.currentState.flyaway;
             }

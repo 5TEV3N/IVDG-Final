@@ -994,7 +994,7 @@ Prefab:
     - target: {fileID: 82217841667363976, guid: 0d3374a7a4a5bd94cb063a285d27fc7f,
         type: 2}
       propertyPath: m_Volume
-      value: 0.4
+      value: 0.2
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 0d3374a7a4a5bd94cb063a285d27fc7f, type: 2}
@@ -1336,7 +1336,7 @@ Prefab:
     - target: {fileID: 82217841667363976, guid: 0d3374a7a4a5bd94cb063a285d27fc7f,
         type: 2}
       propertyPath: m_Volume
-      value: 0.4
+      value: 0.2
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 0d3374a7a4a5bd94cb063a285d27fc7f, type: 2}
@@ -3241,13 +3241,13 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: 580601a1186fc334eae81334b654a8e5, type: 3}
   m_PlayOnAwake: 0
-  m_Volume: 0.124
+  m_Volume: 0.01
   m_Pitch: 1
   Loop: 1
   Mute: 0
   Spatialize: 0
   SpatializePostEffects: 0
-  Priority: 128
+  Priority: 207
   DopplerLevel: 1
   MinDistance: 1
   MaxDistance: 500
@@ -4130,7 +4130,7 @@ Prefab:
     - target: {fileID: 82217841667363976, guid: 0d3374a7a4a5bd94cb063a285d27fc7f,
         type: 2}
       propertyPath: m_Volume
-      value: 0.4
+      value: 0.2
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 0d3374a7a4a5bd94cb063a285d27fc7f, type: 2}
@@ -14882,7 +14882,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 0}
   m_PlayOnAwake: 1
-  m_Volume: 0.4
+  m_Volume: 0.34
   m_Pitch: 1
   Loop: 0
   Mute: 0
@@ -18165,7 +18165,7 @@ Prefab:
     - target: {fileID: 82217841667363976, guid: 0d3374a7a4a5bd94cb063a285d27fc7f,
         type: 2}
       propertyPath: m_Volume
-      value: 0.4
+      value: 0.2
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 0d3374a7a4a5bd94cb063a285d27fc7f, type: 2}
@@ -24583,7 +24583,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: 905888a87aa79724ebc16af41b42507b, type: 3}
   m_PlayOnAwake: 1
-  m_Volume: 0.096
+  m_Volume: 0.04
   m_Pitch: 1
   Loop: 1
   Mute: 0
@@ -25340,7 +25340,7 @@ Prefab:
     - target: {fileID: 82217841667363976, guid: 0d3374a7a4a5bd94cb063a285d27fc7f,
         type: 2}
       propertyPath: m_Volume
-      value: 0.4
+      value: 0.2
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 0d3374a7a4a5bd94cb063a285d27fc7f, type: 2}
@@ -30244,7 +30244,7 @@ Prefab:
     - target: {fileID: 82217841667363976, guid: 0d3374a7a4a5bd94cb063a285d27fc7f,
         type: 2}
       propertyPath: m_Volume
-      value: 0.4
+      value: 0.2
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 0d3374a7a4a5bd94cb063a285d27fc7f, type: 2}
