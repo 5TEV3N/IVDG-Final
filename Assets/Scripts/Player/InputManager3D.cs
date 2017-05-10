@@ -279,8 +279,8 @@ public class InputManager3D : MonoBehaviour
     }
     public void PlayFootsteps(bool isWalking)
     {   
-        if (isWalking == true) {
-            print(" YES ");
+        if (isWalking == true)
+        {
             if (footstepsStarted == false)
             {
                 footstepsLoops.FootstepsStart();
@@ -289,7 +289,6 @@ public class InputManager3D : MonoBehaviour
         }
         if (isWalking == false)
         {
-            print(" non ");
             footstepsLoops.FootstepsStop();
             footstepsStarted = false;
         }

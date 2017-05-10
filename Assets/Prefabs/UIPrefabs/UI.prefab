@@ -1378,6 +1378,7 @@ GameObject:
   - component: {fileID: 224298457808356028}
   - component: {fileID: 222950344341309062}
   - component: {fileID: 114225009976635774}
+  - component: {fileID: 114311020455765958}
   m_Layer: 5
   m_Name: CameraFlash
   m_TagString: Untagged
@@ -1459,7 +1460,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!1 &1539640688039622
 GameObject:
   m_ObjectHideFlags: 1
@@ -2973,7 +2974,7 @@ Transform:
   - {fileID: 224387497941506714}
   - {fileID: 224760826320671084}
   m_Father: {fileID: 224833135566841806}
-  m_RootOrder: 8
+  m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &4713665658804172
 Transform:
@@ -2981,7 +2982,7 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1025981918352272}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -3313,6 +3314,17 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 114869390731130216}
         m_MethodName: Play
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 1
+      - m_Target: {fileID: 0}
+        m_MethodName: UIClick
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -4140,6 +4152,17 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 0}
+        m_MethodName: UIClick
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
 --- !u!114 &114285646259335682
@@ -4191,7 +4214,18 @@ MonoBehaviour:
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
-        m_CallState: 2
+        m_CallState: 1
+      - m_Target: {fileID: 0}
+        m_MethodName: UIClick
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 1
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
 --- !u!114 &114288478326213888
@@ -4329,6 +4363,21 @@ MonoBehaviour:
   m_FillAmount: 1
   m_FillClockwise: 1
   m_FillOrigin: 0
+--- !u!114 &114311020455765958
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1504511434435360}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a0dfd64d80640294190f2b434ea66632, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  objectFade: {fileID: 114225009976635774}
+  startFade: 1
+  fadeOut: 1
+  smooth: 1
 --- !u!114 &114341041425079368
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -4843,7 +4892,18 @@ MonoBehaviour:
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
-        m_CallState: 2
+        m_CallState: 1
+      - m_Target: {fileID: 0}
+        m_MethodName: UIClick
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 1
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
 --- !u!114 &114441765676297476
@@ -5281,7 +5341,18 @@ MonoBehaviour:
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
-        m_CallState: 2
+        m_CallState: 1
+      - m_Target: {fileID: 0}
+        m_MethodName: UIClick
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 1
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
 --- !u!114 &114571557265968332
@@ -6593,6 +6664,7 @@ MonoBehaviour:
   gamePause: {fileID: 1798802283520574}
   birdCallChecks: {fileID: 1979708340795174}
   titleScreen: {fileID: 1536063779341560}
+  cameraFlashPanel: {fileID: 1504511434435360}
   cameraScreen: {fileID: 1959917986270708}
   journalIcon: {fileID: 1233494351953734}
   cameraIcon: {fileID: 1351951375653560}
@@ -6602,6 +6674,7 @@ MonoBehaviour:
   loadingAuthor: {fileID: 114836593197861860}
   LoadingSource: {fileID: 114918141062826246}
   textColor: {r: 0.7921569, g: 0.7647059, b: 0.7647059, a: 1}
+  blackTint: {r: 0, g: 0, b: 0, a: 0.49019608}
   correctIcons:
   - {fileID: 1099286097415852}
   - {fileID: 1735245737999732}
@@ -7003,7 +7076,9 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: THIS IS PLACEHOLDER TEXT FOR THE TUTORIAL
+  m_Text: 'Match the birdcall using the indicator to your left.
+
+    Use your microphone!'
 --- !u!114 &114998134526836620
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -8759,7 +8834,7 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 224833135566841806}
-  m_RootOrder: 11
+  m_RootOrder: 10
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
@@ -9173,7 +9248,7 @@ RectTransform:
   - {fileID: 224000314817362090}
   - {fileID: 224465156212613092}
   m_Father: {fileID: 224833135566841806}
-  m_RootOrder: 9
+  m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -9268,7 +9343,7 @@ RectTransform:
   - {fileID: 224445376569412332}
   - {fileID: 224139112485910324}
   m_Father: {fileID: 224833135566841806}
-  m_RootOrder: 7
+  m_RootOrder: 11
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -9775,7 +9850,7 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 224833135566841806}
-  m_RootOrder: 10
+  m_RootOrder: 9
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
@@ -10400,11 +10475,11 @@ RectTransform:
   - {fileID: 224825116148295748}
   - {fileID: 224313015291546582}
   - {fileID: 224367642168482676}
-  - {fileID: 224391433423651088}
   - {fileID: 4655662990539110}
   - {fileID: 224378769312034182}
   - {fileID: 224564048739515074}
   - {fileID: 224298457808356028}
+  - {fileID: 224391433423651088}
   - {fileID: 224401217770988858}
   - {fileID: 224667753626384596}
   m_Father: {fileID: 4713665658804172}

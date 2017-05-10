@@ -5,25 +5,24 @@ using UnityEngine;
 public class BirdState : MonoBehaviour
 {
     BirdSpawner birdSpawner;
+    BirdController birdController;
     BirdAudioControl birdAudioControler;
     GameUI gameUI;
 
+
     public enum currentState { hidden, birdcalls, interacting, flyaway };
     public currentState state;
-	[Header ("Logic Checks")]
+
+    [Header ("Logic Checks")]
 	public bool tutorialSession;
 	public int tutorialCheck;
-
-	[Header ("Timer")]
-	public float flyawayToHiddenTimer;
-	public float fToHOriginal = 5f;
 
 	void Awake()
     {
         birdSpawner = GameObject.FindGameObjectWithTag("BirdManager").GetComponent<BirdSpawner>();
-        birdAudioControler = GameObject.FindGameObjectWithTag("Bird").GetComponent<BirdAudioControl>();
+        birdAudioControler = GetComponent<BirdAudioControl>();
+        birdController = GetComponent<BirdController>();
         gameUI = GameObject.FindGameObjectWithTag("UI").GetComponent<GameUI>();
-		flyawayToHiddenTimer = fToHOriginal;
     }
 
     void Update()
@@ -37,9 +36,10 @@ public class BirdState : MonoBehaviour
         {
             case currentState.hidden:
                 // State: hidden. Bird is hidden and singing
+                print("Hidden");
                 gameUI.DisplayBirdcallsIcons(false);
-				
-				if (tutorialCheck <= 1) 
+                birdController.playerTookPicture = false;
+                if (tutorialCheck <= 1) 
 				{ 
 					gameUI.InteractionIconsFade(false); 
 					tutorialSession = true; 
@@ -53,7 +53,8 @@ public class BirdState : MonoBehaviour
                 break;
 			case currentState.birdcalls:
                 // State: bird calls. player must persude the bird with bird calls inorder to interact	
-				gameUI.DisplayBirdcallsIcons (true);
+                print("Birdcalls");
+                gameUI.DisplayBirdcallsIcons (true);
 				
 				if (tutorialSession == true) 
 				{
@@ -69,6 +70,7 @@ public class BirdState : MonoBehaviour
                 break;
             case currentState.interacting:
                 // State: interacting. Bird is out of hiding and is in plain view to the player
+                print("Interacting");
                 gameUI.InteractionIconsFade(true);
                 gameUI.DisplayBirdcallsIcons(false);
                 birdAudioControler.AudioUIControl("hide");
@@ -77,18 +79,20 @@ public class BirdState : MonoBehaviour
                 break;
 		case currentState.flyaway:
                 // State: runaway. Bird flies away from the player because of reasons
-				birdSpawner.BirdLocationBuffer ();
-				flyawayToHiddenTimer -= Time.time;
-				if (flyawayToHiddenTimer <= 0)
-				{
-					birdSpawner.NewBirdLocation();
-					birdSpawner.Deconstructor();
-					birdAudioControler.Initialize();
-					birdSpawner.BirdNamer();
-					birdSpawner.BirdConstructor();
-					flyawayToHiddenTimer = fToHOriginal;
-				}
+                print("Flyaway");
+                birdSpawner.BirdLocationBuffer ();
+                StartCoroutine("BufferTime");
                 break;
         }
+    }
+    public IEnumerator BufferTime()
+    {
+        yield return new WaitForSeconds(5);
+        birdSpawner.NewBirdLocation();
+        birdSpawner.Deconstructor();
+        birdAudioControler.Initialize();
+        birdSpawner.BirdNamer();
+        birdSpawner.BirdConstructor();
+        StopCoroutine("BufferTime");
     }
 }

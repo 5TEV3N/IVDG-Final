@@ -92,7 +92,14 @@ public class BirdSpawner : MonoBehaviour
 
     public void NewBirdLocation()
     {
-        bird.transform.position = birdSpawnLocation[Random.Range(0, birdSpawnLocation.Length)].transform.position;
+        if (myState.tutorialSession == true)
+        {
+            bird.transform.position = birdSpawnLocation[1].transform.position;
+        }
+        else
+        {
+            bird.transform.position = birdSpawnLocation[Random.Range(0, birdSpawnLocation.Length)].transform.position;
+        }
     }
 
 	public void BirdLocationBuffer()
