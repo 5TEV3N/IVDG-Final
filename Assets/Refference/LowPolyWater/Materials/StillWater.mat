@@ -75,10 +75,10 @@ Material:
       second: 0
     - first:
         name: _Smoothness
-      second: 1
+      second: 0.522
     - first:
         name: _Specular
-      second: 1
+      second: 2.14
     - first:
         name: _Speed
       second: 0.5
@@ -121,7 +121,7 @@ Material:
     m_Colors:
     - first:
         name: _Color
-      second: {r: 0, g: 0.499, b: 0.45060667, a: 1}
+      second: {r: 0.0072988826, g: 0.33088237, b: 0.31749275, a: 1}
     - first:
         name: _Direction_
       second: {r: -1, g: -0.00000008742278, b: -1.65, a: -0.00000014424758}

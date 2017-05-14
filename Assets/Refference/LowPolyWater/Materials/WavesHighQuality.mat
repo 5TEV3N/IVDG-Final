@@ -36,7 +36,7 @@ Material:
       second: 1
     - first:
         name: _Gloss
-      second: 0.5
+      second: 1
     - first:
         name: _Height
       second: 1
@@ -75,10 +75,10 @@ Material:
       second: 0.5
     - first:
         name: _Smoothness
-      second: 0.7
+      second: 0.397
     - first:
         name: _Specular
-      second: 0.5
+      second: 2.64
     - first:
         name: _Speed
       second: 0.5
@@ -121,7 +121,7 @@ Material:
     m_Colors:
     - first:
         name: _Color
-      second: {r: 0, g: 0.43315643, b: 0.49264705, a: 1}
+      second: {r: 0, g: 0.2392058, b: 0.27205884, a: 1}
     - first:
         name: _Direction_
       second: {r: -1, g: -0.00000008742278, b: -3.3, a: -0.00000028849516}
@@ -130,7 +130,7 @@ Material:
       second: {r: 1, g: 1, b: 1, a: 1}
     - first:
         name: _SpecColor
-      second: {r: 0.899654, g: 0.9411765, b: 0.9411765, a: 1}
+      second: {r: 1, g: 1, b: 1, a: 1}
     - first:
         name: __Direction
       second: {r: -1, g: -0.00000008742278, b: -3.3, a: -0.00000028849516}
