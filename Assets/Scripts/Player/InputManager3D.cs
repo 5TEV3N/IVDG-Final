@@ -11,6 +11,8 @@ public class InputManager3D : MonoBehaviour
     BirdController birdController;
     GameUI gameUi;
     FootstepsLoops footstepsLoops;
+    BirdState state;
+
     [Header("Interaction Keys")]
     //Default Keys
     public KeyCode snapshotCaptureKey = KeyCode.Mouse1;
@@ -26,6 +28,11 @@ public class InputManager3D : MonoBehaviour
     public bool isToggleCrouch;
     public bool isToggleFocus;
 
+    public int crouchButtonCheck = 0;
+    public int focusButtonCheck = 0;
+    public int sittingButtonCheck = 0;
+    public int cameraButtonCheck = 0;
+
     private float xAxis = 0;                             // 1 = right, -1 = left
     private float zAxis = 0;                             // 1 = front, -1 back
     private float mouseXAxis = 0;                        // left or right movement of mouse (camera). Positive numb = right, Negative numb = left
@@ -33,11 +40,8 @@ public class InputManager3D : MonoBehaviour
     private bool cameraLock = true;                      // constantly lock the cursor in the centers
     private bool crouchCheck;
     private bool focusCheck;
-    private int crouchButtonCheck = 0;
-    private int focusButtonCheck = 0;
-    private int sittingButtonCheck = 0;
-    private int cameraButtonCheck = 0;
     private bool footstepsStarted = false;
+    private bool canUseCamera;
 
     void Awake()
     {
@@ -46,7 +50,7 @@ public class InputManager3D : MonoBehaviour
         gameScreenshot = GameObject.FindGameObjectWithTag("UI").GetComponent<GameScreenshot>();
         gameUi = GameObject.FindGameObjectWithTag("UI").GetComponent<GameUI>();
         footstepsLoops = GameObject.Find("Footsteps").GetComponent<FootstepsLoops>();
-
+        state = GameObject.FindGameObjectWithTag("Bird").GetComponent<BirdState>();
         Cursor.lockState = CursorLockMode.Locked;
         Cursor.visible = false;
     }
@@ -109,35 +113,6 @@ public class InputManager3D : MonoBehaviour
         if (isSitting == false)
         {
             playerController3D.Sit(isSitting);
-        }
-        #endregion
-
-        #region >CameraKeys
-        if (Input.GetKeyDown(cameraKey))
-        {
-            cameraButtonCheck++;
-        }
-        if (cameraButtonCheck == 1)
-        {
-            gameUi.cameraScreen.SetActive(true);
-        }
-        if (cameraButtonCheck == 2)
-        {
-            gameUi.cameraScreen.SetActive(false);
-            cameraButtonCheck = 0;
-        }
-
-        if (Input.GetKeyDown(snapshotCaptureKey))                                        //RMB
-        {
-            if (playerRaycast.PlayerInteraction() == true)
-            {
-                if (playerRaycast.hitObject().transform.tag == "Bird")
-                {
-                    StartCoroutine(gameScreenshot.GetSnapshot());
-                    birdController.playerTookPicture = true;
-                    print("Screenshot saved!");
-                }
-            }
         }
         #endregion
 
@@ -272,6 +247,39 @@ public class InputManager3D : MonoBehaviour
                 }
             }
             else { Debug.Log("Debug: Can't open journal if there's nothing inside of it."); }
+        }
+        #endregion
+
+        #region >CameraKeys
+        if (state.state == BirdState.currentState.interacting)
+        {
+            if (Input.GetKeyDown(cameraKey))
+            {
+                cameraButtonCheck++;
+            }
+        }
+
+        if (cameraButtonCheck == 1)
+        {
+            gameUi.cameraScreen.SetActive(true);
+
+            if (Input.GetKeyDown(snapshotCaptureKey))                                        //RMB
+            {
+                if (playerRaycast.PlayerInteraction() == true)
+                {
+                    if (playerRaycast.hitObject().transform.tag == "Bird")
+                    {
+                        StartCoroutine(gameScreenshot.GetSnapshot());
+                        birdController.playerTookPicture = true;
+                        print("Screenshot saved!");
+                    }
+                }
+            }
+        }
+        if (cameraButtonCheck == 2)
+        {
+            gameUi.cameraScreen.SetActive(false);
+            cameraButtonCheck = 0;
         }
         #endregion
 

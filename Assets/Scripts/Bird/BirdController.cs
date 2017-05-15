@@ -32,6 +32,8 @@ public class BirdController : MonoBehaviour
     private Transform pickingChosenLocation;                                        // chosing a random transform in birdInteractionZones 
     private Transform chosenInteractionZone;                                        // the chosen zone where the bird is going to land
     private bool flyingSFXStarted;                                                  // logic to check for the bird flapping
+    private int birdEncounterChecker;
+    bool isEncoutnered = false;
 
     void Awake()
     {
@@ -76,6 +78,13 @@ public class BirdController : MonoBehaviour
                 randomIdle = aniBoolName[Random.Range(0, aniBoolName.Length)];
 
                 gameUI.BirdDiscovered(true);
+                isEncoutnered = true;
+
+                if (isEncoutnered == true)
+                {
+                    birdEncounterChecker = birdEncounterChecker++;
+                    isEncoutnered = false;
+                }
 
             }
         }
@@ -124,6 +133,11 @@ public class BirdController : MonoBehaviour
 
         #endregion
 
+        // FOR DEBUG
+        gameUI.birdDisantceUI.text = "BD: " + birdDistance;
+        gameUI.birdTriggerBirdcallsUI.text = "BTB: " + birdTriggerBirdcalls;
+        gameUI.birdTriggerFlyawayUI.text = "BTF: " + birdTriggerFlyaway;
+        gameUI.birdEncounterUI.text = "BE: " + birdEncounterChecker;
     }
 
     public void PlayWingFlaps(bool isFlying)

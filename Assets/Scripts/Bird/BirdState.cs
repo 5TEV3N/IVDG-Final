@@ -8,7 +8,7 @@ public class BirdState : MonoBehaviour
     BirdController birdController;
     BirdAudioControl birdAudioControler;
     GameUI gameUI;
-
+    InputManager3D inputManager;
 
     public enum currentState { hidden, birdcalls, interacting, flyaway };
     public currentState state;
@@ -16,6 +16,7 @@ public class BirdState : MonoBehaviour
     [Header ("Logic Checks")]
 	public bool tutorialSession;
 	public int tutorialCheck;
+    bool lastCheck;
 
 	void Awake()
     {
@@ -23,11 +24,13 @@ public class BirdState : MonoBehaviour
         birdAudioControler = GetComponent<BirdAudioControl>();
         birdController = GetComponent<BirdController>();
         gameUI = GameObject.FindGameObjectWithTag("UI").GetComponent<GameUI>();
+        inputManager = GameObject.FindGameObjectWithTag("Player").GetComponent<InputManager3D>();
     }
 
     void Update()
     {
         updateState(state);
+
     }
 
     public void updateState(currentState birdstate)                                                                      
@@ -36,8 +39,10 @@ public class BirdState : MonoBehaviour
         {
             case currentState.hidden:
                 // State: hidden. Bird is hidden and singing
+
                 gameUI.DisplayBirdcallsIcons(false);
                 birdController.playerTookPicture = false;
+
                 if (tutorialCheck <= 1) 
 				{ 
 					gameUI.InteractionIconsFade(false); 
@@ -47,13 +52,23 @@ public class BirdState : MonoBehaviour
 				if (tutorialCheck > 1)
 				{
 					tutorialSession = false;
-				}
+                    lastCheck = false;
+                    gameUI.TutorialTexts(false, false, false);
+                }
 
                 break;
 			case currentState.birdcalls:
                 // State: bird calls. player must persude the bird with bird calls inorder to interact	
                 gameUI.DisplayBirdcallsIcons (true);
-				if (tutorialSession == true) 
+
+                if (tutorialCheck > 1)
+                {
+                    tutorialSession = false;
+                    lastCheck = false;
+                    gameUI.TutorialTexts(false, false, false);
+                }
+
+                if (tutorialSession == true) 
 				{
 					gameUI.TutorialTexts (true,false,false);
 				}
@@ -67,7 +82,15 @@ public class BirdState : MonoBehaviour
                 break;
             case currentState.interacting:
                 // State: interacting. Bird is out of hiding and is in plain view to the player
-                // PLEASE ADD LATER : TUTORIAL SESSIONS FOR THE JOURNAL AND CAMERA
+                if (tutorialSession == true)
+                {
+                    lastCheck = true;
+                    gameUI.TutorialTexts(false, true, false);
+                    if (inputManager.cameraButtonCheck == 1)
+                    {
+                        gameUI.TutorialTexts(false, false, false);
+                    }
+                }
 
                 gameUI.InteractionIconsFade(true);
                 gameUI.DisplayBirdcallsIcons(false);
@@ -78,6 +101,11 @@ public class BirdState : MonoBehaviour
                 break;
 		case currentState.flyaway:
                 // State: runaway. Bird flies away from the player because of reasons
+                if (lastCheck == true)
+                {
+                    gameUI.TutorialTexts(false, false, true);
+                }
+
                 birdSpawner.BirdLocationBuffer ();
                 StartCoroutine("BufferTime");
                 break;

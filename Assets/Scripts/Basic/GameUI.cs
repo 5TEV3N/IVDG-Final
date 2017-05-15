@@ -14,6 +14,11 @@ public class GameUI : MonoBehaviour
     BirdAudioControl birdAudioControler;
 
     public static GameUI gameUi;
+    [Header("DEBUG")]
+    public Text birdDisantceUI;
+    public Text birdTriggerBirdcallsUI;
+    public Text birdTriggerFlyawayUI;
+    public Text birdEncounterUI;
 
     [Header("Containers")]
     public GameObject gamePause;
@@ -24,12 +29,19 @@ public class GameUI : MonoBehaviour
     public GameObject journalIcon;
     public GameObject cameraIcon;
 
+    public GameObject micTutorialIcon;
+    public GameObject cameraTutorialIcon;
+    public GameObject journalTutorialIcon;
+
     [Header("Text")]
-    public Text birdCallingTutorial;
-	public Text discovered;
-    public Text loadingBodyText;
-    public Text loadingAuthor;
-    public Text LoadingSource;
+    public Text birdCallingTutorialText;
+    public Text cameraTutorialText;
+    public Text journalTutorialText;
+
+    public Text discovered;
+    public Text loadingBodyText;    // replace this!
+    public Text loadingAuthor;      // replace this!
+    public Text LoadingSource;      // replace this!
 
     [Header("Color")]
     public Color textColor;
@@ -246,25 +258,48 @@ public class GameUI : MonoBehaviour
 		else
 		{
 			discovered.color = Color.Lerp(discovered.color, Color.clear, Time.deltaTime * textSmoothFade);
-			TutorialTexts (false,false,false);
 		}
 
     }
 
-	public void TutorialTexts (bool birdTutorial , bool controlsTutorial, bool pictureTutorial)
+	public void TutorialTexts (bool birdTutorial , bool cameraTutorial, bool journalTutorial)
 	{
 		if (birdTutorial == true) 
 		{
             tutorialBlackBackground.GetComponent<Image>().color = Color.Lerp(tutorialBlackBackground.GetComponent<Image>().color, blackTint, Time.deltaTime *textSmoothFade);
-			birdCallingTutorial.color = Color.Lerp (birdCallingTutorial.color, textColor, Time.deltaTime * textSmoothFade);	
-		} 
+            birdCallingTutorialText.color = Color.Lerp (birdCallingTutorialText.color, textColor, Time.deltaTime * textSmoothFade);
+            micTutorialIcon.SetActive(true);
+        } 
 		else 
 		{
-			birdCallingTutorial.color = Color.Lerp (birdCallingTutorial.color, Color.clear, Time.deltaTime * textSmoothFade);
+            birdCallingTutorialText.color = Color.Lerp (birdCallingTutorialText.color, Color.clear, Time.deltaTime * textSmoothFade);
             tutorialBlackBackground.GetComponent<Image>().color = Color.Lerp(tutorialBlackBackground.GetComponent<Image>().color, Color.clear, Time.deltaTime * textSmoothFade);
+            micTutorialIcon.SetActive(false);
         }
-	}
 
+        if (cameraTutorial == true)
+        {
+            cameraTutorialIcon.SetActive(true);
+            cameraTutorialText.color = Color.Lerp(cameraTutorialText.color, textColor, Time.deltaTime * textSmoothFade);;
+        }
+        else
+        {
+            cameraTutorialIcon.SetActive(false);
+            cameraTutorialText.color = Color.Lerp(cameraTutorialText.color, Color.clear, Time.deltaTime * textSmoothFade);
+        }
+
+        if (journalTutorial == true)
+        {
+            journalTutorialText.color = Color.Lerp(journalTutorialText.color, textColor, Time.deltaTime * textSmoothFade);
+            journalTutorialIcon.SetActive(true);
+        }
+        else
+        {
+            journalTutorialText.color = Color.Lerp(journalTutorialText.color, Color.clear, Time.deltaTime * textSmoothFade);
+            journalTutorialIcon.SetActive(false);
+        }
+
+	}
     #endregion
 
     #region General Gameplay UI
