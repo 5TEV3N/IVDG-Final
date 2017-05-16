@@ -212,7 +212,7 @@ public class GameUI : MonoBehaviour
     {
         var correctNotesArray = GameObject.FindGameObjectWithTag("Bird").GetComponent<BirdAudioControl>().correctNotesArray;
         audioHUD.transform.Find("Line").GetComponent<Image>().CrossFadeAlpha(1.0f, 0.5f, false);
-        for (int i = 18; i < correctNotesArray.Length; i++)
+        for (int i = 0; i < correctNotesArray.Length; i++)
         {
             audioDots[correctNotesArray[i]].transform.Find("white").GetComponent<Image>().CrossFadeAlpha(1.0f, 0.5f, false);
         }
@@ -225,11 +225,11 @@ public class GameUI : MonoBehaviour
         {
             if (i == currentNote)
             {
-                audioDots[i].transform.Find("red").GetComponent<Image>().CrossFadeAlpha(1.0f, 0.1f, false);
+                audioDots[i].transform.Find("red").GetComponent<Image>().CrossFadeAlpha(1.0f, 0.05f, false);
             }
             else
             {
-                audioDots[i].transform.Find("red").GetComponent<Image>().CrossFadeAlpha(0.0f, 0.1f, false); // fade out all notes that are not the current note being sung
+                audioDots[i].transform.Find("red").GetComponent<Image>().CrossFadeAlpha(0.0f, 0.05f, false); // fade out all notes that are not the current note being sung
             }
         }
     }
