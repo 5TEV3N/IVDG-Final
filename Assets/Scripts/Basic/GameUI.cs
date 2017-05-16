@@ -212,7 +212,7 @@ public class GameUI : MonoBehaviour
     {
         var correctNotesArray = GameObject.FindGameObjectWithTag("Bird").GetComponent<BirdAudioControl>().correctNotesArray;
         audioHUD.transform.Find("Line").GetComponent<Image>().CrossFadeAlpha(1.0f, 0.5f, false);
-        for (int i = 0; i < correctNotesArray.Length; i++)
+        for (int i = 18; i < correctNotesArray.Length; i++)
         {
             audioDots[correctNotesArray[i]].transform.Find("white").GetComponent<Image>().CrossFadeAlpha(1.0f, 0.5f, false);
         }
@@ -221,7 +221,7 @@ public class GameUI : MonoBehaviour
 	// This function takes the currentNote being sung (from MicrophoneInput.cs) and fades in the corresponding red dot, to show the player what note they are currently singing.
     public void AudioHUDCurrentNote(int currentNote)
     {
-        for (int i = 0; i < audioDots.Length; i++)
+        for (int i = 18; i < audioDots.Length; i++)
         {
             if (i == currentNote)
             {
