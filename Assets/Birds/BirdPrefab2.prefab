@@ -8921,8 +8921,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   animationState: 0
   birdDistance: 0
-  birdTriggerBirdcalls: 28.5
-  birdTriggerFlyaway: 38.5
+  birdTriggerBirdcalls: 25
+  birdTriggerFlyaway: 30
   playerTookPicture: 0
   birdInteractionZones:
   - {fileID: 0}

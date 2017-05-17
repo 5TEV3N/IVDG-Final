@@ -84,6 +84,17 @@ public class InputManager3D : MonoBehaviour
         #region Interactions
 
         #region >InteractionKey
+        if (playerRaycast.PlayerInteraction() == true)
+        {
+            if (playerRaycast.hitObject().transform.tag == "Sittable")
+            {
+                if (isSitting == false)
+                {
+                    gameUi.sittingPropmpt.SetActive(true);
+                }
+            }
+        }
+
         if (Input.GetKeyDown(interactionKey))
         {
             if (sittingButtonCheck == 1)
@@ -108,6 +119,7 @@ public class InputManager3D : MonoBehaviour
         if (isSitting == true)
         {
             playerController3D.Sit(isSitting);                                  // display the ui icon that you dismount the sittable
+            gameUi.sittingPropmpt.SetActive(false);
         }
 
         if (isSitting == false)

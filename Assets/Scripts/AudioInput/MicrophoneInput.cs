@@ -94,7 +94,7 @@ public class MicrophoneInput : MonoBehaviour {
 
 		// hummingMode will allow the player to hum the melody instead of whistling. Implemented but not fully reliable yet.
 		// easyMode is on by default for now. Makes the pitch detection more lenient.
-		hummingMode = true;
+		hummingMode = GameUI.currentlyPlayingHumming;
 		easyMode = true;
 
 		UI = GameObject.Find ("UI");

@@ -45,7 +45,7 @@ public class BirdState : MonoBehaviour
 
                 if (tutorialCheck <= 1) 
 				{ 
-					gameUI.InteractionIconsFade(false); 
+					gameUI.InteractionIconsFade("Start"); 
 					tutorialSession = true; 
 					gameUI.TutorialTexts(false, false, false);
 				}
@@ -93,7 +93,7 @@ public class BirdState : MonoBehaviour
                     }
                 }
 
-                gameUI.InteractionIconsFade(true);
+                gameUI.InteractionIconsFade("Success");
                 gameUI.DisplayBirdcallsIcons(false);
                 birdAudioControler.AudioUIControl("hide");
 
@@ -106,7 +106,7 @@ public class BirdState : MonoBehaviour
                 {
                     gameUI.TutorialTexts(false, false, true);
                 }
-
+                gameUI.InteractionIconsFade("NullCamera");
                 birdSpawner.BirdLocationBuffer ();
                 StartCoroutine("BufferTime");
                 break;
