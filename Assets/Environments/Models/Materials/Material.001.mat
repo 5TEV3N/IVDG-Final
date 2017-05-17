@@ -283,7 +283,7 @@ Material:
       second: {r: 0, g: 0, b: 0, a: 0}
     - first:
         name: _Color
-      second: {r: 0, g: 0.41176468, b: 0.22158451, a: 1}
+      second: {r: 0.015246533, g: 0.3455882, b: 0.19301458, a: 1}
     - first:
         name: _DisplaceTex_1_Scroll
       second: {r: 0, g: 0, b: 0, a: 0}
