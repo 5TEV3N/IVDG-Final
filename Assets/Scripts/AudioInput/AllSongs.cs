@@ -47,8 +47,8 @@ public class AllSongs : MonoBehaviour {
 		// birdsong-easy-slide
 //		songPitches [2].Add (22, 10.0f);
 //		songPitches [2].Add (23, 49.0f);
-		songPitches [2].Add (22, 12.0f);
-		songPitches [2].Add (23, 51.0f);
+		songPitches [2].Add (24, 12.0f);
+		songPitches [2].Add (25, 51.0f);
 
 		// birdsong-medium-ascending
 //		songPitches [3].Add (20, 40.0f);
@@ -80,8 +80,8 @@ public class AllSongs : MonoBehaviour {
 		// birdsong-medium-punch
 //		songPitches [5].Add (24, 10.0f);
 //		songPitches [5].Add (25, 10.0f);
+		songPitches [5].Add (25, 10.0f);
 		songPitches [5].Add (26, 10.0f);
-		songPitches [5].Add (27, 10.0f);
 
 		// birdsong-hard-ascending
 //		songPitches [6].Add (24, 23.0f);

@@ -102,7 +102,7 @@ public class BirdAudioControl: MonoBehaviour {
 
 		// I read that, for this purpose, using Invoke is a simpler way to delay the firing of a function than using a coroutine.
 		SingAndListenToPlayer ();
-		Invoke ("StopListening", Random.Range(birdWait, birdWait + 3));
+		Invoke ("StopListening", Random.Range(birdWait + 1, birdWait + 3));
 	}
 
 	void SingAndListenToPlayer () {

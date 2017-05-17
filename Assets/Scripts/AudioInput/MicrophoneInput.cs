@@ -127,17 +127,16 @@ public class MicrophoneInput : MonoBehaviour {
 
 			// In regular mode, each key-value pair in correctNotes is compared to the corresponding index-value pair in notePeaks.
 			// leniencyLength determines how many frames of leniency is given to the note sung by the player. Currently if the player's whistled note is within 20 frames on either side of the correct duration, it is counted as correct, which is very generous I think.
-			if (notePeaks [thisKey] != 0) {
-				if (notePeaks [thisKey] > (correctNotes [key] - leniencyLength) && notePeaks [thisKey] < (correctNotes [key] + leniencyLength)) {
-					numberCorrect++;
 
-					// With easyMode enabled, each key-value pair in correctNotes is ALSO compared to the index-value pair in notePeaks one note up and one note down
-				} else if (easyMode) {
-					if (notePeaks [thisKey - 1] > (correctNotes [key] - leniencyLength) && notePeaks [thisKey - 1] < (correctNotes [key] + leniencyLength)) {
-						numberCorrect++;
-					} else if (notePeaks [thisKey + 1] > (correctNotes [key] - leniencyLength) && notePeaks [thisKey + 1] < (correctNotes [key] + leniencyLength)) {
-						numberCorrect++;
-					}
+			if (notePeaks [thisKey] > (correctNotes [key] - leniencyLength) && notePeaks [thisKey] < (correctNotes [key] + leniencyLength)) {
+				numberCorrect++;
+
+				// With easyMode enabled, each key-value pair in correctNotes is ALSO compared to the index-value pair in notePeaks one note up and one note down
+			} else if (easyMode) {
+				if (notePeaks [thisKey - 1] > (correctNotes [key] - leniencyLength) && notePeaks [thisKey - 1] < (correctNotes [key] + leniencyLength)) {
+					numberCorrect++;
+				} else if (notePeaks [thisKey + 1] > (correctNotes [key] - leniencyLength) && notePeaks [thisKey + 1] < (correctNotes [key] + leniencyLength)) {
+					numberCorrect++;
 				}
 			}
 				
