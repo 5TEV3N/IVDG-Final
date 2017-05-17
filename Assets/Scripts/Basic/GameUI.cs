@@ -62,6 +62,7 @@ public class GameUI : MonoBehaviour
     [Header("Audio HUD")]
     public GameObject[] audioDots;
     private GameObject audioHUD;
+	public bool hummingMode;
 
     [Header ("Fade In/Out")]
 	public GameObject tutorialBlackBackground;
@@ -116,6 +117,8 @@ public class GameUI : MonoBehaviour
             }
         }
         audioHUD.transform.Find("Line").GetComponent<Image>().CrossFadeAlpha(0.0f, 0.01f, false);
+
+		hummingMode = true;
     }
 
     void Update()
@@ -225,14 +228,21 @@ public class GameUI : MonoBehaviour
     {
         for (int i = 18; i < audioDots.Length; i++)
         {
-            if (i == currentNote)
-            {
-                audioDots[i].transform.Find("red").GetComponent<Image>().CrossFadeAlpha(1.0f, 0.05f, false);
-            }
-            else
-            {
-                audioDots[i].transform.Find("red").GetComponent<Image>().CrossFadeAlpha(0.0f, 0.05f, false); // fade out all notes that are not the current note being sung
-            }
+			if (!hummingMode) {
+				if (i == currentNote) {
+					audioDots [i].transform.Find ("red").GetComponent<Image> ().CrossFadeAlpha (1.0f, 0.05f, false);
+				} else {
+					audioDots [i].transform.Find ("red").GetComponent<Image> ().CrossFadeAlpha (0.0f, 0.05f, false); // fade out all notes that are not the current note being sung
+				}
+			} else {
+				if (i % 12 == currentNote) {
+					audioDots[i].transform.Find("red").GetComponent<Image>().CrossFadeAlpha(1.0f, 0.05f, false);
+				}
+				else {
+					audioDots[i].transform.Find("red").GetComponent<Image>().CrossFadeAlpha(0.0f, 0.05f, false); // fade out all notes that are not the current note being sung
+				}
+			}
+            
         }
     }
 

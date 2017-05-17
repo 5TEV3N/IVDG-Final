@@ -255,8 +255,8 @@ AudioSource:
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 0}
-  m_PlayOnAwake: 1
-  m_Volume: 1
+  m_PlayOnAwake: 0
+  m_Volume: 0.227
   m_Pitch: 1
   Loop: 0
   Mute: 0
@@ -460,7 +460,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: 580601a1186fc334eae81334b654a8e5, type: 3}
   m_PlayOnAwake: 0
-  m_Volume: 0.1
+  m_Volume: 0.057
   m_Pitch: 1
   Loop: 1
   Mute: 0
@@ -541,9 +541,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   listOfFootsteps:
-  - {fileID: 8300000, guid: 580601a1186fc334eae81334b654a8e5, type: 3}
-  - {fileID: 8300000, guid: c104342bbd9486f4e9a0c1ff75ff1f94, type: 3}
-  - {fileID: 8300000, guid: fb4c86757a0c17b46b8d634ed92e602a, type: 3}
+  - {fileID: 8300000, guid: 26b6176cb5a5fc2449e0f7f4eb804408, type: 3}
+  - {fileID: 8300000, guid: 539f995e0170afb43bff0b46197c6c2f, type: 3}
+  - {fileID: 8300000, guid: 793c8a32c83eeeb48aeb633db52b30ca, type: 3}
 --- !u!1 &317443638
 GameObject:
   m_ObjectHideFlags: 0
@@ -813,7 +813,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 1025981918352272, guid: 4750df543703be747a324da4c5d76e28, type: 2}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 4750df543703be747a324da4c5d76e28, type: 2}
@@ -1092,26 +1092,6 @@ Prefab:
       propertyPath: birdInteractionZones.Array.data[10]
       value: 
       objectReference: {fileID: 1152593794}
-    - target: {fileID: 82001589553887126, guid: 5ed9f252d97a1ee40b0bbd4a706ad794,
-        type: 2}
-      propertyPath: m_PlayOnAwake
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 82001589553887126, guid: 5ed9f252d97a1ee40b0bbd4a706ad794,
-        type: 2}
-      propertyPath: rolloffMode
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 82881326470951140, guid: 5ed9f252d97a1ee40b0bbd4a706ad794,
-        type: 2}
-      propertyPath: rolloffMode
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 114114682569478300, guid: 5ed9f252d97a1ee40b0bbd4a706ad794,
-        type: 2}
-      propertyPath: birdTriggerFlyaway
-      value: 38.5
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 5ed9f252d97a1ee40b0bbd4a706ad794, type: 2}
   m_IsPrefabParent: 0

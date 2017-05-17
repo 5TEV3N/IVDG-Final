@@ -8872,7 +8872,7 @@ AudioSource:
     m_Curve:
     - serializedVersion: 2
       time: 0
-      value: 0
+      value: 0.2777778
       inSlope: 0
       outSlope: 0
       tangentMode: 0
@@ -8922,7 +8922,7 @@ MonoBehaviour:
   animationState: 0
   birdDistance: 0
   birdTriggerBirdcalls: 28.5
-  birdTriggerFlyaway: 35
+  birdTriggerFlyaway: 38.5
   playerTookPicture: 0
   birdInteractionZones:
   - {fileID: 0}
