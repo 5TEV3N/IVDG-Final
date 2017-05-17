@@ -101,6 +101,7 @@ public class BirdController : MonoBehaviour
 				{
                     StartCoroutine("GettingReadyToLeave");
                 }
+
 			}
 		}
 
