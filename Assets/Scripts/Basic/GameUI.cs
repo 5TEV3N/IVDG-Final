@@ -37,6 +37,7 @@ public class GameUI : MonoBehaviour
     public GameObject micTutorialIcon;
     public GameObject cameraTutorialIcon;
     public GameObject journalTutorialIcon;
+    public GameObject controlsTutorial;
 
     [Header("Text")]
     public Text birdCallingTutorialText;
@@ -80,7 +81,7 @@ public class GameUI : MonoBehaviour
     Scene currentScene;
     string currentSceneName;
     bool readyToPlay;
-
+    bool controlTutorial = false;
 
     void Awake()
     {
@@ -152,9 +153,22 @@ public class GameUI : MonoBehaviour
 			StopCoroutine ("ToTheLoadingScreen");
             mainMenuToLoadingBlackBackground.SetActive(false);
             LoadingToGameplayBlackBackground.SetActive(true);
+            controlsTutorial.SetActive(true);
             journalIcon.SetActive(true);
             cameraIcon.SetActive(true);
             birdCallChecks.SetActive(true);
+
+            controlTutorial = true;
+            if (controlsTutorial == true)
+            {
+                float time = 5f;
+                time -= Time.timeSinceLevelLoad;
+                if (time <= 0)
+                {
+                    controlsTutorial.SetActive(false);
+                    controlTutorial = false;
+                }
+            }
         }
     }
 
