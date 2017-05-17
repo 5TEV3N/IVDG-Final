@@ -26,11 +26,11 @@ public class GameScreenshot : MonoBehaviour
     {
         gameUI = GetComponent<GameUI>();
         screenShot = new Texture2D(Screen.width, Screen.height, TextureFormat.ARGB32, true);
-        inputManager = GameObject.FindGameObjectWithTag("Player").GetComponent<InputManager3D>();
     }
 
     public IEnumerator GetSnapshot()                                                                        //the act of taking a screenshot
     {
+		inputManager = GameObject.FindGameObjectWithTag("Player").GetComponent<InputManager3D>();
         screenshotTook = true;
         gameUI.cameraScreen.SetActive(false);
         gameUI.cameraIcon.SetActive(false);

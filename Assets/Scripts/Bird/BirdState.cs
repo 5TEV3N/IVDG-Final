@@ -47,6 +47,7 @@ public class BirdState : MonoBehaviour
 				{ 
 					gameUI.InteractionIconsFade(false); 
 					tutorialSession = true; 
+					gameUI.TutorialTexts(false, false, false);
 				}
 				
 				if (tutorialCheck > 1)

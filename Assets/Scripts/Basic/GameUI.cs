@@ -39,9 +39,9 @@ public class GameUI : MonoBehaviour
     public Text journalTutorialText;
 
     public Text discovered;
-    public Text loadingBodyText;    // replace this!
-    public Text loadingAuthor;      // replace this!
-    public Text LoadingSource;      // replace this!
+    public Text loadingBodyText;
+    public Text loadingAuthor;  
+    public Text LoadingSource;  
 
     [Header("Color")]
     public Color textColor;
@@ -127,21 +127,21 @@ public class GameUI : MonoBehaviour
         // This section deals with the logic behind the loading screen. WILL BE REPLACED USING COROUTINES
         if (readyToPlay == true)
         {
-            FadeIntoLoading();
+            //FadeIntoLoading();
             mainMenuToLoadingBlackBackground.GetComponent<BasicFade>().startFade = true;
+			StartCoroutine ("ToTheLoadingScreen");
         }
+
         if (currentSceneName == "LoadingScreen")
         {
+			StopCoroutine ("ToTheLoadingScreen");
+			StartCoroutine ("ToTheGamepaly");
             LoadingScreenTexts(false);
-            loadingToGameplayTimer = loadingToGameplayResetTimer;
-            loadingToGameplayTimer -= Time.time;
-            if (loadingToGameplayTimer <= 0f)
-            {
-                LoadingScreenTexts(true);
-            }
         }
         if (currentSceneName == "_Gameplay")
         {
+			StopCoroutine ("ToTheGamepaly");
+			StopCoroutine ("ToTheLoadingScreen");
             mainMenuToLoadingBlackBackground.SetActive(false);
             LoadingToGameplayBlackBackground.SetActive(true);
             journalIcon.SetActive(true);
@@ -158,16 +158,6 @@ public class GameUI : MonoBehaviour
         readyToPlay = true;
     }
 
-    public void FadeIntoLoading()
-    {
-        mainMenuToLoadingTimer = mainMenutoLoadingResetTimer;
-        mainMenuToLoadingTimer -= Time.time;
-        if (mainMenuToLoadingTimer <= 0)
-        {
-            SceneManager.LoadScene("LoadingScreen");
-            readyToPlay = false;
-        }
-    }
 
     public void ExitGame()
     {
@@ -203,6 +193,18 @@ public class GameUI : MonoBehaviour
             loadingAuthor.color = Color.Lerp(loadingBodyText.color, Color.white, Time.deltaTime * 5f);
         }
     }
+
+	IEnumerator ToTheLoadingScreen()
+	{
+		yield return new WaitForSeconds (5f);
+		SceneManager.LoadScene("LoadingScreen");
+	}
+	IEnumerator ToTheGamepaly()
+	{
+		yield return new WaitForSeconds (3f);
+		LoadingScreenTexts(true);
+		SceneManager.LoadScene ("_Gameplay");
+	}
     #endregion
 
     #region Audio UI

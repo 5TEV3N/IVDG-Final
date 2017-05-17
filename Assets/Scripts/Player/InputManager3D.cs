@@ -108,13 +108,11 @@ public class InputManager3D : MonoBehaviour
         if (isSitting == true)
         {
             playerController3D.Sit(isSitting);                                  // display the ui icon that you dismount the sittable
-            print("is sitting");
         }
 
         if (isSitting == false)
         {
             playerController3D.Sit(isSitting);
-            print("isn't sitting");
         }
         #endregion
 

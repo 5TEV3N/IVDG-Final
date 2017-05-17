@@ -5340,60 +5340,21 @@ Prefab:
       propertyPath: m_RootOrder
       value: 2
       objectReference: {fileID: 0}
-    - target: {fileID: 114695140757341878, guid: 4750df543703be747a324da4c5d76e28,
-        type: 2}
-      propertyPath: m_Color.a
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1536063779341560, guid: 4750df543703be747a324da4c5d76e28, type: 2}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 114421951894629658, guid: 4750df543703be747a324da4c5d76e28,
+    - target: {fileID: 114059510826323048, guid: 4750df543703be747a324da4c5d76e28,
         type: 2}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Target
       value: 
       objectReference: {fileID: 1960838109}
     - target: {fileID: 114421951894629658, guid: 4750df543703be747a324da4c5d76e28,
         type: 2}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_MethodName
-      value: UIClick
-      objectReference: {fileID: 0}
-    - target: {fileID: 114276421252726494, guid: 4750df543703be747a324da4c5d76e28,
-        type: 2}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Target
       value: 
       objectReference: {fileID: 1960838109}
     - target: {fileID: 114276421252726494, guid: 4750df543703be747a324da4c5d76e28,
         type: 2}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_MethodName
-      value: UIClick
-      objectReference: {fileID: 0}
-    - target: {fileID: 114059510826323048, guid: 4750df543703be747a324da4c5d76e28,
-        type: 2}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Target
       value: 
       objectReference: {fileID: 1960838109}
-    - target: {fileID: 114059510826323048, guid: 4750df543703be747a324da4c5d76e28,
-        type: 2}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_MethodName
-      value: UIClick
-      objectReference: {fileID: 0}
-    - target: {fileID: 114276421252726494, guid: 4750df543703be747a324da4c5d76e28,
-        type: 2}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_CallState
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 114276421252726494, guid: 4750df543703be747a324da4c5d76e28,
-        type: 2}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 114276421252726494, guid: 4750df543703be747a324da4c5d76e28,
-        type: 2}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: ExitGame
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 4750df543703be747a324da4c5d76e28, type: 2}
   m_IsPrefabParent: 0
