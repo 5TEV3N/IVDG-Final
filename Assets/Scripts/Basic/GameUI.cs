@@ -14,6 +14,8 @@ public class GameUI : MonoBehaviour
     BirdAudioControl birdAudioControler;
 
     public static GameUI gameUi;
+    public static bool currentlyPlayingHumming;
+
     [Header("DEBUG")]
     public Text birdDisantceUI;
     public Text birdTriggerBirdcallsUI;
@@ -22,6 +24,7 @@ public class GameUI : MonoBehaviour
 
     [Header("Containers")]
     public GameObject gamePause;
+    public GameObject optionMenu;
 	public GameObject birdCallChecks;
     public GameObject titleScreen;
     public GameObject cameraFlashPanel;
@@ -157,10 +160,23 @@ public class GameUI : MonoBehaviour
     // This section here deals with the logic behind the main menu. It has some logic for the loading screen but itll be replaced later as seen above
     public void Play()
     {
-        UnLoadUI();
+        titleScreen.SetActive(false);
+        optionMenu.SetActive(true);
+    }
+
+    public void WhistleModeActivate()
+    {
+        optionMenu.SetActive(false);
+        currentlyPlayingHumming = false;
         readyToPlay = true;
     }
 
+    public void HummingModeActivate()
+    {
+        optionMenu.SetActive(false);
+        currentlyPlayingHumming = true;
+        readyToPlay = true;
+    }
 
     public void ExitGame()
     {
@@ -169,7 +185,6 @@ public class GameUI : MonoBehaviour
 
     public void UnLoadUI()
     {
-        titleScreen.SetActive(false);
         gamePause.SetActive(false);
         Cursor.lockState = CursorLockMode.Locked;
         Cursor.visible = false;
@@ -316,17 +331,25 @@ public class GameUI : MonoBehaviour
 
     #region General Gameplay UI
 
-    public void InteractionIconsFade(bool fadingIn)
+    public void InteractionIconsFade(string mode)
     {
-        if (fadingIn == true)
+        if (mode == "Success")
         {
             journalIcon.GetComponent<Image>().CrossFadeAlpha(1f, 0.5f,false);
             cameraIcon.GetComponent<Image>().CrossFadeAlpha(1f, 0.5f, false);
         }
-        if (fadingIn == false)
+        if (mode == "Start")
         {
             journalIcon.GetComponent<Image>().CrossFadeAlpha(0.25f, 0.5f, false);
             cameraIcon.GetComponent<Image>().CrossFadeAlpha(0.25f, 0.5f, false);
+        }
+        if (mode == "NullCamera")
+        {
+            cameraIcon.GetComponent<Image>().CrossFadeAlpha(0.25f, 0.5f, false);
+        }
+        if (mode == "ActiveCamera")
+        {
+            cameraIcon.GetComponent<Image>().CrossFadeAlpha(1f, 0.5f, false);
         }
     }
 
