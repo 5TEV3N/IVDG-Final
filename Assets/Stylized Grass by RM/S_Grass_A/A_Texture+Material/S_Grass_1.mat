@@ -6,8 +6,8 @@ Material:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
-  m_Name: lilypad
-  m_Shader: {fileID: 4800000, guid: c6b2555ace7f72c428b4eb5c38a55f5c, type: 3}
+  m_Name: S_Grass_1
+  m_Shader: {fileID: 10606, guid: 0000000000000000f000000000000000, type: 0}
   m_ShaderKeywords: _EMISSION
   m_LightmapFlags: 1
   m_CustomRenderQueue: -1
@@ -40,19 +40,13 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - first:
-        name: _DisplaceTex_1
-      second:
-        m_Texture: {fileID: 0}
-        m_Scale: {x: 1, y: 1}
-        m_Offset: {x: 0, y: 0}
-    - first:
-        name: _DisplaceTex_2
-      second:
-        m_Texture: {fileID: 0}
-        m_Scale: {x: 1, y: 1}
-        m_Offset: {x: 0, y: 0}
-    - first:
         name: _EmissionMap
+      second:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - first:
+        name: _GlossMap
       second:
         m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
@@ -60,7 +54,7 @@ Material:
     - first:
         name: _MainTex
       second:
-        m_Texture: {fileID: 0}
+        m_Texture: {fileID: 2800000, guid: e13a5f93403da7247adb2b5f9be3d533, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - first:
@@ -82,65 +76,35 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - first:
-        name: _PixelTex
+        name: _ShadowOffset
       second:
         m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - first:
-        name: _SecondTex
+        name: _TranslucencyMap
       second:
         m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     m_Floats:
     - first:
-        name: _BUMP_LABEL
-      second: 0
+        name: _AO
+      second: 2.4
+    - first:
+        name: _BaseLight
+      second: 0.459
     - first:
         name: _BumpScale
       second: 1
     - first:
         name: _Cutoff
-      second: 0.5
+      second: 0.134
     - first:
         name: _DetailNormalMapScale
       second: 1
     - first:
-        name: _DisplaceAmplitude
-      second: 0.5
-    - first:
-        name: _DisplaceBlendType
-      second: 1
-    - first:
-        name: _DisplaceDirection
-      second: 45
-    - first:
-        name: _DisplaceFrequency
-      second: 0.2
-    - first:
-        name: _DisplaceNoiseCoef
-      second: -0.5
-    - first:
-        name: _DisplaceScriptSynchronize
-      second: 0
-    - first:
-        name: _DisplaceSpeed
-      second: 1
-    - first:
-        name: _DisplaceStrength
-      second: 1
-    - first:
-        name: _DisplaceType
-      second: 0
-    - first:
-        name: _Dsiplace_LABEL
-      second: 0
-    - first:
         name: _DstBlend
-      second: 0
-    - first:
-        name: _FORWARD_RENDERING_LABEL
       second: 0
     - first:
         name: _GlossMapScale
@@ -152,62 +116,26 @@ Material:
         name: _GlossyReflections
       second: 1
     - first:
-        name: _LowPolyLightID
-      second: 0
-    - first:
         name: _Metallic
       second: 0
     - first:
         name: _Mode
       second: 0
     - first:
+        name: _Occlusion
+      second: 7.5
+    - first:
         name: _OcclusionStrength
       second: 1
-    - first:
-        name: _PAPERCRAFT_LABEL
-      second: 0
-    - first:
-        name: _PIXEL_LABEL
-      second: 0
-    - first:
-        name: _PaperCrat
-      second: 0
     - first:
         name: _Parallax
       second: 0.02
     - first:
-        name: _PixelTex_AlphaOffset
-      second: 0
+        name: _ShadowStrength
+      second: 0.83
     - first:
-        name: _PixelTex_BlendType
-      second: 0
-    - first:
-        name: _PixelTextureID
-      second: 0
-    - first:
-        name: _REFLECTION_LABEL
-      second: 0
-    - first:
-        name: _RENDERING_MODE_LABEL
-      second: 0
-    - first:
-        name: _SHADER_TYPE_LABEL
-      second: 0
-    - first:
-        name: _SPECULAR_LABEL
-      second: 0
-    - first:
-        name: _SamplingType
-      second: 0
-    - first:
-        name: _SecondTex_AlphaOffset
-      second: 0
-    - first:
-        name: _SecondTex_BlendType
-      second: 0
-    - first:
-        name: _SecondTextureID
-      second: 0
+        name: _Shininess
+      second: 0.089
     - first:
         name: _SmoothnessTextureChannel
       second: 0
@@ -215,22 +143,19 @@ Material:
         name: _SpecularHighlights
       second: 1
     - first:
+        name: _SquashAmount
+      second: 1
+    - first:
         name: _SrcBlend
       second: 1
+    - first:
+        name: _TranslucencyViewDependency
+      second: 0.572
     - first:
         name: _UVSec
       second: 0
     - first:
-        name: _VERTEX_LABEL
-      second: 0
-    - first:
-        name: _V_WIRE_FixedSize
-      second: 0
-    - first:
-        name: _V_WIRE_Size
-      second: 0.5
-    - first:
-        name: _VertexColor
+        name: _WindQuality
       second: 0
     - first:
         name: _ZWrite
@@ -238,25 +163,22 @@ Material:
     m_Colors:
     - first:
         name: _Color
-      second: {r: 0.20732695, g: 0.6102941, b: 0.03141219, a: 1}
-    - first:
-        name: _DisplaceTex_1_Scroll
-      second: {r: 0, g: 0, b: 0, a: 0}
-    - first:
-        name: _DisplaceTex_2_Scroll
-      second: {r: 0, g: 0, b: 0, a: 0}
+      second: {r: 0, g: 1, b: 0.50344825, a: 1}
     - first:
         name: _EmissionColor
       second: {r: 0, g: 0, b: 0, a: 1}
     - first:
-        name: _MainTex_Scroll
-      second: {r: 0, g: 0, b: 0, a: 0}
+        name: _HueVariation
+      second: {r: 1, g: 0.5, b: 0, a: 0.1}
     - first:
-        name: _PixelTex_Scroll
-      second: {r: 0, g: 0, b: 0, a: 0}
+        name: _SpecColor
+      second: {r: 0.5, g: 0.5, b: 0.5, a: 0}
     - first:
-        name: _SecondTex_Scroll
-      second: {r: 0, g: 0, b: 0, a: 0}
+        name: _TranslucencyColor
+      second: {r: 0.15765573, g: 0.7941176, b: 0.7941176, a: 1}
     - first:
-        name: _V_WIRE_Color
-      second: {r: 0, g: 0, b: 0, a: 1}
+        name: _TreeInstanceColor
+      second: {r: 1, g: 1, b: 1, a: 1}
+    - first:
+        name: _TreeInstanceScale
+      second: {r: 1, g: 1, b: 1, a: 1}

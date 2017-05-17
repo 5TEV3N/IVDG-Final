@@ -48,7 +48,7 @@ Material:
       second: 3.3
     - first:
         name: _Opacity
-      second: 0.85
+      second: 0.847
     - first:
         name: _RHeight
       second: 0.25
@@ -69,10 +69,10 @@ Material:
       second: 0
     - first:
         name: _ShoreDistance
-      second: 0.05
+      second: 1
     - first:
         name: _ShoreIntensity
-      second: 0
+      second: 0.05
     - first:
         name: _Smoothness
       second: 0.522
@@ -127,7 +127,7 @@ Material:
       second: {r: -1, g: -0.00000008742278, b: -1.65, a: -0.00000014424758}
     - first:
         name: _ShoreColor
-      second: {r: 1, g: 1, b: 1, a: 1}
+      second: {r: 0.044925064, g: 0.45588237, b: 0.01676037, a: 0.697}
     - first:
         name: _SpecColor
       second: {r: 1, g: 1, b: 1, a: 1}

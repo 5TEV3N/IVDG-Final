@@ -7,7 +7,7 @@ Material:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_Name: flower_001
-  m_Shader: {fileID: 4800000, guid: a00b4a2b5def96449b8395571285f3ac, type: 3}
+  m_Shader: {fileID: 10600, guid: 0000000000000000f000000000000000, type: 0}
   m_ShaderKeywords: _EMISSION
   m_LightmapFlags: 1
   m_CustomRenderQueue: -1
@@ -59,6 +59,12 @@ Material:
         m_Offset: {x: 0, y: 0}
     - first:
         name: _EmissionMap
+      second:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - first:
+        name: _GlossMap
       second:
         m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
@@ -117,7 +123,10 @@ Material:
       second: 0
     - first:
         name: _Cutoff
-      second: 0.5
+      second: 0
+    - first:
+        name: _Cutoff2
+      second: 1.1111111e+37
     - first:
         name: _DetailNormalMapScale
       second: 1
@@ -162,7 +171,7 @@ Material:
       second: 1
     - first:
         name: _Glossiness
-      second: 0.5
+      second: 0
     - first:
         name: _GlossyReflections
       second: 1
@@ -236,14 +245,38 @@ Material:
         name: _SecondTextureID
       second: 0
     - first:
+        name: _ShadowStrength
+      second: 1
+    - first:
+        name: _ShakeBending
+      second: 0.705
+    - first:
+        name: _ShakeDisplacement
+      second: 0.012
+    - first:
+        name: _ShakeTime
+      second: 0.679
+    - first:
+        name: _ShakeWindspeed
+      second: 0.063
+    - first:
+        name: _Shininess
+      second: 0.078125
+    - first:
         name: _SmoothnessTextureChannel
       second: 0
     - first:
         name: _SpecularHighlights
       second: 1
     - first:
+        name: _SquashAmount
+      second: 1
+    - first:
         name: _SrcBlend
       second: 1
+    - first:
+        name: _TranslucencyViewDependency
+      second: 0.7
     - first:
         name: _UVSec
       second: 0
@@ -265,7 +298,7 @@ Material:
     m_Colors:
     - first:
         name: _Color
-      second: {r: 0.5300605, g: 0.70610607, b: 0.9485294, a: 1}
+      second: {r: 0.51676035, g: 0.86764705, b: 0.56273866, a: 1}
     - first:
         name: _DisplaceTex_1_Scroll
       second: {r: 0, g: 0, b: 0, a: 0}
@@ -288,5 +321,23 @@ Material:
         name: _SecondTex_Scroll
       second: {r: 0, g: 0, b: 0, a: 0}
     - first:
+        name: _SpecColor
+      second: {r: 0.5, g: 0.5, b: 0.5, a: 1}
+    - first:
+        name: _TranslucencyColor
+      second: {r: 0.73, g: 0.85, b: 0.41, a: 1}
+    - first:
+        name: _TreeInstanceColor
+      second: {r: 1, g: 1, b: 1, a: 1}
+    - first:
+        name: _TreeInstanceScale
+      second: {r: 1, g: 1, b: 1, a: 1}
+    - first:
         name: _V_WIRE_Color
       second: {r: 0, g: 0, b: 0, a: 1}
+    - first:
+        name: _WaveAndDistance
+      second: {r: 11, g: 1, b: 22, a: 1}
+    - first:
+        name: _WavingTint
+      second: {r: 0.5147059, g: 0.43144464, b: 0.43144464, a: 1}
