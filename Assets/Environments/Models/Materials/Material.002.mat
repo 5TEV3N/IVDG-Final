@@ -265,7 +265,7 @@ Material:
     m_Colors:
     - first:
         name: _Color
-      second: {r: 0.010006074, g: 0.20588237, b: 0.0060553695, a: 1}
+      second: {r: 0, g: 0.1102941, b: 0.058983866, a: 1}
     - first:
         name: _DisplaceTex_1_Scroll
       second: {r: 0, g: 0, b: 0, a: 0}
