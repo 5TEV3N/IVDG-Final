@@ -12,6 +12,7 @@ public class GameUI : MonoBehaviour
     BirdState myState;
     BasicFade fade;
     BirdAudioControl birdAudioControler;
+    PlayerRaycast playerRaycast;
 
     public static GameUI gameUi;
     public static bool currentlyPlayingHumming;
@@ -31,6 +32,7 @@ public class GameUI : MonoBehaviour
     public GameObject cameraScreen;
     public GameObject journalIcon;
     public GameObject cameraIcon;
+    public GameObject sittingPropmpt;
 
     public GameObject micTutorialIcon;
     public GameObject cameraTutorialIcon;
@@ -275,7 +277,7 @@ public class GameUI : MonoBehaviour
 
     #region Text
 
-    public void BirdDiscovered(bool encountering)               
+    public void BirdDiscovered(bool encountering)  
     {
 		if (encountering == true)
 		{
@@ -327,6 +329,7 @@ public class GameUI : MonoBehaviour
         }
 
 	}
+
     #endregion
 
     #region General Gameplay UI
