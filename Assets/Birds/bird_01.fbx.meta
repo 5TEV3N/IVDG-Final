@@ -246,6 +246,7 @@ ModelImporter:
     100476: Wing_L_02
     100478: Wing_R_01
     100480: Wing_R_02
+    100482: head_feather003
     400000: Base
     400002: Beak001_Bottom
     400004: Beak001_top
@@ -487,6 +488,7 @@ ModelImporter:
     400476: Wing_L_02
     400478: Wing_R_01
     400480: Wing_R_02
+    400482: head_feather003
     2300000: Beak001_Bottom
     2300002: Beak001_top
     2300004: Beak002_Bottom
@@ -633,6 +635,7 @@ ModelImporter:
     4300106: Wing_L_02
     4300108: Wing_R_01
     4300110: Wing_L_01
+    4300112: head_feather003
     7400000: Flight
     7400002: TakeOff_01
     7400004: Landing_01
@@ -656,6 +659,7 @@ ModelImporter:
     13700016: Wing_L_02
     13700018: Wing_R_01
     13700020: Wing_R_02
+    13700022: head_feather003
   materials:
     importMaterials: 1
     materialName: 0
