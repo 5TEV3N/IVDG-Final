@@ -42,7 +42,7 @@ public class BirdAudioControl: MonoBehaviour {
 	private GameObject UI;
 	private bool audioUIExists;
 
-	void Start() {
+	void Awake() {
 		birdSingingOn = false;
 
 		birdSong = GetComponent<AudioSource> ();

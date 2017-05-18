@@ -201,7 +201,7 @@ public class BirdController : MonoBehaviour
 
     public IEnumerator GettingReadyToLeave()
     {
-        yield return new WaitForSeconds(5f);
+        yield return new WaitForSeconds(2f);
         myState.state = BirdState.currentState.flyaway;
         StopCoroutine("GettingReadyToLeave");
     }

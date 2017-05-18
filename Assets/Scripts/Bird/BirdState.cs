@@ -39,7 +39,8 @@ public class BirdState : MonoBehaviour
         {
             case currentState.hidden:
                 // State: hidden. Bird is hidden and singing
-
+                //gameUI.AudioHUDClear();
+                StopCoroutine("BufferTime");
                 gameUI.DisplayBirdcallsIcons(false);
                 birdController.playerTookPicture = false;
 

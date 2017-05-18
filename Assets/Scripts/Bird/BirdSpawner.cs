@@ -29,6 +29,8 @@ public class BirdSpawner : MonoBehaviour
                                                             
     public GameObject[] tailParts;                          // the many tail pieces the bird can spawn with
     public GameObject[] wingsParts;                         // the many wings pieces the bird can spawn with
+
+    public GameObject[] legParts;
                                                             
     private GameObject currentHeadPiecePart;                // the current head piece the bird spawned with
     private GameObject currentBaseBodyPart;                 // the current body piece the bird spawned with
@@ -38,6 +40,8 @@ public class BirdSpawner : MonoBehaviour
                                                             
     private GameObject currentTailParts;                    // the current tail piece the bird spawned with
     private GameObject currentWingsPart;                    // the current wings piece the bird spawned with
+
+    private GameObject currentLegParts;
 
 
     void Awake()
@@ -64,6 +68,8 @@ public class BirdSpawner : MonoBehaviour
         currentTailParts = tailParts[Random.Range(0, tailParts.Length)];
         currentWingsPart = wingsParts[Random.Range(0, wingsParts.Length)];
 
+        currentLegParts = legParts[Random.Range(0, legParts.Length)];
+
         currentHeadPiecePart.SetActive(true);
         currentBaseBodyPart.SetActive(true);
 
@@ -72,6 +78,8 @@ public class BirdSpawner : MonoBehaviour
         currentWingsPart.SetActive(true);
 
         currentTailParts.SetActive(true);
+        currentLegParts.SetActive(true);
+
         birdAudioControl.Initialize();
         myState.state = BirdState.currentState.hidden;
         
@@ -89,6 +97,7 @@ public class BirdSpawner : MonoBehaviour
 
         currentTailParts.SetActive(false);
         currentWingsPart.SetActive(false);
+        currentLegParts.SetActive(false);
     }
 
     public void NewBirdLocation()
@@ -111,13 +120,5 @@ public class BirdSpawner : MonoBehaviour
             NewBirdLocation();
         }
         else { BirdNamer(); }
-    }
-
-    void Update()//DEBUG
-    {
-        if (Input.GetKeyDown(KeyCode.DownArrow))
-        {
-            Deconstructor();
-        }
     }
 }
