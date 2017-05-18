@@ -277,7 +277,7 @@ public class InputManager3D : MonoBehaviour
 
             if (Input.GetKeyDown(snapshotCaptureKey))                                        //RMB
             {
-                if (playerRaycast.PlayerInteraction() == true)
+                if (playerRaycast.CameraPointingAtBird() == true)
                 {
                     if (playerRaycast.hitObject().transform.tag == "Bird")
                     {
