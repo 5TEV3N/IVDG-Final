@@ -308,9 +308,11 @@ public class InputManager3D : MonoBehaviour
             }
         }
         if (isWalking == false)
-        {
-            footstepsLoops.FootstepsStop();
-            footstepsStarted = false;
+		{
+			if (footstepsStarted == true) {
+				footstepsLoops.FootstepsStop();
+				footstepsStarted = false;
+			}
         }
     }
 }

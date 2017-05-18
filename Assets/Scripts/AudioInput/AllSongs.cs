@@ -123,6 +123,7 @@ public class AllSongs : MonoBehaviour {
 		songPitches [8].Add (24, 1.0f);
 		songPitches [8].Add (25, 1.0f);
 		songPitches [8].Add (26, 1.0f);
+		songPitches [8].Add (27, 1.0f);
 		songPitches [8].Add (28, 24.0f);
 		songPitches [8].Add (29, 18.0f);
 		songPitches [8].Add (30, 8.0f);

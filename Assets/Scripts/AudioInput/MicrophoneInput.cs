@@ -133,10 +133,23 @@ public class MicrophoneInput : MonoBehaviour {
 
 				// With easyMode enabled, each key-value pair in correctNotes is ALSO compared to the index-value pair in notePeaks one note up and one note down
 			} else if (easyMode) {
-				if (notePeaks [thisKey - 1] > (correctNotes [key] - leniencyLength) && notePeaks [thisKey - 1] < (correctNotes [key] + leniencyLength)) {
-					numberCorrect++;
-				} else if (notePeaks [thisKey + 1] > (correctNotes [key] - leniencyLength) && notePeaks [thisKey + 1] < (correctNotes [key] + leniencyLength)) {
-					numberCorrect++;
+				if (thisKey == 0) {
+					if (notePeaks [thisKey + 1] > (correctNotes [key] - leniencyLength) && notePeaks [thisKey + 1] < (correctNotes [key] + leniencyLength)) {
+						numberCorrect++;
+					}
+				} else {
+
+					if (hummingMode && thisKey == 11) {
+						if (notePeaks [thisKey - 1] > (correctNotes [key] - leniencyLength) && notePeaks [thisKey - 1] < (correctNotes [key] + leniencyLength)) {
+							numberCorrect++;
+						}
+					} else {
+						if (notePeaks [thisKey - 1] > (correctNotes [key] - leniencyLength) && notePeaks [thisKey - 1] < (correctNotes [key] + leniencyLength)) {
+							numberCorrect++;
+						} else if (notePeaks [thisKey + 1] > (correctNotes [key] - leniencyLength) && notePeaks [thisKey + 1] < (correctNotes [key] + leniencyLength)) {
+							numberCorrect++;
+						}
+					}
 				}
 			}
 				

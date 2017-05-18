@@ -9,12 +9,12 @@ public class UIClicks : MonoBehaviour {
 
 	void Start () {
 		audioSource = this.GetComponent<AudioSource> ();
-		audioSource.clip = listOfClicks[Random.Range(0, 3)];
+		audioSource.clip = listOfClicks[Random.Range(0, 4)];
 		audioSource.loop = false;
 	}
 		
 	public void UIClick() {
 		audioSource.Play ();
-		audioSource.clip = listOfClicks[Random.Range(0, 3)];
+		audioSource.clip = listOfClicks[Random.Range(0, 4)];
 	}
 }

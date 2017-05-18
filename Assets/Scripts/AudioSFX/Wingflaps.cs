@@ -9,13 +9,13 @@ public class Wingflaps : MonoBehaviour {
 
 	void Start () {
 		audioSource = this.GetComponent<AudioSource> ();
-		audioSource.clip = listOfWingflaps[Random.Range(0, 1)];
+		audioSource.clip = listOfWingflaps[Random.Range(0, 2)];
 		audioSource.loop = false;
 	}
 
 	public void FlapPlay() {
 		audioSource.Play ();
-		audioSource.clip = listOfWingflaps[Random.Range(0, 1)];
+		audioSource.clip = listOfWingflaps[Random.Range(0, 2)];
 	}
 
 }
