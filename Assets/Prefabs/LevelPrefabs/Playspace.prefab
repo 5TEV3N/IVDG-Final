@@ -19005,7 +19005,6 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4258799814379210}
-  - component: {fileID: 114610566071504146}
   m_Layer: 0
   m_Name: Grass
   m_TagString: Untagged
@@ -31773,8 +31772,8 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1926953312761888}
-  m_LocalRotation: {x: -0.75585556, y: -0.28390682, z: 0.24859904, w: 0.53504944}
-  m_LocalPosition: {x: 23.029531, y: -12.243161, z: -95.30039}
+  m_LocalRotation: {x: -0.08913787, y: 0.6034571, z: -0.7738925, w: 0.17024788}
+  m_LocalPosition: {x: 25.023554, y: -12.521961, z: -94.85635}
   m_LocalScale: {x: 50, y: 50.000027, z: 60.000027}
   m_Children: []
   m_Father: {fileID: 4137801354765986}
@@ -82588,17 +82587,6 @@ MonoBehaviour:
   m_selectedFaces: 
   m_SelectedEdges: []
   m_selectedTriangles: 
---- !u!114 &114610566071504146
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1940229250150408}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 0}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &114641857069570018
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -93451,7 +93439,7 @@ ParticleSystem:
   moveWithTransform: 0
   moveWithCustomTransform: {fileID: 0}
   scalingMode: 1
-  randomSeed: 812782684
+  randomSeed: -1149178040
   InitialModule:
     serializedVersion: 3
     enabled: 1
