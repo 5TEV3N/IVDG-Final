@@ -9,7 +9,7 @@ public class FootstepsLoops : MonoBehaviour {
 
 	void Start() {
 		audioSource = this.GetComponent<AudioSource> ();
-		audioSource.clip = listOfFootsteps[Random.Range(0, 2)];
+		audioSource.clip = listOfFootsteps[Random.Range(0,3)];
 		audioSource.loop = true;
 	}
 
@@ -19,6 +19,6 @@ public class FootstepsLoops : MonoBehaviour {
 	}
 	public void FootstepsStop() {
 		audioSource.Stop ();
-		this.GetComponent<AudioSource>().clip = listOfFootsteps[Random.Range(0, 2)]; // Every time the footsteps are stopped, a random footstep audio loop is selected for the next time.
+		this.GetComponent<AudioSource>().clip = listOfFootsteps[Random.Range(0, 3)]; // Every time the footsteps are stopped, a random footstep audio loop is selected for the next time.
 	}
 }

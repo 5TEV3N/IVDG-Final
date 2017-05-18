@@ -70,7 +70,11 @@ public class BirdAudioControl: MonoBehaviour {
 		successCurrent = 0;
 
 		// Pulls random bird song and corresponding "correct pitches" dictionary from the AllSongs script
-		int thisSong = Random.Range(0, 8);
+
+		int thisSong = Random.Range(0, 9);
+		/* TUTORIAL BLOCK
+		if (!tutorialFinished) { thisSong = 0; }
+		*/
 
 		birdSong.clip = allSongs.GetComponent<AllSongs>().listOfSongs[thisSong];
 		correctNotes = allSongs.GetComponent<AllSongs>().songPitches[thisSong];
