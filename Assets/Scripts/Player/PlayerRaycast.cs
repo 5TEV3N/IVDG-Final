@@ -4,6 +4,8 @@ using UnityEngine;
 public class PlayerRaycast : MonoBehaviour
 {
     public float mouseRayDistance;
+    public float cameraRayDistance;
+
     public RaycastHit mouseHit;
     public Ray mouseRay;
     public Vector3 mousePosition;
@@ -33,7 +35,10 @@ public class PlayerRaycast : MonoBehaviour
     {
         return Physics.Raycast(mouseRay, out mouseHit, mouseRayDistance, interactiveMask);
     }
-
+    public bool CameraPointingAtBird()
+    {
+        return Physics.Raycast(mouseRay, out mouseHit, cameraRayDistance, interactiveMask);
+    }
     public GameObject hitObject()
     {
         hit = mouseHit.transform.gameObject;
