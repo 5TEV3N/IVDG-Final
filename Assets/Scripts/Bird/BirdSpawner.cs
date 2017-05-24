@@ -66,7 +66,7 @@ public class BirdSpawner : MonoBehaviour
         currentBottomBeakParts = bottomBeakParts[Random.Range(0, bottomBeakParts.Length)];
 
         currentTailParts = tailParts[Random.Range(0, tailParts.Length)];
-        currentWingsPart = wingsParts[Random.Range(0, wingsParts.Length)];
+        //currentWingsPart = wingsParts[Random.Range(0, wingsParts.Length)];
 
         currentLegParts = legParts[Random.Range(0, legParts.Length)];
 
@@ -75,7 +75,7 @@ public class BirdSpawner : MonoBehaviour
 
         currentTopBeakParts.SetActive(true);
         currentBottomBeakParts.SetActive(true);
-        currentWingsPart.SetActive(true);
+        //currentWingsPart.SetActive(true);
 
         currentTailParts.SetActive(true);
         currentLegParts.SetActive(true);
@@ -96,7 +96,7 @@ public class BirdSpawner : MonoBehaviour
         currentBottomBeakParts.SetActive(false);
 
         currentTailParts.SetActive(false);
-        currentWingsPart.SetActive(false);
+        //currentWingsPart.SetActive(false);
         currentLegParts.SetActive(false);
     }
 
