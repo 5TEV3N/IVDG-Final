@@ -235,7 +235,7 @@ public class GameUI : MonoBehaviour
 	}
 	IEnumerator ToTheGamepaly()
 	{
-		yield return new WaitForSeconds (3f);
+		yield return new WaitForSeconds (10f);
 		LoadingScreenTexts(true);
 		SceneManager.LoadScene ("_Gameplay");
 	}

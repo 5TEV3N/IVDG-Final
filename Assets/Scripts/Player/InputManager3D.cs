@@ -137,7 +137,7 @@ public class InputManager3D : MonoBehaviour
                 crouchCheck = true;
                 playerController3D.Crouch(crouchCheck);
             }
-
+            
             if (!Input.GetKey(crouchKey))
             {
                 crouchCheck = false;
@@ -147,30 +147,33 @@ public class InputManager3D : MonoBehaviour
 
         if (isToggleCrouch == true)
         {
-            if (Input.GetKeyDown(crouchKey))
+            if (isSitting == false)
             {
-                crouchButtonCheck++;
-            }
+                if (Input.GetKeyDown(crouchKey))
+                {
+                    crouchButtonCheck++;
+                }
 
-            if (crouchButtonCheck == 1)
-            {
-                crouchCheck = true;
-            }
+                if (crouchButtonCheck == 1)
+                {
+                    crouchCheck = true;
+                }
 
-            if (crouchButtonCheck == 2)
-            {
-                crouchCheck = false;
-                crouchButtonCheck = 0;
-            }
+                if (crouchButtonCheck == 2)
+                {
+                    crouchCheck = false;
+                    crouchButtonCheck = 0;
+                }
 
-            if (crouchCheck == true)
-            {
-                playerController3D.Crouch(true);
-            }
+                if (crouchCheck == true)
+                {
+                    playerController3D.Crouch(true);
+                }
 
-            if (crouchCheck == false)
-            {
-                playerController3D.Crouch(false);
+                if (crouchCheck == false)
+                {
+                    playerController3D.Crouch(false);
+                }
             }
         }
         #endregion

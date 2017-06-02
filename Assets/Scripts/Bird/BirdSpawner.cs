@@ -61,22 +61,15 @@ public class BirdSpawner : MonoBehaviour
         // pick a piece at random and set it to active to true
         currentHeadPiecePart = headPieceParts[Random.Range(0, headPieceParts.Length)];
         currentBaseBodyPart = baseBodyParts[Random.Range(0, baseBodyParts.Length)];
-
         currentTopBeakParts = topBeakParts[Random.Range(0, topBeakParts.Length)];
         currentBottomBeakParts = bottomBeakParts[Random.Range(0, bottomBeakParts.Length)];
-
         currentTailParts = tailParts[Random.Range(0, tailParts.Length)];
-        //currentWingsPart = wingsParts[Random.Range(0, wingsParts.Length)];
-
         currentLegParts = legParts[Random.Range(0, legParts.Length)];
 
         currentHeadPiecePart.SetActive(true);
         currentBaseBodyPart.SetActive(true);
-
         currentTopBeakParts.SetActive(true);
         currentBottomBeakParts.SetActive(true);
-        //currentWingsPart.SetActive(true);
-
         currentTailParts.SetActive(true);
         currentLegParts.SetActive(true);
 
@@ -88,15 +81,11 @@ public class BirdSpawner : MonoBehaviour
     public void Deconstructor()
     {
         // set everything to false in preperation for the constructor
-
         currentHeadPiecePart.SetActive(false);
         currentBaseBodyPart.SetActive(false);
-
         currentTopBeakParts.SetActive(false);
         currentBottomBeakParts.SetActive(false);
-
         currentTailParts.SetActive(false);
-        //currentWingsPart.SetActive(false);
         currentLegParts.SetActive(false);
     }
 
