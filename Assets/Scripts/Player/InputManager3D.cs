@@ -94,6 +94,10 @@ public class InputManager3D : MonoBehaviour
                 }
             }
         }
+        else
+        {
+            gameUi.sittingPropmpt.SetActive(false);
+        }
 
         if (Input.GetKeyDown(interactionKey))
         {
