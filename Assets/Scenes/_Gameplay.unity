@@ -952,7 +952,7 @@ Prefab:
       objectReference: {fileID: 83572820}
     - target: {fileID: 1293074157347136, guid: 4750df543703be747a324da4c5d76e28, type: 2}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1025981918352272, guid: 4750df543703be747a324da4c5d76e28, type: 2}
       propertyPath: m_IsActive
@@ -1477,6 +1477,11 @@ Prefab:
     - target: {fileID: 4132697581224246, guid: ed137f816f7e8b54a8c4c30b43fa38e1, type: 2}
       propertyPath: m_LocalRotation.w
       value: 0.54209167
+      objectReference: {fileID: 0}
+    - target: {fileID: 82931826353065006, guid: ed137f816f7e8b54a8c4c30b43fa38e1,
+        type: 2}
+      propertyPath: spreadCustomCurve.m_RotationOrder
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: ed137f816f7e8b54a8c4c30b43fa38e1, type: 2}
