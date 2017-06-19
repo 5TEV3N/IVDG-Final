@@ -117,6 +117,7 @@ public class BirdController : MonoBehaviour
         if (birdAudioControler.birdFailure == true && birdAudioControler.birdSuccess == false)
         {
             myState.state = BirdState.currentState.flyaway;
+            gameUI.BirdDiscovered(false);
         }
 
         if (myState.state == BirdState.currentState.interacting)

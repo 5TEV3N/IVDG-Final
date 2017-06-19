@@ -108,6 +108,7 @@ public class BirdState : MonoBehaviour
                     gameUI.TutorialTexts(false, false, true);
                 }
                 gameUI.InteractionIconsFade("NullCamera");
+                gameUI.DisplayBirdcallsIcons(false);
                 birdSpawner.BirdLocationBuffer ();
                 StartCoroutine("BufferTime");
                 break;
