@@ -163,6 +163,7 @@ public class BirdController : MonoBehaviour
         if (pickedInteractionZone == true)
         {
             gameObject.transform.position = Vector3.Lerp(gameObject.transform.position, pos.transform.position, Time.deltaTime * 2);
+            gameObject.transform.rotation = Quaternion.RotateTowards(gameObject.transform.rotation, pos.rotation, Time.deltaTime *4);
             CurrentBirdAnimation(currentAnimation.caught);
         }
         else { Debug.Log("Error. Did not see player and went straight to the next state. Check Hidden to Birdcall In BirdController"); }
